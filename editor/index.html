@@ -50,16 +50,8 @@
     }
     #html-input {
       flex: 1;
-      resize: none;
-      border: none;
-      outline: none;
-      padding: 1rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.8125rem;
-      line-height: 1.5;
-      background: var(--color-base-100);
-      color: inherit;
-      tab-size: 2;
+      min-height: 0;
+      overflow: hidden;
     }
     /* Right panel: preview + css */
     #ed-right {
@@ -141,7 +133,7 @@
           <select id="file-select" class="select select-sm select-bordered"></select>
           <button id="load-btn" class="btn btn-sm btn-primary">Load</button>
         </div>
-        <textarea id="html-input" spellcheck="false" placeholder="Write HTML here..."></textarea>
+        <code-editor id="html-input" lang="html" code=""></code-editor>
       </div>
       <div id="ed-right">
         <div id="ed-tabs">
@@ -162,183 +154,6 @@
     </div>
   </div>
 
-  <script type="module">
-    import { getCompiler } from "../margaui.js";
-
-    // Init compiler
-    const compiler = await getCompiler();
-
-    // Compile page shell classes
-    const PAGE_CLASSES = [
-      "navbar", "bg-base-100",
-      "select", "select-sm", "select-bordered",
-      "btn", "btn-sm", "btn-primary", "btn-ghost",
-    ];
-    document.getElementById("page-styles").textContent = compiler.build(PAGE_CLASSES);
-    document.body.style.visibility = "visible";
-
-    // Theme setup
-    const themeSelect = document.getElementById("theme-select");
-    const themeKeys = await fetch("../playground/themes.json").then(r => r.json());
-
-    for (const t of themeKeys) {
-      const opt = document.createElement("option");
-      opt.value = t;
-      opt.textContent = t;
-      if (t === "light") opt.selected = true;
-      themeSelect.appendChild(opt);
-    }
-
-    function adoptableThemeCss(css) {
-      return css.replace(/^([^{]*)\{/, ':root, :host, $1{');
-    }
-
-    const themeSheet = new CSSStyleSheet();
-    themeSheet.replaceSync(adoptableThemeCss(await fetch("../themes/light.css").then(r => r.text())));
-    document.adoptedStyleSheets = [...document.adoptedStyleSheets, themeSheet];
-
-    let currentTheme = "light";
-    themeSelect.addEventListener("change", async () => {
-      currentTheme = themeSelect.value;
-      const css = await fetch(`../themes/${currentTheme}.css`).then(r => r.text());
-      themeSheet.replaceSync(adoptableThemeCss(css));
-      document.body.setAttribute("data-theme", currentTheme);
-    });
-
-    // Component selector
-    const components = await fetch("../playground/components.json").then(r => r.json());
-    const componentSelect = document.getElementById("component-select");
-    const fileSelect = document.getElementById("file-select");
-    const loadBtn = document.getElementById("load-btn");
-
-    for (const comp of components) {
-      const opt = document.createElement("option");
-      opt.value = comp.name;
-      opt.textContent = comp.name;
-      componentSelect.appendChild(opt);
-    }
-
-    function populateFiles() {
-      const comp = components.find(c => c.name === componentSelect.value);
-      fileSelect.innerHTML = "";
-      if (!comp) return;
-      for (const f of comp.files) {
-        const opt = document.createElement("option");
-        opt.value = f;
-        opt.textContent = f.replace(".html", "").replace(/-/g, " ");
-        fileSelect.appendChild(opt);
-      }
-    }
-    componentSelect.addEventListener("change", populateFiles);
-    populateFiles();
-
-    loadBtn.addEventListener("click", async () => {
-      const comp = componentSelect.value;
-      const file = fileSelect.value;
-      if (!comp || !file) return;
-      const html = await fetch(`../playground/components/${comp}/${file}`).then(r => r.text());
-      htmlInput.value = html;
-      render();
-    });
-
-    // Editor
-    const htmlInput = document.getElementById("html-input");
-    const previewFrame = document.getElementById("preview-frame");
-    const cssOutput = document.getElementById("css-output");
-    const statSize = document.getElementById("stat-size");
-    const statTime = document.getElementById("stat-time");
-
-    // Tab switching
-    const tabs = document.querySelectorAll(".ed-tab");
-    const panelPreview = document.getElementById("ed-panel-preview");
-    const panelCss = document.getElementById("ed-panel-css");
-
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        tabs.forEach(t => t.setAttribute("aria-selected", "false"));
-        tab.setAttribute("aria-selected", "true");
-        const panel = tab.dataset.panel;
-        panelPreview.classList.toggle("ed-hidden", panel !== "preview");
-        panelCss.classList.toggle("ed-hidden", panel !== "css");
-      });
-    });
-
-    // Shadow DOM for preview isolation
-    const shadow = previewFrame.attachShadow({ mode: "open" });
-    shadow.adoptedStyleSheets = [themeSheet];
-
-    function render() {
-      const html = htmlInput.value;
-
-      // Extract class names
-      const classRegex = /class="([^"]*)"/g;
-      const classes = new Set();
-      let match;
-      while ((match = classRegex.exec(html)) !== null) {
-        for (const cls of match[1].split(/\s+/)) {
-          if (cls) classes.add(cls);
-        }
-      }
-
-      // Compile CSS
-      let css = "";
-      let buildMs = 0;
-      if (classes.size > 0) {
-        const t0 = performance.now();
-        css = compiler.build([...classes]);
-        buildMs = performance.now() - t0;
-      }
-
-      // Update preview (inside shadow DOM)
-      shadow.innerHTML = `
-        <style>${css}</style>
-        <div style="display:flex;flex-wrap:wrap;align-items:start;gap:1rem;padding:2rem">${html}</div>
-      `;
-
-      // Update CSS tab
-      cssOutput.textContent = css;
-
-      // Update stats
-      const kb = (new Blob([css]).size / 1024).toFixed(2);
-      const ms = buildMs.toFixed(1);
-      statSize.textContent = `${kb} KB`;
-      statTime.textContent = `${ms} ms`;
-    }
-
-    // Debounced input
-    let debounceTimer = null;
-    htmlInput.addEventListener("input", () => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(render, 100);
-    });
-
-    // Handle tab key in textarea
-    htmlInput.addEventListener("keydown", (e) => {
-      if (e.key === "Tab") {
-        e.preventDefault();
-        const start = htmlInput.selectionStart;
-        const end = htmlInput.selectionEnd;
-        htmlInput.value = htmlInput.value.substring(0, start) + "  " + htmlInput.value.substring(end);
-        htmlInput.selectionStart = htmlInput.selectionEnd = start + 2;
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(render, 100);
-      }
-    });
-
-    // Load from URL params (?component=button&file=button.html)
-    const params = new URLSearchParams(location.search);
-    const paramComp = params.get("component");
-    const paramFile = params.get("file");
-    if (paramComp && paramFile) {
-      componentSelect.value = paramComp;
-      populateFiles();
-      fileSelect.value = paramFile;
-      const html = await fetch(`../playground/components/${paramComp}/${paramFile}`).then(r => r.text());
-      htmlInput.value = html;
-    }
-
-    // Initial render
-    render();
-  </script>
+  <script type="module" src="editor.js"></script>
 </body>
 </html>
