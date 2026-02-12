@@ -79,6 +79,21 @@
     .pg-hash {
       opacity: 0.3;
     }
+    .pg-edit-link {
+      margin-left: auto;
+      font-size: 0.75rem;
+      font-weight: 400;
+      opacity: 0;
+      text-decoration: none;
+      color: inherit;
+    }
+    .pg-section-title:hover .pg-edit-link {
+      opacity: 0.5;
+    }
+    .pg-edit-link:hover {
+      opacity: 1 !important;
+      text-decoration: underline;
+    }
     /* Tab content overrides */
     .pg-preview {
       padding: 2.5rem;
@@ -244,6 +259,11 @@
         hash.textContent = "#";
         title.appendChild(hash);
         title.appendChild(document.createTextNode(humanize(file)));
+        const editLink = document.createElement("a");
+        editLink.className = "pg-edit-link";
+        editLink.href = `../editor/?component=${encodeURIComponent(name)}&file=${encodeURIComponent(file)}`;
+        editLink.textContent = "Edit";
+        title.appendChild(editLink);
         section.appendChild(title);
 
         // Tabs

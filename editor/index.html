@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>margaui editor</title>
+  <style id="page-styles"></style>
+  <style id="layout-styles">
+    /* Page layout — unlayered so it beats the Tailwind reset */
+    * { box-sizing: border-box; }
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    #ed-nav {
+      padding-inline: 1.5rem;
+      border-bottom: 1px solid var(--color-base-300);
+      gap: 1rem;
+    }
+    #ed-nav .ed-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+    #ed-body {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
+    /* Left panel: editor */
+    #ed-left {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--color-base-300);
+    }
+    #ed-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--color-base-300);
+      background: var(--color-base-100);
+      flex-wrap: wrap;
+    }
+    #ed-toolbar label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+    #html-input {
+      flex: 1;
+      resize: none;
+      border: none;
+      outline: none;
+      padding: 1rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      background: var(--color-base-100);
+      color: inherit;
+      tab-size: 2;
+    }
+    /* Right panel: preview + css */
+    #ed-right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+    }
+    #ed-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--color-base-300);
+      background: var(--color-base-100);
+    }
+    .ed-tab {
+      padding: 0.5rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+      border-bottom: 2px solid transparent;
+      opacity: 0.5;
+    }
+    .ed-tab[aria-selected="true"] {
+      opacity: 1;
+      border-bottom-color: currentColor;
+    }
+    #ed-stats {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-right: 0.75rem;
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+    #ed-panel-preview {
+      flex: 1;
+      overflow: auto;
+      background: var(--color-base-100);
+    }
+    #ed-panel-css {
+      flex: 1;
+      overflow: auto;
+      background: var(--color-neutral);
+      color: var(--color-neutral-content);
+      padding: 1rem;
+    }
+    .ed-hidden { display: none !important; }
+    #ed-panel-css pre { margin: 0; }
+    #ed-panel-css code {
+      font-size: 0.75rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      white-space: pre;
+    }
+    #preview-frame {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: start;
+      gap: 1rem;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body style="visibility: hidden" data-theme="light">
+  <div id="app">
+    <nav id="ed-nav" class="navbar bg-base-100">
+      <span class="ed-title">margaui editor</span>
+      <a href="../playground/" class="btn btn-sm btn-ghost">Playground</a>
+      <select id="theme-select" class="select select-sm select-bordered"></select>
+    </nav>
+    <div id="ed-body">
+      <div id="ed-left">
+        <div id="ed-toolbar">
+          <label for="component-select">Load example:</label>
+          <select id="component-select" class="select select-sm select-bordered"></select>
+          <select id="file-select" class="select select-sm select-bordered"></select>
+          <button id="load-btn" class="btn btn-sm btn-primary">Load</button>
+        </div>
+        <textarea id="html-input" spellcheck="false" placeholder="Write HTML here..."></textarea>
+      </div>
+      <div id="ed-right">
+        <div id="ed-tabs">
+          <button class="ed-tab" aria-selected="true" data-panel="preview">Preview</button>
+          <button class="ed-tab" aria-selected="false" data-panel="css">CSS</button>
+          <div id="ed-stats">
+            <span id="stat-size">-</span>
+            <span id="stat-time">-</span>
+          </div>
+        </div>
+        <div id="ed-panel-preview">
+          <div id="preview-frame"></div>
+        </div>
+        <div id="ed-panel-css" class="ed-hidden">
+          <pre><code id="css-output"></code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { entries } from "../vfs.js";
+    import { getCompiler } from "../margaui.js";
+
+    // Init compiler
+    const compiler = await getCompiler();
+
+    // Compile page shell classes
+    const PAGE_CLASSES = [
+      "navbar", "bg-base-100",
+      "select", "select-sm", "select-bordered",
+      "btn", "btn-sm", "btn-primary", "btn-ghost",
+    ];
+    document.getElementById("page-styles").textContent = compiler.build(PAGE_CLASSES);
+    document.body.style.visibility = "visible";
+
+    // Theme setup
+    const themeSelect = document.getElementById("theme-select");
+    const themeKeys = Object.keys(entries)
+      .filter(k => k.startsWith("./themes/") && k !== "./themes/theme.css")
+      .map(k => k.replace("./themes/", "").replace(".css", ""))
+      .sort();
+
+    for (const t of themeKeys) {
+      const opt = document.createElement("option");
+      opt.value = t;
+      opt.textContent = t;
+      if (t === "light") opt.selected = true;
+      themeSelect.appendChild(opt);
+    }
+
+    let currentTheme = "light";
+    themeSelect.addEventListener("change", () => {
+      currentTheme = themeSelect.value;
+      document.body.setAttribute("data-theme", currentTheme);
+      render();
+    });
+
+    // Component selector
+    const components = await fetch("../playground/components.json").then(r => r.json());
+    const componentSelect = document.getElementById("component-select");
+    const fileSelect = document.getElementById("file-select");
+    const loadBtn = document.getElementById("load-btn");
+
+    for (const comp of components) {
+      const opt = document.createElement("option");
+      opt.value = comp.name;
+      opt.textContent = comp.name;
+      componentSelect.appendChild(opt);
+    }
+
+    function populateFiles() {
+      const comp = components.find(c => c.name === componentSelect.value);
+      fileSelect.innerHTML = "";
+      if (!comp) return;
+      for (const f of comp.files) {
+        const opt = document.createElement("option");
+        opt.value = f;
+        opt.textContent = f.replace(".html", "").replace(/-/g, " ");
+        fileSelect.appendChild(opt);
+      }
+    }
+    componentSelect.addEventListener("change", populateFiles);
+    populateFiles();
+
+    loadBtn.addEventListener("click", async () => {
+      const comp = componentSelect.value;
+      const file = fileSelect.value;
+      if (!comp || !file) return;
+      const html = await fetch(`../playground/components/${comp}/${file}`).then(r => r.text());
+      htmlInput.value = html;
+      render();
+    });
+
+    // Editor
+    const htmlInput = document.getElementById("html-input");
+    const previewFrame = document.getElementById("preview-frame");
+    const cssOutput = document.getElementById("css-output");
+    const statSize = document.getElementById("stat-size");
+    const statTime = document.getElementById("stat-time");
+
+    // Tab switching
+    const tabs = document.querySelectorAll(".ed-tab");
+    const panelPreview = document.getElementById("ed-panel-preview");
+    const panelCss = document.getElementById("ed-panel-css");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.setAttribute("aria-selected", "false"));
+        tab.setAttribute("aria-selected", "true");
+        const panel = tab.dataset.panel;
+        panelPreview.classList.toggle("ed-hidden", panel !== "preview");
+        panelCss.classList.toggle("ed-hidden", panel !== "css");
+      });
+    });
+
+    // Shadow DOM for preview isolation
+    const shadow = previewFrame.attachShadow({ mode: "open" });
+
+    function render() {
+      const html = htmlInput.value;
+
+      // Extract class names
+      const classRegex = /class="([^"]*)"/g;
+      const classes = new Set();
+      let match;
+      while ((match = classRegex.exec(html)) !== null) {
+        for (const cls of match[1].split(/\s+/)) {
+          if (cls) classes.add(cls);
+        }
+      }
+
+      // Compile CSS
+      let css = "";
+      let buildMs = 0;
+      if (classes.size > 0) {
+        const t0 = performance.now();
+        css = compiler.build([...classes]);
+        buildMs = performance.now() - t0;
+      }
+
+      // Update preview (inside shadow DOM)
+      shadow.innerHTML = `
+        <style>${css}</style>
+        <div data-theme="${currentTheme}" style="display:flex;flex-wrap:wrap;align-items:start;gap:1rem;padding:2rem">${html}</div>
+      `;
+
+      // Update CSS tab
+      cssOutput.textContent = css;
+
+      // Update stats
+      const kb = (new Blob([css]).size / 1024).toFixed(2);
+      const ms = buildMs.toFixed(1);
+      statSize.textContent = `${kb} KB`;
+      statTime.textContent = `${ms} ms`;
+    }
+
+    // Debounced input
+    let debounceTimer = null;
+    htmlInput.addEventListener("input", () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(render, 100);
+    });
+
+    // Handle tab key in textarea
+    htmlInput.addEventListener("keydown", (e) => {
+      if (e.key === "Tab") {
+        e.preventDefault();
+        const start = htmlInput.selectionStart;
+        const end = htmlInput.selectionEnd;
+        htmlInput.value = htmlInput.value.substring(0, start) + "  " + htmlInput.value.substring(end);
+        htmlInput.selectionStart = htmlInput.selectionEnd = start + 2;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(render, 100);
+      }
+    });
+
+    // Load from URL params (?component=button&file=button.html)
+    const params = new URLSearchParams(location.search);
+    const paramComp = params.get("component");
+    const paramFile = params.get("file");
+    if (paramComp && paramFile) {
+      componentSelect.value = paramComp;
+      populateFiles();
+      fileSelect.value = paramFile;
+      const html = await fetch(`../playground/components/${paramComp}/${paramFile}`).then(r => r.text());
+      htmlInput.value = html;
+    }
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>

@@ -127,12 +127,17 @@ Each component is defined using Tailwind v4's `@utility` directive, making them 
 
 Interactive preview of all components. Shows each component with Preview, HTML, and CSS tabs, a theme switcher, and compile-time stats.
 
-To run it:
+## Editor
+
+Live HTML editor with real-time preview. Write HTML in a textarea and see the compiled result instantly (100ms debounce). Includes a CSS tab showing generated output, compile-time and size stats, and a component loader to start from any existing example.
+
+To run the playground and editor:
 
 ```sh
 just playground           # generates VFS + component tree
 python3 -m http.server    # serve from project root
 # open http://localhost:8000/playground/
+# open http://localhost:8000/editor/
 ```
 
 ## Project structure
