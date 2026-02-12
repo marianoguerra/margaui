@@ -166,6 +166,10 @@ function render() {
 
 // Editor dark theme toggle
 const editorDark = document.getElementById("editor-dark");
+if (urlParams.has("dark")) {
+  htmlInput.dark = true;
+  cssOutput.dark = true;
+}
 editorDark.checked = htmlInput.dark;
 editorDark.addEventListener("change", () => {
   htmlInput.dark = editorDark.checked;

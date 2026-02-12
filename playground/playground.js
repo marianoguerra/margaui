@@ -1,5 +1,16 @@
 import { getCompiler } from "../margaui.js";
 import { PreviewComponent } from "./preview-component.js";
+import { CodeMirror, setCodeMirrorPath } from "../editor/code-editor.js";
+
+// Vim/dark from URL params
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has("vim")) CodeMirror.isVimMode = true;
+let editorDark = urlParams.has("dark");
+
+// Load codemirror bundle, then define element
+const withCodeMirror = setCodeMirrorPath("../editor/codemirror.js");
+customElements.define("code-editor", CodeMirror);
+await withCodeMirror((m) => console.log("codemirror loaded", m));
 
 // Init compiler (shared with margaui.js)
 const compiler = await getCompiler();
@@ -50,6 +61,36 @@ themeSelect.addEventListener("change", async () => {
   document.body.setAttribute("data-theme", currentTheme);
 });
 
+// Track all visible code editors for dark/vim toggling
+let allEditors = [];
+
+// Dark toggle
+const darkCheckbox = document.getElementById("editor-dark");
+darkCheckbox.checked = editorDark;
+darkCheckbox.addEventListener("change", () => {
+  editorDark = darkCheckbox.checked;
+  for (const ed of allEditors) ed.dark = editorDark;
+});
+
+// Vim toggle
+const vimCheckbox = document.getElementById("editor-vim");
+vimCheckbox.checked = CodeMirror.isVimMode;
+vimCheckbox.addEventListener("change", () => {
+  CodeMirror.isVimMode = vimCheckbox.checked;
+  for (const ed of allEditors) ed.refresh();
+});
+
+// Build edit URL with current state
+function editUrl(name, file) {
+  const params = new URLSearchParams();
+  params.set("component", name);
+  params.set("file", file);
+  params.set("theme", currentTheme);
+  if (CodeMirror.isVimMode) params.set("vim", "");
+  if (editorDark) params.set("dark", "");
+  return `../editor/?${params}`;
+}
+
 // Fetch component tree
 const components = await fetch("./components.json").then(r => r.json());
 
@@ -95,6 +136,7 @@ function showComponent(name) {
   // Clear previous
   contentEl.innerHTML = "";
   loadingEl.classList.add("pg-hidden");
+  allEditors = [];
 
   // Component heading
   const heading = document.createElement("h1");
@@ -120,10 +162,10 @@ function showComponent(name) {
     title.appendChild(document.createTextNode(humanize(file)));
     const editLink = document.createElement("a");
     editLink.className = "pg-edit-link";
-    editLink.href = `../editor/?component=${encodeURIComponent(name)}&file=${encodeURIComponent(file)}&theme=${encodeURIComponent(currentTheme)}`;
+    editLink.href = editUrl(name, file);
     editLink.textContent = "Edit";
     editLink.addEventListener("click", () => {
-      editLink.href = `../editor/?component=${encodeURIComponent(name)}&file=${encodeURIComponent(file)}&theme=${encodeURIComponent(currentTheme)}`;
+      editLink.href = editUrl(name, file);
     });
     title.appendChild(editLink);
     section.appendChild(title);
@@ -163,11 +205,13 @@ function showComponent(name) {
 
     const htmlContent = document.createElement("div");
     htmlContent.className = "tab-content pg-code";
-    const htmlPre = document.createElement("pre");
-    const htmlCode = document.createElement("code");
-    htmlCode.textContent = "Loading...";
-    htmlPre.appendChild(htmlCode);
-    htmlContent.appendChild(htmlPre);
+    const htmlEditor = document.createElement("code-editor");
+    htmlEditor.lang = "html";
+    htmlEditor.readonly = true;
+    htmlEditor.dark = editorDark;
+    htmlEditor.code = "";
+    htmlContent.appendChild(htmlEditor);
+    allEditors.push(htmlEditor);
 
     // CSS tab
     const cssRadio = document.createElement("input");
@@ -178,16 +222,22 @@ function showComponent(name) {
 
     const cssContent = document.createElement("div");
     cssContent.className = "tab-content pg-code";
-    const cssPre = document.createElement("pre");
-    const cssCode = document.createElement("code");
-    cssCode.textContent = "Loading...";
-    cssPre.appendChild(cssCode);
-    cssContent.appendChild(cssPre);
+    const cssEditor = document.createElement("code-editor");
+    cssEditor.lang = "css";
+    cssEditor.readonly = true;
+    cssEditor.dark = editorDark;
+    cssEditor.code = "";
+    cssContent.appendChild(cssEditor);
+    allEditors.push(cssEditor);
 
     // Listen for load event
+    let rev = 0;
     daisyEl.addEventListener("load", (e) => {
-      htmlCode.textContent = e.detail.html;
-      cssCode.textContent = e.detail.css;
+      rev++;
+      htmlEditor.code = e.detail.html;
+      htmlEditor.rev = rev;
+      cssEditor.code = e.detail.css;
+      cssEditor.rev = rev;
       const kb = (e.detail.cssBytes / 1024).toFixed(2);
       const ms = e.detail.buildMs.toFixed(1);
       statsDiv.innerHTML =
