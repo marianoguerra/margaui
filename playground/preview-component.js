@@ -54,8 +54,11 @@ export class PreviewComponent extends HTMLElement {
 
     // Compile CSS using shared compiler
     let css = "";
+    let buildMs = 0;
     if (PreviewComponent.compiler && classes.size > 0) {
+      const t0 = performance.now();
       css = PreviewComponent.compiler.build([...classes]);
+      buildMs = performance.now() - t0;
     }
 
     if (currentSequence !== this._loadSequence) return;
@@ -68,8 +71,9 @@ export class PreviewComponent extends HTMLElement {
       <div data-theme="${theme}">${html}</div>
     `;
 
+    const cssBytes = new Blob([css]).size;
     this.dispatchEvent(
-      new CustomEvent("load", { detail: { html, css } }),
+      new CustomEvent("load", { detail: { html, css, buildMs, cssBytes } }),
     );
   }
 }

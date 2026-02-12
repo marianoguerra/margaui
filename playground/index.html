@@ -143,6 +143,8 @@
       "menu", "menu-title", "active",
       "loading", "loading-spinner", "loading-lg",
       "tabs", "tabs-lift", "tab", "tab-content",
+      "badge", "badge-sm", "badge-ghost",
+      "flex", "gap-2", "justify-end", "mt-4", "opacity-50",
     ];
     const pageCss = compiler.build(PAGE_CLASSES);
     document.getElementById("page-styles").textContent = pageCss;
@@ -267,6 +269,10 @@
         previewInner.appendChild(daisyEl);
         previewContent.appendChild(previewInner);
 
+        const statsDiv = document.createElement("div");
+        statsDiv.className = "flex gap-2 justify-end mt-4 opacity-50";
+        previewContent.appendChild(statsDiv);
+
         // HTML tab
         const htmlRadio = document.createElement("input");
         htmlRadio.type = "radio";
@@ -301,6 +307,11 @@
         daisyEl.addEventListener("load", (e) => {
           htmlCode.textContent = e.detail.html;
           cssCode.textContent = e.detail.css;
+          const kb = (e.detail.cssBytes / 1024).toFixed(2);
+          const ms = e.detail.buildMs.toFixed(1);
+          statsDiv.innerHTML =
+            `<span class="badge badge-sm badge-ghost">${kb} KB</span>` +
+            `<span class="badge badge-sm badge-ghost">${ms} ms</span>`;
         });
 
         // Assemble tabs
