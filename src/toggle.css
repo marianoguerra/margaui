@@ -23,9 +23,68 @@
   --size: calc(var(--size-selector, 0.25rem) * 6);
   width: calc((var(--size) * 2) - (var(--border) + var(--toggle-p)) * 2);
   height: var(--size);
+
+  &:before {
+    position: relative;
+    inset-inline-start: 0;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    border-radius: var(--radius-selector);
+    background-color: currentcolor;
+    translate: 0;
+    content: "";
+    transition: background-color 0.1s, translate 0.2s, inset-inline-start 0.2s;
+    box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), transparent);
+    background-size: auto, calc(var(--noise) * 100%);
+    background-image: none, var(--fx-noise);
+
+    @media (forced-colors: active) {
+      outline-style: solid;
+      outline-width: 1px;
+      outline-offset: -1px;
+    }
+
+    @media print {
+      outline: 0.25rem solid;
+      outline-offset: -1rem;
+    }
+  }
+
+  &:focus-visible,
+  &:has(:focus-visible) {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  &:checked,
+  &[aria-checked="true"],
+  &:has(> input:checked) {
+    grid-template-columns: 1fr 1fr 0fr;
+    --input-color: var(--color-base-content);
+
+    &:before {
+      background-color: currentcolor;
+    }
+  }
+
+  &:indeterminate {
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 30%;
+
+    &:before {
+      background-color: transparent;
+      border: var(--border) solid currentColor;
+    }
+  }
 }
 
-/* Child elements */
+/* Child elements — must stay outside @utility (child selectors) */
 .toggle > * {
   z-index: 1;
   grid-column: span 1 / span 1;
@@ -62,7 +121,6 @@
   rotate: -15deg;
 }
 
-/* When has checked child */
 .toggle:has(:checked) > :nth-child(2) {
   opacity: 0%;
   rotate: 15deg;
@@ -71,54 +129,6 @@
 .toggle:has(:checked) > :nth-child(3) {
   opacity: 100%;
   rotate: 0deg;
-}
-
-/* Pseudo-element for the toggle knob */
-.toggle:before {
-  position: relative;
-  inset-inline-start: 0;
-  grid-column-start: 2;
-  grid-row-start: 1;
-  aspect-ratio: 1 / 1;
-  height: 100%;
-  border-radius: var(--radius-selector);
-  background-color: currentcolor;
-  translate: 0;
-  content: "";
-  transition: background-color 0.1s, translate 0.2s, inset-inline-start 0.2s;
-  box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), transparent);
-  background-size: auto, calc(var(--noise) * 100%);
-  background-image: none, var(--fx-noise);
-}
-
-@media (forced-colors: active) {
-  .toggle:before {
-    outline-style: solid;
-    outline-width: 1px;
-    outline-offset: -1px;
-  }
-}
-
-@media print {
-  .toggle:before {
-    outline: 0.25rem solid;
-    outline-offset: -1rem;
-  }
-}
-
-/* Focus states */
-.toggle:focus-visible,
-.toggle:has(:focus-visible) {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
-
-/* Checked state */
-.toggle:checked,
-.toggle[aria-checked="true"],
-.toggle:has(> input:checked) {
-  grid-template-columns: 1fr 1fr 0fr;
-  --input-color: var(--color-base-content);
 }
 
 /* Background in layer so utilities can override */
@@ -130,99 +140,77 @@
   }
 }
 
-.toggle:checked:before,
-.toggle[aria-checked="true"]:before,
-.toggle:has(> input:checked):before {
-  background-color: currentcolor;
-}
-
-/* Indeterminate state */
-.toggle:indeterminate {
-  grid-template-columns: 0.5fr 1fr 0.5fr;
-}
-
-/* Disabled state */
-.toggle:disabled {
-  cursor: not-allowed;
-  opacity: 30%;
-}
-
-.toggle:disabled:before {
-  background-color: transparent;
-  border: var(--border) solid currentColor;
-}
-
 /* Color variants */
 @utility toggle-primary {
   --toggle-color: var(--color-primary);
-}
 
-.toggle-primary:checked,
-.toggle-primary[aria-checked="true"] {
-  --input-color: var(--color-primary);
+  &:checked,
+  &[aria-checked="true"] {
+    --input-color: var(--color-primary);
+  }
 }
 
 @utility toggle-secondary {
   --toggle-color: var(--color-secondary);
-}
 
-.toggle-secondary:checked,
-.toggle-secondary[aria-checked="true"] {
-  --input-color: var(--color-secondary);
+  &:checked,
+  &[aria-checked="true"] {
+    --input-color: var(--color-secondary);
+  }
 }
 
 @utility toggle-accent {
   --toggle-color: var(--color-accent);
-}
 
-.toggle-accent:checked,
-.toggle-accent[aria-checked="true"] {
-  --input-color: var(--color-accent);
+  &:checked,
+  &[aria-checked="true"] {
+    --input-color: var(--color-accent);
+  }
 }
 
 @utility toggle-neutral {
   --toggle-color: var(--color-neutral);
-}
 
-.toggle-neutral:checked,
-.toggle-neutral[aria-checked="true"] {
-  --input-color: var(--color-neutral);
+  &:checked,
+  &[aria-checked="true"] {
+    --input-color: var(--color-neutral);
+  }
 }
 
 @utility toggle-info {
   --toggle-color: var(--color-info);
-}
 
-.toggle-info:checked,
-.toggle-info[aria-checked="true"] {
-  --input-color: var(--color-info);
+  &:checked,
+  &[aria-checked="true"] {
+    --input-color: var(--color-info);
+  }
 }
 
 @utility toggle-success {
   --toggle-color: var(--color-success);
-}
 
-.toggle-success:checked,
-.toggle-success[aria-checked="true"] {
-  --input-color: var(--color-success);
+  &:checked,
+  &[aria-checked="true"] {
+    --input-color: var(--color-success);
+  }
 }
 
 @utility toggle-warning {
   --toggle-color: var(--color-warning);
-}
 
-.toggle-warning:checked,
-.toggle-warning[aria-checked="true"] {
-  --input-color: var(--color-warning);
+  &:checked,
+  &[aria-checked="true"] {
+    --input-color: var(--color-warning);
+  }
 }
 
 @utility toggle-error {
   --toggle-color: var(--color-error);
-}
 
-.toggle-error:checked,
-.toggle-error[aria-checked="true"] {
-  --input-color: var(--color-error);
+  &:checked,
+  &[aria-checked="true"] {
+    --input-color: var(--color-error);
+  }
 }
 
 /* Size variants */

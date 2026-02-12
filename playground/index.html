@@ -129,21 +129,11 @@
 
   <script type="module">
     import { entries } from "../vfs.js";
-    import { makeCompiler } from "../twcompiler.js";
+    import { getCompiler } from "../margaui.js";
     import { PreviewComponent } from "./preview-component.js";
 
-    // Skip theme.css (theme selector mechanism, handled separately)
-    const SKIP = new Set(["./themes/theme.css"]);
-    const sections = ["./base/", "./themes/", "./src/"];
-    const imports = Object.keys(entries)
-      .filter(k => sections.some(s => k.startsWith(s)))
-      .filter(k => !SKIP.has(k))
-      .map(k => `@import "${k}";`)
-      .join("\n");
-    const fullInput = `@import "tailwindcss" source(none);\n${imports}`;
-
-    // Init compiler
-    const compiler = await makeCompiler(fullInput, entries, {});
+    // Init compiler (shared with margaui.js)
+    const compiler = await getCompiler();
     PreviewComponent.compiler = compiler;
 
     // Compile only DaisyUI component classes needed by the page shell

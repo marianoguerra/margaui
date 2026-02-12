@@ -1,3 +1,6 @@
+check-sync:
+  python3 tools/check_sync.py
+
 gen-vfs-dev:
   python3 tools/make_vfs_esm.py 'src/*.css' 'themes/*.css' 'base/*.css' 'tw/*.css' \
     'tailwindcss=tw/tailwindcss' > vfs.js

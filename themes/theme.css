@@ -1,15 +1,11 @@
 /**
- * Default Themes - Light and Dark only
+ * Default themes bundle — light + dark.
  *
- * For additional themes, import them explicitly in your input.css
- * Example: @import "./themes/dracula.css";
+ * light.css sets :root/:host defaults so pages work without data-theme.
+ * The playground skips this file and imports all themes individually.
  *
- * Available themes:
- * - Light themes: acid, autumn, bumblebee, caramellatte, cmyk, corporate,
- *                 cupcake, cyberpunk, emerald, fantasy, garden, lemonade,
- *                 lofi, nord, pastel, retro, silk, valentine, winter, wireframe
- * - Dark themes:  abyss, aqua, black, business, coffee, dim, dracula,
- *                 forest, halloween, luxury, night, sunset, synthwave
+ * For additional themes, import them in your input.css:
+ *   @import "./themes/dracula.css";
  */
 
 /* Default theme (light) - sets :root, :host defaults */
