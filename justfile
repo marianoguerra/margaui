@@ -34,3 +34,4 @@ min-css-dir DIR:
 
 dist: gen-vfs
   rm -r dist/src dist/base dist/tw
+  cp resources/release/*.html resources/release/README.md dist/
