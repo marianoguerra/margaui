@@ -1,0 +1,142 @@
+/* Component: rating */
+
+@keyframes rating {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Base rating */
+@utility rating {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+
+  :where(& > input) {
+    border: none;
+    appearance: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 0;
+    background-color: var(--color-base-content, oklch(21% 0.006 285.885));
+    opacity: 20%;
+    cursor: pointer;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: rating 0.25s ease-out;
+    }
+  }
+
+  :where(& > div) {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 0;
+    background-color: var(--color-base-content, oklch(21% 0.006 285.885));
+    opacity: 20%;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: rating 0.25s ease-out;
+    }
+  }
+
+  & .rating-hidden {
+    width: 0.5rem;
+    background-color: transparent;
+  }
+
+  & > input[type="radio"]:checked {
+    background-image: none;
+  }
+
+  & > input:checked,
+  & > input[aria-checked="true"],
+  & > div[aria-current="true"],
+  & > input:has(~ input:checked),
+  & > input:has(~ input[aria-checked="true"]),
+  & > div:has(~ div[aria-current="true"]) {
+    opacity: 100%;
+  }
+
+  & > input:focus-visible,
+  & > div:focus-visible {
+    scale: 1.1;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: scale 0.2s ease-out;
+    }
+  }
+
+  & > input:active:focus,
+  & > div:active:focus {
+    animation: none;
+    scale: 1.1;
+  }
+}
+
+/* Rating hidden */
+@utility rating-hidden {
+  width: 0.5rem;
+  background-color: transparent;
+}
+
+/* Half rating */
+@utility rating-half {
+  &.rating-xs *:not(.rating-hidden) {
+    width: 0.5rem;
+  }
+
+  &.rating-sm *:not(.rating-hidden) {
+    width: 0.625rem;
+  }
+
+  &.rating-md *:not(.rating-hidden) {
+    width: 0.75rem;
+  }
+
+  &.rating-lg *:not(.rating-hidden) {
+    width: 0.875rem;
+  }
+
+  &.rating-xl *:not(.rating-hidden) {
+    width: 1rem;
+  }
+}
+
+/* Size variants */
+@utility rating-xs {
+  :where(*:not(.rating-hidden)) {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+@utility rating-sm {
+  :where(*:not(.rating-hidden)) {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+@utility rating-md {
+  :where(*:not(.rating-hidden)) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@utility rating-lg {
+  :where(*:not(.rating-hidden)) {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+@utility rating-xl {
+  :where(*:not(.rating-hidden)) {
+    width: 2rem;
+    height: 2rem;
+  }
+}

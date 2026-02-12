@@ -1,0 +1,31 @@
+[data-theme="autumn"] {
+  color-scheme: light;
+  --color-base-100: oklch(96% 0.015 60);
+  --color-base-200: oklch(92% 0.02 60);
+  --color-base-300: oklch(88% 0.025 60);
+  --color-base-content: oklch(25% 0.03 60);
+  --color-primary: oklch(55% 0.2 25);
+  --color-primary-content: oklch(98% 0.01 25);
+  --color-secondary: oklch(50% 0.15 45);
+  --color-secondary-content: oklch(98% 0.01 45);
+  --color-accent: oklch(70% 0.18 85);
+  --color-accent-content: oklch(20% 0.05 85);
+  --color-neutral: oklch(30% 0.03 60);
+  --color-neutral-content: oklch(95% 0.01 60);
+  --color-info: oklch(70% 0.18 230);
+  --color-info-content: oklch(20% 0.05 230);
+  --color-success: oklch(65% 0.2 160);
+  --color-success-content: oklch(98% 0.01 160);
+  --color-warning: oklch(80% 0.18 85);
+  --color-warning-content: oklch(20% 0.05 85);
+  --color-error: oklch(55% 0.22 25);
+  --color-error-content: oklch(98% 0.01 25);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}

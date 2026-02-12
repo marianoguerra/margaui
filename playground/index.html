@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>margaui playground</title>
+  <style id="page-styles"></style>
+  <style id="layout-styles">
+    /* Page layout — unlayered so it beats the Tailwind reset */
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    #pg-nav {
+      padding-inline: 1.5rem;
+      border-bottom: 1px solid var(--color-base-300);
+      gap: 1rem;
+    }
+    #pg-nav .pg-title {
+      flex: 1;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+    #pg-body {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
+    #pg-sidebar {
+      width: 15rem;
+      flex-shrink: 0;
+      overflow-y: auto;
+      background: var(--color-base-100);
+      border-right: 1px solid var(--color-base-300);
+    }
+    #pg-sidebar .menu {
+      padding: 0.75rem;
+      font-size: 0.875rem;
+    }
+    #pg-main {
+      flex: 1;
+      overflow-y: auto;
+      background: oklch(from var(--color-base-200) l c h / 0.4);
+    }
+    #pg-content {
+      max-width: 64rem;
+      margin-inline: auto;
+      padding: 2.5rem 2rem;
+    }
+    #pg-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem;
+    }
+    /* Component heading */
+    .pg-heading {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-base-300);
+    }
+    /* Section */
+    .pg-section {
+      margin-bottom: 3rem;
+    }
+    .pg-section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .pg-hash {
+      opacity: 0.3;
+    }
+    /* Tab content overrides */
+    .pg-preview {
+      padding: 2.5rem;
+      background: var(--color-base-100);
+      border-color: var(--color-base-300);
+    }
+    .pg-preview-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .pg-code {
+      padding: 1.5rem;
+      background: var(--color-neutral);
+      color: var(--color-neutral-content);
+      border-color: var(--color-base-300);
+      overflow-x: auto;
+    }
+    .pg-code pre { margin: 0; }
+    .pg-code code {
+      font-size: 0.75rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      white-space: pre;
+    }
+    .pg-hidden { display: none !important; }
+  </style>
+</head>
+<body style="visibility: hidden" data-theme="light">
+  <div id="app">
+    <nav id="pg-nav" class="navbar bg-base-100">
+      <span class="pg-title">margaui playground</span>
+      <select id="theme-select" class="select select-sm select-bordered"></select>
+    </nav>
+    <div id="pg-body">
+      <aside id="pg-sidebar">
+        <ul id="menu" class="menu"></ul>
+      </aside>
+      <main id="pg-main">
+        <div id="pg-loading">
+          <span class="loading loading-spinner loading-lg"></span>
+        </div>
+        <div id="pg-content"></div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module">
+    import { entries } from "../vfs.js";
+    import { makeCompiler } from "../twcompiler.js";
+    import { PreviewComponent } from "./preview-component.js";
+
+    // Skip theme.css (theme selector mechanism, handled separately)
+    const SKIP = new Set(["./themes/theme.css"]);
+    const sections = ["./base/", "./themes/", "./src/"];
+    const imports = Object.keys(entries)
+      .filter(k => sections.some(s => k.startsWith(s)))
+      .filter(k => !SKIP.has(k))
+      .map(k => `@import "${k}";`)
+      .join("\n");
+    const fullInput = `@import "tailwindcss" source(none);\n${imports}`;
+
+    // Init compiler
+    const compiler = await makeCompiler(fullInput, entries, {});
+    PreviewComponent.compiler = compiler;
+
+    // Compile only DaisyUI component classes needed by the page shell
+    const PAGE_CLASSES = [
+      "navbar", "bg-base-100",
+      "select", "select-sm", "select-bordered",
+      "menu", "menu-title", "active",
+      "loading", "loading-spinner", "loading-lg",
+      "tabs", "tabs-lift", "tab", "tab-content",
+    ];
+    const pageCss = compiler.build(PAGE_CLASSES);
+    document.getElementById("page-styles").textContent = pageCss;
+
+    // Reveal page
+    document.body.style.visibility = "visible";
+
+    // Theme setup
+    const themeSelect = document.getElementById("theme-select");
+    const themeKeys = Object.keys(entries)
+      .filter(k => k.startsWith("./themes/") && k !== "./themes/theme.css")
+      .map(k => k.replace("./themes/", "").replace(".css", ""))
+      .sort();
+
+    for (const t of themeKeys) {
+      const opt = document.createElement("option");
+      opt.value = t;
+      opt.textContent = t;
+      if (t === "light") opt.selected = true;
+      themeSelect.appendChild(opt);
+    }
+
+    let currentTheme = "light";
+    themeSelect.addEventListener("change", () => {
+      currentTheme = themeSelect.value;
+      document.body.setAttribute("data-theme", currentTheme);
+      for (const dc of document.querySelectorAll("preview-component")) {
+        dc.setAttribute("theme", currentTheme);
+      }
+    });
+
+    // Fetch component tree
+    const components = await fetch("./components.json").then(r => r.json());
+
+    // Render sidebar menu
+    const menuEl = document.getElementById("menu");
+    const menuTitle = document.createElement("li");
+    menuTitle.className = "menu-title";
+    menuTitle.textContent = "Components";
+    menuEl.appendChild(menuTitle);
+
+    for (const comp of components) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.textContent = comp.name;
+      a.href = `#${comp.name}`;
+      a.dataset.name = comp.name;
+      li.appendChild(a);
+      menuEl.appendChild(li);
+    }
+
+    // Helper: humanize file name
+    function humanize(filename) {
+      return filename
+        .replace(".html", "")
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    // Navigation
+    const contentEl = document.getElementById("pg-content");
+    const loadingEl = document.getElementById("pg-loading");
+    let activeLink = null;
+
+    function showComponent(name) {
+      const comp = components.find(c => c.name === name);
+      if (!comp) return;
+
+      // Update active menu item
+      if (activeLink) activeLink.classList.remove("active");
+      activeLink = menuEl.querySelector(`a[data-name="${name}"]`);
+      if (activeLink) activeLink.classList.add("active");
+
+      // Clear previous
+      contentEl.innerHTML = "";
+      loadingEl.classList.add("pg-hidden");
+
+      // Component heading
+      const heading = document.createElement("h1");
+      heading.className = "pg-heading";
+      heading.textContent = humanize(name);
+      contentEl.appendChild(heading);
+
+      for (let i = 0; i < comp.files.length; i++) {
+        const file = comp.files[i];
+        const tabsName = `tabs-${name}-${i}`;
+
+        // Section wrapper
+        const section = document.createElement("div");
+        section.className = "pg-section";
+
+        // Section title
+        const title = document.createElement("h3");
+        title.className = "pg-section-title";
+        const hash = document.createElement("span");
+        hash.className = "pg-hash";
+        hash.textContent = "#";
+        title.appendChild(hash);
+        title.appendChild(document.createTextNode(humanize(file)));
+        section.appendChild(title);
+
+        // Tabs
+        const tabsDiv = document.createElement("div");
+        tabsDiv.className = "tabs tabs-lift";
+
+        // Preview tab
+        const previewRadio = document.createElement("input");
+        previewRadio.type = "radio";
+        previewRadio.name = tabsName;
+        previewRadio.className = "tab";
+        previewRadio.setAttribute("aria-label", "Preview");
+        previewRadio.checked = true;
+
+        const previewContent = document.createElement("div");
+        previewContent.className = "tab-content pg-preview";
+
+        const previewInner = document.createElement("div");
+        previewInner.className = "pg-preview-inner";
+        const daisyEl = document.createElement("preview-component");
+        daisyEl.setAttribute("html-src", `./components/${name}/${file}`);
+        daisyEl.setAttribute("theme", currentTheme);
+        previewInner.appendChild(daisyEl);
+        previewContent.appendChild(previewInner);
+
+        // HTML tab
+        const htmlRadio = document.createElement("input");
+        htmlRadio.type = "radio";
+        htmlRadio.name = tabsName;
+        htmlRadio.className = "tab";
+        htmlRadio.setAttribute("aria-label", "HTML");
+
+        const htmlContent = document.createElement("div");
+        htmlContent.className = "tab-content pg-code";
+        const htmlPre = document.createElement("pre");
+        const htmlCode = document.createElement("code");
+        htmlCode.textContent = "Loading...";
+        htmlPre.appendChild(htmlCode);
+        htmlContent.appendChild(htmlPre);
+
+        // CSS tab
+        const cssRadio = document.createElement("input");
+        cssRadio.type = "radio";
+        cssRadio.name = tabsName;
+        cssRadio.className = "tab";
+        cssRadio.setAttribute("aria-label", "CSS");
+
+        const cssContent = document.createElement("div");
+        cssContent.className = "tab-content pg-code";
+        const cssPre = document.createElement("pre");
+        const cssCode = document.createElement("code");
+        cssCode.textContent = "Loading...";
+        cssPre.appendChild(cssCode);
+        cssContent.appendChild(cssPre);
+
+        // Listen for load event
+        daisyEl.addEventListener("load", (e) => {
+          htmlCode.textContent = e.detail.html;
+          cssCode.textContent = e.detail.css;
+        });
+
+        // Assemble tabs
+        tabsDiv.appendChild(previewRadio);
+        tabsDiv.appendChild(previewContent);
+        tabsDiv.appendChild(htmlRadio);
+        tabsDiv.appendChild(htmlContent);
+        tabsDiv.appendChild(cssRadio);
+        tabsDiv.appendChild(cssContent);
+
+        section.appendChild(tabsDiv);
+        contentEl.appendChild(section);
+      }
+    }
+
+    // Hash navigation
+    function navigateFromHash() {
+      const hash = location.hash.replace("#", "");
+      const name = hash || (components.length ? components[0].name : "");
+      if (name) showComponent(name);
+    }
+
+    window.addEventListener("hashchange", navigateFromHash);
+    navigateFromHash();
+  </script>
+</body>
+</html>

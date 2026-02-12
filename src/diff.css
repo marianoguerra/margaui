@@ -1,0 +1,130 @@
+/* Component: diff */
+
+/* Base diff */
+@utility diff {
+  position: relative;
+  display: grid;
+  width: 100%;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  grid-template-rows: 1fr 1.8rem 1fr;
+  direction: ltr;
+  container-type: inline-size;
+  grid-template-columns: auto 1fr;
+
+  &:focus-visible,
+  &:has(.diff-item-1:focus-visible) {
+    outline-style: var(--tw-outline-style);
+    outline-width: 2px;
+    outline-offset: 1px;
+    outline-color: var(--color-base-content);
+  }
+
+  &:focus-visible {
+    .diff-resizer {
+      min-width: 95cqi;
+      max-width: 95cqi;
+    }
+  }
+
+  &:has(.diff-item-1:focus-visible) {
+    .diff-resizer {
+      min-width: 5cqi;
+      max-width: 5cqi;
+    }
+  }
+}
+
+/* Diff item 1 (top layer, clipped) */
+@utility diff-item-1 {
+  position: relative;
+  z-index: 1;
+  grid-column-start: 1;
+  grid-row: span 3 / span 3;
+  grid-row-start: 1;
+  overflow: hidden;
+  border-right: 2px solid var(--color-base-100);
+
+  &:focus-visible {
+    outline-style: none;
+  }
+
+  > * {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100cqi;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* Diff item 2 (bottom layer) */
+@utility diff-item-2 {
+  position: relative;
+  grid-column-start: 1;
+  grid-row: span 3 / span 3;
+  grid-row-start: 1;
+
+  > * {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100cqi;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &:after {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    right: 1px;
+    bottom: 0;
+    z-index: 2;
+    border-radius: calc(infinity * 1px);
+    background-color: var(--color-base-100);
+    width: 1.2rem;
+    height: 1.8rem;
+    border: 0.5px solid #0000001f;
+    content: "";
+    outline: 1px solid var(--color-base-content);
+    outline-offset: -3px;
+    translate: 50% -50%;
+
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-base-100) 98%, transparent);
+      outline: 1px solid color-mix(in oklab, var(--color-base-content) 10%, #0000);
+    }
+  }
+}
+
+/* Diff resizer (drag handle) */
+@utility diff-resizer {
+  position: relative;
+  isolation: isolate;
+  z-index: 2;
+  grid-column-start: 1;
+  grid-row-start: 2;
+  height: 0.75rem;
+  width: 50cqi;
+  max-width: calc(100cqi - 1rem);
+  min-width: 1rem;
+  resize: horizontal;
+  overflow: hidden;
+  opacity: 0%;
+  transform: scaleY(5) translate(0.32rem, 50%);
+  cursor: ew-resize;
+  transform-origin: 100% 100%;
+  clip-path: inset(calc(100% - 0.75rem) 0 0 calc(100% - 0.75rem));
+  transition: min-width 0.3s ease-out, max-width 0.3s ease-out;
+}

@@ -1,0 +1,34 @@
+/* Component: navbar */
+
+/* Base navbar */
+@utility navbar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0.5rem;
+  min-height: 4rem;
+
+  &:where(&) {
+    position: relative;
+  }
+}
+
+@utility navbar-start {
+  display: inline-flex;
+  align-items: center;
+  width: 50%;
+  justify-content: flex-start;
+}
+
+@utility navbar-center {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@utility navbar-end {
+  display: inline-flex;
+  align-items: center;
+  width: 50%;
+  justify-content: flex-end;
+}

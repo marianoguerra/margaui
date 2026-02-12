@@ -1,0 +1,364 @@
+/* Component: tooltip */
+
+/* Base tooltip */
+@utility tooltip {
+  position: relative;
+  display: inline-block;
+  --tt-bg: var(--color-neutral);
+  --tt-off: calc(100% + 0.5rem);
+  --tt-tail: calc(100% + 1px + 0.25rem);
+}
+
+/* Tooltip content and data-tip pseudo-element */
+.tooltip > .tooltip-content,
+.tooltip[data-tip]:before {
+  position: absolute;
+  max-width: 20rem;
+  border-radius: var(--radius-field);
+  padding-inline: 0.5rem;
+  padding-block: 0.25rem;
+  text-align: center;
+  white-space: normal;
+  color: var(--color-neutral-content);
+  opacity: 0%;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  background-color: var(--tt-bg);
+  width: max-content;
+  pointer-events: none;
+  z-index: 2;
+  content: attr(data-tip);
+  transform: translateX(-50%) translateY(var(--tt-pos, 0.25rem));
+  inset: auto auto var(--tt-off) 50%;
+}
+
+/* Tooltip arrow/tail */
+.tooltip:after {
+  opacity: 0%;
+  background-color: var(--tt-bg);
+  content: "";
+  pointer-events: none;
+  width: 0.625rem;
+  height: 0.25rem;
+  display: block;
+  position: absolute;
+  mask-repeat: no-repeat;
+  mask-position: -1px 0;
+  --mask-tooltip: url("data:image/svg+xml,%3Csvg width='10' height='4' viewBox='0 0 8 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.500009 1C3.5 1 3.00001 4 5.00001 4C7 4 6.5 1 9.5 1C10 1 10 0.499897 10 0H0C-1.99338e-08 0.5 0 1 0.500009 1Z' fill='black'/%3E%3C/svg%3E%0A");
+  mask-image: var(--mask-tooltip);
+  transform: translateX(-50%) translateY(var(--tt-pos, 0.25rem));
+  inset: auto auto var(--tt-tail) 50%;
+}
+
+/* Tooltip transitions */
+@media (prefers-reduced-motion: no-preference) {
+  .tooltip > .tooltip-content,
+  .tooltip[data-tip]:before,
+  .tooltip:after {
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms;
+  }
+}
+
+/* Show tooltip on hover/focus/open - for data-tip tooltips */
+.tooltip[data-tip]:not([data-tip=""]).tooltip-open > .tooltip-content,
+.tooltip[data-tip]:not([data-tip=""]).tooltip-open[data-tip]:before,
+.tooltip[data-tip]:not([data-tip=""]).tooltip-open:after,
+.tooltip[data-tip]:not([data-tip=""]):hover > .tooltip-content,
+.tooltip[data-tip]:not([data-tip=""]):hover[data-tip]:before,
+.tooltip[data-tip]:not([data-tip=""]):hover:after,
+.tooltip[data-tip]:not([data-tip=""]):has(:focus-visible) > .tooltip-content,
+.tooltip[data-tip]:not([data-tip=""]):has(:focus-visible)[data-tip]:before,
+.tooltip[data-tip]:not([data-tip=""]):has(:focus-visible):after {
+  opacity: 100%;
+  --tt-pos: 0rem;
+}
+
+/* Show tooltip on hover/focus/open - for tooltip-content tooltips */
+.tooltip:has(.tooltip-content:not(:empty)).tooltip-open > .tooltip-content,
+.tooltip:has(.tooltip-content:not(:empty)).tooltip-open:after,
+.tooltip:has(.tooltip-content:not(:empty)):hover > .tooltip-content,
+.tooltip:has(.tooltip-content:not(:empty)):hover:after,
+.tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible) > .tooltip-content,
+.tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible):after {
+  opacity: 100%;
+  --tt-pos: 0rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tooltip[data-tip]:not([data-tip=""]).tooltip-open > .tooltip-content,
+  .tooltip[data-tip]:not([data-tip=""]).tooltip-open[data-tip]:before,
+  .tooltip[data-tip]:not([data-tip=""]).tooltip-open:after,
+  .tooltip[data-tip]:not([data-tip=""]):hover > .tooltip-content,
+  .tooltip[data-tip]:not([data-tip=""]):hover[data-tip]:before,
+  .tooltip[data-tip]:not([data-tip=""]):hover:after,
+  .tooltip[data-tip]:not([data-tip=""]):has(:focus-visible) > .tooltip-content,
+  .tooltip[data-tip]:not([data-tip=""]):has(:focus-visible)[data-tip]:before,
+  .tooltip[data-tip]:not([data-tip=""]):has(:focus-visible):after,
+  .tooltip:has(.tooltip-content:not(:empty)).tooltip-open > .tooltip-content,
+  .tooltip:has(.tooltip-content:not(:empty)).tooltip-open:after,
+  .tooltip:has(.tooltip-content:not(:empty)):hover > .tooltip-content,
+  .tooltip:has(.tooltip-content:not(:empty)):hover:after,
+  .tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible) > .tooltip-content,
+  .tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible):after {
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  }
+}
+
+/* Tooltip content utility */
+@utility tooltip-content {
+  position: absolute;
+  max-width: 20rem;
+  border-radius: var(--radius-field);
+  padding-inline: 0.5rem;
+  padding-block: 0.25rem;
+  text-align: center;
+  white-space: normal;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  width: max-content;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Open state */
+@utility tooltip-open {
+  --tooltip-open: 1;
+}
+
+/* Position variants */
+@utility tooltip-top {
+  --tooltip-pos: top;
+}
+
+.tooltip-top > .tooltip-content,
+.tooltip-top[data-tip]:before {
+  transform: translateX(-50%) translateY(var(--tt-pos, 0.25rem));
+  inset: auto auto var(--tt-off) 50%;
+}
+
+.tooltip-top:after {
+  transform: translateX(-50%) translateY(var(--tt-pos, 0.25rem));
+  inset: auto auto var(--tt-tail) 50%;
+}
+
+@utility tooltip-bottom {
+  --tooltip-pos: bottom;
+}
+
+.tooltip-bottom > .tooltip-content,
+.tooltip-bottom[data-tip]:before {
+  transform: translateX(-50%) translateY(var(--tt-pos, -0.25rem));
+  inset: var(--tt-off) auto auto 50%;
+}
+
+.tooltip-bottom:after {
+  transform: translateX(-50%) translateY(var(--tt-pos, -0.25rem)) rotate(180deg);
+  inset: var(--tt-tail) auto auto 50%;
+}
+
+@utility tooltip-left {
+  --tooltip-pos: left;
+}
+
+.tooltip-left > .tooltip-content,
+.tooltip-left[data-tip]:before {
+  transform: translateX(calc(var(--tt-pos, 0.25rem) - 0.25rem)) translateY(-50%);
+  inset: 50% var(--tt-off) auto auto;
+}
+
+.tooltip-left:after {
+  transform: translateX(var(--tt-pos, 0.25rem)) translateY(-50%) rotate(-90deg);
+  inset: 50% calc(var(--tt-tail) + 1px) auto auto;
+}
+
+@utility tooltip-right {
+  --tooltip-pos: right;
+}
+
+.tooltip-right > .tooltip-content,
+.tooltip-right[data-tip]:before {
+  transform: translateX(calc(var(--tt-pos, -0.25rem) + 0.25rem)) translateY(-50%);
+  inset: 50% auto auto var(--tt-off);
+}
+
+.tooltip-right:after {
+  transform: translateX(var(--tt-pos, -0.25rem)) translateY(-50%) rotate(90deg);
+  inset: 50% auto auto calc(var(--tt-tail) + 1px);
+}
+
+/* Color variants */
+@utility tooltip-primary {
+  --tt-bg: var(--color-primary);
+}
+
+.tooltip-primary > .tooltip-content,
+.tooltip-primary[data-tip]:before {
+  color: var(--color-primary-content);
+}
+
+@utility tooltip-secondary {
+  --tt-bg: var(--color-secondary);
+}
+
+.tooltip-secondary > .tooltip-content,
+.tooltip-secondary[data-tip]:before {
+  color: var(--color-secondary-content);
+}
+
+@utility tooltip-accent {
+  --tt-bg: var(--color-accent);
+}
+
+.tooltip-accent > .tooltip-content,
+.tooltip-accent[data-tip]:before {
+  color: var(--color-accent-content);
+}
+
+@utility tooltip-neutral {
+  --tt-bg: var(--color-neutral);
+}
+
+.tooltip-neutral > .tooltip-content,
+.tooltip-neutral[data-tip]:before {
+  color: var(--color-neutral-content);
+}
+
+@utility tooltip-info {
+  --tt-bg: var(--color-info);
+}
+
+.tooltip-info > .tooltip-content,
+.tooltip-info[data-tip]:before {
+  color: var(--color-info-content);
+}
+
+@utility tooltip-success {
+  --tt-bg: var(--color-success);
+}
+
+.tooltip-success > .tooltip-content,
+.tooltip-success[data-tip]:before {
+  color: var(--color-success-content);
+}
+
+@utility tooltip-warning {
+  --tt-bg: var(--color-warning);
+}
+
+.tooltip-warning > .tooltip-content,
+.tooltip-warning[data-tip]:before {
+  color: var(--color-warning-content);
+}
+
+@utility tooltip-error {
+  --tt-bg: var(--color-error);
+}
+
+.tooltip-error > .tooltip-content,
+.tooltip-error[data-tip]:before {
+  color: var(--color-error-content);
+}
+
+/* Responsive lg:tooltip variant */
+@media (width >= 64rem) {
+  .lg\:tooltip {
+    position: relative;
+    display: inline-block;
+    --tt-bg: var(--color-neutral);
+    --tt-off: calc(100% + 0.5rem);
+    --tt-tail: calc(100% + 1px + 0.25rem);
+  }
+
+  .lg\:tooltip > .tooltip-content,
+  .lg\:tooltip[data-tip]:before {
+    position: absolute;
+    max-width: 20rem;
+    border-radius: var(--radius-field);
+    padding-inline: 0.5rem;
+    padding-block: 0.25rem;
+    text-align: center;
+    white-space: normal;
+    color: var(--color-neutral-content);
+    opacity: 0%;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    background-color: var(--tt-bg);
+    width: max-content;
+    pointer-events: none;
+    z-index: 2;
+    content: attr(data-tip);
+    transform: translateX(-50%) translateY(var(--tt-pos, 0.25rem));
+    inset: auto auto var(--tt-off) 50%;
+  }
+
+  .lg\:tooltip:after {
+    opacity: 0%;
+    background-color: var(--tt-bg);
+    content: "";
+    pointer-events: none;
+    width: 0.625rem;
+    height: 0.25rem;
+    display: block;
+    position: absolute;
+    mask-repeat: no-repeat;
+    mask-position: -1px 0;
+    --mask-tooltip: url("data:image/svg+xml,%3Csvg width='10' height='4' viewBox='0 0 8 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.500009 1C3.5 1 3.00001 4 5.00001 4C7 4 6.5 1 9.5 1C10 1 10 0.499897 10 0H0C-1.99338e-08 0.5 0 1 0.500009 1Z' fill='black'/%3E%3C/svg%3E%0A");
+    mask-image: var(--mask-tooltip);
+    transform: translateX(-50%) translateY(var(--tt-pos, 0.25rem));
+    inset: auto auto var(--tt-tail) 50%;
+  }
+
+  /* Transitions for lg:tooltip */
+  @media (prefers-reduced-motion: no-preference) {
+    .lg\:tooltip > .tooltip-content,
+    .lg\:tooltip[data-tip]:before,
+    .lg\:tooltip:after {
+      transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms;
+    }
+  }
+
+  /* Show lg:tooltip on hover/focus/open - for data-tip tooltips */
+  .lg\:tooltip[data-tip]:not([data-tip=""]).tooltip-open > .tooltip-content,
+  .lg\:tooltip[data-tip]:not([data-tip=""]).tooltip-open[data-tip]:before,
+  .lg\:tooltip[data-tip]:not([data-tip=""]).tooltip-open:after,
+  .lg\:tooltip[data-tip]:not([data-tip=""]):hover > .tooltip-content,
+  .lg\:tooltip[data-tip]:not([data-tip=""]):hover[data-tip]:before,
+  .lg\:tooltip[data-tip]:not([data-tip=""]):hover:after,
+  .lg\:tooltip[data-tip]:not([data-tip=""]):has(:focus-visible) > .tooltip-content,
+  .lg\:tooltip[data-tip]:not([data-tip=""]):has(:focus-visible)[data-tip]:before,
+  .lg\:tooltip[data-tip]:not([data-tip=""]):has(:focus-visible):after {
+    opacity: 100%;
+    --tt-pos: 0rem;
+  }
+
+  /* Show lg:tooltip on hover/focus/open - for tooltip-content tooltips */
+  .lg\:tooltip:has(.tooltip-content:not(:empty)).tooltip-open > .tooltip-content,
+  .lg\:tooltip:has(.tooltip-content:not(:empty)).tooltip-open:after,
+  .lg\:tooltip:has(.tooltip-content:not(:empty)):hover > .tooltip-content,
+  .lg\:tooltip:has(.tooltip-content:not(:empty)):hover:after,
+  .lg\:tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible) > .tooltip-content,
+  .lg\:tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible):after {
+    opacity: 100%;
+    --tt-pos: 0rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .lg\:tooltip[data-tip]:not([data-tip=""]).tooltip-open > .tooltip-content,
+    .lg\:tooltip[data-tip]:not([data-tip=""]).tooltip-open[data-tip]:before,
+    .lg\:tooltip[data-tip]:not([data-tip=""]).tooltip-open:after,
+    .lg\:tooltip[data-tip]:not([data-tip=""]):hover > .tooltip-content,
+    .lg\:tooltip[data-tip]:not([data-tip=""]):hover[data-tip]:before,
+    .lg\:tooltip[data-tip]:not([data-tip=""]):hover:after,
+    .lg\:tooltip[data-tip]:not([data-tip=""]):has(:focus-visible) > .tooltip-content,
+    .lg\:tooltip[data-tip]:not([data-tip=""]):has(:focus-visible)[data-tip]:before,
+    .lg\:tooltip[data-tip]:not([data-tip=""]):has(:focus-visible):after,
+    .lg\:tooltip:has(.tooltip-content:not(:empty)).tooltip-open > .tooltip-content,
+    .lg\:tooltip:has(.tooltip-content:not(:empty)).tooltip-open:after,
+    .lg\:tooltip:has(.tooltip-content:not(:empty)):hover > .tooltip-content,
+    .lg\:tooltip:has(.tooltip-content:not(:empty)):hover:after,
+    .lg\:tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible) > .tooltip-content,
+    .lg\:tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible):after {
+      transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    }
+  }
+}

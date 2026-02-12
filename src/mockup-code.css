@@ -1,0 +1,45 @@
+/* Component: mockup-code */
+
+@utility mockup-code {
+  position: relative;
+  overflow: hidden;
+  overflow-x: auto;
+  border-radius: var(--radius-box);
+  background-color: var(--color-neutral);
+  color: var(--color-neutral-content);
+  padding-block: 1.25rem;
+  font-size: 0.875rem;
+  direction: ltr;
+
+  &:before {
+    content: "";
+    display: block;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: calc(infinity * 1px);
+    opacity: 30%;
+    box-shadow: 1.4em 0 currentColor, 2.8em 0 currentColor, 4.2em 0 currentColor;
+  }
+
+  pre {
+    padding-right: 1.25rem;
+
+    &:before {
+      content: "";
+      margin-right: 2ch;
+    }
+
+    &[data-prefix] {
+      &:before {
+        --tw-content: attr(data-prefix);
+        content: var(--tw-content);
+        display: inline-block;
+        width: 2rem;
+        text-align: right;
+        opacity: 50%;
+      }
+    }
+  }
+}

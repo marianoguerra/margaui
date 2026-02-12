@@ -1,0 +1,12 @@
+/* Component: theme-controller */
+
+/* theme-controller is used as a class on input elements that control theme switching.
+   The actual theme switching is handled by theme CSS files with selectors like:
+   :root:has(input.theme-controller[value=light]:checked) { ... }
+   :root:has(input.theme-controller[value=dark]:checked) { ... }
+*/
+
+@utility theme-controller {
+  /* This utility marks inputs that control theme selection */
+  --theme-controller: 1;
+}

@@ -1,0 +1,226 @@
+/* DaisyUI Color Utilities */
+
+/* Radius utilities */
+@utility rounded-box {
+  border-radius: var(--radius-box);
+}
+
+@utility rounded-field {
+  border-radius: var(--radius-field);
+}
+
+@utility rounded-selector {
+  border-radius: var(--radius-selector);
+}
+
+/* Background colors */
+@utility bg-base-100 {
+  background-color: var(--color-base-100);
+}
+
+@utility bg-base-200 {
+  background-color: var(--color-base-200);
+}
+
+@utility bg-base-300 {
+  background-color: var(--color-base-300);
+}
+
+@utility bg-primary {
+  background-color: var(--color-primary);
+}
+
+@utility bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+@utility bg-accent {
+  background-color: var(--color-accent);
+}
+
+@utility bg-neutral {
+  background-color: var(--color-neutral);
+}
+
+@utility bg-info {
+  background-color: var(--color-info);
+}
+
+@utility bg-success {
+  background-color: var(--color-success);
+}
+
+@utility bg-warning {
+  background-color: var(--color-warning);
+}
+
+@utility bg-error {
+  background-color: var(--color-error);
+}
+
+/* Text colors */
+@utility text-base-content {
+  color: var(--color-base-content);
+}
+
+@utility text-primary {
+  color: var(--color-primary);
+}
+
+@utility text-primary-content {
+  color: var(--color-primary-content);
+}
+
+@utility text-secondary {
+  color: var(--color-secondary);
+}
+
+@utility text-secondary-content {
+  color: var(--color-secondary-content);
+}
+
+@utility text-accent {
+  color: var(--color-accent);
+}
+
+@utility text-accent-content {
+  color: var(--color-accent-content);
+}
+
+@utility text-neutral {
+  color: var(--color-neutral);
+}
+
+@utility text-neutral-content {
+  color: var(--color-neutral-content);
+}
+
+@utility text-info {
+  color: var(--color-info);
+}
+
+@utility text-info-content {
+  color: var(--color-info-content);
+}
+
+@utility text-success {
+  color: var(--color-success);
+}
+
+@utility text-success-content {
+  color: var(--color-success-content);
+}
+
+@utility text-warning {
+  color: var(--color-warning);
+}
+
+@utility text-warning-content {
+  color: var(--color-warning-content);
+}
+
+@utility text-error {
+  color: var(--color-error);
+}
+
+@utility text-error-content {
+  color: var(--color-error-content);
+}
+
+/* Border colors */
+@utility border-base-100 {
+  border-color: var(--color-base-100);
+}
+
+@utility border-base-200 {
+  border-color: var(--color-base-200);
+}
+
+@utility border-base-300 {
+  border-color: var(--color-base-300);
+}
+
+@utility border-primary {
+  border-color: var(--color-primary);
+}
+
+@utility border-secondary {
+  border-color: var(--color-secondary);
+}
+
+@utility border-accent {
+  border-color: var(--color-accent);
+}
+
+@utility border-neutral {
+  border-color: var(--color-neutral);
+}
+
+/* Stroke colors */
+@utility stroke-current {
+  stroke: currentcolor;
+}
+
+@utility stroke-primary {
+  stroke: var(--color-primary);
+}
+
+@utility stroke-primary-content {
+  stroke: var(--color-primary-content);
+}
+
+@utility stroke-secondary {
+  stroke: var(--color-secondary);
+}
+
+@utility stroke-secondary-content {
+  stroke: var(--color-secondary-content);
+}
+
+@utility stroke-accent {
+  stroke: var(--color-accent);
+}
+
+@utility stroke-accent-content {
+  stroke: var(--color-accent-content);
+}
+
+@utility stroke-neutral {
+  stroke: var(--color-neutral);
+}
+
+@utility stroke-neutral-content {
+  stroke: var(--color-neutral-content);
+}
+
+@utility stroke-info {
+  stroke: var(--color-info);
+}
+
+@utility stroke-info-content {
+  stroke: var(--color-info-content);
+}
+
+@utility stroke-success {
+  stroke: var(--color-success);
+}
+
+@utility stroke-success-content {
+  stroke: var(--color-success-content);
+}
+
+@utility stroke-warning {
+  stroke: var(--color-warning);
+}
+
+@utility stroke-warning-content {
+  stroke: var(--color-warning-content);
+}
+
+@utility stroke-error {
+  stroke: var(--color-error);
+}
+
+@utility stroke-error-content {
+  stroke: var(--color-error-content);
+}

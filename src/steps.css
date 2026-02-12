@@ -1,0 +1,222 @@
+/* Component: steps */
+
+/* Base steps */
+@utility steps {
+  display: inline-grid;
+  grid-auto-flow: column;
+  overflow: hidden;
+  overflow-x: auto;
+  counter-reset: step;
+  grid-auto-columns: 1fr;
+}
+
+/* Step item */
+@utility step {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 40px 1fr;
+  place-items: center;
+  text-align: center;
+  min-width: 4rem;
+  --step-bg: var(--color-base-300);
+  --step-fg: var(--color-base-content);
+
+  &:before {
+    top: 0;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    height: 0.5rem;
+    width: 100%;
+    border: 1px solid;
+    color: var(--step-bg);
+    background-color: var(--step-bg);
+    content: "";
+    margin-inline-start: -100%;
+  }
+
+  & > .step-icon,
+  &:not(:has(.step-icon)):after {
+    content: counter(step);
+    counter-increment: step;
+    z-index: 1;
+    color: var(--step-fg);
+    background-color: var(--step-bg);
+    border: 1px solid var(--step-bg);
+    position: relative;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    display: grid;
+    height: 2rem;
+    width: 2rem;
+    place-items: center;
+    place-self: center;
+    border-radius: calc(infinity * 1px);
+  }
+
+  &:first-child:before {
+    content: none;
+  }
+
+  &[data-content]:after {
+    content: attr(data-content);
+  }
+}
+
+/* Step icon */
+@utility step-icon {
+  content: "";
+}
+
+/* Color variants - only set --step-bg on circle (:after/.step-icon)
+   and use & + &:before to color line only when previous step has same class */
+@utility step-neutral {
+  &:after,
+  & > .step-icon {
+    --step-bg: var(--color-neutral);
+    --step-fg: var(--color-neutral-content);
+  }
+
+  & + &:before {
+    --step-bg: var(--color-neutral);
+  }
+}
+
+@utility step-primary {
+  &:after,
+  & > .step-icon {
+    --step-bg: var(--color-primary);
+    --step-fg: var(--color-primary-content);
+  }
+
+  & + &:before {
+    --step-bg: var(--color-primary);
+  }
+}
+
+@utility step-secondary {
+  &:after,
+  & > .step-icon {
+    --step-bg: var(--color-secondary);
+    --step-fg: var(--color-secondary-content);
+  }
+
+  & + &:before {
+    --step-bg: var(--color-secondary);
+  }
+}
+
+@utility step-accent {
+  &:after,
+  & > .step-icon {
+    --step-bg: var(--color-accent);
+    --step-fg: var(--color-accent-content);
+  }
+
+  & + &:before {
+    --step-bg: var(--color-accent);
+  }
+}
+
+@utility step-info {
+  &:after,
+  & > .step-icon {
+    --step-bg: var(--color-info);
+    --step-fg: var(--color-info-content);
+  }
+
+  & + &:before {
+    --step-bg: var(--color-info);
+  }
+}
+
+@utility step-success {
+  &:after,
+  & > .step-icon {
+    --step-bg: var(--color-success);
+    --step-fg: var(--color-success-content);
+  }
+
+  & + &:before {
+    --step-bg: var(--color-success);
+  }
+}
+
+@utility step-warning {
+  &:after,
+  & > .step-icon {
+    --step-bg: var(--color-warning);
+    --step-fg: var(--color-warning-content);
+  }
+
+  & + &:before {
+    --step-bg: var(--color-warning);
+  }
+}
+
+@utility step-error {
+  &:after,
+  & > .step-icon {
+    --step-bg: var(--color-error);
+    --step-fg: var(--color-error-content);
+  }
+
+  & + &:before {
+    --step-bg: var(--color-error);
+  }
+}
+
+/* Vertical steps */
+@utility steps-vertical {
+  grid-auto-rows: 1fr !important;
+  grid-auto-flow: row !important;
+
+  & .step {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: auto;
+    gap: 0.5rem;
+    min-height: 4rem;
+    justify-items: start;
+  }
+
+  & .step:before {
+    height: 100%;
+    width: 0.5rem;
+    translate: -50% -50%;
+    margin-inline-start: 50%;
+  }
+
+  [dir="rtl"] & .step:before {
+    translate: 50% -50%;
+  }
+}
+
+/* Horizontal steps */
+@utility steps-horizontal {
+  grid-auto-flow: column !important;
+  grid-auto-columns: 1fr !important;
+  grid-auto-rows: auto !important;
+
+  & .step {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 40px 1fr;
+    place-items: center;
+    text-align: center;
+    min-width: 4rem;
+    min-height: auto;
+    gap: 0;
+    justify-items: center;
+  }
+
+  & .step:before {
+    height: 0.5rem;
+    width: 100%;
+    translate: none;
+    margin-inline-start: -100%;
+  }
+
+  [dir="rtl"] & .step:before {
+    translate: none;
+  }
+}

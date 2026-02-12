@@ -1,0 +1,98 @@
+/* Component: stat */
+
+/* Stats container - holds multiple stat items horizontally */
+@utility stats {
+  position: relative;
+  display: inline-grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  border-radius: var(--radius-box);
+}
+
+/* Stats vertical - items flow vertically */
+@utility stats-vertical {
+  grid-auto-flow: row;
+  overflow-y: auto;
+
+  & .stat:not(:last-child) {
+    border-inline-end: none;
+    border-block-end: var(--border) dashed color-mix(in oklab, currentColor 10%, transparent);
+  }
+}
+
+/* Stats horizontal - items flow horizontally */
+@utility stats-horizontal {
+  grid-auto-flow: column;
+  overflow-x: auto;
+
+  & .stat:not(:last-child) {
+    border-block-end: none;
+    border-inline-end: var(--border) dashed color-mix(in oklab, currentColor 10%, transparent);
+  }
+}
+
+/* Base stat */
+@utility stat {
+  display: inline-grid;
+  width: 100%;
+  column-gap: 1rem;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+
+  &:not(:last-child) {
+    border-inline-end: var(--border) dashed currentColor;
+    border-block-end: none;
+
+    @supports (color: color-mix(in lab, red, red)) {
+      border-inline-end: var(--border) dashed color-mix(in oklab, currentColor 10%, #0000);
+    }
+  }
+}
+
+/* Stat figure */
+@utility stat-figure {
+  grid-column-start: 2;
+  grid-row: span 3 / span 3;
+  grid-row-start: 1;
+  place-self: center;
+  justify-self: flex-end;
+}
+
+/* Stat value */
+@utility stat-value {
+  grid-column-start: 1;
+  white-space: nowrap;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* Stat description */
+@utility stat-desc {
+  grid-column-start: 1;
+  white-space: nowrap;
+  color: var(--color-base-content);
+  font-size: 0.75rem;
+
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  }
+}
+
+/* Stat title */
+@utility stat-title {
+  grid-column-start: 1;
+  white-space: nowrap;
+  color: var(--color-base-content);
+  font-size: 0.75rem;
+
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  }
+}
+
+/* Stat actions */
+@utility stat-actions {
+  grid-column-start: 1;
+  white-space: nowrap;
+}

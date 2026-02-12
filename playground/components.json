@@ -1,0 +1,877 @@
+[
+  {
+    "name": "accordion",
+    "files": [
+      "accordion-using-details.html",
+      "accordion-using-radio-inputs.html",
+      "accordion-with-arrow-icon.html",
+      "accordion-with-plusminus-icon.html",
+      "using-accordion-and-join-together.html"
+    ]
+  },
+  {
+    "name": "alert",
+    "files": [
+      "alert-dash-style.html",
+      "alert-outline-style.html",
+      "alert-soft-style.html",
+      "alert-with-buttons--responsive.html",
+      "alert-with-title-and-description.html",
+      "alert.html",
+      "error-color.html",
+      "info-color.html",
+      "success-color.html",
+      "warning-color.html"
+    ]
+  },
+  {
+    "name": "avatar",
+    "files": [
+      "avatar-group-with-counter.html",
+      "avatar-group.html",
+      "avatar-in-custom-sizes.html",
+      "avatar-placeholder.html",
+      "avatar-rounded.html",
+      "avatar-with-mask.html",
+      "avatar-with-presence-indicator.html",
+      "avatar-with-ring.html",
+      "avatar.html"
+    ]
+  },
+  {
+    "name": "badge",
+    "files": [
+      "badge-ghost.html",
+      "badge-in-a-button.html",
+      "badge-in-a-text.html",
+      "badge-sizes.html",
+      "badge-with-colors.html",
+      "badge-with-dash-style.html",
+      "badge-with-icon.html",
+      "badge-with-outline-style.html",
+      "badge-with-soft-style.html",
+      "badge.html",
+      "empty-badge.html",
+      "neutral-badge-with-outline-or-dash-style.html"
+    ]
+  },
+  {
+    "name": "breadcrumbs",
+    "files": [
+      "breadcrumbs-with-icons.html",
+      "breadcrumbs-with-max-width.html",
+      "breadcrumbs.html"
+    ]
+  },
+  {
+    "name": "button",
+    "files": [
+      "active-buttons.html",
+      "button-block.html",
+      "button-sizes.html",
+      "button-with-icon.html",
+      "button-with-loading-spinner.html",
+      "button.html",
+      "buttons-colors.html",
+      "buttons-ghost-and-button-link.html",
+      "buttons-with-any-html-tags.html",
+      "dash-buttons.html",
+      "disabled-buttons.html",
+      "login-buttons.html",
+      "neutral-button-with-outline-or-dash-style.html",
+      "outline-buttons.html",
+      "responsive-button.html",
+      "soft-buttons.html",
+      "square-button-and-circle-button.html",
+      "wide-button.html"
+    ]
+  },
+  {
+    "name": "calendar",
+    "files": [
+      "cally-calendar-example.html",
+      "cally-date-picker-example.html"
+    ]
+  },
+  {
+    "name": "card",
+    "files": [
+      "card-sizes.html",
+      "card-with-a-card-border.html",
+      "card-with-a-dash-border.html",
+      "card-with-action-on-top.html",
+      "card-with-badge.html",
+      "card-with-bottom-image.html",
+      "card-with-centered-content-and-paddings.html",
+      "card-with-custom-color.html",
+      "card-with-image-on-side.html",
+      "card-with-image-overlay.html",
+      "card-with-no-image.html",
+      "card.html",
+      "centered-card-with-neutral-color.html",
+      "pricing-card.html",
+      "responsive-card-vertical-on-small-screen-horizontal-on-large-screen.html"
+    ]
+  },
+  {
+    "name": "carousel",
+    "files": [
+      "carousel-with-full-width-items.html",
+      "carousel-with-half-width-items.html",
+      "carousel-with-indicator-buttons.html",
+      "carousel-with-nextprev-buttons.html",
+      "full-bleed-carousel.html",
+      "snap-to-center.html",
+      "snap-to-end.html",
+      "snap-to-start-default.html",
+      "vertical-carousel.html"
+    ]
+  },
+  {
+    "name": "chat",
+    "files": [
+      "chat-bubble-with-colors.html",
+      "chat-start-and-chat-end.html",
+      "chat-with-header-and-footer.html",
+      "chat-with-image-header-and-footer.html",
+      "chat-with-image.html"
+    ]
+  },
+  {
+    "name": "checkbox",
+    "files": [
+      "checkbox-with-custom-colors.html",
+      "checkbox.html",
+      "colors.html",
+      "disabled.html",
+      "indeterminate.html",
+      "sizes.html",
+      "with-fieldset-and-label.html"
+    ]
+  },
+  {
+    "name": "collapse",
+    "files": [
+      "-collapse-using-details-and-summary-tag.html",
+      "collapse-with-checkbox.html",
+      "collapse-with-focus.html",
+      "custom-colors-for-collapse-that-works-with-checkbox.html",
+      "custom-colors-for-collapse-that-works-with-focus.html",
+      "force-close.html",
+      "force-open.html",
+      "moving-collapse-icon-to-the-start.html",
+      "with-arrow-icon.html",
+      "with-arrow-plusminus-icon.html",
+      "without-border-and-background-color.html"
+    ]
+  },
+  {
+    "name": "countdown",
+    "files": [
+      "clock-countdown-with-colons.html",
+      "clock-countdown.html",
+      "countdown.html",
+      "in-boxes.html",
+      "large-text-with-2-digits.html",
+      "large-text-with-labels-under.html",
+      "large-text-with-labels.html"
+    ]
+  },
+  {
+    "name": "diff",
+    "files": [
+      "diff-text.html",
+      "diff.html"
+    ]
+  },
+  {
+    "name": "divider",
+    "files": [
+      "divider-horizontal.html",
+      "divider-in-different-positions-horizontal.html",
+      "divider-in-different-positions.html",
+      "divider-with-colors.html",
+      "divider-with-no-text.html",
+      "divider.html",
+      "responsive-lgdivider-horizontal.html"
+    ]
+  },
+  {
+    "name": "dock",
+    "files": [
+      "dock-extra-large-size.html",
+      "dock-extra-small-size.html",
+      "dock-large-size.html",
+      "dock-medium-size.html",
+      "dock-small-size.html",
+      "dock-with-custom-colors.html",
+      "dock.html"
+    ]
+  },
+  {
+    "name": "drawer",
+    "files": [
+      "drawer-sidebar-that-opens-from-right-side-of-page.html",
+      "drawer-sidebar.html",
+      "navbar-menu-for-desktop--sidebar-drawer-for-mobile.html",
+      "responsive-collapsible-icon-only-drawer-sidebar-using-is-drawer-close-and-is-drawer-open.html",
+      "responsive-sidebar-is-always-visible-on-large-screen-can-be-toggled-on-small-screen.html"
+    ]
+  },
+  {
+    "name": "dropdown",
+    "files": [
+      "card-as-dropdown.html",
+      "dropdown--aligns-to-center-of-button-horizontally.html",
+      "dropdown--aligns-to-end-of-button-horizontally.html",
+      "dropdown--aligns-to-start-of-button-horizontally.html",
+      "dropdown-bottom-default--aligns-to-center-of-button-horizontally.html",
+      "dropdown-bottom-default--aligns-to-end-of-button-horizontally.html",
+      "dropdown-bottom-default.html",
+      "dropdown-in-navbar.html",
+      "dropdown-left--aligns-to-center-of-button-vertically.html",
+      "dropdown-left--aligns-to-end-of-button-vertically.html",
+      "dropdown-left.html",
+      "dropdown-menu.html",
+      "dropdown-on-hover.html",
+      "dropdown-right--aligns-to-center-of-button-vertically.html",
+      "dropdown-right--aligns-to-end-of-button-vertically.html",
+      "dropdown-right.html",
+      "dropdown-top--aligns-to-center-of-button-horizontally.html",
+      "dropdown-top--aligns-to-end-of-button-horizontally.html",
+      "dropdown-top.html",
+      "dropdown-using-details-and-summary.html",
+      "dropdown-using-popover-api-and-anchor-positioning.html",
+      "force-close.html",
+      "force-open.html",
+      "helper-dropdown.html"
+    ]
+  },
+  {
+    "name": "fab",
+    "files": [
+      "a-single-fab-floating-action-button.html",
+      "fab-and-flower-speed-dial-with-svg-icons.html",
+      "fab-and-flower-speed-dial-with-tooltip.html",
+      "fab-and-speed-dial-vertical.html",
+      "fab-and-speed-dial-with-labels-and-fab-close-button.html",
+      "fab-and-speed-dial-with-labels-and-fab-main-action-button.html",
+      "fab-and-speed-dial-with-labels.html",
+      "fab-and-speed-dial-with-rectangle-buttons.html",
+      "fab-and-speed-dial-with-svg-icons.html",
+      "fab-flower-and-speed-dial.html"
+    ]
+  },
+  {
+    "name": "fieldset",
+    "files": [
+      "fieldset-fieldset-legend-and-label.html",
+      "fieldset-with-background-and-border.html",
+      "fieldset-with-multiple-inputs.html",
+      "fieldset-with-multiple-join-items.html",
+      "login-form-with-fieldset.html"
+    ]
+  },
+  {
+    "name": "file-input",
+    "files": [
+      "disabled.html",
+      "file-input-ghost.html",
+      "file-input.html",
+      "primary-color.html",
+      "sizes.html",
+      "with-fieldset-and-label.html"
+    ]
+  },
+  {
+    "name": "filter",
+    "files": [
+      "filter-using-html-form-checkboxes-and-a-reset-button.html",
+      "filter-using-html-form-radio-buttons-and-reset-button.html",
+      "filter-without-html-form.html"
+    ]
+  },
+  {
+    "name": "footer",
+    "files": [
+      "centered-footer-with-logo-and-social-icons.html",
+      "centered-footer-with-social-icons.html",
+      "footer-vertical-by-default-horizontal-for-sm-and-up.html",
+      "footer-with-2-rows.html",
+      "footer-with-a-form.html",
+      "footer-with-a-logo-section.html",
+      "footer-with-copyright-text-and-social-icons.html",
+      "footer-with-copyright-text.html",
+      "footer-with-links-and-social-icons.html",
+      "footer-with-logo-and-social-icons.html",
+      "two-footer.html"
+    ]
+  },
+  {
+    "name": "hero",
+    "files": [
+      "centered-hero.html",
+      "hero-with-figure-but-reverse-order.html",
+      "hero-with-figure.html",
+      "hero-with-form.html",
+      "hero-with-overlay-image.html"
+    ]
+  },
+  {
+    "name": "hover-3d",
+    "files": [
+      "3d-card-hover-effect.html",
+      "3d-hover-effect-for-image-gallery.html",
+      "3d-image-hover-effect.html"
+    ]
+  },
+  {
+    "name": "hover-gallery",
+    "files": [
+      "hover-gallery-in-a-card.html",
+      "hover-gallery.html"
+    ]
+  },
+  {
+    "name": "indicator",
+    "files": [
+      "a-button-as-an-indicator-for-a-card.html",
+      "badge-as-indicator.html",
+      "for-an-input.html",
+      "for-avatar.html",
+      "for-button.html",
+      "for-tab.html",
+      "in-center-of-an-image.html",
+      "indicator-bottom-indicator-center.html",
+      "indicator-bottom-indicator-end-default.html",
+      "indicator-bottom-indicator-start.html",
+      "indicator-middle-indicator-center.html",
+      "indicator-middle-indicator-end-default.html",
+      "indicator-middle-indicator-start.html",
+      "indicator-top-default-indicator-center.html",
+      "indicator-top-default-indicator-end-default.html",
+      "indicator-top-default-indicator-start.html",
+      "multiple-indicators.html",
+      "responsive.html",
+      "status-indicator.html"
+    ]
+  },
+  {
+    "name": "input",
+    "files": [
+      "date-input.html",
+      "datetime-local-input.html",
+      "disabled.html",
+      "email-input-with-icon-and-validator.html",
+      "email-input-with-icon-validator-button-join.html",
+      "ghost-style.html",
+      "input-colors.html",
+      "number-input-with-validator.html",
+      "password-input-with-icon-and-validator.html",
+      "search-input-with-icon.html",
+      "sizes.html",
+      "telephone-number-input-with-icon-and-validator.html",
+      "text-input-with-data-list-suggestion.html",
+      "text-input-with-text-label-inside.html",
+      "text-input.html",
+      "time-input.html",
+      "url-with-icon-and-validator.html",
+      "username-text-input-with-icon-and-validator.html",
+      "with-fieldset-and-fieldset-legend.html"
+    ]
+  },
+  {
+    "name": "join",
+    "files": [
+      "custom-border-radius.html",
+      "group-items-vertically.html",
+      "join-radio-inputs-with-btn-style.html",
+      "join.html",
+      "responsive-its-vertical-on-small-screen-and-horizontal-on-large-screen.html",
+      "with-extra-elements-in-the-group.html"
+    ]
+  },
+  {
+    "name": "kbd",
+    "files": [
+      "a-full-keyboard.html",
+      "arrow-keys.html",
+      "function-keys.html",
+      "in-text.html",
+      "kbd-sizes.html",
+      "kbd.html",
+      "key-combination.html"
+    ]
+  },
+  {
+    "name": "label",
+    "files": [
+      "floating-label-with-different-sizes.html",
+      "floating-label.html",
+      "label-for-date-input.html",
+      "label-for-input-at-the-end.html",
+      "label-for-input.html",
+      "label-for-select.html"
+    ]
+  },
+  {
+    "name": "link",
+    "files": [
+      "accent-color.html",
+      "error-color.html",
+      "info-color.html",
+      "link.html",
+      "primary-color.html",
+      "secondary-color.html",
+      "show-underline-only-on-hover.html",
+      "success-color.html",
+      "warning-color.html"
+    ]
+  },
+  {
+    "name": "list",
+    "files": [
+      "list-second-column-grows---default.html",
+      "list-third-column-grows.html",
+      "list-third-column-wraps-to-next-row.html"
+    ]
+  },
+  {
+    "name": "loading",
+    "files": [
+      "loading-ball.html",
+      "loading-bars.html",
+      "loading-dots.html",
+      "loading-infinity.html",
+      "loading-ring.html",
+      "loading-spinner.html",
+      "loading-with-colors.html"
+    ]
+  },
+  {
+    "name": "mask",
+    "files": [
+      "circle.html",
+      "decagon.html",
+      "diamond.html",
+      "heart.html",
+      "hexagon-2-horizontal-hexagon.html",
+      "hexagon.html",
+      "pentagon.html",
+      "square.html",
+      "squircle.html",
+      "star-2-bold-star.html",
+      "star.html",
+      "triangle-2-pointing-down.html",
+      "triangle-3-pointing-left.html",
+      "triangle-4-pointing-right.html",
+      "triangle-pointing-top.html"
+    ]
+  },
+  {
+    "name": "menu",
+    "files": [
+      "collapsible-submenu-that-works-with-class-names.html",
+      "collapsible-submenu.html",
+      "collapsible-with-submenu-responsive.html",
+      "file-tree.html",
+      "horizontal-menu.html",
+      "horizontal-submenu.html",
+      "mega-menu-with-submenu-responsive.html",
+      "menu-sizes.html",
+      "menu-with-active-item.html",
+      "menu-with-disabled-items.html",
+      "menu-with-icon-only-horizontal-with-tooltip.html",
+      "menu-with-icon-only-horizontal.html",
+      "menu-with-icon-only-with-tooltip.html",
+      "menu-with-icon-only.html",
+      "menu-with-icons-and-badge-responsive.html",
+      "menu-with-icons.html",
+      "menu-with-title-as-a-parent.html",
+      "menu-with-title.html",
+      "menu-without-padding-and-border-radius.html",
+      "menu.html",
+      "responsive-vertical-on-small-screen-horizontal-on-large-screen.html",
+      "submenu.html"
+    ]
+  },
+  {
+    "name": "mockup-browser",
+    "files": [
+      "browser-mockup-with-background-color.html",
+      "browser-mockup-with-border.html"
+    ]
+  },
+  {
+    "name": "mockup-code",
+    "files": [
+      "highlighted-line.html",
+      "long-line-will-scroll.html",
+      "mockup-code-with-line-prefix.html",
+      "multi-line.html",
+      "with-color.html",
+      "without-prefix.html"
+    ]
+  },
+  {
+    "name": "mockup-phone",
+    "files": [
+      "iphone-mockup.html",
+      "with-color-and-wallpaper.html"
+    ]
+  },
+  {
+    "name": "mockup-window",
+    "files": [
+      "window-mockup-with-background-color.html",
+      "window-mockup-with-border.html"
+    ]
+  },
+  {
+    "name": "modal",
+    "files": [
+      "dialog-modal-closes-when-clicked-outside.html",
+      "dialog-modal-with-a-close-button-at-corner.html",
+      "dialog-modal-with-custom-width.html",
+      "dialog-modal.html",
+      "modal-that-closes-when-clicked-outside.html",
+      "modal-using-anchor-link.html",
+      "modal-using-checkbox.html",
+      "responsive.html"
+    ]
+  },
+  {
+    "name": "navbar",
+    "files": [
+      "navbar-with-colors.html",
+      "navbar-with-dropdown-center-logo-and-icon.html",
+      "navbar-with-icon-at-start-and-end.html",
+      "navbar-with-icon-indicator-and-dropdown.html",
+      "navbar-with-menu-and-submenu.html",
+      "navbar-with-search-input-and-dropdown.html",
+      "navbar-with-title-and-icon.html",
+      "navbar-with-title-only.html",
+      "responsive-dropdown-menu-on-small-screen-center-menu-on-large-screen.html"
+    ]
+  },
+  {
+    "name": "pagination",
+    "files": [
+      "extra-small-buttons.html",
+      "nexprev-outline-buttons-with-equal-width.html",
+      "pagination-with-an-active-button.html",
+      "sizes.html",
+      "using-radio-inputs.html",
+      "with-a-disabled-button.html"
+    ]
+  },
+  {
+    "name": "progress",
+    "files": [
+      "accent-color.html",
+      "error-color.html",
+      "indeterminate-without-value.html",
+      "info-color.html",
+      "neutral-color.html",
+      "primary-color.html",
+      "progress.html",
+      "secondary-color.html",
+      "success-color.html",
+      "warning-color.html"
+    ]
+  },
+  {
+    "name": "radial-progress",
+    "files": [
+      "custom-color.html",
+      "custom-size-and-custom-thickness.html",
+      "different-values.html",
+      "radial-progress.html",
+      "with-background-color-and-border.html"
+    ]
+  },
+  {
+    "name": "radio",
+    "files": [
+      "accent-color.html",
+      "disabled.html",
+      "error-color.html",
+      "info-color.html",
+      "neutral-color.html",
+      "primary-color.html",
+      "radio-sizes.html",
+      "radio-with-custom-colors.html",
+      "radio.html",
+      "secondary-color.html",
+      "success-color.html",
+      "warning-color.html"
+    ]
+  },
+  {
+    "name": "range",
+    "files": [
+      "accent-color.html",
+      "error-color.html",
+      "info-color.html",
+      "neutral-color.html",
+      "primary-color.html",
+      "range-with-custom-color-and-no-fill.html",
+      "range.html",
+      "secondary-color.html",
+      "sizes.html",
+      "success-color.html",
+      "warning-color.html",
+      "with-steps-and-measure.html"
+    ]
+  },
+  {
+    "name": "rating",
+    "files": [
+      "half-stars.html",
+      "mask-heart-with-multiple-colors.html",
+      "mask-star-2-with-green-500-color.html",
+      "mask-star-2-with-warning-color.html",
+      "rating.html",
+      "read-only-rating.html",
+      "sizes.html",
+      "with-rating-hidden.html"
+    ]
+  },
+  {
+    "name": "select",
+    "files": [
+      "accent-color.html",
+      "disabled.html",
+      "error-color.html",
+      "ghost-no-background.html",
+      "info-color.html",
+      "neutral-color.html",
+      "primary-color.html",
+      "secondary-color.html",
+      "select.html",
+      "sizes.html",
+      "success-color.html",
+      "using-os-native-style-for-the-options-dropdown.html",
+      "warning-color.html",
+      "with-fieldset-and-labels.html"
+    ]
+  },
+  {
+    "name": "skeleton",
+    "files": [
+      "skeleton---circle-with-content.html",
+      "skeleton---rectangle-with-content.html",
+      "skeleton-text---animated-gradient-text.html",
+      "skeleton.html"
+    ]
+  },
+  {
+    "name": "stack",
+    "files": [
+      "3-divs-in-a-stack.html",
+      "stacked-cards-end-direction.html",
+      "stacked-cards-start-direction.html",
+      "stacked-cards-top-direction.html",
+      "stacked-cards-with-shadow.html",
+      "stacked-cards.html",
+      "stacked-images.html"
+    ]
+  },
+  {
+    "name": "stat",
+    "files": [
+      "centered-items.html",
+      "responsive-vertical-on-small-screen-horizontal-on-large-screen.html",
+      "stat-with-icons-or-image.html",
+      "stat.html",
+      "vertical.html",
+      "with-custom-colors-and-button.html"
+    ]
+  },
+  {
+    "name": "status",
+    "files": [
+      "status-sizes.html",
+      "status-with-bounce-animation.html",
+      "status-with-colors.html",
+      "status-with-ping-animation.html",
+      "status.html"
+    ]
+  },
+  {
+    "name": "steps",
+    "files": [
+      "custom-colors.html",
+      "horizontal.html",
+      "responsive-vertical-on-small-screen-horizontal-on-large-screen.html",
+      "vertical.html",
+      "with-custom-content-in-step-icon.html",
+      "with-data-content.html",
+      "with-scrollable-wrapper.html"
+    ]
+  },
+  {
+    "name": "swap",
+    "files": [
+      "activate-using-class-name-instead-of-checkbox.html",
+      "hamburger-button.html",
+      "swap-icons-with-flip-effect.html",
+      "swap-icons-with-rotate-effect.html",
+      "swap-text.html",
+      "swap-volume-icons.html"
+    ]
+  },
+  {
+    "name": "tab",
+    "files": [
+      "radio-tabs-border--tab-content.html",
+      "radio-tabs-box--tab-content.html",
+      "radio-tabs-lift--tab-content-on-bottom.html",
+      "radio-tabs-lift--tab-content.html",
+      "radio-tabs-lift-with-icons--tab-content.html",
+      "sizes.html",
+      "tabs-border.html",
+      "tabs-box-using-radio-inputs.html",
+      "tabs-box-with-a-horizontal-scroll-when-theres-no-space.html",
+      "tabs-box.html",
+      "tabs-lift.html",
+      "tabs-with-custom-color.html",
+      "tabs.html"
+    ]
+  },
+  {
+    "name": "table",
+    "files": [
+      "table-with-a-row-that-highlights-on-hover.html",
+      "table-with-an-active-row.html",
+      "table-with-border-and-background.html",
+      "table-with-pinned-rows-and-pinned-cols.html",
+      "table-with-pinned-rows.html",
+      "table-with-visual-elements.html",
+      "table-xs.html",
+      "table.html",
+      "zebra.html"
+    ]
+  },
+  {
+    "name": "text-rotate",
+    "files": [
+      "custom-line-height.html",
+      "rotating-3-words-with-custom-duration.html",
+      "rotating-6-words.html",
+      "rotating-words-in-a-sentence.html",
+      "text-rotate.html"
+    ]
+  },
+  {
+    "name": "textarea",
+    "files": [
+      "disabled.html",
+      "ghost-no-background.html",
+      "sizes.html",
+      "textarea-colors.html",
+      "textarea.html",
+      "with-form-control-and-labels.html"
+    ]
+  },
+  {
+    "name": "theme-controller",
+    "files": [
+      "theme-controller-using-a-checkbox.html",
+      "theme-controller-using-a-dropdown.html",
+      "theme-controller-using-a-radio-button.html",
+      "theme-controller-using-a-radio-input.html",
+      "theme-controller-using-a-swap.html",
+      "theme-controller-using-a-toggle-with-custom-colors.html",
+      "theme-controller-using-a-toggle-with-icons-inside.html",
+      "theme-controller-using-a-toggle-with-icons.html",
+      "theme-controller-using-a-toggle-with-text.html",
+      "theme-controller-using-a-toggle.html"
+    ]
+  },
+  {
+    "name": "timeline",
+    "files": [
+      "responsive-vertical-by-default-horizontal-on-large-screen.html",
+      "timeline-with-bottom-side-only.html",
+      "timeline-with-colorful-lines.html",
+      "timeline-with-different-sides.html",
+      "timeline-with-icon-snapped-to-the-start.html",
+      "timeline-with-text-on-both-sides-and-icon.html",
+      "timeline-with-top-side-only.html",
+      "timeline-without-icons.html",
+      "vertical-timeline-with-colorful-lines.html",
+      "vertical-timeline-with-different-sides.html",
+      "vertical-timeline-with-left-side-only.html",
+      "vertical-timeline-with-right-side-only.html",
+      "vertical-timeline-with-text-on-both-sides-and-icon.html",
+      "vertical-timeline-without-icons.html"
+    ]
+  },
+  {
+    "name": "toast",
+    "files": [
+      "toast-center-toast-bottom-default.html",
+      "toast-center-toast-middle.html",
+      "toast-end-default-toast-bottom-default.html",
+      "toast-end-toast-middle.html",
+      "toast-start-toast-bottom-default.html",
+      "toast-start-toast-middle.html",
+      "toast-top-toast-center.html",
+      "toast-top-toast-end.html",
+      "toast-top-toast-start.html",
+      "toast-with-alert-inside.html"
+    ]
+  },
+  {
+    "name": "toggle",
+    "files": [
+      "colors.html",
+      "disabled.html",
+      "indeterminate.html",
+      "sizes.html",
+      "toggle-switch.html",
+      "toggle-with-custom-colors.html",
+      "toggle-with-icons-inside.html",
+      "with-fieldset-and-label.html"
+    ]
+  },
+  {
+    "name": "tooltip",
+    "files": [
+      "accent-color.html",
+      "bottom.html",
+      "error-color.html",
+      "force-open.html",
+      "info-color.html",
+      "left.html",
+      "neutral-color.html",
+      "primary-color.html",
+      "responsive-tooltip-only-show-for-large-screen.html",
+      "right.html",
+      "secondary-color.html",
+      "success-color.html",
+      "tooltip-with-tooltip-content.html",
+      "tooltip.html",
+      "top.html",
+      "warning-color.html"
+    ]
+  },
+  {
+    "name": "validator",
+    "files": [
+      "checkbox-requirement-validator.html",
+      "date-input-requirement-validator.html",
+      "form-requirement-validator.html",
+      "number-input-requirement-validator.html",
+      "password-requirement-validator.html",
+      "phone-number-requirement-validator.html",
+      "select-requirement-validator.html",
+      "toggle-requirement-validator.html",
+      "url-input-requirement-validator.html",
+      "username-requirement-validator.html",
+      "validator-and-validator-hint.html",
+      "validator.html"
+    ]
+  }
+]

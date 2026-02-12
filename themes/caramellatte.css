@@ -1,0 +1,31 @@
+[data-theme="caramellatte"] {
+  color-scheme: light;
+  --color-base-100: oklch(96% 0.02 75);
+  --color-base-200: oklch(93% 0.025 75);
+  --color-base-300: oklch(89% 0.03 75);
+  --color-base-content: oklch(30% 0.04 75);
+  --color-primary: oklch(55% 0.15 50);
+  --color-primary-content: oklch(98% 0.01 50);
+  --color-secondary: oklch(60% 0.12 30);
+  --color-secondary-content: oklch(98% 0.01 30);
+  --color-accent: oklch(70% 0.15 85);
+  --color-accent-content: oklch(20% 0.05 85);
+  --color-neutral: oklch(35% 0.03 75);
+  --color-neutral-content: oklch(95% 0.01 75);
+  --color-info: oklch(70% 0.18 230);
+  --color-info-content: oklch(20% 0.05 230);
+  --color-success: oklch(70% 0.18 160);
+  --color-success-content: oklch(20% 0.05 160);
+  --color-warning: oklch(80% 0.15 85);
+  --color-warning-content: oklch(20% 0.05 85);
+  --color-error: oklch(65% 0.2 20);
+  --color-error-content: oklch(98% 0.02 20);
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}

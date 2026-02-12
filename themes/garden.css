@@ -1,0 +1,31 @@
+[data-theme="garden"] {
+  color-scheme: light;
+  --color-base-100: oklch(98% 0.015 130);
+  --color-base-200: oklch(95% 0.02 130);
+  --color-base-300: oklch(91% 0.025 130);
+  --color-base-content: oklch(25% 0.03 130);
+  --color-primary: oklch(55% 0.2 340);
+  --color-primary-content: oklch(98% 0.01 340);
+  --color-secondary: oklch(50% 0.15 200);
+  --color-secondary-content: oklch(98% 0.01 200);
+  --color-accent: oklch(65% 0.18 130);
+  --color-accent-content: oklch(98% 0.01 130);
+  --color-neutral: oklch(30% 0.02 130);
+  --color-neutral-content: oklch(95% 0.01 130);
+  --color-info: oklch(70% 0.18 230);
+  --color-info-content: oklch(20% 0.05 230);
+  --color-success: oklch(70% 0.18 160);
+  --color-success-content: oklch(20% 0.05 160);
+  --color-warning: oklch(80% 0.15 85);
+  --color-warning-content: oklch(20% 0.05 85);
+  --color-error: oklch(65% 0.2 20);
+  --color-error-content: oklch(98% 0.02 20);
+  --radius-selector: 0.75rem;
+  --radius-field: 0.375rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}

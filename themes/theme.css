@@ -1,0 +1,19 @@
+/**
+ * Default Themes - Light and Dark only
+ *
+ * For additional themes, import them explicitly in your input.css
+ * Example: @import "./themes/dracula.css";
+ *
+ * Available themes:
+ * - Light themes: acid, autumn, bumblebee, caramellatte, cmyk, corporate,
+ *                 cupcake, cyberpunk, emerald, fantasy, garden, lemonade,
+ *                 lofi, nord, pastel, retro, silk, valentine, winter, wireframe
+ * - Dark themes:  abyss, aqua, black, business, coffee, dim, dracula,
+ *                 forest, halloween, luxury, night, sunset, synthwave
+ */
+
+/* Default theme (light) - sets :root, :host defaults */
+@import "./light.css";
+
+/* Dark theme */
+@import "./dark.css";

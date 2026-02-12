@@ -1,0 +1,182 @@
+/* Component: drawer */
+
+/* Base drawer */
+@utility drawer {
+  position: relative;
+  display: grid;
+  width: 100%;
+  grid-auto-columns: max-content auto;
+}
+
+/* Drawer content */
+@utility drawer-content {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  min-width: 0;
+}
+
+/* Drawer side */
+@utility drawer-side {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  pointer-events: none;
+  visibility: hidden;
+  position: fixed;
+  inset-inline-start: 0;
+  top: 0;
+  z-index: 10;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+  align-items: flex-start;
+  justify-items: start;
+  overscroll-behavior: contain;
+  background-color: transparent;
+  opacity: 0%;
+  transition: opacity 0.2s ease-out 0.1s, visibility 0.3s ease-out 0.1s;
+  height: 100vh;
+  height: 100dvh;
+
+  > * {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+
+  > .drawer-overlay {
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    place-self: stretch;
+    background-color: oklch(0% 0 0 / 40%);
+  }
+
+  > :not(.drawer-overlay) {
+    will-change: transform;
+    transition: translate 0.3s ease-out, width 0.2s ease-out;
+    translate: -100%;
+
+    [dir="rtl"] & {
+      translate: 100%;
+    }
+  }
+}
+
+/* Drawer overlay - used as label target */
+@utility drawer-overlay {
+  --drawer-overlay: 1;
+}
+
+/* Drawer toggle (checkbox input) */
+@utility drawer-toggle {
+  position: fixed;
+  height: 0;
+  width: 0;
+  appearance: none;
+  opacity: 0%;
+
+  &:checked ~ .drawer-side {
+    scrollbar-color: currentColor oklch(0 0 0 / calc(var(--page-has-backdrop, 0) * 0.4));
+    pointer-events: auto;
+    visibility: visible;
+    overflow-y: auto;
+    opacity: 100%;
+
+    @supports (color: color-mix(in lab, red, red)) {
+      scrollbar-color: color-mix(in oklch, currentColor 35%, #0000) oklch(0 0 0 / calc(var(--page-has-backdrop, 0) * 0.4));
+    }
+
+    > :not(.drawer-overlay) {
+      translate: 0%;
+    }
+  }
+
+  :root:has(&:checked) {
+    --page-has-backdrop: 1;
+    --page-overflow: hidden;
+    --page-scroll-bg: var(--page-scroll-bg-on);
+    --page-scroll-gutter: stable;
+    --page-scroll-transition: var(--page-scroll-transition-on);
+  }
+
+  &:focus-visible ~ .drawer-content label.drawer-button {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+}
+
+/* Drawer button - used as label for toggle */
+@utility drawer-button {
+  --drawer-button: 1;
+}
+
+/* Drawer end - drawer on right side */
+@utility drawer-end {
+  grid-auto-columns: auto max-content;
+
+  > .drawer-toggle {
+    ~ .drawer-content {
+      grid-column-start: 1;
+    }
+
+    ~ .drawer-side {
+      grid-column-start: 2;
+      justify-items: end;
+    }
+
+    ~ .drawer-side > :not(.drawer-overlay) {
+      translate: 100%;
+
+      [dir="rtl"] & {
+        translate: -100%;
+      }
+    }
+
+    &:checked ~ .drawer-side > :not(.drawer-overlay) {
+      translate: 0%;
+    }
+  }
+}
+
+/* Drawer open - permanently visible sidebar (for lg screens) */
+@utility drawer-open {
+  > .drawer-toggle:checked {
+    ~ .drawer-side {
+      scrollbar-color: revert-layer;
+    }
+  }
+
+  > .drawer-side {
+    overflow-y: auto;
+  }
+
+  > .drawer-toggle {
+    display: none;
+
+    ~ .drawer-side {
+      pointer-events: auto;
+      visibility: visible;
+      position: sticky;
+      display: block;
+      width: auto;
+      overscroll-behavior: auto;
+      opacity: 100%;
+
+      > .drawer-overlay {
+        cursor: default;
+        background-color: transparent;
+      }
+
+      > :not(.drawer-overlay) {
+        translate: 0%;
+      }
+    }
+
+    &:checked ~ .drawer-side {
+      pointer-events: auto;
+      visibility: visible;
+    }
+  }
+}

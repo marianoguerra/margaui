@@ -1,0 +1,64 @@
+/* Component: filter */
+
+/* Main filter container */
+@utility filter {
+  display: flex;
+  flex-wrap: wrap;
+
+  input[type="radio"] {
+    width: auto;
+  }
+
+  input {
+    overflow: hidden;
+    opacity: 100%;
+    scale: 1;
+    transition: margin 0.1s, opacity 0.3s, padding 0.3s, border-width 0.1s;
+
+    &:not(:last-child) {
+      margin-inline-end: 0.25rem;
+    }
+
+    &.filter-reset {
+      aspect-ratio: 1 / 1;
+      &::after {
+        --tw-content: "×";
+        content: var(--tw-content);
+      }
+    }
+  }
+
+  /* Hide reset button when no filter is selected */
+  &:not(:has(input:checked:not(.filter-reset))) {
+    .filter-reset,
+    input[type="reset"] {
+      scale: 0;
+      border-width: 0;
+      margin-inline: 0;
+      width: 0;
+      padding-inline: 0;
+      opacity: 0%;
+    }
+  }
+
+  /* Hide unchecked items when a filter is selected */
+  &:has(input:checked:not(.filter-reset)) {
+    input:not(:checked, .filter-reset, input[type="reset"]) {
+      scale: 0;
+      border-width: 0;
+      margin-inline: 0;
+      width: 0;
+      padding-inline: 0;
+      opacity: 0%;
+    }
+  }
+}
+
+/* filter-reset is used inside a .filter component */
+@utility filter-reset {
+  aspect-ratio: 1 / 1;
+  &::after {
+    --tw-content: "×";
+    content: var(--tw-content);
+  }
+}

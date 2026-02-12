@@ -1,0 +1,35 @@
+/* Component: mockup-window */
+
+@utility mockup-window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-x: auto;
+  border-radius: var(--radius-box);
+  padding-top: calc(0.25rem * 5);
+  &:before {
+    content: "";
+    margin-bottom: calc(0.25rem * 4);
+    margin-left: 1rem;
+    display: block;
+    aspect-ratio: 1 / 1;
+    height: calc(0.25rem * 3);
+    flex-shrink: 0;
+    align-self: flex-start;
+    border-radius: calc(infinity * 1px);
+    opacity: 30%;
+    box-shadow: 1.4em 0 currentColor, 2.8em 0 currentColor, 4.2em 0 currentColor;
+  }
+  [dir="rtl"] &:before {
+    align-self: flex-end;
+  }
+  pre[data-prefix] {
+    &:before {
+      --tw-content: attr(data-prefix);
+      content: var(--tw-content);
+      display: inline-block;
+      text-align: right;
+    }
+  }
+}

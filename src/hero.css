@@ -1,0 +1,39 @@
+/* Component: hero */
+
+/* Base hero */
+@utility hero {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+
+  & > * {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+}
+
+/* Hero content */
+@utility hero-content {
+  isolation: isolate;
+  display: flex;
+  max-width: 80rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Hero overlay */
+@utility hero-overlay {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-neutral);
+
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-neutral) 50%, transparent);
+  }
+}

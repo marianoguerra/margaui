@@ -1,0 +1,92 @@
+/* Component: status */
+
+@utility status {
+  display: inline-block;
+  aspect-ratio: 1 / 1;
+  width: calc(0.25rem * 2);
+  height: calc(0.25rem * 2);
+  border-radius: var(--radius-selector);
+  background-color: var(--color-base-content);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+  }
+  background-position: center;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  color: color-mix(in srgb, #000 30%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-black) 30%, transparent);
+  }
+  background-image: radial-gradient(circle at 35% 30%, oklch(1 0 0 / calc(var(--depth) * 0.5)), #0000);
+  box-shadow: 0 2px 3px -1px currentColor;
+  @supports (color: color-mix(in lab, red, red)) {
+    box-shadow: 0 2px 3px -1px color-mix(in oklab, currentColor calc(var(--depth) * 100%), #0000);
+  }
+}
+
+/* Size variants */
+@utility status-xs {
+  width: calc(0.25rem * 0.5);
+  height: calc(0.25rem * 0.5);
+}
+
+@utility status-sm {
+  width: calc(0.25rem * 1);
+  height: calc(0.25rem * 1);
+}
+
+@utility status-md {
+  width: calc(0.25rem * 2);
+  height: calc(0.25rem * 2);
+}
+
+@utility status-lg {
+  width: calc(0.25rem * 3);
+  height: calc(0.25rem * 3);
+}
+
+@utility status-xl {
+  width: calc(0.25rem * 4);
+  height: calc(0.25rem * 4);
+}
+
+/* Color variants */
+@utility status-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+@utility status-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+@utility status-accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+@utility status-neutral {
+  background-color: var(--color-neutral);
+  color: var(--color-neutral);
+}
+
+@utility status-info {
+  background-color: var(--color-info);
+  color: var(--color-info);
+}
+
+@utility status-success {
+  background-color: var(--color-success);
+  color: var(--color-success);
+}
+
+@utility status-warning {
+  background-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+@utility status-error {
+  background-color: var(--color-error);
+  color: var(--color-error);
+}

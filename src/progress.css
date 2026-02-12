@@ -1,0 +1,83 @@
+/* Component: progress */
+
+@keyframes progress {
+  0% {
+    background-position-x: 15%;
+  }
+  50% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 15%;
+  }
+}
+
+/* Base progress */
+@utility progress {
+  position: relative;
+  height: 0.5rem;
+  width: 100%;
+  appearance: none;
+  overflow: hidden;
+  border-radius: var(--radius-box);
+  background-color: color-mix(in oklab, currentcolor 20%, transparent);
+  color: var(--color-base-content);
+
+  &:indeterminate {
+    background-image: repeating-linear-gradient(90deg, currentColor -1%, currentColor 10%, transparent 10%, transparent 90%);
+    background-size: 200%;
+    background-position-x: 15%;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: progress 5s ease-in-out infinite;
+    }
+  }
+
+  &::-webkit-progress-bar {
+    border-radius: var(--radius-box);
+    background-color: transparent;
+  }
+
+  &::-webkit-progress-value {
+    border-radius: var(--radius-box);
+    background-color: currentColor;
+  }
+
+  &::-moz-progress-bar {
+    border-radius: var(--radius-box);
+    background-color: currentcolor;
+  }
+}
+
+/* Color variants */
+@utility progress-primary {
+  color: var(--color-primary);
+}
+
+@utility progress-secondary {
+  color: var(--color-secondary);
+}
+
+@utility progress-accent {
+  color: var(--color-accent);
+}
+
+@utility progress-neutral {
+  color: var(--color-neutral);
+}
+
+@utility progress-info {
+  color: var(--color-info);
+}
+
+@utility progress-success {
+  color: var(--color-success);
+}
+
+@utility progress-warning {
+  color: var(--color-warning);
+}
+
+@utility progress-error {
+  color: var(--color-error);
+}

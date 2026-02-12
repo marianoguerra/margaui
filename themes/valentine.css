@@ -1,0 +1,31 @@
+[data-theme="valentine"] {
+  color-scheme: light;
+  --color-base-100: oklch(97% 0.03 340);
+  --color-base-200: oklch(94% 0.04 340);
+  --color-base-300: oklch(90% 0.05 340);
+  --color-base-content: oklch(30% 0.04 340);
+  --color-primary: oklch(60% 0.22 340);
+  --color-primary-content: oklch(98% 0.01 340);
+  --color-secondary: oklch(70% 0.18 300);
+  --color-secondary-content: oklch(20% 0.05 300);
+  --color-accent: oklch(75% 0.15 200);
+  --color-accent-content: oklch(20% 0.05 200);
+  --color-neutral: oklch(35% 0.03 340);
+  --color-neutral-content: oklch(95% 0.02 340);
+  --color-info: oklch(70% 0.18 230);
+  --color-info-content: oklch(20% 0.05 230);
+  --color-success: oklch(70% 0.18 160);
+  --color-success-content: oklch(20% 0.05 160);
+  --color-warning: oklch(80% 0.15 85);
+  --color-warning-content: oklch(20% 0.05 85);
+  --color-error: oklch(55% 0.22 20);
+  --color-error-content: oklch(98% 0.02 20);
+  --radius-selector: 1.5rem;
+  --radius-field: 0.75rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}

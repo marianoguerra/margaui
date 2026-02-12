@@ -1,0 +1,125 @@
+/* Component: divider */
+
+/* Base divider */
+@utility divider {
+  display: flex;
+  height: 1rem;
+  flex-direction: row;
+  align-items: center;
+  align-self: stretch;
+  white-space: nowrap;
+  margin: var(--divider-m, 1rem 0);
+  --divider-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    height: 0.125rem;
+    width: 100%;
+    flex-grow: 1;
+    background-color: var(--divider-color);
+  }
+
+  @media print {
+    &:before,
+    &:after {
+      border: 0.5px solid;
+    }
+  }
+
+  &:not(:empty) {
+    gap: 1rem;
+  }
+}
+
+/* Position variants */
+@utility divider-start {
+  &:before {
+    display: none;
+  }
+}
+
+@utility divider-end {
+  &:after {
+    display: none;
+  }
+}
+
+/* Horizontal divider (rotates to vertical) */
+@utility divider-horizontal {
+  --divider-m: 0 1rem;
+
+  &.divider {
+    height: auto;
+    width: 1rem;
+    flex-direction: column;
+
+    &:before {
+      height: 100%;
+      width: 0.125rem;
+    }
+
+    &:after {
+      height: 100%;
+      width: 0.125rem;
+    }
+  }
+}
+
+/* Color variants */
+@utility divider-primary {
+  &:before,
+  &:after {
+    background-color: var(--color-primary);
+  }
+}
+
+@utility divider-secondary {
+  &:before,
+  &:after {
+    background-color: var(--color-secondary);
+  }
+}
+
+@utility divider-accent {
+  &:before,
+  &:after {
+    background-color: var(--color-accent);
+  }
+}
+
+@utility divider-neutral {
+  &:before,
+  &:after {
+    background-color: var(--color-neutral);
+  }
+}
+
+@utility divider-info {
+  &:before,
+  &:after {
+    background-color: var(--color-info);
+  }
+}
+
+@utility divider-success {
+  &:before,
+  &:after {
+    background-color: var(--color-success);
+  }
+}
+
+@utility divider-warning {
+  &:before,
+  &:after {
+    background-color: var(--color-warning);
+  }
+}
+
+@utility divider-error {
+  &:before,
+  &:after {
+    background-color: var(--color-error);
+  }
+}

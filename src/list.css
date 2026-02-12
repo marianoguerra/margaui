@@ -1,0 +1,89 @@
+/* Component: list */
+
+/* Base list */
+@utility list {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+}
+
+/* List row - base styles */
+.list .list-row {
+  --list-grid-cols: minmax(0, auto) 1fr;
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1rem;
+  border-radius: var(--radius-box);
+  padding: 1rem;
+  word-break: break-word;
+  grid-template-columns: var(--list-grid-cols);
+}
+
+/* List row - grid column variations based on list-col-grow position */
+.list .list-row:has(.list-col-grow:nth-child(1)) {
+  --list-grid-cols: 1fr;
+}
+
+.list .list-row:has(.list-col-grow:nth-child(2)) {
+  --list-grid-cols: minmax(0, auto) 1fr;
+}
+
+.list .list-row:has(.list-col-grow:nth-child(3)) {
+  --list-grid-cols: minmax(0, auto) minmax(0, auto) 1fr;
+}
+
+.list .list-row:has(.list-col-grow:nth-child(4)) {
+  --list-grid-cols: minmax(0, auto) minmax(0, auto) minmax(0, auto) 1fr;
+}
+
+.list .list-row:has(.list-col-grow:nth-child(5)) {
+  --list-grid-cols: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) 1fr;
+}
+
+.list .list-row:has(.list-col-grow:nth-child(6)) {
+  --list-grid-cols: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) 1fr;
+}
+
+/* All direct children of list-row should be on row 1 */
+.list .list-row > * {
+  grid-row-start: 1;
+}
+
+/* Bottom border for all list-rows except the last */
+.list > :not(:last-child).list-row:after,
+.list > :not(:last-child) .list-row:after {
+  content: "";
+  border-bottom: var(--border) solid;
+  inset-inline: var(--radius-box);
+  position: absolute;
+  bottom: 0;
+  border-color: var(--color-base-content);
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .list > :not(:last-child).list-row:after,
+  .list > :not(:last-child) .list-row:after {
+    border-color: color-mix(in oklab, var(--color-base-content) 5%, transparent);
+  }
+}
+
+/* List row utility marker */
+@utility list-row {
+  --list-row: 1;
+}
+
+/* List col grow - marks column to take remaining space */
+@utility list-col-grow {
+  --list-col-grow: 1;
+}
+
+/* List col wrap - wraps to next row */
+/* Using higher specificity selector since .list .list-row > * sets grid-row-start: 1 */
+.list .list-row .list-col-wrap {
+  grid-row-start: 2;
+}
+
+@utility list-col-wrap {
+  --list-col-wrap: 1;
+}

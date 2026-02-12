@@ -1,0 +1,65 @@
+/* Component: validator */
+
+@utility validator {
+  --validator: 1;
+}
+
+/* Valid state */
+.validator:user-valid,
+.validator:has(:user-valid) {
+  --input-color: var(--color-success);
+}
+
+.validator:user-valid:focus,
+.validator:user-valid:checked,
+.validator:user-valid[aria-checked="true"],
+.validator:user-valid:focus-within,
+.validator:has(:user-valid):focus,
+.validator:has(:user-valid):checked,
+.validator:has(:user-valid)[aria-checked="true"],
+.validator:has(:user-valid):focus-within {
+  --input-color: var(--color-success);
+}
+
+/* Invalid state */
+.validator:user-invalid,
+.validator:has(:user-invalid),
+.validator[aria-invalid]:not([aria-invalid="false"]),
+.validator:has([aria-invalid]:not([aria-invalid="false"])) {
+  --input-color: var(--color-error);
+}
+
+.validator:user-invalid:focus,
+.validator:user-invalid:checked,
+.validator:user-invalid[aria-checked="true"],
+.validator:user-invalid:focus-within,
+.validator:has(:user-invalid):focus,
+.validator:has(:user-invalid):checked,
+.validator:has(:user-invalid)[aria-checked="true"],
+.validator:has(:user-invalid):focus-within,
+.validator[aria-invalid]:not([aria-invalid="false"]):focus,
+.validator[aria-invalid]:not([aria-invalid="false"]):checked,
+.validator[aria-invalid]:not([aria-invalid="false"])[aria-checked="true"],
+.validator[aria-invalid]:not([aria-invalid="false"]):focus-within,
+.validator:has([aria-invalid]:not([aria-invalid="false"])):focus,
+.validator:has([aria-invalid]:not([aria-invalid="false"])):checked,
+.validator:has([aria-invalid]:not([aria-invalid="false"]))[aria-checked="true"],
+.validator:has([aria-invalid]:not([aria-invalid="false"])):focus-within {
+  --input-color: var(--color-error);
+}
+
+/* Show validator hint on invalid state */
+.validator:user-invalid ~ .validator-hint,
+.validator:has(:user-invalid) ~ .validator-hint,
+.validator[aria-invalid]:not([aria-invalid="false"]) ~ .validator-hint,
+.validator:has([aria-invalid]:not([aria-invalid="false"])) ~ .validator-hint {
+  visibility: visible;
+  display: revert-layer;
+  color: var(--color-error);
+}
+
+@utility validator-hint {
+  visibility: hidden;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+}
