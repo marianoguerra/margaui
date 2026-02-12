@@ -166,6 +166,6 @@ Requires [just](https://github.com/casey/just) as a command runner.
 
 ## License
 
-MIT
+MIT -- see [LICENSE](LICENSE) for details.
 
-Built on the shoulders of [daisyUI](https://daisyui.com/) and [Tailwind CSS](https://tailwindcss.com/).
+Built on the shoulders of [daisyUI](https://daisyui.com/) and [Tailwind CSS](https://tailwindcss.com/). If you find this project useful, please consider [supporting Tailwind CSS](https://tailwindcss.com/sponsor).
