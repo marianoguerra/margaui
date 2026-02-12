@@ -1,13 +1,9 @@
 import { entries } from "./vfs.js";
 import { makeCompiler } from "./twcompiler.js";
 
-const SKIP = new Set(["./themes/theme.css"]);
-const sections = ["./base/", "./themes/", "./src/"];
-
 export function buildInput(entries) {
   const imports = Object.keys(entries)
-    .filter(k => sections.some(s => k.startsWith(s)))
-    .filter(k => !SKIP.has(k))
+    .filter(k => !k.startsWith("./tw/") && k !== "tailwindcss")
     .map(k => `@import "${k}";`)
     .join("\n");
   return `@import "tailwindcss" source(none);\n${imports}`;
