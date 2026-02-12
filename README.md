@@ -180,6 +180,40 @@ Available themes:
 @import "./themes/dracula.css";   /* add dracula */
 ```
 
+### Loading themes
+
+Theme files are **not included** in the default browser bundle (`margaui.js` / `vfs.js`). You need to load them separately.
+
+**Link tag** — the simplest option. Just point a `<link>` at the theme file:
+
+```html
+<link rel="stylesheet" href="./themes/dracula.css">
+<body data-theme="dracula">
+```
+
+**Fetch at runtime** — useful when switching themes dynamically:
+
+```html
+<script type="module">
+  const css = await fetch("./themes/dracula.css").then(r => r.text());
+  const style = document.createElement("style");
+  style.textContent = css;
+  document.head.appendChild(style);
+  document.body.setAttribute("data-theme", "dracula");
+</script>
+```
+
+**Import in your CSS** — if you use the Tailwind CLI or build your own `input.css`, import theme files directly:
+
+```css
+@import "./themes/theme.css";     /* light + dark */
+@import "./themes/dracula.css";   /* add more individually */
+```
+
+Then compile as usual with `npx @tailwindcss/cli -i input.css -o style.css`.
+
+**Shadow DOM** — theme variables don't cross shadow boundaries by default. To propagate themes into shadow roots, use a shared `CSSStyleSheet` with `adoptedStyleSheets`. See the playground source for an example using `replaceSync()` to update all adopters on theme change.
+
 ## Components
 
 66 components in `src/`:
