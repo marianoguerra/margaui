@@ -17,7 +17,7 @@ Import `margaui.js` as an ES module, call `compile()` with class names, and inje
 
 ## Quick start (CLI / Tailwind v4)
 
-For traditional Tailwind workflows, use `entry.css` as your input file:
+For traditional Tailwind workflows, create an `entry.css` input file and remove the components you don't need:
 
 ```css
 /* entry.css */
@@ -25,16 +25,96 @@ For traditional Tailwind workflows, use `entry.css` as your input file:
 
 @source "./your-templates/**/*.html";
 
+/* base */
 @import "./base/properties.css";
 @import "./base/rootcolor.css";
+@import "./base/rootscrollgutter.css";
+@import "./base/rootscrolllock.css";
+@import "./base/scrollbar.css";
+
+/* themes (light + dark bundled, add more individually) */
 @import "./themes/theme.css";
-@import "./src/colors.css";
-@import "./src/button.css";
+
+/* components — remove the ones you don't need */
+@import "./src/accordion.css";
+@import "./src/alert.css";
+@import "./src/avatar.css";
 @import "./src/badge.css";
-/* ... add the components you need */
+@import "./src/breadcrumbs.css";
+@import "./src/button.css";
+@import "./src/calendar.css";
+@import "./src/card.css";
+@import "./src/carousel.css";
+@import "./src/chat.css";
+@import "./src/checkbox.css";
+@import "./src/collapse.css";
+@import "./src/colors.css";
+@import "./src/countdown.css";
+@import "./src/diff.css";
+@import "./src/divider.css";
+@import "./src/dock.css";
+@import "./src/drawer.css";
+@import "./src/dropdown.css";
+@import "./src/fab.css";
+@import "./src/fieldset.css";
+@import "./src/file-input.css";
+@import "./src/filter.css";
+@import "./src/footer.css";
+@import "./src/hero.css";
+@import "./src/hover-3d.css";
+@import "./src/hover-gallery.css";
+@import "./src/indicator.css";
+@import "./src/input.css";
+@import "./src/join.css";
+@import "./src/kbd.css";
+@import "./src/label.css";
+@import "./src/link.css";
+@import "./src/list.css";
+@import "./src/loading.css";
+@import "./src/mask.css";
+@import "./src/menu.css";
+@import "./src/mockup-browser.css";
+@import "./src/mockup-code.css";
+@import "./src/mockup-phone.css";
+@import "./src/mockup-window.css";
+@import "./src/modal.css";
+@import "./src/navbar.css";
+@import "./src/pagination.css";
+@import "./src/progress.css";
+@import "./src/radial-progress.css";
+@import "./src/radio.css";
+@import "./src/range.css";
+@import "./src/rating.css";
+@import "./src/select.css";
+@import "./src/skeleton.css";
+@import "./src/stack.css";
+@import "./src/stat.css";
+@import "./src/status.css";
+@import "./src/steps.css";
+@import "./src/swap.css";
+@import "./src/tab.css";
+@import "./src/table.css";
+@import "./src/text-rotate.css";
+@import "./src/textarea.css";
+@import "./src/theme-controller.css";
+@import "./src/timeline.css";
+@import "./src/toast.css";
+@import "./src/toggle.css";
+@import "./src/tooltip.css";
+@import "./src/validator.css";
 ```
 
-Then compile with the Tailwind CLI as usual.
+Then compile with the Tailwind CLI:
+
+```sh
+npx @tailwindcss/cli -i entry.css -o style.css
+```
+
+Add `--watch` to recompile automatically on changes:
+
+```sh
+npx @tailwindcss/cli -i entry.css -o style.css --watch
+```
 
 ## How it works
 
