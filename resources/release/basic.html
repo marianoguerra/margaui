@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>margaui — basic example</title>
+  <link rel="stylesheet" href="./themes/light.css">
+  <style id="margaui"></style>
+  <style>
+    /* Page layout — unlayered so it beats the Tailwind reset */
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-base-200);
+    }
+    .demo {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 32rem;
+      width: 100%;
+    }
+    .demo h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <h1>margaui basic example</h1>
+
+    <!-- Buttons -->
+    <div class="button-row">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-accent">Accent</button>
+      <button class="btn btn-outline">Outline</button>
+      <button class="btn btn-ghost">Ghost</button>
+    </div>
+
+    <!-- Badges -->
+    <div class="badge-row">
+      <span class="badge badge-primary">primary</span>
+      <span class="badge badge-secondary">secondary</span>
+      <span class="badge badge-accent">accent</span>
+      <span class="badge badge-info">info</span>
+      <span class="badge badge-success">success</span>
+      <span class="badge badge-warning">warning</span>
+      <span class="badge badge-error">error</span>
+    </div>
+
+    <!-- Card -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Hello from margaui!</h2>
+        <p>This is a minimal example showing buttons, badges, and a card. All styles are compiled in the browser — no build step required.</p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary btn-sm">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { compile } from "./margaui.min.js";
+
+    const css = await compile([
+      "btn", "btn-primary", "btn-secondary", "btn-accent", "btn-outline", "btn-ghost",
+      "badge", "badge-primary", "badge-secondary", "badge-accent",
+      "badge-info", "badge-success", "badge-warning", "badge-error",
+      "card", "card-body", "card-title", "card-actions",
+      "bg-base-100", "bg-base-200", "shadow-xl", "justify-end", "btn-sm",
+    ]);
+    document.getElementById("margaui").textContent = css;
+  </script>
+</body>
+</html>

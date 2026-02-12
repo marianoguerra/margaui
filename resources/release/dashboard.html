@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>margaui — dashboard</title>
+  <link rel="stylesheet" href="./themes/light.css">
+  <style id="margaui"></style>
+  <style>
+    /* Page layout — unlayered so it beats the Tailwind reset */
+    * { box-sizing: border-box; }
+    body { margin: 0; height: 100vh; }
+    .shell {
+      display: grid;
+      grid-template-columns: 16rem 1fr;
+      grid-template-rows: auto 1fr;
+      height: 100vh;
+    }
+    .shell-nav {
+      grid-column: 1 / -1;
+      border-bottom: 1px solid var(--color-base-300);
+      padding-inline: 1.5rem;
+    }
+    .shell-sidebar {
+      overflow-y: auto;
+      border-right: 1px solid var(--color-base-300);
+      background: var(--color-base-100);
+      padding: 0.75rem;
+    }
+    .shell-main {
+      overflow-y: auto;
+      background: var(--color-base-200);
+      padding: 1.5rem;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .nav-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+    @media (max-width: 768px) {
+      .shell { grid-template-columns: 1fr; }
+      .shell-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <!-- Navbar -->
+    <nav class="shell-nav navbar bg-base-100">
+      <span class="nav-title">Dashboard</span>
+      <div style="margin-left:auto;display:flex;gap:0.5rem;align-items:center">
+        <div class="badge badge-primary">v1.0</div>
+        <div class="avatar placeholder">
+          <div class="bg-neutral text-neutral-content w-8 rounded-full">
+            <span class="text-xs">JD</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="shell-sidebar">
+      <ul class="menu">
+        <li class="menu-title">Navigation</li>
+        <li><a class="active">Dashboard</a></li>
+        <li><a>Analytics</a></li>
+        <li><a>Customers</a></li>
+        <li><a>Products</a></li>
+        <li class="menu-title">Settings</li>
+        <li><a>Profile</a></li>
+        <li><a>Billing</a></li>
+        <li><a>Notifications</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main content -->
+    <main class="shell-main">
+      <!-- Stats row -->
+      <h2 class="section-title">Overview</h2>
+      <div class="stats-grid">
+        <div class="card bg-base-100">
+          <div class="card-body">
+            <div style="font-size:0.875rem;opacity:0.6">Total Revenue</div>
+            <div style="font-size:1.75rem;font-weight:700">$45,231</div>
+            <div class="badge badge-success badge-sm">+20.1%</div>
+          </div>
+        </div>
+        <div class="card bg-base-100">
+          <div class="card-body">
+            <div style="font-size:0.875rem;opacity:0.6">Subscriptions</div>
+            <div style="font-size:1.75rem;font-weight:700">2,350</div>
+            <div class="badge badge-success badge-sm">+12.5%</div>
+          </div>
+        </div>
+        <div class="card bg-base-100">
+          <div class="card-body">
+            <div style="font-size:1.75rem;font-weight:700">12,543</div>
+            <div style="font-size:0.875rem;opacity:0.6">Active Users</div>
+            <div class="badge badge-warning badge-sm">-3.2%</div>
+          </div>
+        </div>
+        <div class="card bg-base-100">
+          <div class="card-body">
+            <div style="font-size:0.875rem;opacity:0.6">Conversion Rate</div>
+            <div style="font-size:1.75rem;font-weight:700">3.24%</div>
+            <div class="badge badge-success badge-sm">+1.8%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content cards -->
+      <h2 class="section-title">Recent Activity</h2>
+      <div class="cards-grid">
+        <div class="card bg-base-100">
+          <div class="card-body">
+            <h3 class="card-title text-sm">New Signups</h3>
+            <p style="font-size:0.875rem;opacity:0.7">42 new users registered in the last 24 hours. Most came from organic search.</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary btn-sm">View All</button>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-base-100">
+          <div class="card-body">
+            <h3 class="card-title text-sm">System Status</h3>
+            <p style="font-size:0.875rem;opacity:0.7">All systems operational. Last incident was 14 days ago. Uptime: 99.98%.</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-ghost btn-sm">Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data table -->
+      <h2 class="section-title">Recent Orders</h2>
+      <div class="card bg-base-100">
+        <div class="card-body" style="padding:0;overflow-x:auto">
+          <table class="table table-zebra">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Customer</th>
+                <th>Status</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#1001</td>
+                <td>Alice Johnson</td>
+                <td><span class="badge badge-success badge-sm">Completed</span></td>
+                <td>$250.00</td>
+              </tr>
+              <tr>
+                <td>#1002</td>
+                <td>Bob Smith</td>
+                <td><span class="badge badge-warning badge-sm">Pending</span></td>
+                <td>$120.50</td>
+              </tr>
+              <tr>
+                <td>#1003</td>
+                <td>Carol White</td>
+                <td><span class="badge badge-success badge-sm">Completed</span></td>
+                <td>$340.00</td>
+              </tr>
+              <tr>
+                <td>#1004</td>
+                <td>David Brown</td>
+                <td><span class="badge badge-error badge-sm">Cancelled</span></td>
+                <td>$89.99</td>
+              </tr>
+              <tr>
+                <td>#1005</td>
+                <td>Eve Davis</td>
+                <td><span class="badge badge-info badge-sm">Processing</span></td>
+                <td>$512.00</td>
+              </tr>
+              <tr>
+                <td>#1006</td>
+                <td>Frank Miller</td>
+                <td><span class="badge badge-success badge-sm">Completed</span></td>
+                <td>$175.25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { compile } from "./margaui.min.js";
+
+    const css = await compile([
+      "navbar", "bg-base-100", "bg-base-200",
+      "badge", "badge-primary", "badge-success", "badge-warning", "badge-error", "badge-info", "badge-sm",
+      "avatar", "placeholder", "bg-neutral", "text-neutral-content", "w-8", "rounded-full", "text-xs",
+      "menu", "menu-title", "active",
+      "card", "card-body", "card-title", "card-actions",
+      "text-sm", "justify-end",
+      "btn", "btn-sm", "btn-primary", "btn-ghost",
+      "table", "table-zebra",
+    ]);
+    document.getElementById("margaui").textContent = css;
+  </script>
+</body>
+</html>
