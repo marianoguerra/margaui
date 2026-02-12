@@ -163,7 +163,6 @@
   </div>
 
   <script type="module">
-    import { entries } from "../vfs.js";
     import { getCompiler } from "../margaui.js";
 
     // Init compiler
@@ -180,10 +179,7 @@
 
     // Theme setup
     const themeSelect = document.getElementById("theme-select");
-    const themeKeys = Object.keys(entries)
-      .filter(k => k.startsWith("./themes/") && k !== "./themes/theme.css")
-      .map(k => k.replace("./themes/", "").replace(".css", ""))
-      .sort();
+    const themeKeys = await fetch("../playground/themes.json").then(r => r.json());
 
     for (const t of themeKeys) {
       const opt = document.createElement("option");
@@ -193,11 +189,20 @@
       themeSelect.appendChild(opt);
     }
 
+    function adoptableThemeCss(css) {
+      return css.replace(/^([^{]*)\{/, ':root, :host, $1{');
+    }
+
+    const themeSheet = new CSSStyleSheet();
+    themeSheet.replaceSync(adoptableThemeCss(await fetch("../themes/light.css").then(r => r.text())));
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, themeSheet];
+
     let currentTheme = "light";
-    themeSelect.addEventListener("change", () => {
+    themeSelect.addEventListener("change", async () => {
       currentTheme = themeSelect.value;
+      const css = await fetch(`../themes/${currentTheme}.css`).then(r => r.text());
+      themeSheet.replaceSync(adoptableThemeCss(css));
       document.body.setAttribute("data-theme", currentTheme);
-      render();
     });
 
     // Component selector
@@ -260,6 +265,7 @@
 
     // Shadow DOM for preview isolation
     const shadow = previewFrame.attachShadow({ mode: "open" });
+    shadow.adoptedStyleSheets = [themeSheet];
 
     function render() {
       const html = htmlInput.value;
@@ -286,7 +292,7 @@
       // Update preview (inside shadow DOM)
       shadow.innerHTML = `
         <style>${css}</style>
-        <div data-theme="${currentTheme}" style="display:flex;flex-wrap:wrap;align-items:start;gap:1rem;padding:2rem">${html}</div>
+        <div style="display:flex;flex-wrap:wrap;align-items:start;gap:1rem;padding:2rem">${html}</div>
       `;
 
       // Update CSS tab

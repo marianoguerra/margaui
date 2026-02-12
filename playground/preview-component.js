@@ -1,8 +1,9 @@
 export class PreviewComponent extends HTMLElement {
   static compiler = null;
+  static themeSheet = null;
 
   static get observedAttributes() {
-    return ["html-src", "theme"];
+    return ["html-src"];
   }
 
   constructor() {
@@ -22,6 +23,9 @@ export class PreviewComponent extends HTMLElement {
   }
 
   async connectedCallback() {
+    if (PreviewComponent.themeSheet) {
+      this.shadowRoot.adoptedStyleSheets = [PreviewComponent.themeSheet];
+    }
     await new Promise((resolve) => setTimeout(resolve, 0));
     await this.load();
   }
@@ -35,7 +39,6 @@ export class PreviewComponent extends HTMLElement {
   async load() {
     const currentSequence = ++this._loadSequence;
     const htmlSrc = this.getAttribute("html-src");
-    const theme = this.getAttribute("theme") || "light";
 
     if (!htmlSrc) return;
 
@@ -68,7 +71,7 @@ export class PreviewComponent extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>${css}</style>
-      <div data-theme="${theme}">${html}</div>
+      <div>${html}</div>
     `;
 
     const cssBytes = new Blob([css]).size;
