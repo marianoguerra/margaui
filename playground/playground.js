@@ -120,8 +120,11 @@ function showComponent(name) {
     title.appendChild(document.createTextNode(humanize(file)));
     const editLink = document.createElement("a");
     editLink.className = "pg-edit-link";
-    editLink.href = `../editor/?component=${encodeURIComponent(name)}&file=${encodeURIComponent(file)}`;
+    editLink.href = `../editor/?component=${encodeURIComponent(name)}&file=${encodeURIComponent(file)}&theme=${encodeURIComponent(currentTheme)}`;
     editLink.textContent = "Edit";
+    editLink.addEventListener("click", () => {
+      editLink.href = `../editor/?component=${encodeURIComponent(name)}&file=${encodeURIComponent(file)}&theme=${encodeURIComponent(currentTheme)}`;
+    });
     title.appendChild(editLink);
     section.appendChild(title);
 

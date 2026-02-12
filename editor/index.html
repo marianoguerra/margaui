@@ -16,7 +16,8 @@
     #ed-nav {
       padding-inline: 1.5rem;
       border-bottom: 1px solid var(--color-base-300);
-      gap: 1rem;
+      gap: 0.5rem 1rem;
+      flex-wrap: wrap;
     }
     #ed-nav .ed-title {
       font-size: 1.25rem;
@@ -35,23 +36,36 @@
       flex-direction: column;
       border-right: 1px solid var(--color-base-300);
     }
-    #ed-toolbar {
+    #ed-nav .ed-example {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.5rem 0.75rem;
-      border-bottom: 1px solid var(--color-base-300);
-      background: var(--color-base-100);
-      flex-wrap: wrap;
     }
-    #ed-toolbar label {
+    .ed-link {
       font-size: 0.8125rem;
-      font-weight: 600;
+      color: var(--color-primary, #4f46e5);
+      text-decoration: underline;
+    }
+    #theme-select {
+      margin-left: auto;
     }
     #html-input {
       flex: 1;
       min-height: 0;
       overflow: hidden;
+    }
+    #ed-editor-footer {
+      display: flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-top: 1px solid var(--color-base-300);
+      font-size: 0.75rem;
+    }
+    #ed-editor-footer label {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      cursor: pointer;
     }
     /* Right panel: preview + css */
     #ed-right {
@@ -95,18 +109,10 @@
     }
     #ed-panel-css {
       flex: 1;
-      overflow: auto;
-      background: var(--color-neutral);
-      color: var(--color-neutral-content);
-      padding: 1rem;
+      min-height: 0;
+      overflow: hidden;
     }
     .ed-hidden { display: none !important; }
-    #ed-panel-css pre { margin: 0; }
-    #ed-panel-css code {
-      font-size: 0.75rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      white-space: pre;
-    }
     #preview-frame {
       width: 100%;
       height: 100%;
@@ -122,18 +128,21 @@
   <div id="app">
     <nav id="ed-nav" class="navbar bg-base-100">
       <span class="ed-title">margaui editor</span>
-      <a href="../playground/" class="btn btn-sm btn-ghost">Playground</a>
+      <div class="ed-example">
+        <select id="component-select" class="select select-sm select-bordered"></select>
+        <select id="file-select" class="select select-sm select-bordered"></select>
+        <button id="load-btn" class="btn btn-sm btn-primary">Load Example</button>
+      </div>
+      <a href="../playground/" class="ed-link">Playground</a>
       <select id="theme-select" class="select select-sm select-bordered"></select>
     </nav>
     <div id="ed-body">
       <div id="ed-left">
-        <div id="ed-toolbar">
-          <label for="component-select">Load example:</label>
-          <select id="component-select" class="select select-sm select-bordered"></select>
-          <select id="file-select" class="select select-sm select-bordered"></select>
-          <button id="load-btn" class="btn btn-sm btn-primary">Load</button>
-        </div>
         <code-editor id="html-input" lang="html" code=""></code-editor>
+        <div id="ed-editor-footer">
+          <label><input type="checkbox" id="editor-dark"> Dark</label>
+          <label><input type="checkbox" id="editor-vim"> Vim</label>
+        </div>
       </div>
       <div id="ed-right">
         <div id="ed-tabs">
@@ -148,7 +157,7 @@
           <div id="preview-frame"></div>
         </div>
         <div id="ed-panel-css" class="ed-hidden">
-          <pre><code id="css-output"></code></pre>
+          <code-editor id="css-output" lang="css" code=""></code-editor>
         </div>
       </div>
     </div>

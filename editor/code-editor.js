@@ -15,6 +15,8 @@ export class CodeMirror extends HTMLElement {
     this._lang = null;
     this._code = null;
     this._rev = null;
+    this._dark = isDarkTheme();
+    this._readonly = false;
     this._initialized = false;
     this._root = this.attachShadow({ mode: "open" });
     this._rootNode = null;
@@ -111,8 +113,13 @@ export class CodeMirror extends HTMLElement {
         this._bubble("code-editor-save", {});
       });
     }
-    if (isDarkTheme()) {
+    if (this._dark) {
       exts.push(darkTheme);
+    }
+    if (this._readonly) {
+      const { EditorState } = this._codemirror;
+      exts.push(EditorState.readOnly.of(true));
+      exts.push(EditorView.editable.of(false));
     }
     return exts;
   }
@@ -149,6 +156,33 @@ export class CodeMirror extends HTMLElement {
 
   get rev() {
     return this._rev;
+  }
+
+  set dark(v) {
+    this._dark = v;
+    if (this._editor) {
+      this._code = this._editor.state.doc.toString();
+      this._replaceCode(this._code);
+    }
+  }
+
+  get dark() {
+    return this._dark;
+  }
+
+  refresh() {
+    if (this._editor) {
+      this._code = this._editor.state.doc.toString();
+      this._replaceCode(this._code);
+    }
+  }
+
+  set readonly(v) {
+    this._readonly = v;
+  }
+
+  get readonly() {
+    return this._readonly;
   }
 }
 

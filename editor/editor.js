@@ -19,7 +19,7 @@ const compiler = await getCompiler();
 const PAGE_CLASSES = [
   "navbar", "bg-base-100",
   "select", "select-sm", "select-bordered",
-  "btn", "btn-sm", "btn-primary", "btn-ghost",
+  "btn", "btn-sm", "btn-primary",
 ];
 document.getElementById("page-styles").textContent = compiler.build(PAGE_CLASSES);
 document.body.style.visibility = "visible";
@@ -28,11 +28,13 @@ document.body.style.visibility = "visible";
 const themeSelect = document.getElementById("theme-select");
 const themeKeys = await fetch("../playground/themes.json").then(r => r.json());
 
+let currentTheme = urlParams.get("theme") || "light";
+
 for (const t of themeKeys) {
   const opt = document.createElement("option");
   opt.value = t;
   opt.textContent = t;
-  if (t === "light") opt.selected = true;
+  if (t === currentTheme) opt.selected = true;
   themeSelect.appendChild(opt);
 }
 
@@ -41,10 +43,9 @@ function adoptableThemeCss(css) {
 }
 
 const themeSheet = new CSSStyleSheet();
-themeSheet.replaceSync(adoptableThemeCss(await fetch("../themes/light.css").then(r => r.text())));
+themeSheet.replaceSync(adoptableThemeCss(await fetch(`../themes/${currentTheme}.css`).then(r => r.text())));
 document.adoptedStyleSheets = [...document.adoptedStyleSheets, themeSheet];
-
-let currentTheme = "light";
+document.body.setAttribute("data-theme", currentTheme);
 themeSelect.addEventListener("change", async () => {
   currentTheme = themeSelect.value;
   const css = await fetch(`../themes/${currentTheme}.css`).then(r => r.text());
@@ -79,10 +80,11 @@ function populateFiles() {
 componentSelect.addEventListener("change", populateFiles);
 populateFiles();
 
-// Editor
+// Editors
 const htmlInput = document.getElementById("html-input");
-const previewFrame = document.getElementById("preview-frame");
 const cssOutput = document.getElementById("css-output");
+cssOutput.readonly = true;
+const previewFrame = document.getElementById("preview-frame");
 const statSize = document.getElementById("stat-size");
 const statTime = document.getElementById("stat-time");
 
@@ -152,7 +154,8 @@ function render() {
   `;
 
   // Update CSS tab
-  cssOutput.textContent = css;
+  cssOutput.code = css;
+  cssOutput.rev = rev;
 
   // Update stats
   const kb = (new Blob([css]).size / 1024).toFixed(2);
@@ -160,6 +163,30 @@ function render() {
   statSize.textContent = `${kb} KB`;
   statTime.textContent = `${ms} ms`;
 }
+
+// Editor dark theme toggle
+const editorDark = document.getElementById("editor-dark");
+editorDark.checked = htmlInput.dark;
+editorDark.addEventListener("change", () => {
+  htmlInput.dark = editorDark.checked;
+  cssOutput.dark = editorDark.checked;
+});
+
+// Vim mode toggle
+const editorVim = document.getElementById("editor-vim");
+editorVim.checked = CodeMirror.isVimMode;
+editorVim.addEventListener("change", () => {
+  CodeMirror.isVimMode = editorVim.checked;
+  htmlInput.refresh();
+  cssOutput.refresh();
+  const url = new URL(location.href);
+  if (editorVim.checked) {
+    url.searchParams.set("vim", "");
+  } else {
+    url.searchParams.delete("vim");
+  }
+  history.replaceState(null, "", url);
+});
 
 // Listen for editor changes (debounced)
 let debounceTimer = null;
