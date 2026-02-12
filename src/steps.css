@@ -12,9 +12,10 @@
 
 /* Step item */
 @utility step {
+  --step-icon-size: 2.5rem;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: var(--step-icon-size) 1fr;
   place-items: center;
   text-align: center;
   min-width: 4rem;
@@ -172,7 +173,7 @@
 
   & .step {
     display: grid;
-    grid-template-columns: 40px 1fr;
+    grid-template-columns: var(--step-icon-size) 1fr;
     grid-template-rows: auto;
     gap: 0.5rem;
     min-height: 4rem;
@@ -200,7 +201,7 @@
   & .step {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 40px 1fr;
+    grid-template-rows: var(--step-icon-size) 1fr;
     place-items: center;
     text-align: center;
     min-width: 4rem;

@@ -67,6 +67,7 @@
 
 /* React Day Picker styling */
 .react-day-picker {
+  --calendar-cell-size: 2.25rem;
   user-select: none;
   background-color: var(--color-base-100);
   border-radius: var(--radius-box);
@@ -87,16 +88,16 @@
     box-sizing: border-box;
   }
   .rdp-day {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: var(--calendar-cell-size);
+    height: var(--calendar-cell-size);
     text-align: center;
   }
   .rdp-day_button {
     cursor: pointer;
     font: inherit;
     color: inherit;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: var(--calendar-cell-size);
+    height: var(--calendar-cell-size);
     border: 2px solid #0000;
     border-radius: var(--radius-field);
     background: 0 0;
@@ -143,8 +144,8 @@
     font: inherit;
     color: inherit;
     appearance: none;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: var(--calendar-cell-size);
+    height: var(--calendar-cell-size);
     background: 0 0;
     border: none;
     justify-content: center;
@@ -246,8 +247,8 @@
   }
   .rdp-week_number {
     opacity: 0.6;
-    height: 2.25rem;
-    width: 2.25rem;
+    height: var(--calendar-cell-size);
+    width: var(--calendar-cell-size);
     border: none;
     border-radius: 100%;
     text-align: center;
@@ -325,6 +326,7 @@
 /* Pikaday styling */
 .pika-single {
   &:is(div) {
+    --calendar-cell-size: 2.25rem;
     user-select: none;
     font-size: 0.75rem;
     z-index: 999;
@@ -390,8 +392,8 @@
       top: 0;
       outline: none;
       border: 0;
-      width: 2.25rem;
-      height: 2.25rem;
+      width: var(--calendar-cell-size);
+      height: var(--calendar-cell-size);
       color: #0000;
       font-size: 1.2em;
       border-radius: var(--radius-field);
@@ -404,8 +406,8 @@
       }
       &:before {
         display: inline-block;
-        width: 2.25rem;
-        height: 2.25rem;
+        width: var(--calendar-cell-size);
+        height: var(--calendar-cell-size);
         line-height: 2.25;
         color: var(--color-base-content);
       }
@@ -444,8 +446,8 @@
       th {
         opacity: 0.6;
         text-align: center;
-        width: 2.25rem;
-        height: 2.25rem;
+        width: var(--calendar-cell-size);
+        height: var(--calendar-cell-size);
       }
     }
 
@@ -455,8 +457,8 @@
       outline: none;
       border: 0;
       margin: 0;
-      width: 2.25rem;
-      height: 2.25rem;
+      width: var(--calendar-cell-size);
+      height: var(--calendar-cell-size);
       padding: 5px;
       text-align: right;
       text-align: center;

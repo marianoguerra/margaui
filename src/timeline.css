@@ -40,7 +40,7 @@
 }
 
 .timeline :where(hr) {
-  height: calc(0.25rem * 1);
+  height: 0.25rem;
   background-color: var(--color-base-300);
 }
 
@@ -91,7 +91,7 @@
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
-  margin: calc(0.25rem * 1);
+  margin: 0.25rem;
   align-self: flex-end;
   justify-self: center;
 }
@@ -106,7 +106,7 @@
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 4;
-  margin: calc(0.25rem * 1);
+  margin: 0.25rem;
   align-self: flex-start;
   justify-self: center;
 }
@@ -116,8 +116,8 @@
   border-radius: var(--radius-box);
   border-color: var(--color-base-300);
   background-color: var(--color-base-100);
-  padding-inline: calc(0.25rem * 4);
-  padding-block: calc(0.25rem * 2);
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
   font-size: 0.75rem;
   box-shadow: 0 1px 2px 0 oklch(0% 0 0 / 0.05);
 }
@@ -135,7 +135,7 @@
 
 .timeline-vertical > li > hr {
   height: 100%;
-  width: calc(0.25rem * 1);
+  width: 0.25rem;
 }
 
 .timeline-vertical > li > hr:first-child {
@@ -209,75 +209,6 @@
   flex-direction: row;
 }
 
-.timeline-horizontal > li {
-  align-items: center;
-}
-
-.timeline-horizontal > li > hr {
-  height: calc(0.25rem * 1);
-  width: 100%;
-}
-
-.timeline-horizontal > li > hr:first-child {
-  grid-column-start: 1;
-  grid-row-start: 2;
-}
-
-.timeline-horizontal > li > hr:last-child {
-  grid-column-start: 3;
-  grid-column-end: none;
-  grid-row-start: 2;
-  grid-row-end: auto;
-}
-
-.timeline-horizontal .timeline-start {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  align-self: flex-end;
-  justify-self: center;
-}
-
-.timeline-horizontal .timeline-end {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 3;
-  grid-row-end: 4;
-  align-self: flex-start;
-  justify-self: center;
-}
-
-/* Horizontal timeline hr border radius when has middle */
-.timeline-horizontal:has(.timeline-middle) > li > hr:first-child {
-  border-start-start-radius: 0;
-  border-end-start-radius: 0;
-  border-start-end-radius: var(--radius-selector);
-  border-end-end-radius: var(--radius-selector);
-}
-
-.timeline-horizontal:has(.timeline-middle) > li > hr:last-child {
-  border-start-start-radius: var(--radius-selector);
-  border-end-start-radius: var(--radius-selector);
-  border-start-end-radius: 0;
-  border-end-end-radius: 0;
-}
-
-/* Horizontal timeline hr border radius when no middle */
-.timeline-horizontal:not(:has(.timeline-middle)) :first-child > hr:last-child {
-  border-start-start-radius: var(--radius-selector);
-  border-end-start-radius: var(--radius-selector);
-  border-start-end-radius: 0;
-  border-end-end-radius: 0;
-}
-
-.timeline-horizontal:not(:has(.timeline-middle)) :last-child > hr:first-child {
-  border-start-start-radius: 0;
-  border-end-start-radius: 0;
-  border-start-end-radius: var(--radius-selector);
-  border-end-end-radius: var(--radius-selector);
-}
-
 /* Responsive lg:timeline-horizontal variant needs explicit rules */
 @media (width >= 64rem) {
   .lg\:timeline-horizontal {
@@ -289,7 +220,7 @@
   }
 
   .lg\:timeline-horizontal > li > hr {
-    height: calc(0.25rem * 1);
+    height: 0.25rem;
     width: 100%;
   }
 

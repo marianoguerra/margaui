@@ -1,6 +1,9 @@
 /* Component: dock */
 
 @utility dock {
+  --dock-h: 4rem;
+  --dock-label-size: 0.6875rem;
+  --dock-active-bottom: 0.2rem;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -15,8 +18,8 @@
   padding: 0.5rem;
   color: currentcolor;
   border-top: 0.5px solid color-mix(in oklab, var(--color-base-content) 5%, #0000);
-  height: 4rem;
-  height: calc(4rem + env(safe-area-inset-bottom));
+  height: var(--dock-h);
+  height: calc(var(--dock-h) + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
 
   > * {
@@ -43,7 +46,7 @@
       width: 1.5rem;
       border-radius: calc(infinity * 1px);
       background-color: transparent;
-      bottom: 0.2rem;
+      bottom: var(--dock-active-bottom);
       border-top: 3px solid transparent;
       transition: background-color 0.1s ease-out, width 0.1s ease-out;
     }
@@ -64,7 +67,7 @@
 }
 
 @utility dock-label {
-  font-size: 0.6875rem;
+  font-size: var(--dock-label-size);
 }
 
 @utility dock-active {
@@ -76,61 +79,30 @@
 
 /* Size variants */
 @utility dock-xs {
-  height: 3rem;
-  height: calc(3rem + env(safe-area-inset-bottom));
-  .dock-active {
-    &:after {
-      bottom: -0.1rem;
-    }
-  }
-  .dock-label {
-    font-size: 0.625rem;
-  }
+  --dock-h: 3rem;
+  --dock-active-bottom: -0.1rem;
+  --dock-label-size: 0.625rem;
 }
 
 @utility dock-sm {
-  height: 3.5rem;
-  height: calc(3.5rem + env(safe-area-inset-bottom));
-  .dock-active {
-    &:after {
-      bottom: -0.1rem;
-    }
-  }
-  .dock-label {
-    font-size: 0.625rem;
-  }
+  --dock-h: 3.5rem;
+  --dock-active-bottom: -0.1rem;
+  --dock-label-size: 0.625rem;
 }
 
 @utility dock-md {
-  height: 4rem;
-  height: calc(4rem + env(safe-area-inset-bottom));
-  .dock-label {
-    font-size: 0.6875rem;
-  }
+  --dock-h: 4rem;
+  --dock-label-size: 0.6875rem;
 }
 
 @utility dock-lg {
-  height: 4.5rem;
-  height: calc(4.5rem + env(safe-area-inset-bottom));
-  .dock-active {
-    &:after {
-      bottom: 0.4rem;
-    }
-  }
-  .dock-label {
-    font-size: 0.6875rem;
-  }
+  --dock-h: 4.5rem;
+  --dock-active-bottom: 0.4rem;
+  --dock-label-size: 0.6875rem;
 }
 
 @utility dock-xl {
-  height: 5rem;
-  height: calc(5rem + env(safe-area-inset-bottom));
-  .dock-active {
-    &:after {
-      bottom: 0.4rem;
-    }
-  }
-  .dock-label {
-    font-size: 0.75rem;
-  }
+  --dock-h: 5rem;
+  --dock-active-bottom: 0.4rem;
+  --dock-label-size: 0.75rem;
 }
