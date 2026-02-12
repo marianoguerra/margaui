@@ -158,3 +158,9 @@ Requires [just](https://github.com/casey/just) as a command runner.
 | `just dist` | Build minified distribution in `dist/` |
 | `just check-sync` | Verify source files and imports are in sync |
 | `just fetch-tw` | Re-fetch and bundle `tailwindcss.js` |
+
+## License
+
+MIT
+
+Built on the shoulders of [daisyUI](https://daisyui.com/) and [Tailwind CSS](https://tailwindcss.com/).
