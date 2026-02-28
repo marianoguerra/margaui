@@ -1,3 +1,5 @@
+TAILWIND_VSN := "4.2.1"
+
 check-sync:
   python3 tools/check_sync.py
 
@@ -11,7 +13,7 @@ gen-component-tree:
 playground: gen-vfs-dev gen-component-tree gen-theme-list
 
 fetch-tw:
-  deno bundle --minify "https://esm.sh/tailwindcss" > tailwindcss.js
+  deno bundle --minify "https://esm.sh/tailwindcss@{{TAILWIND_VSN}}" > tailwindcss.js
 
 gen-theme-list:
   python3 tools/gen_theme_list.py themes > playground/themes.json
