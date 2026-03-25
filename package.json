@@ -1,0 +1,36 @@
+{
+  "name": "margaui",
+  "version": "0.9.0",
+  "description": "Tailwind 4 port of daisyui that can run completely in the browser",
+  "type": "module",
+  "main": "dist/margaui.min.js",
+  "module": "dist/margaui.min.js",
+  "exports": {
+    ".": "./dist/margaui.min.js",
+    "./themes/*": "./dist/themes/*"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marianoguerra/margaui.git"
+  },
+  "keywords": [
+    "tailwind",
+    "daisyui",
+    "css",
+    "ui",
+    "components"
+  ],
+  "author": "Mariano Guerra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marianoguerra/margaui/issues"
+  },
+  "homepage": "https://github.com/marianoguerra/margaui#readme"
+}
