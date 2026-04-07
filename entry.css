@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 
-@source "./components/*/*.html";
+/* TODO: change to the real source blob */
+@source "./playground/components/*/*.html";
 
 @import "./base/properties.css";
 @import "./base/rootcolor.css";
