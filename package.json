@@ -1,6 +1,6 @@
 {
   "name": "margaui",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Tailwind 4 port of daisyui that can run completely in the browser",
   "type": "module",
   "main": "dist/margaui.min.js",
@@ -14,8 +14,9 @@
     "dist/"
   ],
   "devDependencies": {
-    "@tailwindcss/cli": "4.2.1",
-    "tailwindcss": "4.2.1"
+    "@tailwindcss/cli": "4.2.2",
+    "esbuild": "0.28.0",
+    "tailwindcss": "4.2.2"
   },
   "scripts": {
     "check-sync": "python3 tools/check_sync.py",
@@ -24,7 +25,7 @@
     "gen-component-tree": "python3 tools/create-component-tree.py playground/components > playground/components.json",
     "gen-theme-list": "python3 tools/gen_theme_list.py themes > playground/themes.json",
     "playground": "npm run gen-vfs-dev && npm run gen-component-tree && npm run gen-theme-list",
-    "fetch-tw": "bun build --minify 'https://esm.sh/tailwindcss@4.2.1' > tailwindcss.js",
+    "fetch-tw": "bun build --minify 'https://esm.sh/tailwindcss@4.2.2' > tailwindcss.js",
     "min-css-src": "mkdir -p dist/src && bunx --bun esbuild --minify --outdir=dist/src src/*.css",
     "min-css-themes": "mkdir -p dist/themes && bunx --bun esbuild --minify --outdir=dist/themes themes/*.css",
     "min-css-base": "mkdir -p dist/base && bunx --bun esbuild --minify --outdir=dist/base base/*.css",
