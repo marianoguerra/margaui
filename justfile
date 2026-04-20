@@ -1,51 +1,35 @@
-TAILWIND_VSN := "4.2.1"
-
 check-sync:
-  python3 tools/check_sync.py
+  npm run check-sync
 
-smoke-test-tw-cli output="-":
-  bunx --bun @tailwindcss/cli -i entry.css -o {{output}}
+smoke-test-tw-cli:
+  npm run smoke-test-tw-cli
 
 gen-vfs-dev:
-  python3 tools/make_vfs_esm.py 'src/*.css' 'base/*.css' 'tw/*.css' \
-    'tailwindcss=tw/tailwindcss.css' > vfs.js
+  npm run gen-vfs-dev
 
 gen-component-tree:
-  python3 tools/create-component-tree.py playground/components > playground/components.json
-
-playground: gen-vfs-dev gen-component-tree gen-theme-list
-
-fetch-tw:
-  bun build --minify "https://esm.sh/tailwindcss@{{TAILWIND_VSN}}" > tailwindcss.js
+  npm run gen-component-tree
 
 gen-theme-list:
-  python3 tools/gen_theme_list.py themes > playground/themes.json
+  npm run gen-theme-list
+
+playground:
+  npm run playground
+
+fetch-tw:
+  npm run fetch-tw
 
 gen-vfs:
-  rm -rf dist
-  mkdir dist
-  just min-css-dir src
-  just min-css-dir themes
-  just min-css-dir base
-  just min-css-dir tw
-  cp tw/tailwindcss.css dist/tw/
-  cd dist; ../tools/make_vfs_esm.py 'src/*.css' 'base/*.css' 'tw/*.css' \
-    'tailwindcss=tw/tailwindcss.css' > ../vfs.js
-  bun build --minify margaui.js > dist/margaui.min.js
+  npm run gen-vfs
 
-min-css-dir DIR:
-  mkdir -p dist/{{DIR}}
-  bunx --bun esbuild --minify --outdir=dist/{{DIR}} {{DIR}}/*.css
+dist:
+  npm run dist
 
-dist: gen-vfs
-  rm -r dist/src dist/base dist/tw
-  cp examples/*.html examples/README.md dist/
+publish-dry:
+  npm run publish-dry
 
-publish-dry: dist
-  npm pack --dry-run
+pack:
+  npm run pack
 
-pack: dist
-  npm pack
-
-publish: dist
-  npm publish
+publish:
+  npm run dist && npm publish

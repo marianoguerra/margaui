@@ -18,7 +18,21 @@
     "tailwindcss": "4.2.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check-sync": "python3 tools/check_sync.py",
+    "smoke-test-tw-cli": "bunx --bun @tailwindcss/cli -i entry.css -o -",
+    "gen-vfs-dev": "python3 tools/make_vfs_esm.py 'src/*.css' 'base/*.css' 'tw/*.css' 'tailwindcss=tw/tailwindcss.css' > vfs.js",
+    "gen-component-tree": "python3 tools/create-component-tree.py playground/components > playground/components.json",
+    "gen-theme-list": "python3 tools/gen_theme_list.py themes > playground/themes.json",
+    "playground": "npm run gen-vfs-dev && npm run gen-component-tree && npm run gen-theme-list",
+    "fetch-tw": "bun build --minify 'https://esm.sh/tailwindcss@4.2.1' > tailwindcss.js",
+    "min-css-src": "mkdir -p dist/src && bunx --bun esbuild --minify --outdir=dist/src src/*.css",
+    "min-css-themes": "mkdir -p dist/themes && bunx --bun esbuild --minify --outdir=dist/themes themes/*.css",
+    "min-css-base": "mkdir -p dist/base && bunx --bun esbuild --minify --outdir=dist/base base/*.css",
+    "min-css-tw": "mkdir -p dist/tw && bunx --bun esbuild --minify --outdir=dist/tw tw/*.css",
+    "gen-vfs": "rm -rf dist && mkdir dist && npm run min-css-src && npm run min-css-themes && npm run min-css-base && npm run min-css-tw && cp tw/tailwindcss.css dist/tw/ && cd dist && ../tools/make_vfs_esm.py 'src/*.css' 'base/*.css' 'tw/*.css' 'tailwindcss=tw/tailwindcss.css' > ../vfs.js && cd .. && bun build --minify margaui.js > dist/margaui.min.js",
+    "dist": "npm run gen-vfs && rm -r dist/src dist/base dist/tw && cp examples/*.html examples/README.md dist/",
+    "publish-dry": "npm run dist && npm pack --dry-run",
+    "pack": "npm run dist && npm pack"
   },
   "repository": {
     "type": "git",
