@@ -1,6 +1,6 @@
 {
   "name": "margaui",
-  "version": "0.9.1",
+  "version": "0.9.5",
   "description": "Tailwind 4 port of daisyui that can run completely in the browser",
   "type": "module",
   "main": "dist/margaui.min.js",
@@ -14,9 +14,9 @@
     "dist/"
   ],
   "devDependencies": {
-    "@tailwindcss/cli": "4.2.2",
+    "@tailwindcss/cli": "4.2.3",
     "esbuild": "0.28.0",
-    "tailwindcss": "4.2.2"
+    "tailwindcss": "4.2.3"
   },
   "scripts": {
     "check-sync": "python3 tools/check_sync.py",
