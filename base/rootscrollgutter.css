@@ -1,4 +1,5 @@
-:root {
+:root,
+:host {
   background: var(--page-scroll-bg, var(--root-bg));
   --page-scroll-bg-on: linear-gradient(var(--root-bg, #0000), var(--root-bg, #0000))
     color-mix(in srgb, var(--root-bg, #0000), oklch(0% 0 0) calc(var(--page-has-backdrop, 0) * 40%));

@@ -95,7 +95,8 @@
     }
   }
 
-  :root:has(&:checked) {
+  :root:has(&:checked),
+  :host:has(&:checked) {
     --page-has-backdrop: 1;
     --page-overflow: hidden;
     --page-scroll-bg: var(--page-scroll-bg-on);

@@ -3,7 +3,8 @@
    content recolors with the active theme. No `@utility` because this is a
    descendant rule on an existing class (matches upstream daisyUI). */
 
-:root .prose {
+:root .prose,
+:host .prose {
   --tw-prose-body: color-mix(in oklab, var(--color-base-content) 80%, transparent);
   --tw-prose-headings: var(--color-base-content);
   --tw-prose-lead: var(--color-base-content);

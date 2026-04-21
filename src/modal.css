@@ -43,7 +43,8 @@
       opacity: 1;
     }
 
-    :root:has(&) {
+    :root:has(&),
+    :host:has(&) {
       --page-has-backdrop: 1;
       --page-overflow: hidden;
       --page-scroll-bg: var(--page-scroll-bg-on);

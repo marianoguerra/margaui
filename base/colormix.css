@@ -10,7 +10,8 @@
  * duplication, not the fallback ceremony. Extend this file as more
  * cross-component mixes appear.
  */
-:root {
+:root,
+:host {
   --mg-subtle-10: color-mix(in oklab, var(--color-base-content) 10%, transparent);
   --mg-subtle-20: color-mix(in oklab, var(--color-base-content) 20%, transparent);
   --mg-subtle-40: color-mix(in oklab, var(--color-base-content) 40%, transparent);

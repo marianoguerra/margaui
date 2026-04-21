@@ -1,4 +1,5 @@
 /* force higher specificity */
-:root:not(span) {
+:root:not(span),
+:host:not(span) {
   overflow: var(--page-overflow);
 }

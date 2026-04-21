@@ -11,7 +11,8 @@
  * stored as tokens and re-resolved against the current scope's
  * --size-field / --size-selector, so theme overrides still apply.
  */
-:root {
+:root,
+:host {
   --mg-field-xs: calc(var(--size-field, 0.25rem) * 6);
   --mg-field-sm: calc(var(--size-field, 0.25rem) * 8);
   --mg-field-md: calc(var(--size-field, 0.25rem) * 10);
