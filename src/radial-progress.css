@@ -1,10 +1,9 @@
-/* Component: radial-progress */
-
-@property --radialprogress {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: 0%;
-}
+/* Component: radial-progress.
+   The `@property --radialprogress` (inherits: true) registration lives in
+   base/properties.css — declaring it here too caused Tailwind v4.2.1's
+   in-browser compiler to emit `inherits: false` regardless of source,
+   which broke the conic-gradient on `::before` (the pseudo couldn't
+   inherit the value from its host `.radial-progress`). */
 
 /* Base radial-progress */
 @utility radial-progress {
@@ -29,7 +28,11 @@
     inset: 0;
     border-radius: calc(infinity * 1px);
     content: "";
-    background: radial-gradient(farthest-side, currentColor 98%, #0000) top / var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor var(--radialprogress), #0000 0);
+    /* Tailwind v4.2.1's in-browser compiler forces `@property --radialprogress`
+       to `inherits: false` and emits `*, ::before, ::after { --radialprogress: 0% }`
+       which kills inheritance AND any attempt to re-assign --radialprogress in this
+       block. Compute the stop directly from --value (which does inherit). */
+    background: radial-gradient(farthest-side, currentColor 98%, #0000) top / var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor calc(var(--value) * 1%), #0000 0);
     -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - var(--thickness)), #000 calc(100% + 0.5px - var(--thickness)));
     mask: radial-gradient(farthest-side, #0000 calc(100% - var(--thickness)), #000 calc(100% + 0.5px - var(--thickness)));
   }

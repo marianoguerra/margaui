@@ -115,6 +115,14 @@
   justify-content: center;
   gap: 1rem;
 }
+
+/* Give the shadow host a stable layout box so components that rely on flowing
+   width (mockup-window, w-full children, etc.) don't collapse to the inner
+   text content when they're the only flex item. */
+preview-component {
+  display: block;
+  width: 100%;
+}
 .pg-code {
   border-color: var(--color-base-300);
   overflow: hidden;

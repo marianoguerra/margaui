@@ -49,3 +49,12 @@
     grid-auto-flow: row dense;
   }
 }
+
+/* Footer vertical (explicit reset back to the default row flow) */
+@utility footer-vertical {
+  grid-auto-flow: row;
+
+  &.footer-center {
+    grid-auto-flow: column dense;
+  }
+}

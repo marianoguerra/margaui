@@ -1,7 +1,15 @@
 /* Component: text-rotate */
 
 @keyframes rotator {
-  to {
+  89.9999%,
+  100% {
+    --first-item-position: 0 0%;
+  }
+  90%,
+  99.9999% {
+    --first-item-position: 0 calc(var(--items) * 100%);
+  }
+  100% {
     translate: 0 -100%;
   }
 }

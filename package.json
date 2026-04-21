@@ -1,6 +1,6 @@
 {
   "name": "margaui",
-  "version": "0.9.5",
+  "version": "0.10.5519",
   "description": "Tailwind 4 port of daisyui that can run completely in the browser",
   "type": "module",
   "main": "dist/margaui.min.js",

@@ -1,11 +1,11 @@
 /* Component: skeleton */
 
 @keyframes skeleton {
-  from {
-    background-position-x: -50%;
+  0% {
+    background-position: 150%;
   }
-  to {
-    background-position-x: 150%;
+  100% {
+    background-position: -50%;
   }
 }
 

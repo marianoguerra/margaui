@@ -46,7 +46,7 @@
   }
 }
 
-/* Horizontal divider (rotates to vertical) */
+/* Horizontal divider (rotates to vertical column) */
 @utility divider-horizontal {
   --divider-m: 0 1rem;
 
@@ -63,6 +63,27 @@
     &:after {
       height: 100%;
       width: 0.125rem;
+    }
+  }
+}
+
+/* Vertical divider (explicit reset to horizontal row — the default) */
+@utility divider-vertical {
+  --divider-m: 1rem 0;
+
+  &.divider {
+    height: 1rem;
+    width: auto;
+    flex-direction: row;
+
+    &:before {
+      height: 0.125rem;
+      width: 100%;
+    }
+
+    &:after {
+      height: 0.125rem;
+      width: 100%;
     }
   }
 }

@@ -53,9 +53,9 @@
 }
 
 @utility loading-lg {
-  width: calc(var(--size-selector, 0.25rem) * 8);
+  width: calc(var(--size-selector, 0.25rem) * 7);
 }
 
 @utility loading-xl {
-  width: calc(var(--size-selector, 0.25rem) * 10);
+  width: calc(var(--size-selector, 0.25rem) * 8);
 }

@@ -1,0 +1,111 @@
+/* Utility: radius — per-corner helpers for the three daisyUI radius tokens.
+   Base `rounded-box/field/selector` already live in colors.css; this file adds
+   the edge (t/b/l/r) and corner (tl/tr/br/bl) variants. */
+
+@utility rounded-t-box {
+  border-top-left-radius: var(--radius-box);
+  border-top-right-radius: var(--radius-box);
+}
+
+@utility rounded-b-box {
+  border-bottom-left-radius: var(--radius-box);
+  border-bottom-right-radius: var(--radius-box);
+}
+
+@utility rounded-l-box {
+  border-top-left-radius: var(--radius-box);
+  border-bottom-left-radius: var(--radius-box);
+}
+
+@utility rounded-r-box {
+  border-top-right-radius: var(--radius-box);
+  border-bottom-right-radius: var(--radius-box);
+}
+
+@utility rounded-tl-box {
+  border-top-left-radius: var(--radius-box);
+}
+
+@utility rounded-tr-box {
+  border-top-right-radius: var(--radius-box);
+}
+
+@utility rounded-br-box {
+  border-bottom-right-radius: var(--radius-box);
+}
+
+@utility rounded-bl-box {
+  border-bottom-left-radius: var(--radius-box);
+}
+
+@utility rounded-t-field {
+  border-top-left-radius: var(--radius-field);
+  border-top-right-radius: var(--radius-field);
+}
+
+@utility rounded-b-field {
+  border-bottom-left-radius: var(--radius-field);
+  border-bottom-right-radius: var(--radius-field);
+}
+
+@utility rounded-l-field {
+  border-top-left-radius: var(--radius-field);
+  border-bottom-left-radius: var(--radius-field);
+}
+
+@utility rounded-r-field {
+  border-top-right-radius: var(--radius-field);
+  border-bottom-right-radius: var(--radius-field);
+}
+
+@utility rounded-tl-field {
+  border-top-left-radius: var(--radius-field);
+}
+
+@utility rounded-tr-field {
+  border-top-right-radius: var(--radius-field);
+}
+
+@utility rounded-br-field {
+  border-bottom-right-radius: var(--radius-field);
+}
+
+@utility rounded-bl-field {
+  border-bottom-left-radius: var(--radius-field);
+}
+
+@utility rounded-t-selector {
+  border-top-left-radius: var(--radius-selector);
+  border-top-right-radius: var(--radius-selector);
+}
+
+@utility rounded-b-selector {
+  border-bottom-left-radius: var(--radius-selector);
+  border-bottom-right-radius: var(--radius-selector);
+}
+
+@utility rounded-l-selector {
+  border-top-left-radius: var(--radius-selector);
+  border-bottom-left-radius: var(--radius-selector);
+}
+
+@utility rounded-r-selector {
+  border-top-right-radius: var(--radius-selector);
+  border-bottom-right-radius: var(--radius-selector);
+}
+
+@utility rounded-tl-selector {
+  border-top-left-radius: var(--radius-selector);
+}
+
+@utility rounded-tr-selector {
+  border-top-right-radius: var(--radius-selector);
+}
+
+@utility rounded-br-selector {
+  border-bottom-right-radius: var(--radius-selector);
+}
+
+@utility rounded-bl-selector {
+  border-bottom-left-radius: var(--radius-selector);
+}

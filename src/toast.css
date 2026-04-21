@@ -1,13 +1,13 @@
 /* Component: toast */
 
 @keyframes toast {
-  from {
+  0% {
+    scale: 0.9;
     opacity: 0;
-    transform: translateY(0.5rem);
   }
-  to {
+  100% {
+    scale: 1;
     opacity: 1;
-    transform: translateY(0);
   }
 }
 

@@ -100,6 +100,11 @@
   --tab-active: 1;
 }
 
+@utility tab-disabled {
+  pointer-events: none;
+  opacity: 40%;
+}
+
 @utility tab-content {
   order: var(--tabcontent-order);
   display: none;
@@ -237,9 +242,15 @@
       &:first-child:before {
         --radius-start: none;
       }
+      [dir="rtl"] &:first-child:before {
+        transform: rotateY(180deg);
+      }
 
       &:last-child:before {
         --radius-end: none;
+      }
+      [dir="rtl"] &:last-child:before {
+        transform: rotateY(180deg);
       }
     }
   }
@@ -327,6 +338,65 @@
   }
 }
 
+/* Top-edge tab variant (similar to tabs-lift but no lift gradient on active tab) */
+@utility tabs-top {
+  --tabs-height: auto;
+  --tabs-direction: row;
+
+  & > .tab {
+    --tab-order: 0;
+    --tab-border: 0 0 var(--border) 0;
+    --tab-radius-ss: var(--tab-radius-limit);
+    --tab-radius-se: var(--tab-radius-limit);
+    --tab-radius-es: 0;
+    --tab-radius-ee: 0;
+    --tab-paddings: var(--border) var(--tab-p) 0 var(--tab-p);
+    --tab-border-colors: #0000 #0000 var(--tab-border-color) #0000;
+    --tab-corner-width: calc(100% + var(--tab-radius-limit) * 2);
+    --tab-corner-height: var(--tab-radius-limit);
+    --tab-corner-position: top left, top right;
+
+    &:is(.tab-active, [aria-selected="true"], [aria-current="true"], [aria-current="page"]):not(.tab-disabled, [disabled]),
+    &:is(input:checked),
+    &:is(label:has(:checked)) {
+      --tab-border: var(--border) var(--border) 0 var(--border);
+      --tab-border-colors: var(--tab-border-color) var(--tab-border-color) #0000 var(--tab-border-color);
+      --tab-paddings: 0 calc(var(--tab-p) - var(--border)) var(--border) calc(var(--tab-p) - var(--border));
+      --tab-inset: auto auto 0 auto;
+      --radius-start: radial-gradient(circle at top left, var(--tab-radius-grad));
+      --radius-end: radial-gradient(circle at top right, var(--tab-radius-grad));
+    }
+  }
+
+  &:has(> .tab-content) {
+    & > .tab:first-child {
+      &:not(.tab-active, [aria-selected="true"], [aria-current="true"], [aria-current="page"]) {
+        --tab-border-colors: var(--tab-border-color) var(--tab-border-color) #0000 var(--tab-border-color);
+      }
+    }
+  }
+
+  & > .tab-content {
+    --tabcontent-order: 1;
+    --tabcontent-margin: calc(-1 * var(--border)) 0 0 0;
+    --tabcontent-radius-ss: 0;
+    --tabcontent-radius-se: var(--radius-box);
+    --tabcontent-radius-es: var(--radius-box);
+    --tabcontent-radius-ee: var(--radius-box);
+  }
+
+  & :checked,
+  & label:has(:checked),
+  & :is(.tab-active, [aria-selected="true"], [aria-current="true"], [aria-current="page"]) {
+    & + .tab-content {
+      &:nth-child(1),
+      &:nth-child(n + 3) {
+        --tabcontent-radius-ss: var(--radius-box);
+      }
+    }
+  }
+}
+
 /* Size variants */
 @utility tabs-xs {
   --tab-height: calc(var(--size-field, 0.25rem) * 6);
@@ -343,6 +413,15 @@
     font-size: 0.875rem;
     --tab-p: 0.5rem;
     --tab-radius-min: calc(0.5rem - var(--border));
+  }
+}
+
+@utility tabs-md {
+  --tab-height: calc(var(--size-field, 0.25rem) * 10);
+  & > .tab {
+    font-size: 0.875rem;
+    --tab-p: 0.75rem;
+    --tab-radius-min: calc(0.75rem - var(--border));
   }
 }
 

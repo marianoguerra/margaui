@@ -19,12 +19,18 @@
     transition: grid-template-rows 0.2s;
   }
 
-  /* Hidden checkbox/radio for state */
+  /* Hidden checkbox/radio for state — sized to cover the title so clicks register */
   > input:is([type="checkbox"], [type="radio"]) {
     grid-column-start: 1;
     grid-row-start: 1;
     appearance: none;
     opacity: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 1rem;
+    padding-inline-end: 3rem;
+    min-height: 1lh;
+    transition: background-color 0.2s ease-out;
   }
 
   /* Open states */
@@ -38,6 +44,49 @@
   &:not(.collapse-close) > :where(input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-content) {
     content-visibility: visible;
     min-height: fit-content;
+    @supports not (content-visibility: visible) {
+      visibility: visible;
+    }
+  }
+
+  /* On focus without open, title should not look clickable */
+  &[tabindex]:focus:not(.collapse-close, .collapse[open]),
+  &[tabindex]:focus-within:not(.collapse-close, .collapse[open]) {
+    > .collapse-title {
+      cursor: unset;
+    }
+  }
+
+  /* <details> element support */
+  &:is(details) {
+    width: 100%;
+    @media (prefers-reduced-motion: no-preference) {
+      &::details-content {
+        transition:
+          content-visibility 0.2s allow-discrete,
+          visibility 0.2s allow-discrete,
+          min-height 0.2s ease-out allow-discrete,
+          padding 0.1s ease-out 20ms,
+          background-color 0.2s ease-out,
+          height 0.2s;
+        height: 0;
+        interpolate-size: allow-keywords;
+      }
+      &:where([open])::details-content {
+        height: auto;
+      }
+    }
+    & summary {
+      position: relative;
+      display: block;
+      outline: none;
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+    & > .collapse-content {
+      content-visibility: visible;
+    }
   }
 
   /* Focus styles */
@@ -91,6 +140,20 @@
   padding-inline: 1rem;
   min-height: 0;
   content-visibility: hidden;
+  cursor: unset;
+
+  @supports not (content-visibility: hidden) {
+    visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      content-visibility 0.2s allow-discrete,
+      visibility 0.2s allow-discrete,
+      min-height 0.2s ease-out allow-discrete,
+      padding 0.1s ease-out 20ms,
+      background-color 0.2s ease-out;
+  }
 }
 
 /* Arrow icon variant */
@@ -157,6 +220,9 @@
     content-visibility: visible;
     min-height: fit-content;
     padding-bottom: 1rem;
+    @supports not (content-visibility: visible) {
+      visibility: visible;
+    }
   }
 }
 

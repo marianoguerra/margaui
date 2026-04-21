@@ -96,6 +96,11 @@
   margin-block-start: 0;
 }
 
+/* Disabled items in a join keep all four borders (no overlap collapse) */
+.join .join-item:where(*:is(:disabled, [disabled], .btn-disabled)) {
+  border-width: var(--border, 1px) 0 var(--border, 1px) var(--border, 1px);
+}
+
 /* Vertical join (stacked) */
 @utility join-vertical {
   flex-direction: column;

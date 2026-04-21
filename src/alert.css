@@ -88,10 +88,11 @@
   --alert-color: var(--color-error);
 }
 
-/* Style variants */
+/* Style variants (initial values — real overrides are below in plain rules
+   because Tailwind reorders `@utility` declarations, making the color variants
+   like `alert-info` land after these and reclaim `--alert-fg`/`color`). */
 @utility alert-dash {
   background-color: transparent;
-  --alert-fg: var(--alert-color, var(--color-base-content));
   border-style: dashed;
   box-shadow: none;
   background-image: none;
@@ -99,13 +100,11 @@
 
 @utility alert-outline {
   background-color: transparent;
-  --alert-fg: var(--alert-color, var(--color-base-content));
   box-shadow: none;
   background-image: none;
 }
 
 @utility alert-soft {
-  --alert-fg: var(--alert-color, var(--color-base-content));
   background: var(--alert-color, var(--color-base-content));
   box-shadow: none;
   background-image: none;
@@ -115,8 +114,20 @@
   }
 }
 
-/* Alert-soft border color - outside @utility to ensure it overrides color variants */
+/* Style-variant color overrides live outside `@utility` so they win over the
+   alert-info/success/warning/error utilities regardless of Tailwind's rule
+   ordering. On dash/outline the text becomes the alert-color itself (cyan/
+   green/yellow/red) so it reads against the transparent background, not the
+   dark *-content color that's designed for the filled variant. */
+.alert-dash,
+.alert-outline {
+  --alert-fg: var(--alert-color, var(--color-base-content));
+  color: var(--alert-fg);
+}
+
 .alert-soft {
+  --alert-fg: var(--alert-color, var(--color-base-content));
+  color: var(--alert-fg);
   --alert-border-color: var(--color-base-100);
 
   @supports (color: color-mix(in lab, red, red)) {

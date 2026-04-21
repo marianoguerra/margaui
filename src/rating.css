@@ -1,11 +1,10 @@
 /* Component: rating */
 
 @keyframes rating {
-  0% {
-    transform: scale(0.8);
-  }
-  100% {
-    transform: scale(1);
+  0%,
+  40% {
+    scale: 1.1;
+    filter: brightness(1.05) contrast(1.05);
   }
 }
 
@@ -84,6 +83,10 @@
 
 /* Half rating */
 @utility rating-half {
+  :where(*:not(.rating-hidden)) {
+    width: 0.75rem;
+  }
+
   &.rating-xs *:not(.rating-hidden) {
     width: 0.5rem;
   }
