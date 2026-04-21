@@ -4,6 +4,7 @@
 @source "./playground/components/*/*.html";
 
 @import "./base/properties.css";
+@import "./base/colormix.css";
 @import "./base/rootcolor.css";
 @import "./base/rootscrollgutter.css";
 @import "./base/rootscrolllock.css";
@@ -54,7 +55,6 @@
 @import "./src/mockup-window.css";
 @import "./src/modal.css";
 @import "./src/navbar.css";
-@import "./src/pagination.css";
 @import "./src/progress.css";
 @import "./src/radial-progress.css";
 @import "./src/radio.css";

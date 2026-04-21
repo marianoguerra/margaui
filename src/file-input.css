@@ -22,12 +22,12 @@
   border-end-end-radius: var(--join-ee, var(--radius-field));
   border-color: var(--input-color);
   box-shadow: 0 1px var(--input-color) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
-  --size: calc(var(--size-field, 0.25rem) * 10);
+  --size: var(--mg-field-md);
   --input-color: var(--color-base-content);
 
   @supports (color: color-mix(in lab, red, red)) {
     box-shadow: 0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), #0000) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
-    --input-color: color-mix(in oklab, var(--color-base-content) 20%, #0000);
+    --input-color: var(--mg-subtle-20);
   }
 
   &::file-selector-button {
@@ -93,7 +93,7 @@
       color: var(--color-base-content);
 
       @supports (color: color-mix(in lab, red, red)) {
-        color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+        color: var(--mg-subtle-20);
       }
     }
 
@@ -146,7 +146,7 @@
 
 /* Size variants */
 @utility file-input-xs {
-  --size: calc(var(--size-field, 0.25rem) * 6);
+  --size: var(--mg-field-xs);
   font-size: 0.6875rem;
   line-height: 1rem;
 
@@ -156,7 +156,7 @@
 }
 
 @utility file-input-sm {
-  --size: calc(var(--size-field, 0.25rem) * 8);
+  --size: var(--mg-field-sm);
   font-size: 0.75rem;
   line-height: 1.5rem;
 
@@ -166,7 +166,7 @@
 }
 
 @utility file-input-md {
-  --size: calc(var(--size-field, 0.25rem) * 10);
+  --size: var(--mg-field-md);
   font-size: 0.875rem;
   line-height: 2;
 
@@ -176,7 +176,7 @@
 }
 
 @utility file-input-lg {
-  --size: calc(var(--size-field, 0.25rem) * 12);
+  --size: var(--mg-field-lg);
   font-size: 1.125rem;
   line-height: 2.5rem;
 
@@ -187,7 +187,7 @@
 
 @utility file-input-xl {
   padding-inline-end: calc(0.25rem * 6);
-  --size: calc(var(--size-field, 0.25rem) * 14);
+  --size: var(--mg-field-xl);
   font-size: 1.125rem;
   line-height: 3rem;
 

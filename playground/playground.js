@@ -1,6 +1,7 @@
 import { getCompiler } from "../margaui.js";
 import { PreviewComponent } from "./preview-component.js";
 import { CodeMirror, setCodeMirrorPath } from "../editor/code-editor.js";
+import { compilePageStyles, createThemeSwitcher } from "../editor/shell.js";
 
 // Vim/dark from URL params
 const urlParams = new URLSearchParams(window.location.search);
@@ -17,7 +18,7 @@ const compiler = await getCompiler();
 PreviewComponent.compiler = compiler;
 
 // Compile only DaisyUI component classes needed by the page shell
-const PAGE_CLASSES = [
+compilePageStyles(compiler, [
   "navbar", "bg-base-100",
   "select", "select-sm", "select-bordered",
   "menu", "menu-title", "active",
@@ -25,41 +26,19 @@ const PAGE_CLASSES = [
   "tabs", "tabs-lift", "tab", "tab-content",
   "badge", "badge-sm", "badge-ghost",
   "flex", "gap-2", "justify-end", "mt-4", "opacity-50",
-];
-const pageCss = compiler.build(PAGE_CLASSES);
-document.getElementById("page-styles").textContent = pageCss;
+], document.getElementById("page-styles"));
 
 // Reveal page
 document.body.style.visibility = "visible";
 
 // Theme setup
-const themeSelect = document.getElementById("theme-select");
-const themeKeys = await fetch("./themes.json").then(r => r.json());
-
-for (const t of themeKeys) {
-  const opt = document.createElement("option");
-  opt.value = t;
-  opt.textContent = t;
-  if (t === "light") opt.selected = true;
-  themeSelect.appendChild(opt);
-}
-
-function adoptableThemeCss(css) {
-  return css.replace(/^([^{]*)\{/, ':root, :host, $1{');
-}
-
-const themeSheet = new CSSStyleSheet();
-themeSheet.replaceSync(adoptableThemeCss(await fetch("../themes/light.css").then(r => r.text())));
-document.adoptedStyleSheets = [...document.adoptedStyleSheets, themeSheet];
-PreviewComponent.themeSheet = themeSheet;
-
-let currentTheme = "light";
-themeSelect.addEventListener("change", async () => {
-  currentTheme = themeSelect.value;
-  const css = await fetch(`../themes/${currentTheme}.css`).then(r => r.text());
-  themeSheet.replaceSync(adoptableThemeCss(css));
-  document.body.setAttribute("data-theme", currentTheme);
+const themeSwitcher = await createThemeSwitcher({
+  selectEl: document.getElementById("theme-select"),
+  themesJsonUrl: "./themes.json",
+  themesBaseUrl: "../themes",
+  initial: "light",
 });
+PreviewComponent.themeSheet = themeSwitcher.sheet;
 
 // Track all visible code editors for dark/vim toggling
 let allEditors = [];
@@ -85,7 +64,7 @@ function editUrl(name, file) {
   const params = new URLSearchParams();
   params.set("component", name);
   params.set("file", file);
-  params.set("theme", currentTheme);
+  params.set("theme", themeSwitcher.current);
   if (CodeMirror.isVimMode) params.set("vim", "");
   if (editorDark) params.set("dark", "");
   return `../editor/?${params}`;

@@ -12,7 +12,7 @@
   border: var(--border) solid color-mix(in srgb, var(--color-base-content) 20%, transparent);
   border-bottom-width: calc(var(--border) + 1px);
   box-shadow: none;
-  --size: calc(var(--size-selector, 0.25rem) * 6);
+  --size: var(--mg-selector-md);
   font-size: 0.875rem;
   height: var(--size);
   min-width: var(--size);
@@ -20,26 +20,26 @@
 
 /* Size variants */
 @utility kbd-xs {
-  --size: calc(var(--size-selector, 0.25rem) * 4);
+  --size: var(--mg-selector-xs);
   font-size: 0.625rem;
 }
 
 @utility kbd-sm {
-  --size: calc(var(--size-selector, 0.25rem) * 5);
+  --size: var(--mg-selector-sm);
   font-size: 0.75rem;
 }
 
 @utility kbd-md {
-  --size: calc(var(--size-selector, 0.25rem) * 6);
+  --size: var(--mg-selector-md);
   font-size: 0.875rem;
 }
 
 @utility kbd-lg {
-  --size: calc(var(--size-selector, 0.25rem) * 7);
+  --size: var(--mg-selector-lg);
   font-size: 1rem;
 }
 
 @utility kbd-xl {
-  --size: calc(var(--size-selector, 0.25rem) * 8);
+  --size: var(--mg-selector-xl);
   font-size: 1.125rem;
 }

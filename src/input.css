@@ -24,11 +24,11 @@
   border-end-end-radius: var(--join-ee, var(--radius-field));
   border-color: var(--input-color);
   box-shadow: 0 1px var(--input-color) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
-  --size: calc(var(--size-field, 0.25rem) * 10);
+  --size: var(--mg-field-md);
   --input-color: var(--color-base-content);
 
   @supports (color: color-mix(in lab, red, red)) {
-    --input-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    --input-color: var(--mg-subtle-20);
     box-shadow: 0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), transparent) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
   }
 
@@ -209,11 +209,11 @@ fieldset:disabled .input {
   .input:has(> input[disabled]),
   .input:is(:disabled, [disabled]),
   fieldset:disabled .input {
-    color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
+    color: var(--mg-subtle-40);
   }
   .input:has(> input[disabled]) ::placeholder,
   .input:is(:disabled, [disabled])::placeholder {
-    color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    color: var(--mg-subtle-20);
   }
 }
 
@@ -231,16 +231,16 @@ input.input[disabled] {
 
 @supports (color: color-mix(in lab, red, red)) {
   input.input[disabled] {
-    color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
+    color: var(--mg-subtle-40);
   }
   input.input[disabled]::placeholder {
-    color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    color: var(--mg-subtle-20);
   }
 }
 
 /* Size variants */
 @utility input-xs {
-  --size: calc(var(--size-field, 0.25rem) * 6);
+  --size: var(--mg-field-xs);
   font-size: max(var(--font-size, 0.6875rem), 0.6875rem);
 
   &[type="number"]::-webkit-inner-spin-button {
@@ -250,7 +250,7 @@ input.input[disabled] {
 }
 
 @utility input-sm {
-  --size: calc(var(--size-field, 0.25rem) * 8);
+  --size: var(--mg-field-sm);
   font-size: max(var(--font-size, 0.75rem), 0.75rem);
 
   &[type="number"]::-webkit-inner-spin-button {
@@ -260,7 +260,7 @@ input.input[disabled] {
 }
 
 @utility input-md {
-  --size: calc(var(--size-field, 0.25rem) * 10);
+  --size: var(--mg-field-md);
   font-size: max(var(--font-size, 0.875rem), 0.875rem);
 
   &[type="number"]::-webkit-inner-spin-button {
@@ -270,7 +270,7 @@ input.input[disabled] {
 }
 
 @utility input-lg {
-  --size: calc(var(--size-field, 0.25rem) * 12);
+  --size: var(--mg-field-lg);
   font-size: max(var(--font-size, 1.125rem), 1.125rem);
 
   &[type="number"]::-webkit-inner-spin-button {
@@ -280,7 +280,7 @@ input.input[disabled] {
 }
 
 @utility input-xl {
-  --size: calc(var(--size-field, 0.25rem) * 14);
+  --size: var(--mg-field-xl);
   font-size: max(var(--font-size, 1.375rem), 1.375rem);
 
   &[type="number"]::-webkit-inner-spin-button {

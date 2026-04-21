@@ -118,7 +118,7 @@
       outline-style: none;
 
       @supports (color: color-mix(in lab, red, red)) {
-        background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+        background-color: var(--mg-subtle-10);
       }
 
       @media (forced-colors: active) {
@@ -135,7 +135,7 @@
     box-shadow: 0 1px oklch(0% 0 0 / 0.01) inset, 0 -1px oklch(100% 0 0 / 0.01) inset;
 
     @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+      background-color: var(--mg-subtle-10);
     }
 
     @media (forced-colors: active) {
@@ -187,7 +187,7 @@
       color: var(--color-base-content);
 
       @supports (color: color-mix(in lab, red, red)) {
-        color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+        color: var(--mg-subtle-20);
       }
     }
   }

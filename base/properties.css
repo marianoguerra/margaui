@@ -3,3 +3,24 @@
   inherits: true;
   initial-value: 0%;
 }
+
+/*
+ * Shared size-variant ramps. Each component's xs/sm/md/lg/xl variants
+ * resolve to these values, so the scale lives in one place instead of
+ * being re-encoded in every form component. The `calc` expressions are
+ * stored as tokens and re-resolved against the current scope's
+ * --size-field / --size-selector, so theme overrides still apply.
+ */
+:root {
+  --mg-field-xs: calc(var(--size-field, 0.25rem) * 6);
+  --mg-field-sm: calc(var(--size-field, 0.25rem) * 8);
+  --mg-field-md: calc(var(--size-field, 0.25rem) * 10);
+  --mg-field-lg: calc(var(--size-field, 0.25rem) * 12);
+  --mg-field-xl: calc(var(--size-field, 0.25rem) * 14);
+
+  --mg-selector-xs: calc(var(--size-selector, 0.25rem) * 4);
+  --mg-selector-sm: calc(var(--size-selector, 0.25rem) * 5);
+  --mg-selector-md: calc(var(--size-selector, 0.25rem) * 6);
+  --mg-selector-lg: calc(var(--size-selector, 0.25rem) * 7);
+  --mg-selector-xl: calc(var(--size-selector, 0.25rem) * 8);
+}

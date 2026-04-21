@@ -79,7 +79,6 @@ For traditional Tailwind workflows, create an `entry.css` input file and remove 
 @import "./src/mockup-window.css";
 @import "./src/modal.css";
 @import "./src/navbar.css";
-@import "./src/pagination.css";
 @import "./src/progress.css";
 @import "./src/radial-progress.css";
 @import "./src/radio.css";

@@ -8,7 +8,7 @@
   border-radius: var(--radius-selector);
   background-color: var(--color-base-content);
   @supports (color: color-mix(in lab, red, red)) {
-    background-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    background-color: var(--mg-subtle-20);
   }
   background-position: center;
   background-repeat: no-repeat;

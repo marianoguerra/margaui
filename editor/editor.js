@@ -1,5 +1,6 @@
 import { CodeMirror, setCodeMirrorPath } from "./code-editor.js";
 import { getCompiler } from "../margaui.js";
+import { compilePageStyles, createThemeSwitcher } from "./shell.js";
 
 // Vim mode from URL params
 const urlParams = new URLSearchParams(window.location.search);
@@ -16,42 +17,21 @@ await withCodeMirror((m) => console.log("codemirror loaded", m));
 const compiler = await getCompiler();
 
 // Compile page shell classes
-const PAGE_CLASSES = [
+compilePageStyles(compiler, [
   "navbar", "bg-base-100",
   "select", "select-sm", "select-bordered",
   "btn", "btn-sm", "btn-primary",
-];
-document.getElementById("page-styles").textContent = compiler.build(PAGE_CLASSES);
+], document.getElementById("page-styles"));
 document.body.style.visibility = "visible";
 
 // Theme setup
-const themeSelect = document.getElementById("theme-select");
-const themeKeys = await fetch("../playground/themes.json").then(r => r.json());
-
-let currentTheme = urlParams.get("theme") || "light";
-
-for (const t of themeKeys) {
-  const opt = document.createElement("option");
-  opt.value = t;
-  opt.textContent = t;
-  if (t === currentTheme) opt.selected = true;
-  themeSelect.appendChild(opt);
-}
-
-function adoptableThemeCss(css) {
-  return css.replace(/^([^{]*)\{/, ':root, :host, $1{');
-}
-
-const themeSheet = new CSSStyleSheet();
-themeSheet.replaceSync(adoptableThemeCss(await fetch(`../themes/${currentTheme}.css`).then(r => r.text())));
-document.adoptedStyleSheets = [...document.adoptedStyleSheets, themeSheet];
-document.body.setAttribute("data-theme", currentTheme);
-themeSelect.addEventListener("change", async () => {
-  currentTheme = themeSelect.value;
-  const css = await fetch(`../themes/${currentTheme}.css`).then(r => r.text());
-  themeSheet.replaceSync(adoptableThemeCss(css));
-  document.body.setAttribute("data-theme", currentTheme);
+const themeSwitcher = await createThemeSwitcher({
+  selectEl: document.getElementById("theme-select"),
+  themesJsonUrl: "../playground/themes.json",
+  themesBaseUrl: "../themes",
+  initial: urlParams.get("theme") || "light",
 });
+const themeSheet = themeSwitcher.sheet;
 
 // Component selector
 const components = await fetch("../playground/components.json").then(r => r.json());

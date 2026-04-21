@@ -21,7 +21,7 @@
 
   @supports (color: color-mix(in lab, red, red)) {
     box-shadow: 0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), transparent) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
-    --input-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    --input-color: var(--mg-subtle-20);
   }
 
   textarea {
@@ -71,14 +71,14 @@
     box-shadow: none;
 
     @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
+      color: var(--mg-subtle-40);
     }
 
     &::placeholder {
       color: var(--color-base-content);
 
       @supports (color: color-mix(in lab, red, red)) {
-        color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+        color: var(--mg-subtle-20);
       }
     }
   }

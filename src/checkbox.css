@@ -14,7 +14,7 @@
   border: var(--border) solid var(--input-color, var(--color-base-content));
   box-shadow: 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 0 transparent inset, 0 0 transparent;
   transition: background-color 0.2s, box-shadow 0.2s;
-  --size: calc(var(--size-selector, 0.25rem) * 6);
+  --size: var(--mg-selector-md);
   width: var(--size);
   height: var(--size);
   background-size: auto, calc(var(--noise) * 100%);
@@ -129,25 +129,25 @@
 /* Size variants */
 @utility checkbox-xs {
   padding: 0.125rem;
-  --size: calc(var(--size-selector, 0.25rem) * 4);
+  --size: var(--mg-selector-xs);
 }
 
 @utility checkbox-sm {
   padding: 0.1875rem;
-  --size: calc(var(--size-selector, 0.25rem) * 5);
+  --size: var(--mg-selector-sm);
 }
 
 @utility checkbox-md {
   padding: 0.25rem;
-  --size: calc(var(--size-selector, 0.25rem) * 6);
+  --size: var(--mg-selector-md);
 }
 
 @utility checkbox-lg {
   padding: 0.3125rem;
-  --size: calc(var(--size-selector, 0.25rem) * 7);
+  --size: var(--mg-selector-lg);
 }
 
 @utility checkbox-xl {
   padding: 0.375rem;
-  --size: calc(var(--size-selector, 0.25rem) * 8);
+  --size: var(--mg-selector-xl);
 }

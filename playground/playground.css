@@ -107,6 +107,10 @@
   padding: 2.5rem;
   background: var(--color-base-100);
   border-color: var(--color-base-300);
+  /* Re-root `position: fixed` descendants (toast / fab / dock) to this
+     box instead of the viewport. Any transform !== none works per spec. */
+  transform: translateZ(0);
+  min-height: 14rem;
 }
 .pg-preview-inner {
   display: flex;

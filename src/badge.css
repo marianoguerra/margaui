@@ -17,34 +17,34 @@
   color: var(--badge-fg);
   --badge-bg: var(--badge-color, var(--color-base-100));
   --badge-fg: var(--color-base-content);
-  --size: calc(var(--size-selector, 0.25rem) * 6);
+  --size: var(--mg-selector-md);
   height: var(--size);
   padding-inline: calc(var(--size) / 2 - var(--border));
 }
 
 /* Size variants */
 @utility badge-xs {
-  --size: calc(var(--size-selector, 0.25rem) * 4);
+  --size: var(--mg-selector-xs);
   font-size: 0.625rem;
 }
 
 @utility badge-sm {
-  --size: calc(var(--size-selector, 0.25rem) * 5);
+  --size: var(--mg-selector-sm);
   font-size: 0.75rem;
 }
 
 @utility badge-md {
-  --size: calc(var(--size-selector, 0.25rem) * 6);
+  --size: var(--mg-selector-md);
   font-size: 0.875rem;
 }
 
 @utility badge-lg {
-  --size: calc(var(--size-selector, 0.25rem) * 7);
+  --size: var(--mg-selector-lg);
   font-size: 1rem;
 }
 
 @utility badge-xl {
-  --size: calc(var(--size-selector, 0.25rem) * 8);
+  --size: var(--mg-selector-xl);
   font-size: 1.125rem;
 }
 

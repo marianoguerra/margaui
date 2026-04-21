@@ -20,7 +20,7 @@
   transition: color 0.3s, grid-template-columns 0.2s;
   --input-color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
   --toggle-p: calc(var(--size) * 0.125);
-  --size: calc(var(--size-selector, 0.25rem) * 6);
+  --size: var(--mg-selector-md);
   width: calc((var(--size) * 2) - (var(--border) + var(--toggle-p)) * 2);
   height: var(--size);
 
@@ -215,21 +215,21 @@
 
 /* Size variants */
 @utility toggle-xs {
-  --size: calc(var(--size-selector, 0.25rem) * 4);
+  --size: var(--mg-selector-xs);
 }
 
 @utility toggle-sm {
-  --size: calc(var(--size-selector, 0.25rem) * 5);
+  --size: var(--mg-selector-sm);
 }
 
 @utility toggle-md {
-  --size: calc(var(--size-selector, 0.25rem) * 6);
+  --size: var(--mg-selector-md);
 }
 
 @utility toggle-lg {
-  --size: calc(var(--size-selector, 0.25rem) * 7);
+  --size: var(--mg-selector-lg);
 }
 
 @utility toggle-xl {
-  --size: calc(var(--size-selector, 0.25rem) * 8);
+  --size: var(--mg-selector-xl);
 }

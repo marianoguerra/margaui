@@ -1,0 +1,17 @@
+/*
+ * Shared color-mix tokens used by components that want a theme-derived
+ * tint of --color-base-content for subtle borders, placeholders, and
+ * disabled text. Lazy substitution means these still respect per-theme
+ * overrides of --color-base-content.
+ *
+ * Every consumer still wraps its reference in
+ *   @supports (color: color-mix(in lab, red, red)) { ... }
+ * with a plain-var fallback — these tokens only remove value-level
+ * duplication, not the fallback ceremony. Extend this file as more
+ * cross-component mixes appear.
+ */
+:root {
+  --mg-subtle-10: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+  --mg-subtle-20: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+  --mg-subtle-40: color-mix(in oklab, var(--color-base-content) 40%, transparent);
+}
