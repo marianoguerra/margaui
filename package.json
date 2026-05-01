@@ -24,6 +24,7 @@
     "gen-vfs-dev": "python3 tools/make_vfs_esm.py 'src/*.css' 'base/*.css' 'tw/*.css' 'tailwindcss=tw/tailwindcss.css' > vfs.js",
     "gen-component-tree": "python3 tools/create-component-tree.py playground/components > playground/components.json",
     "gen-theme-list": "python3 tools/gen_theme_list.py themes > playground/themes.json",
+    "gen-skill": "python3 tools/gen_skill.py",
     "playground": "npm run gen-vfs-dev && npm run gen-component-tree && npm run gen-theme-list",
     "fetch-tw": "bun build --minify 'https://esm.sh/tailwindcss@4.2.3' > tailwindcss.js",
     "min-css": "mkdir -p dist/src dist/base dist/tw dist/themes && bunx --bun esbuild --minify --outdir=dist/src src/*.css && bunx --bun esbuild --minify --outdir=dist/base base/*.css && bunx --bun esbuild --minify --outdir=dist/tw tw/*.css && bunx --bun esbuild --minify --outdir=dist/themes themes/*.css",

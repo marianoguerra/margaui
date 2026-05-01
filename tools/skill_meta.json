@@ -1,0 +1,382 @@
+{
+  "_comment": "Hand-edited prose used by tools/gen_skill.py to build .claude/skills/margaui/. Keys: short = one-liner shown in SKILL.md component index. what = 1-2 sentence purpose. when = bullet list (markdown) of when to use, with cross-references to near-cousins. classes = primary class + key modifiers. New components default to TODO entries; fill in over time.",
+
+  "accordion": {
+    "short": "collapsible sections (single-open via radio, free via details)",
+    "what": "Vertically stacked, expandable sections that show one panel of content at a time.",
+    "when": "- Grouped FAQ-style content where most items stay collapsed.\n- For a single show/hide region without grouping, use **collapse** instead.",
+    "classes": "`collapse` on each item, all sharing the same `name=\"…\"` (radio inputs) for single-open behavior; modifiers `collapse-arrow`, `collapse-plus`, `join-item` when wrapped in `join`."
+  },
+  "alert": {
+    "short": "inline notification box (info / success / warning / error)",
+    "what": "Inline, non-blocking notification box with an icon and message, optionally with action buttons.",
+    "when": "- Persistent feedback inline with content (form errors, status banners).\n- For transient pop-ups that auto-dismiss, use **toast** instead.",
+    "classes": "`alert`; color `alert-info|success|warning|error`; style `alert-outline|dash|soft`; usually paired with `role=\"alert\"`."
+  },
+  "avatar": {
+    "short": "user picture / placeholder, with optional ring, mask, presence",
+    "what": "User-image container with sizing, rounding, ring, mask shape, presence indicator, and group-stack support.",
+    "when": "- Anywhere a user/account is represented.\n- Use `avatar-placeholder` when no image is available (renders initials).\n- For decorative shape masking on non-avatar images, use **mask** directly.",
+    "classes": "`avatar`; modifiers `avatar-group`, `avatar-placeholder`; inner `<img>` typically wrapped in a sized `<div>` with `rounded-full` or a `mask mask-…` class."
+  },
+  "badge": {
+    "short": "small label / counter chip",
+    "what": "Small chip used for counts, statuses, tags, or labels.",
+    "when": "- Inline with text or as a counter on buttons / icons.\n- For a colored dot only (no text), use **status** instead.\n- For positioned overlays on other elements, wrap in **indicator**.",
+    "classes": "`badge`; color `badge-primary|secondary|accent|info|success|warning|error|neutral|ghost`; style `badge-outline|dash|soft`; size `badge-xs|sm|md|lg|xl`."
+  },
+  "breadcrumbs": {
+    "short": "path-style navigation trail",
+    "what": "Horizontal trail of links showing the user's location in a hierarchy.",
+    "when": "- Pages nested 2+ levels deep where users may want to jump back to an ancestor.\n- Skip on flat / single-level UIs."
+  },
+  "button": {
+    "short": "`btn` with color / size / shape / style modifiers",
+    "what": "Primary action element. The `btn` class works on `<button>`, `<a>`, `<input>`, `<label>`, `<div>`, etc.",
+    "when": "- Any clickable action.\n- For navigation-only links inside body text, use **link** instead.\n- For floating action buttons, use **fab**.",
+    "classes": "`btn`; color `btn-primary|secondary|accent|info|success|warning|error|neutral`; style `btn-outline|dash|soft|ghost|link`; size `btn-xs|sm|md|lg|xl`; shape `btn-square|circle|wide|block`; state `btn-active|disabled`."
+  },
+  "calendar": {
+    "short": "date picker (uses external Cally web component)",
+    "what": "Styled wrapper around the [Cally](https://wicg.github.io/cal-cally/) `<calendar-date>` / `<calendar-range>` web components — margaui supplies the styling, Cally supplies the behavior.",
+    "when": "- Inline date picker or date-range picker.\n- Requires loading Cally separately (CDN script tag in the example).",
+    "classes": "`cally` on the Cally element."
+  },
+  "card": {
+    "short": "container with figure, body, title, actions",
+    "what": "Self-contained content card with optional figure (image), body, title, and actions row.",
+    "when": "- Product tiles, summary panels, pricing tiles, blog post previews.\n- For a thin labelled chip, use **badge** instead."
+  },
+  "carousel": {
+    "short": "horizontal/vertical scroll-snap slideshow",
+    "what": "CSS scroll-snap based slideshow. No JS required; navigation via anchor links to `id`-tagged items.",
+    "when": "- Image galleries or feature walkthroughs where the user controls pacing.\n- For purely hover-driven image switching, use **hover-gallery**.",
+    "classes": "`carousel`; modifiers `carousel-start|center|end`, `carousel-vertical`; items use `carousel-item`."
+  },
+  "chat": {
+    "short": "chat bubble (start/end alignment)",
+    "what": "Speech-bubble layout for messaging UIs, with optional avatar, header, footer.",
+    "when": "- Conversation transcripts (chat apps, AI chat UIs).",
+    "classes": "`chat chat-start|chat-end`; inner `chat-image`, `chat-header`, `chat-bubble`, `chat-footer`; bubble color via `chat-bubble-primary|secondary|accent|info|success|warning|error`."
+  },
+  "checkbox": {
+    "short": "styled `<input type=\"checkbox\">`",
+    "what": "Themed replacement for the native checkbox.",
+    "when": "- Multi-select / boolean form fields.\n- For a sliding on/off switch, use **toggle**.",
+    "classes": "`checkbox`; color `checkbox-primary|secondary|accent|info|success|warning|error|neutral`; size `checkbox-xs|sm|md|lg|xl`."
+  },
+  "collapse": {
+    "short": "single show/hide region (details/summary or checkbox)",
+    "what": "Single expandable region driven by `<details>`, a checkbox, or focus.",
+    "when": "- One-off show-more / read-more sections.\n- For grouped single-open behavior across many items, use **accordion**.",
+    "classes": "`collapse`; modifiers `collapse-arrow|plus|open|close`; inner `collapse-title`, `collapse-content`."
+  },
+  "countdown": {
+    "short": "animated digit transitions for timers / clocks",
+    "what": "Animates between digits using CSS counters and `--value`. Works for clocks, timers, large stat displays.",
+    "when": "- Live countdown timers, clocks, animated number reveals.",
+    "classes": "`countdown`; child `<span style=\"--value:N\"></span>` per digit group."
+  },
+  "diff": {
+    "short": "side-by-side image/text comparison with draggable handle",
+    "what": "Two-pane comparison with a draggable resizer.",
+    "when": "- Before/after image comparisons, theme/typography comparisons.",
+    "classes": "`diff`; inner `diff-item-1`, `diff-item-2`, `diff-resizer`."
+  },
+  "divider": {
+    "short": "horizontal / vertical separator with optional label",
+    "what": "Separator line with optional centered text and optional color.",
+    "when": "- Visually separating form sections, content blocks, sidebar groups.",
+    "classes": "`divider`; orientation `divider-horizontal|vertical`; position `divider-start|end`; color `divider-primary|secondary|accent|neutral|success|warning|info|error`."
+  },
+  "dock": {
+    "short": "bottom navigation bar (mobile-style)",
+    "what": "Fixed bottom navigation bar with icon + label items.",
+    "when": "- Primary mobile/touch navigation.\n- For top navigation, use **navbar**.",
+    "classes": "`dock`; size `dock-xs|sm|md|lg|xl`; active item `dock-active`; inner `dock-label`."
+  },
+  "drawer": {
+    "short": "off-canvas sidebar (toggle via checkbox)",
+    "what": "Sliding off-canvas sidebar driven by a hidden checkbox — works without JS.",
+    "when": "- Mobile menus, side panels that overlay content.\n- For an always-visible navigation column, use **menu** in a flex layout instead.",
+    "classes": "`drawer`; `drawer-toggle` on the checkbox; `drawer-content`, `drawer-side`, `drawer-overlay`; modifier `drawer-end` for right-side drawer; `drawer-open` to keep open by default."
+  },
+  "dropdown": {
+    "short": "click/hover/focus menu attached to a trigger",
+    "what": "Pop-up menu attached to a button/element. Supports details/summary, focus-based, popover API, and anchor positioning variants.",
+    "when": "- Action menus, settings menus, navbar sub-menus.\n- For full-screen modals, use **modal** instead.",
+    "classes": "`dropdown`; positioning `dropdown-top|bottom|left|right`, `dropdown-start|center|end`; trigger `dropdown-hover|open|force-open|force-close`; inner `dropdown-content`."
+  },
+  "fab": {
+    "short": "floating action button (single or speed-dial)",
+    "what": "Floating action button with optional speed-dial children.",
+    "when": "- Single primary action floating over scrollable content (compose, add).",
+    "classes": "`fab`; modifier `fab-flower` for radial speed-dial; inner `fab-main-action`, `fab-close`."
+  },
+  "fieldset": {
+    "short": "themed `<fieldset>` group with legend + label slots",
+    "what": "Themed grouping container for related form inputs with `fieldset-legend` and helper `fieldset-label`.",
+    "when": "- Logical groupings of form fields (login form, address form section)."
+  },
+  "file-input": {
+    "short": "styled file picker",
+    "what": "Themed file-picker input.",
+    "when": "- File-upload form fields.",
+    "classes": "`file-input`; color `file-input-primary|…`; style `file-input-ghost`; size `file-input-xs|sm|md|lg|xl`."
+  },
+  "filter": {
+    "short": "radio-button filter group (with reset)",
+    "what": "Group of mutually exclusive `<input type=\"radio\">` options styled as buttons, with a built-in reset.",
+    "when": "- Filter chips on listing pages."
+  },
+  "footer": {
+    "short": "page footer with column groupings",
+    "what": "Page footer layout — columns of links, optional logo block, optional form, optional copyright row.",
+    "when": "- Standard site footers."
+  },
+  "hero": {
+    "short": "full-width banner section (centered or with figure)",
+    "what": "Full-width banner section, optionally with a figure beside the text or an overlay image.",
+    "when": "- Marketing landing pages, top-of-page banners.",
+    "classes": "`hero`; inner `hero-content`, `hero-overlay`."
+  },
+  "hover-3d": {
+    "short": "3D tilt effect on hover (cards / images)",
+    "what": "CSS-only 3D tilt-on-hover for cards and images.",
+    "when": "- Showcase product cards, portfolio tiles."
+  },
+  "hover-gallery": {
+    "short": "swap images by hovering across regions",
+    "what": "Image gallery that swaps the displayed image based on the horizontal hover position.",
+    "when": "- Product image galleries on listing pages.\n- For user-paced slideshows, use **carousel**."
+  },
+  "indicator": {
+    "short": "wrap an element to overlay a badge / status / button at a corner",
+    "what": "Wrapper that positions a child element (typically a **badge**, **status**, or small button) at one of nine alignment points relative to its content.",
+    "when": "- Notification counters on icons, presence dots on avatars, 'new' tags on cards.",
+    "classes": "`indicator`; child has `indicator-item` plus position `indicator-top|middle|bottom` and `indicator-start|center|end`."
+  },
+  "input": {
+    "short": "themed text-style input wrapper",
+    "what": "Themed wrapper for `<input>` with optional inner icon, label, and **validator** support.",
+    "when": "- Any single-line text input (text, email, search, password, number, date, etc.).\n- For multi-line, use **textarea**.\n- For dropdowns, use **select**.",
+    "classes": "`input`; color `input-primary|secondary|accent|info|success|warning|error|neutral`; style `input-ghost`; size `input-xs|sm|md|lg|xl`."
+  },
+  "join": {
+    "short": "group adjacent items so borders/radii merge",
+    "what": "Layout helper that strips inner borders/radii so children render as one fused control (button group, segmented control, input + button).",
+    "when": "- Button groups, segmented controls, input-with-button combos.",
+    "classes": "`join` on the wrapper; `join-item` on each child; modifier `join-vertical|horizontal`."
+  },
+  "kbd": {
+    "short": "keyboard-key visual",
+    "what": "Renders text as a keyboard key.",
+    "when": "- Documenting keyboard shortcuts inline with text.",
+    "classes": "`kbd`; size `kbd-xs|sm|md|lg|xl`."
+  },
+  "label": {
+    "short": "input label (inline or floating)",
+    "what": "Themed label, including a floating-label variant.",
+    "when": "- Labelling form inputs.",
+    "classes": "`label`, `floating-label`."
+  },
+  "link": {
+    "short": "themed `<a>`",
+    "what": "Themed inline link.",
+    "when": "- Inline anchors in body text.\n- For action-style links rendered as buttons, use **button** with `btn-link`.",
+    "classes": "`link`; color `link-primary|secondary|accent|info|success|warning|error`; modifier `link-hover` (underline only on hover)."
+  },
+  "list": {
+    "short": "vertical list with grid-style columns",
+    "what": "Vertical list where each row is a multi-column layout (image + text + actions).",
+    "when": "- Compact rows of records (chat list, file list, settings list).",
+    "classes": "`list`; row `list-row`; modifiers `list-col-grow`, `list-col-wrap`."
+  },
+  "loading": {
+    "short": "loading spinner / dots / bars / ring / ball / infinity",
+    "what": "Inline loading indicator with several visual styles.",
+    "when": "- Pending async operations, skeleton-less loading states.\n- For content-shaped placeholders, use **skeleton**.",
+    "classes": "`loading`; style `loading-spinner|dots|ring|ball|bars|infinity`; size `loading-xs|sm|md|lg|xl`; color via standard `text-primary|…` utilities."
+  },
+  "mask": {
+    "short": "clip an element to a shape (circle, hex, star, …)",
+    "what": "CSS mask utilities to clip an element (typically an image) to a shape.",
+    "when": "- Decorative image shaping, avatar shaping.\n- For avatars specifically, use **avatar** (which composes mask).",
+    "classes": "`mask`; shape `mask-circle|squircle|square|heart|hexagon|hexagon-2|decagon|pentagon|diamond|star|star-2|triangle|triangle-2|triangle-3|triangle-4`."
+  },
+  "menu": {
+    "short": "vertical/horizontal nav list (sidebar, sub-menus)",
+    "what": "Versatile nav list for sidebars, sub-menus, mega-menus, file trees.",
+    "when": "- Sidebars, dropdown contents, mobile drawer contents.",
+    "classes": "`menu`; orientation `menu-vertical|horizontal`; size `menu-xs|sm|md|lg|xl`; child states `menu-active|disabled|title`."
+  },
+  "mockup-browser": {
+    "short": "browser-window chrome wrapper for screenshots",
+    "what": "Visual browser-chrome wrapper.",
+    "when": "- Marketing screenshots, demo previews."
+  },
+  "mockup-code": {
+    "short": "terminal/code-block visual",
+    "what": "Visual code-block / terminal frame with optional line prefix and highlighted line.",
+    "when": "- Showing code snippets in a styled frame.",
+    "classes": "`mockup-code`."
+  },
+  "mockup-phone": {
+    "short": "phone-frame wrapper for screenshots",
+    "what": "Visual phone-frame wrapper.",
+    "when": "- Marketing screenshots showing mobile layouts."
+  },
+  "mockup-window": {
+    "short": "OS-window chrome wrapper for screenshots",
+    "what": "Visual desktop-window chrome.",
+    "when": "- Marketing screenshots, demo previews of desktop UIs."
+  },
+  "modal": {
+    "short": "dialog / pop-up (native `<dialog>` or checkbox-driven)",
+    "what": "Pop-up dialog. Preferred form is the native `<dialog>` variant; legacy variants use a hidden checkbox or anchor link.",
+    "when": "- Confirmations, focused tasks that interrupt the page flow.\n- For non-blocking notifications, use **toast** or **alert**.\n- For lighter inline reveals, use **dropdown**.",
+    "classes": "`modal`; positioning `modal-top|middle|bottom`; inner `modal-box`, `modal-action`, `modal-backdrop`; helper `modal-open`."
+  },
+  "navbar": {
+    "short": "top navigation bar with start/center/end slots",
+    "what": "Top navigation bar with `navbar-start`, `navbar-center`, `navbar-end` slots.",
+    "when": "- Top-of-page navigation.\n- For mobile-style bottom nav, use **dock**."
+  },
+  "pagination": {
+    "short": "paged-navigation button row",
+    "what": "Row of buttons (often inside `join`) for paged navigation.",
+    "when": "- Multi-page lists, search results.",
+    "classes": "Built from `join` + `btn`."
+  },
+  "progress": {
+    "short": "linear progress bar (`<progress>`)",
+    "what": "Themed `<progress>` bar; supports indeterminate state when `value` is omitted.",
+    "when": "- Determinate progress (uploads, downloads, multi-step forms).\n- For circular progress, use **radial-progress**.\n- For pure spinners, use **loading**.",
+    "classes": "`progress`; color `progress-primary|secondary|accent|info|success|warning|error|neutral`."
+  },
+  "radial-progress": {
+    "short": "circular progress indicator",
+    "what": "Circular progress indicator driven by CSS custom properties (`--value`, `--size`, `--thickness`).",
+    "when": "- Compact circular progress, dashboards, KPIs.\n- For linear progress, use **progress**.",
+    "classes": "`radial-progress` with `style=\"--value:N\"` (and optional `--size`, `--thickness`); colors via standard `text-…`/`bg-…` utilities."
+  },
+  "radio": {
+    "short": "styled `<input type=\"radio\">`",
+    "what": "Themed replacement for the native radio button.",
+    "when": "- Single-choice form fields with all options visible.\n- For dropdown single-choice, use **select**.",
+    "classes": "`radio`; color `radio-primary|secondary|accent|info|success|warning|error|neutral`; size `radio-xs|sm|md|lg|xl`."
+  },
+  "range": {
+    "short": "styled `<input type=\"range\">` slider",
+    "what": "Themed range slider.",
+    "when": "- Numeric ranges where exact precision is less important than feel.",
+    "classes": "`range`; color `range-primary|secondary|accent|info|success|warning|error|neutral`; size `range-xs|sm|md|lg|xl`."
+  },
+  "rating": {
+    "short": "star / heart rating (radio inputs + masks)",
+    "what": "Star/heart rating built from masked radio inputs.",
+    "when": "- Product / content ratings.\n- For read-only display, set `disabled` on the inputs.",
+    "classes": "`rating`; size `rating-xs|sm|md|lg|xl`; modifier `rating-half`; child inputs use `mask mask-star|heart|…`."
+  },
+  "select": {
+    "short": "styled `<select>`",
+    "what": "Themed `<select>` dropdown.",
+    "when": "- Single-choice form fields with many options.\n- For visible single-choice (few options), use **radio**.",
+    "classes": "`select`; color `select-primary|secondary|accent|info|success|warning|error|neutral`; style `select-ghost`; size `select-xs|sm|md|lg|xl`."
+  },
+  "skeleton": {
+    "short": "shimmering placeholder for loading content",
+    "what": "Animated content-shaped placeholder for loading states.",
+    "when": "- Loading states where you want the layout to pre-fill (lists, cards).\n- For abstract spinners, use **loading**.",
+    "classes": "`skeleton`."
+  },
+  "stack": {
+    "short": "stack children (Z-axis)",
+    "what": "Stacks children on top of each other (Z-axis), with optional offset/spread for card-stack effects.",
+    "when": "- Stacked-card visual effects, layered images.",
+    "classes": "`stack`; modifiers `stack-top|start|end` and shadow modifiers."
+  },
+  "stat": {
+    "short": "KPI / metric tile (title + value + desc)",
+    "what": "Metric/KPI tile with title, value, description, and optional icon/figure/actions.",
+    "when": "- Dashboards, summary headers.",
+    "classes": "`stats` wrapper; child `stat`; inner `stat-title`, `stat-value`, `stat-desc`, `stat-figure`, `stat-actions`."
+  },
+  "status": {
+    "short": "small colored status dot",
+    "what": "Small colored dot for status indication (online, busy, etc.), with optional bounce/ping animation.",
+    "when": "- Presence dots, system-health indicators.\n- For text + dot, combine with **badge** or **indicator**.",
+    "classes": "`status`; color `status-primary|secondary|accent|info|success|warning|error|neutral`; size `status-xs|sm|md|lg|xl`."
+  },
+  "steps": {
+    "short": "multi-step progress indicator",
+    "what": "Multi-step progress indicator (horizontal or vertical).",
+    "when": "- Wizards, checkout flows, onboarding.",
+    "classes": "`steps`; orientation `steps-horizontal|vertical`; child `step`; state `step-primary|secondary|accent|info|success|warning|error|neutral`."
+  },
+  "swap": {
+    "short": "toggle between two children (icon swap, hamburger)",
+    "what": "Toggle between two child elements driven by a checkbox or class.",
+    "when": "- Theme toggles, hamburger ↔ close icons, play ↔ pause.",
+    "classes": "`swap`; effect `swap-rotate|flip|active`; inner `swap-on`, `swap-off`."
+  },
+  "tab": {
+    "short": "tabbed content (radio inputs or anchors)",
+    "what": "Tab strip — radio-driven (CSS-only, supports content panels per tab) or anchor-driven (just visual styling).",
+    "when": "- Section switchers within a page.",
+    "classes": "`tabs`; style `tabs-box|border|lift`; size `tabs-xs|sm|md|lg|xl`; child `tab`, `tab-active`; content `tab-content`."
+  },
+  "table": {
+    "short": "themed `<table>` (zebra, hover, pinned rows/cols, sizes)",
+    "what": "Themed `<table>` with zebra rows, hover highlight, pinned rows/cols.",
+    "when": "- Tabular data display.",
+    "classes": "`table`; size `table-xs|sm|md|lg|xl`; modifier `table-zebra`, `table-pin-rows`, `table-pin-cols`."
+  },
+  "text-rotate": {
+    "short": "cycle through words in place (CSS animation)",
+    "what": "CSS-only animated text that cycles through a list of words/phrases.",
+    "when": "- Marketing headlines (\"build {fast|easy|cheap} apps\")."
+  },
+  "textarea": {
+    "short": "styled `<textarea>`",
+    "what": "Themed `<textarea>`.",
+    "when": "- Multi-line text input.\n- For single-line text input, use **input**.",
+    "classes": "`textarea`; color `textarea-primary|…`; style `textarea-ghost`; size `textarea-xs|sm|md|lg|xl`."
+  },
+  "theme-controller": {
+    "short": "checkbox / radio / dropdown that switches `data-theme`",
+    "what": "A control that — when checked — sets `data-theme` on its enclosing `:has(...)` ancestor. CSS-only theme switching.",
+    "when": "- Theme switchers (light/dark toggles, dropdown of all themes).",
+    "classes": "`theme-controller` on the input/checkbox; the input's `value` becomes the applied theme name."
+  },
+  "timeline": {
+    "short": "vertical or horizontal event timeline",
+    "what": "Event timeline with start/middle/end slots per item; supports horizontal and vertical, single- or two-sided layouts.",
+    "when": "- Activity histories, version histories, changelogs.",
+    "classes": "`timeline`; orientation `timeline-vertical|horizontal`; per-item `timeline-start`, `timeline-middle`, `timeline-end`."
+  },
+  "toast": {
+    "short": "fixed-position notification stack (corner overlays)",
+    "what": "Fixed-position container for transient notifications. Position via `toast-start|center|end` × `toast-top|middle|bottom`.",
+    "when": "- Transient feedback (\"saved\", \"copied\", \"error sending\").\n- For inline persistent feedback, use **alert**.",
+    "classes": "`toast`; horizontal `toast-start|center|end`; vertical `toast-top|middle|bottom`. Typically wraps **alert** children."
+  },
+  "toggle": {
+    "short": "on/off switch (styled checkbox)",
+    "what": "Sliding on/off switch — a styled `<input type=\"checkbox\">`.",
+    "when": "- Boolean settings where switch metaphor fits.\n- For multi-select lists, use **checkbox**.",
+    "classes": "`toggle`; color `toggle-primary|secondary|accent|info|success|warning|error|neutral`; size `toggle-xs|sm|md|lg|xl`."
+  },
+  "tooltip": {
+    "short": "hover/focus tooltip on any element",
+    "what": "Hover/focus tooltip; content from `data-tip` or a child `tooltip-content` element.",
+    "when": "- Short hints on icon-only buttons or controls.\n- For longer content panels, use **dropdown**.",
+    "classes": "`tooltip`; position `tooltip-top|bottom|left|right`; color `tooltip-primary|…`; modifier `tooltip-open` to force-show; `data-tip=\"…\"` for text content."
+  },
+  "validator": {
+    "short": "show validation message tied to a form input",
+    "what": "Companion to **input** / **select** / **textarea** that styles the input based on `:invalid` and shows a `validator-hint` message.",
+    "when": "- Inline form-field validation feedback driven by native HTML constraints.",
+    "classes": "`validator` on the input; `validator-hint` on the message element."
+  }
+}

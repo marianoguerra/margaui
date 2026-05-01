@@ -13,6 +13,9 @@ gen-component-tree:
 gen-theme-list:
   npm run gen-theme-list
 
+gen-skill:
+  npm run gen-skill
+
 playground:
   npm run playground
 
