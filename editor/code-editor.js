@@ -29,7 +29,15 @@ export class CodeMirror extends HTMLElement {
   }
 
   connectedCallback() {
+    const style = document.createElement("style");
+    style.textContent = `
+      :host { display: block; height: 100%; min-height: 0; min-width: 0; }
+      .ce-host { height: 100%; display: grid; grid-template-columns: minmax(0, 1fr); }
+      .ce-host > .cm-editor { height: 100%; min-height: 0; min-width: 0; }
+    `;
+    this._root.appendChild(style);
     const node = document.createElement("div");
+    node.className = "ce-host";
     this._root.appendChild(node);
     this._rootNode = node;
     this._code ??= this.getAttribute("code");
