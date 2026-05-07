@@ -13,108 +13,61 @@ Pop-up menu attached to a button/element. Supports details/summary, focus-based,
 
 ## Core classes
 
-`dropdown`; positioning `dropdown-top|bottom|left|right`, `dropdown-start|center|end`; trigger `dropdown-hover|open|force-open|force-close`; inner `dropdown-content`.
+`dropdown`; trigger style `dropdown-hover|open|close`; placement `dropdown-top|bottom|left|right`; alignment `dropdown-start|center|end`; inner `dropdown-content`.
+
+## Placement and alignment
+
+Combine one placement (`dropdown-top|bottom|left|right`) with one alignment (`dropdown-start|center|end`). Default placement is `dropdown-bottom`. The same canonical example applies — only the modifier classes change.
 
 ## Examples
 
-### Card as dropdown
+### Dropdown menu (canonical)
 
-Source: `playground/components/dropdown/card-as-dropdown.html`
+Source: `playground/components/dropdown/dropdown-menu.html`
 
 ```html
 <div class="dropdown">
   <div tabindex="0" role="button" class="btn m-1">Click</div>
-  <div
-    tabindex="0"
-    class="dropdown-content card card-sm bg-base-100 z-1 w-64 shadow-md">
+  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</div>
+```
+
+`dropdown-content` has no surface of its own — always pair with `bg-base-100`, `rounded-box`, `shadow-sm`, and `z-1` (or higher).
+
+### Dropdown on hover
+
+```html
+<div class="dropdown dropdown-hover">
+  <div tabindex="0" role="button" class="btn m-1">Hover</div>
+  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</div>
+```
+
+### Force open / force close
+
+```html
+<div class="dropdown dropdown-open">…</div>
+<div class="dropdown dropdown-close">…</div>
+```
+
+### Card as dropdown content
+
+`dropdown-content` accepts any element, not just `menu`.
+
+```html
+<div class="dropdown">
+  <div tabindex="0" role="button" class="btn m-1">Click</div>
+  <div tabindex="0" class="dropdown-content card card-sm bg-base-100 z-1 w-64 shadow-md">
     <div class="card-body">
       <p>This is a card. You can use any element as a dropdown.</p>
     </div>
   </div>
-</div>
-```
-
-### Dropdown — aligns to center of button horizontally
-
-Source: `playground/components/dropdown/dropdown--aligns-to-center-of-button-horizontally.html`
-
-```html
-<div class="dropdown dropdown-center">
-  <div tabindex="0" role="button" class="btn m-1">Click  ⬇️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown — aligns to end of button horizontally
-
-Source: `playground/components/dropdown/dropdown--aligns-to-end-of-button-horizontally.html`
-
-```html
-<div class="dropdown dropdown-end">
-  <div tabindex="0" role="button" class="btn m-1">Click  ⬇️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown — aligns to start of button horizontally
-
-Source: `playground/components/dropdown/dropdown--aligns-to-start-of-button-horizontally.html`
-
-```html
-<div class="dropdown dropdown-start">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬇️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown bottom default — aligns to center of button horizontally
-
-Source: `playground/components/dropdown/dropdown-bottom-default--aligns-to-center-of-button-horizontally.html`
-
-```html
-<div class="dropdown dropdown-bottom dropdown-center">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬇️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown bottom default — aligns to end of button horizontally
-
-Source: `playground/components/dropdown/dropdown-bottom-default--aligns-to-end-of-button-horizontally.html`
-
-```html
-<div class="dropdown dropdown-bottom dropdown-end">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬇️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown bottom default
-
-Source: `playground/components/dropdown/dropdown-bottom-default.html`
-
-```html
-<div class="dropdown dropdown-bottom">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬇️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
 </div>
 ```
 
@@ -132,9 +85,7 @@ Source: `playground/components/dropdown/dropdown-in-navbar.html`
       <a class="btn btn-ghost rounded-field">Button</a>
       <div class="dropdown dropdown-end">
         <div tabindex="0" role="button" class="btn btn-ghost rounded-field">Dropdown</div>
-        <ul
-          tabindex="-1"
-          class="menu dropdown-content bg-base-200 rounded-box z-1 mt-4 w-52 p-2 shadow-sm">
+        <ul tabindex="-1" class="menu dropdown-content bg-base-200 rounded-box z-1 mt-4 w-52 p-2 shadow-sm">
           <li><a>Item 1</a></li>
           <li><a>Item 2</a></li>
         </ul>
@@ -144,163 +95,7 @@ Source: `playground/components/dropdown/dropdown-in-navbar.html`
 </div>
 ```
 
-### Dropdown left — aligns to center of button vertically
-
-Source: `playground/components/dropdown/dropdown-left--aligns-to-center-of-button-vertically.html`
-
-```html
-<div class="dropdown dropdown-left dropdown-center">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬅️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown left — aligns to end of button vertically
-
-Source: `playground/components/dropdown/dropdown-left--aligns-to-end-of-button-vertically.html`
-
-```html
-<div class="dropdown dropdown-left dropdown-end">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬅️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown left
-
-Source: `playground/components/dropdown/dropdown-left.html`
-
-```html
-<div class="dropdown dropdown-left">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬅️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown menu
-
-Source: `playground/components/dropdown/dropdown-menu.html`
-
-```html
-<div class="dropdown">
-  <div tabindex="0" role="button" class="btn m-1">Click</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown on hover
-
-Source: `playground/components/dropdown/dropdown-on-hover.html`
-
-```html
-<div class="dropdown dropdown-hover">
-  <div tabindex="0" role="button" class="btn m-1">Hover</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown right — aligns to center of button vertically
-
-Source: `playground/components/dropdown/dropdown-right--aligns-to-center-of-button-vertically.html`
-
-```html
-<div class="dropdown dropdown-right dropdown-center">
-  <div tabindex="0" role="button" class="btn m-1">Click ➡️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown right — aligns to end of button vertically
-
-Source: `playground/components/dropdown/dropdown-right--aligns-to-end-of-button-vertically.html`
-
-```html
-<div class="dropdown dropdown-right dropdown-end">
-  <div tabindex="0" role="button" class="btn m-1">Click ➡️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown right
-
-Source: `playground/components/dropdown/dropdown-right.html`
-
-```html
-<div class="dropdown dropdown-right">
-  <div tabindex="0" role="button" class="btn m-1">Click ➡️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown top — aligns to center of button horizontally
-
-Source: `playground/components/dropdown/dropdown-top--aligns-to-center-of-button-horizontally.html`
-
-```html
-<div class="dropdown dropdown-top dropdown-center">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬆️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown top — aligns to end of button horizontally
-
-Source: `playground/components/dropdown/dropdown-top--aligns-to-end-of-button-horizontally.html`
-
-```html
-<div class="dropdown dropdown-top dropdown-end">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬆️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown top
-
-Source: `playground/components/dropdown/dropdown-top.html`
-
-```html
-<div class="dropdown dropdown-top">
-  <div tabindex="0" role="button" class="btn m-1">Click ⬆️</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Dropdown using details and summary
-
-Source: `playground/components/dropdown/dropdown-using-details-and-summary.html`
+### Details/summary variant
 
 ```html
 <details class="dropdown">
@@ -312,9 +107,7 @@ Source: `playground/components/dropdown/dropdown-using-details-and-summary.html`
 </details>
 ```
 
-### Dropdown using popover api and anchor positioning
-
-Source: `playground/components/dropdown/dropdown-using-popover-api-and-anchor-positioning.html`
+### Popover API + CSS anchor positioning
 
 ```html
 <!-- change popover-1 and --anchor-1 names. Use unique names for each dropdown -->
@@ -326,63 +119,4 @@ Source: `playground/components/dropdown/dropdown-using-popover-api-and-anchor-po
   <li><a>Item 1</a></li>
   <li><a>Item 2</a></li>
 </ul>
-```
-
-### Force close
-
-Source: `playground/components/dropdown/force-close.html`
-
-```html
-<div class="dropdown dropdown-close">
-  <div tabindex="0" role="button" class="btn m-1">Button</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Force open
-
-Source: `playground/components/dropdown/force-open.html`
-
-```html
-<div class="dropdown dropdown-open">
-  <div tabindex="0" role="button" class="btn m-1">Button</div>
-  <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div>
-```
-
-### Helper dropdown
-
-Source: `playground/components/dropdown/helper-dropdown.html`
-
-```html
-<div class="dropdown dropdown-end">
-  <div tabindex="0" role="button" class="btn btn-circle btn-ghost btn-xs text-info">
-    <svg
-      tabindex="0"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      class="h-4 w-4 stroke-current">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-    </svg>
-  </div>
-  <div
-    tabindex="0"
-    class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-64 shadow-sm">
-    <div tabindex="0" class="card-body">
-      <h2 class="card-title">You needed more info?</h2>
-      <p>Here is a description!</p>
-    </div>
-  </div>
-</div>
 ```
