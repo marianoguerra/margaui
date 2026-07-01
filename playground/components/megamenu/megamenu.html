@@ -1,0 +1,35 @@
+<!-- popovertarget must match the id of the corresponding popover, and each id must be unique -->
+<button class="btn sm:hidden" popovertarget="my-megamenu-1">Menu</button>
+
+<div class="megamenu max-sm:megamenu-vertical p-2 border border-base-300" id="my-megamenu-1" popover>
+  <span class="megamenu-active"></span>
+
+  <button popovertarget="a1">Services</button>
+  <div id="a1" popover>
+    <ul class="menu">
+      <li><a>Enterprise</a></li>
+      <li><a>CRM software</a></li>
+      <li><a>Security</a></li>
+      <li><a>Consulting</a></li>
+    </ul>
+  </div>
+
+  <button popovertarget="a2">AI</button>
+  <div id="a2" popover>
+    <ul class="menu">
+      <li><a>AI infrastructure</a></li>
+      <li><a>Image generation</a></li>
+      <li><a>MCP servers</a></li>
+    </ul>
+  </div>
+
+  <button popovertarget="a3">Cloud Solutions</button>
+  <div id="a3" popover>
+    <ul class="menu">
+      <li><a>Cloud computing</a></li>
+      <li><a>Storage solutions</a></li>
+      <li><a>Database services</a></li>
+      <li><a>CDN performance</a></li>
+    </ul>
+  </div>
+</div>

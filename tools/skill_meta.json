@@ -13,6 +13,12 @@
     "when": "- Persistent feedback inline with content (form errors, status banners).\n- For transient pop-ups that auto-dismiss, use **toast** instead.",
     "classes": "`alert`; color `alert-info|success|warning|error`; style `alert-outline|dash|soft`; usually paired with `role=\"alert\"`."
   },
+  "aura": {
+    "short": "animated glowing border wrapper (rainbow, holo, silver, gold, glow)",
+    "what": "Wraps any element in an animated conic-gradient border light. Auto-picks corner radius when wrapping a card/alert/button/input/select/checkbox/toggle/badge.",
+    "when": "- Highlighting the single most important button, card, or promo element on a page.\n- Not for general emphasis — use sparingly, it's an eye-catching animated effect.",
+    "classes": "`aura`; style `aura-rainbow|holo|dual|silver|gold|glow`; size `aura-xs|sm|md|lg|xl`."
+  },
   "avatar": {
     "short": "user picture / placeholder, with optional ring, mask, presence",
     "what": "User-image container with sizing, rounding, ring, mask shape, presence indicator, and group-stack support.",
@@ -204,10 +210,16 @@
     "when": "- Decorative image shaping, avatar shaping.\n- For avatars specifically, use **avatar** (which composes mask).",
     "classes": "`mask`; shape `mask-circle|squircle|square|heart|hexagon|hexagon-2|decagon|pentagon|diamond|star|star-2|triangle|triangle-2|triangle-3|triangle-4`."
   },
+  "megamenu": {
+    "short": "large horizontal nav bar whose items open big popover panels",
+    "what": "Top-of-page horizontal menu where each item opens a popover (via the native Popover API) containing a menu or arbitrary content. Collapses to a vertical popover on small screens via `megamenu-vertical`.",
+    "when": "- Large-screen primary navigation with rich per-item content (site-wide nav with categorized links).\n- For a simple sidebar/dropdown list without per-item popovers, use **menu** instead.\n- Requires a browser with Popover API + CSS anchor positioning support.",
+    "classes": "`megamenu` on the container (a `popover` element); `megamenu-active` on the sliding indicator `<span>`; width `megamenu-wide|full`; direction `megamenu-vertical`; size `megamenu-xs|sm|md|lg|xl`."
+  },
   "menu": {
     "short": "vertical/horizontal nav list (sidebar, sub-menus)",
     "what": "Versatile nav list for sidebars, sub-menus, mega-menus, file trees.",
-    "when": "- Sidebars, dropdown contents, mobile drawer contents.",
+    "when": "- Sidebars, dropdown contents, mobile drawer contents.\n- For a large horizontal nav bar with per-item popover panels, use **megamenu** instead.",
     "classes": "`menu`; orientation `menu-vertical|horizontal`; size `menu-xs|sm|md|lg|xl`; child states `menu-active|disabled|title`."
   },
   "mockup-browser": {
@@ -241,6 +253,12 @@
     "short": "top navigation bar with start/center/end slots",
     "what": "Top navigation bar with `navbar-start`, `navbar-center`, `navbar-end` slots.",
     "when": "- Top-of-page navigation.\n- For mobile-style bottom nav, use **dock**."
+  },
+  "otp": {
+    "short": "one-time-password digit input (2FA / verification codes)",
+    "what": "A `<label class=\"otp\">` wrapping N empty `<span>` boxes (one per digit) plus a single real `<input>`; the spans render as the visual digit boxes overlaying the input.",
+    "when": "- 2FA / passwordless-login verification code entry.\n- Number of `<span>` elements must match the input's `maxlength`/`pattern`.",
+    "classes": "`otp`; modifier `otp-joined`; size `otp-xs|sm|md|lg|xl`; color `otp-neutral|primary|secondary|accent|info|success|warning|error`."
   },
   "pagination": {
     "short": "paged-navigation button row",

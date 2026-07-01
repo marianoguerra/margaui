@@ -1,0 +1,180 @@
+/* Component: aura */
+
+@keyframes aura {
+  to {
+    --aura-angle: 360deg;
+    /* force GPU acceleration, fixes Safari lag */
+    transform: translateZ(1px);
+  }
+}
+
+@keyframes aura-glow {
+  20%,
+  80% {
+    opacity: 0.7;
+    filter: blur(0.25rem);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0.75rem);
+  }
+}
+
+@keyframes aura-glow-after {
+  20%,
+  80% {
+    opacity: 0.3;
+    filter: blur(1rem);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(1.5rem);
+  }
+}
+
+/* Base aura */
+@utility aura {
+  position: relative;
+  display: inline-block;
+  --aura-padding: 0.125rem;
+  padding: var(--aura-padding);
+  border-radius: calc(var(--aura-padding) + var(--aura-radius, var(--radius-box)));
+  background-image: conic-gradient(from var(--aura-angle), transparent 225deg, currentColor);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: aura var(--tw-duration, 6s) linear infinite;
+  }
+
+  &:has(> .card, > .alert) {
+    --aura-radius: var(--radius-box);
+  }
+  &:has(> .btn, > .input, > .select) {
+    --aura-radius: var(--radius-field);
+  }
+  &:has(> .checkbox, > .toggle, > .badge) {
+    --aura-radius: var(--radius-selector);
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    display: block;
+    opacity: 0.7;
+    animation: inherit;
+    background-color: inherit;
+    background-image: inherit;
+    border-radius: inherit;
+    filter: blur(0.25rem);
+    translate: -50% -50%;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:after {
+    opacity: 0.3;
+    filter: blur(1rem);
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Style variants */
+@utility aura-rainbow {
+  background-image: conic-gradient(
+    from var(--aura-angle) in oklch longer hue,
+    transparent 10%,
+    oklch(80% 0.15 0deg),
+    oklch(80% 0.15 360deg),
+    transparent 90%
+  );
+}
+
+@utility aura-holo {
+  background-image: repeating-conic-gradient(
+    from var(--aura-angle),
+    oklch(0.82 0.17 327),
+    oklch(0.75 0.12 274),
+    oklch(0.82 0.11 191),
+    oklch(0.91 0.11 105),
+    oklch(0.88 0.08 68),
+    oklch(0.82 0.17 327) 10%
+  );
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: aura var(--tw-duration, 20s) linear infinite;
+  }
+}
+
+@utility aura-dual {
+  background-image: repeating-conic-gradient(from var(--aura-angle), transparent 0%, transparent 40%, currentColor 50%);
+}
+
+@utility aura-silver {
+  background-image: repeating-conic-gradient(
+    from var(--aura-angle),
+    oklch(0.3 0 0),
+    oklch(0.9 0 0),
+    oklch(0.6 0 0),
+    oklch(0.9 0 0),
+    oklch(0.5 0 0),
+    oklch(0.3 0 0) 50%
+  );
+}
+
+@utility aura-gold {
+  background-image: repeating-conic-gradient(
+    from var(--aura-angle),
+    oklch(0.6598 0.1863 72.37),
+    oklch(0.9635 0.0768 102.94),
+    oklch(0.7157 0.1691 82.23),
+    oklch(0.9602 0.0792 103.13),
+    oklch(0.6066 0.1181 76.17),
+    oklch(0.6598 0.1863 72.37) 50%
+  );
+}
+
+@utility aura-glow {
+  animation: none;
+  background-image: radial-gradient(closest-corner at center, currentColor 0%, transparent 90%);
+
+  &:before {
+    animation: none;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: aura-glow var(--tw-duration, 6s) ease-out infinite;
+    }
+  }
+  &:after {
+    animation: none;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: aura-glow-after var(--tw-duration, 6s) ease-out infinite;
+    }
+  }
+}
+
+/* Size variants */
+@utility aura-xs {
+  --aura-padding: 0rem;
+}
+
+@utility aura-sm {
+  --aura-padding: 0.0625rem;
+}
+
+@utility aura-md {
+  --aura-padding: 0.125rem;
+}
+
+@utility aura-lg {
+  --aura-padding: 0.15625rem;
+}
+
+@utility aura-xl {
+  --aura-padding: 0.25rem;
+}

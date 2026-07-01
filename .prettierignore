@@ -1,0 +1,6 @@
+dist/
+node_modules/
+vfs.js
+tailwindcss.js
+playground/components.json
+playground/themes.json

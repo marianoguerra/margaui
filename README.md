@@ -1,6 +1,6 @@
 # margaui
 
-CSS component library with an in-browser Tailwind v4 compiler. 66 components, 35 themes, zero build step needed for browser use.
+CSS component library with an in-browser Tailwind v4 compiler. 69 components, 35 themes, zero build step needed for browser use.
 
 ## Quick start (browser)
 
@@ -215,24 +215,24 @@ Then compile as usual with `npx @tailwindcss/cli -i input.css -o style.css`.
 
 ## Components
 
-66 components in `src/`:
+69 components in `src/`:
 
 | | | | | |
 |---|---|---|---|---|
-| accordion | alert | avatar | badge | breadcrumbs |
-| button | calendar | card | carousel | chat |
-| checkbox | collapse | colors | countdown | diff |
-| divider | dock | drawer | dropdown | fab |
-| fieldset | file-input | filter | footer | hero |
-| hover-3d | hover-gallery | indicator | input | join |
-| kbd | label | link | list | loading |
-| mask | menu | mockup-browser | mockup-code | mockup-phone |
-| mockup-window | modal | navbar | pagination | progress |
-| radial-progress | radio | range | rating | select |
-| skeleton | stack | stat | status | steps |
-| swap | tab | table | text-rotate | textarea |
-| theme-controller | timeline | toast | toggle | tooltip |
-| validator | | | | |
+| accordion | alert | aura | avatar | badge |
+| breadcrumbs | button | calendar | card | carousel |
+| chat | checkbox | collapse | colors | countdown |
+| diff | divider | dock | drawer | dropdown |
+| fab | fieldset | file-input | filter | footer |
+| hero | hover-3d | hover-gallery | indicator | input |
+| join | kbd | label | link | list |
+| loading | mask | megamenu | menu | mockup-browser |
+| mockup-code | mockup-phone | mockup-window | modal | navbar |
+| otp | pagination | progress | radial-progress | radio |
+| range | rating | select | skeleton | stack |
+| stat | status | steps | swap | tab |
+| table | text-rotate | textarea | theme-controller | timeline |
+| toast | toggle | tooltip | validator | |
 
 Each component is defined using Tailwind v4's `@utility` directive, making them available as utility classes during compilation.
 
@@ -247,7 +247,7 @@ Live HTML editor with real-time preview. Write HTML in a textarea and see the co
 To run the playground and editor:
 
 ```sh
-just playground           # generates VFS + component tree
+npm run playground        # generates VFS + component tree
 python3 -m http.server    # serve from project root
 # open http://localhost:8000/playground/
 # open http://localhost:8000/editor/
@@ -266,16 +266,16 @@ tools/        Build scripts (VFS generator, component tree, sync checker)
 
 ## Development
 
-Requires [just](https://github.com/casey/just) as a command runner.
+Requires [bun](https://bun.sh/) and Python 3 in addition to Node/npm — see `package.json`'s `scripts` for the full list.
 
 | Command | Description |
 |---|---|
-| `just playground` | Generate VFS + component tree for the playground |
-| `just gen-vfs-dev` | Regenerate `vfs.js` from source CSS files |
-| `just gen-component-tree` | Regenerate `playground/components.json` |
-| `just dist` | Build minified distribution in `dist/` |
-| `just check-sync` | Verify source files and imports are in sync |
-| `just fetch-tw` | Re-fetch and bundle `tailwindcss.js` |
+| `npm run playground` | Generate VFS + component tree for the playground |
+| `npm run gen-vfs-dev` | Regenerate `vfs.js` from source CSS files |
+| `npm run gen-component-tree` | Regenerate `playground/components.json` |
+| `npm run dist` | Build minified distribution in `dist/` |
+| `npm run check-sync` | Verify source files and imports are in sync |
+| `npm run fetch-tw` | Re-fetch and bundle `tailwindcss.js` |
 
 ## License
 

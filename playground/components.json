@@ -25,6 +25,15 @@
     ]
   },
   {
+    "name": "aura",
+    "files": [
+      "aura-sizes.html",
+      "aura-styles.html",
+      "aura-wrapping-a-button.html",
+      "aura-wrapping-a-card.html"
+    ]
+  },
+  {
     "name": "avatar",
     "files": [
       "avatar-group-with-counter.html",
@@ -469,6 +478,14 @@
     ]
   },
   {
+    "name": "megamenu",
+    "files": [
+      "megamenu-sizes.html",
+      "megamenu-wide.html",
+      "megamenu.html"
+    ]
+  },
+  {
     "name": "menu",
     "files": [
       "collapsible-submenu-that-works-with-class-names.html",
@@ -552,6 +569,16 @@
       "navbar-with-title-and-icon.html",
       "navbar-with-title-only.html",
       "responsive-dropdown-menu-on-small-screen-center-menu-on-large-screen.html"
+    ]
+  },
+  {
+    "name": "otp",
+    "files": [
+      "otp-joined.html",
+      "otp-sizes.html",
+      "otp-with-6-digits.html",
+      "otp-with-colors.html",
+      "otp.html"
     ]
   },
   {

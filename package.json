@@ -13,6 +13,10 @@
   "files": [
     "dist/"
   ],
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
   "devDependencies": {
     "@tailwindcss/cli": "4.2.3",
     "esbuild": "0.28.0",
