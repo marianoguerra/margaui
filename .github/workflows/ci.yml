@@ -7,15 +7,20 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22, 24]
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: ${{ matrix.node-version }}
           cache: npm
 
       - run: npm ci
+
+      - run: npm run format-check
 
       - run: npm run check-sync
 
@@ -23,4 +28,12 @@ jobs:
 
       - run: npm run smoke-test-tw-cli
 
-      - run: npm run gen-vfs-dev
+      # committed generated artifacts must match their sources
+      - run: npm run gen-vfs-dev && npm run gen-component-tree && npm run gen-theme-list && npm run gen-skill
+
+      - run: git diff --exit-code
+
+      # a release build must not dirty the tree
+      - run: npm run dist
+
+      - run: git diff --exit-code
