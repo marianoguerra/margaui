@@ -1,7 +1,7 @@
 import { getCompiler } from "../margaui.js";
 import { PreviewComponent } from "./preview-component.js";
 import { CodeMirror, setCodeMirrorPath } from "../editor/code-editor.js";
-import { compilePageStyles, createThemeSwitcher } from "../editor/shell.js";
+import { compilePageStyles, createThemeSwitcher, humanize } from "../editor/shell.js";
 
 // Vim/dark from URL params
 const urlParams = new URLSearchParams(window.location.search);
@@ -11,7 +11,7 @@ let editorDark = urlParams.has("dark");
 // Load codemirror bundle, then define element
 const withCodeMirror = setCodeMirrorPath("../editor/codemirror.js");
 customElements.define("code-editor", CodeMirror);
-await withCodeMirror((m) => console.log("codemirror loaded", m));
+await withCodeMirror();
 
 // Init compiler (shared with margaui.js)
 const compiler = await getCompiler();
@@ -108,14 +108,6 @@ for (const comp of components) {
   a.dataset.name = comp.name;
   li.appendChild(a);
   menuEl.appendChild(li);
-}
-
-// Helper: humanize file name
-function humanize(filename) {
-  return filename
-    .replace(".html", "")
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 // Navigation

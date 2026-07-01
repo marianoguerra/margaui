@@ -1,6 +1,6 @@
 import { CodeMirror, setCodeMirrorPath } from "./code-editor.js";
 import { getCompiler } from "../margaui.js";
-import { compilePageStyles, createThemeSwitcher } from "./shell.js";
+import { compileHtmlClasses, compilePageStyles, createThemeSwitcher, humanize } from "./shell.js";
 
 // Vim mode from URL params
 const urlParams = new URLSearchParams(window.location.search);
@@ -11,7 +11,7 @@ if (urlParams.has("vim")) {
 // Load codemirror bundle, then define element
 const withCodeMirror = setCodeMirrorPath("./codemirror.js");
 customElements.define("code-editor", CodeMirror);
-await withCodeMirror((m) => console.log("codemirror loaded", m));
+await withCodeMirror();
 
 // Init compiler
 const compiler = await getCompiler();
@@ -62,7 +62,7 @@ function populateFiles() {
   for (const f of comp.files) {
     const opt = document.createElement("option");
     opt.value = f;
-    opt.textContent = f.replace(".html", "").replace(/-/g, " ");
+    opt.textContent = humanize(f);
     fileSelect.appendChild(opt);
   }
 }
@@ -116,25 +116,7 @@ shadow.adoptedStyleSheets = [themeSheet];
 
 function render() {
   const html = currentCode;
-
-  // Extract class names
-  const classRegex = /class="([^"]*)"/g;
-  const classes = new Set();
-  let match;
-  while ((match = classRegex.exec(html)) !== null) {
-    for (const cls of match[1].split(/\s+/)) {
-      if (cls) classes.add(cls);
-    }
-  }
-
-  // Compile CSS
-  let css = "";
-  let buildMs = 0;
-  if (classes.size > 0) {
-    const t0 = performance.now();
-    css = compiler.build([...classes]);
-    buildMs = performance.now() - t0;
-  }
+  const { css, buildMs } = compileHtmlClasses(compiler, html);
 
   // Update preview (inside shadow DOM)
   shadow.innerHTML = `

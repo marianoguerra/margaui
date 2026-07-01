@@ -1,3 +1,5 @@
+import { compileHtmlClasses } from "../editor/shell.js";
+
 export class PreviewComponent extends HTMLElement {
   static compiler = null;
   static themeSheet = null;
@@ -45,24 +47,7 @@ export class PreviewComponent extends HTMLElement {
     const html = await fetch(htmlSrc).then((r) => r.text());
     if (currentSequence !== this._loadSequence) return;
 
-    // Extract class names from HTML
-    const classRegex = /class="([^"]*)"/g;
-    const classes = new Set();
-    let match;
-    while ((match = classRegex.exec(html)) !== null) {
-      for (const cls of match[1].split(/\s+/)) {
-        if (cls) classes.add(cls);
-      }
-    }
-
-    // Compile CSS using shared compiler
-    let css = "";
-    let buildMs = 0;
-    if (PreviewComponent.compiler && classes.size > 0) {
-      const t0 = performance.now();
-      css = PreviewComponent.compiler.build([...classes]);
-      buildMs = performance.now() - t0;
-    }
+    const { css, buildMs } = compileHtmlClasses(PreviewComponent.compiler, html);
 
     if (currentSequence !== this._loadSequence) return;
 

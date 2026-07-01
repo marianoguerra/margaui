@@ -1,6 +1,6 @@
 import { getCompiler } from "../margaui.js";
 import { PreviewComponent } from "./preview-component.js";
-import { compilePageStyles, createThemeSwitcher } from "../editor/shell.js";
+import { compilePageStyles, createThemeSwitcher, humanize } from "../editor/shell.js";
 
 // Init compiler and hand it to <preview-component>
 const compiler = await getCompiler();
@@ -33,14 +33,6 @@ const themeSwitcher = await createThemeSwitcher({
   initial: urlParams.get("theme") || "light",
 });
 PreviewComponent.themeSheet = themeSwitcher.sheet;
-
-// Humanize file names: "my-example.html" -> "My Example"
-function humanize(filename) {
-  return filename
-    .replace(/\.html$/, "")
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
-}
 
 // Each .all-preview uses `transform: translateZ(0)` to re-root `position: fixed`
 // descendants (toast / fab / dock) to the preview box, so previews that would

@@ -23,10 +23,6 @@ export class CodeMirror extends HTMLElement {
     this._codemirror = null;
   }
 
-  handleEvent(e) {
-    console.log("CodeMirror event", e);
-  }
-
   connectedCallback() {
     const style = document.createElement("style");
     style.textContent = `
@@ -188,7 +184,6 @@ function lazyDynamicImportToPromise(path) {
   let prom = null;
   return async () => {
     if (prom === null) {
-      console.log("loading dynamic import", path);
       prom = import(path);
     }
 
@@ -200,6 +195,6 @@ function lazyDynamicImportToWithFn(path) {
   const loader = lazyDynamicImportToPromise(path);
   return async (fn) => {
     const lib = await loader();
-    return fn(lib);
+    return fn ? fn(lib) : lib;
   };
 }
