@@ -133,8 +133,6 @@
   }
 
   [popover] {
-    position: relative;
-    display: block;
     border: var(--border) solid var(--color-base-300);
     margin-top: 0.25rem;
     max-height: 100dvh;

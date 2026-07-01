@@ -40,10 +40,7 @@
   padding: var(--aura-padding);
   border-radius: calc(var(--aura-padding) + var(--aura-radius, var(--radius-box)));
   background-image: conic-gradient(from var(--aura-angle), transparent 225deg, currentColor);
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: aura var(--tw-duration, 6s) linear infinite;
-  }
+  animation: aura var(--tw-duration, 6s) linear infinite;
 
   &:has(> .card, > .alert) {
     --aura-radius: var(--radius-box);
@@ -106,10 +103,7 @@
     oklch(0.88 0.08 68),
     oklch(0.82 0.17 327) 10%
   );
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: aura var(--tw-duration, 20s) linear infinite;
-  }
+  animation: aura var(--tw-duration, 20s) linear infinite;
 }
 
 @utility aura-dual {
@@ -145,16 +139,10 @@
   background-image: radial-gradient(closest-corner at center, currentColor 0%, transparent 90%);
 
   &:before {
-    animation: none;
-    @media (prefers-reduced-motion: no-preference) {
-      animation: aura-glow var(--tw-duration, 6s) ease-out infinite;
-    }
+    animation: aura-glow var(--tw-duration, 6s) ease-out infinite;
   }
   &:after {
-    animation: none;
-    @media (prefers-reduced-motion: no-preference) {
-      animation: aura-glow-after var(--tw-duration, 6s) ease-out infinite;
-    }
+    animation: aura-glow-after var(--tw-duration, 6s) ease-out infinite;
   }
 }
 

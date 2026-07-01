@@ -5,6 +5,17 @@
 }
 
 /*
+ * Registered so the aura component's rotation animation can interpolate it.
+ * An unregistered custom property has no type, so @keyframes can only switch
+ * it discretely (it would jump to 360deg at the end) and the aura never spins.
+ */
+@property --aura-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/*
  * Shared size-variant ramps. Each component's xs/sm/md/lg/xl variants
  * resolve to these values, so the scale lives in one place instead of
  * being re-encoded in every form component. The `calc` expressions are
