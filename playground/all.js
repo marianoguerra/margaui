@@ -7,11 +7,20 @@ const compiler = await getCompiler();
 PreviewComponent.compiler = compiler;
 
 // Page-shell utility classes
-compilePageStyles(compiler, [
-  "navbar", "bg-base-100",
-  "select", "select-sm", "select-bordered",
-  "loading", "loading-spinner", "loading-lg",
-], document.getElementById("page-styles"));
+compilePageStyles(
+  compiler,
+  [
+    "navbar",
+    "bg-base-100",
+    "select",
+    "select-sm",
+    "select-bordered",
+    "loading",
+    "loading-spinner",
+    "loading-lg",
+  ],
+  document.getElementById("page-styles"),
+);
 
 document.body.style.visibility = "visible";
 

@@ -40,8 +40,10 @@
   }
 
   /* Content visibility when open */
-  &:is([open], [tabindex]:focus:not(.collapse-close), [tabindex]:focus-within:not(.collapse-close)) > .collapse-content,
-  &:not(.collapse-close) > :where(input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-content) {
+  &:is([open], [tabindex]:focus:not(.collapse-close), [tabindex]:focus-within:not(.collapse-close))
+    > .collapse-content,
+  &:not(.collapse-close)
+    > :where(input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-content) {
     content-visibility: visible;
     min-height: fit-content;
     @supports not (content-visibility: visible) {
@@ -109,8 +111,10 @@
   }
 
   /* Content padding when open */
-  &:is([open], [tabindex]:focus:not(.collapse-close), [tabindex]:focus-within:not(.collapse-close)) > :where(.collapse-content),
-  &:not(.collapse-close) > :where(input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-content) {
+  &:is([open], [tabindex]:focus:not(.collapse-close), [tabindex]:focus-within:not(.collapse-close))
+    > :where(.collapse-content),
+  &:not(.collapse-close)
+    > :where(input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-content) {
     padding-bottom: 1rem;
   }
 }
@@ -181,7 +185,9 @@
   &.collapse-open > .collapse-title:after,
   &[tabindex]:focus:not(.collapse-close) > .collapse-title:after,
   &[tabindex]:focus-within:not(.collapse-close) > .collapse-title:after,
-  &:not(.collapse-close) > input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-title:after {
+  &:not(.collapse-close)
+    > input:is([type="checkbox"], [type="radio"]):checked
+    ~ .collapse-title:after {
     transform: translateY(-50%) rotate(225deg);
   }
 }
@@ -207,7 +213,9 @@
   &:is([open]) > .collapse-title:after,
   &.collapse-open > .collapse-title:after,
   &[tabindex]:focus:not(.collapse-close) > .collapse-title:after,
-  &:not(.collapse-close) > input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-title:after {
+  &:not(.collapse-close)
+    > input:is([type="checkbox"], [type="radio"]):checked
+    ~ .collapse-title:after {
     content: "−";
   }
 }

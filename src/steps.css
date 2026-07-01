@@ -51,7 +51,7 @@
     width: 2rem;
     place-items: center;
     place-self: center;
-    border-radius: calc(infinity * 1px);
+    border-radius: calc(infinity* 1px);
   }
 
   &:first-child:before {
@@ -74,7 +74,7 @@
   &:after,
   & > .step-icon {
     --step-bg: --value(--color-*);
-    --step-fg: --value(--color-*-content);
+    --step-fg: --value(--color-* -content);
   }
 
   & + &:before {

@@ -57,7 +57,9 @@
 
   > :not(.drawer-overlay) {
     will-change: transform;
-    transition: translate 0.3s ease-out, width 0.2s ease-out;
+    transition:
+      translate 0.3s ease-out,
+      width 0.2s ease-out;
     translate: -100%;
 
     [dir="rtl"] & {
@@ -87,7 +89,8 @@
     opacity: 100%;
 
     @supports (color: color-mix(in lab, red, red)) {
-      scrollbar-color: color-mix(in oklch, currentColor 35%, #0000) oklch(0 0 0 / calc(var(--page-has-backdrop, 0) * 0.4));
+      scrollbar-color: color-mix(in oklch, currentColor 35%, #0000)
+        oklch(0 0 0 / calc(var(--page-has-backdrop, 0) * 0.4));
     }
 
     > :not(.drawer-overlay) {

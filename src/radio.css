@@ -7,10 +7,11 @@
   flex-shrink: 0;
   cursor: pointer;
   appearance: none;
-  border-radius: calc(infinity * 1px);
+  border-radius: calc(infinity* 1px);
   padding: 0.25rem;
   vertical-align: middle;
-  border: var(--border) solid color-mix(in srgb, var(--input-color, var(--color-base-content)) 20%, transparent);
+  border: var(--border) solid
+    color-mix(in srgb, var(--input-color, var(--color-base-content)) 20%, transparent);
   box-shadow: 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset;
   --size: var(--mg-selector-md);
   width: var(--size);
@@ -21,7 +22,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    border-radius: calc(infinity * 1px);
+    border-radius: calc(infinity* 1px);
     content: "";
     background-size: auto, calc(var(--noise) * 100%);
     background-image: none, var(--fx-noise);
@@ -42,7 +43,10 @@
 
     &:before {
       background-color: currentcolor;
-      box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1));
+      box-shadow:
+        0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset,
+        0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset,
+        0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1));
     }
 
     @media (forced-colors: active) {

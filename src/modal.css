@@ -17,7 +17,11 @@
   background-color: transparent;
   padding: 0;
   color: inherit;
-  transition: overlay 0.3s allow-discrete, visibility 0.3s allow-discrete, background-color 0.3s ease-out, opacity 0.1s ease-out;
+  transition:
+    overlay 0.3s allow-discrete,
+    visibility 0.3s allow-discrete,
+    background-color 0.3s ease-out,
+    opacity 0.1s ease-out;
   overflow: clip;
   overscroll-behavior: contain;
   z-index: 999;
@@ -51,7 +55,10 @@
     pointer-events: auto;
     visibility: visible;
     opacity: 100%;
-    transition: visibility 0s allow-discrete, background-color 0.3s ease-out, opacity 0.1s ease-out;
+    transition:
+      visibility 0s allow-discrete,
+      background-color 0.3s ease-out,
+      opacity 0.1s ease-out;
     background-color: oklch(0% 0 0 / 0.4);
 
     .modal-box {
@@ -116,7 +123,11 @@
   max-width: 32rem;
   background-color: var(--color-base-100);
   padding: 1.5rem;
-  transition: translate 0.3s ease-out, scale 0.3s ease-out, opacity 0.2s ease-out 0.05s, box-shadow 0.3s ease-out;
+  transition:
+    translate 0.3s ease-out,
+    scale 0.3s ease-out,
+    opacity 0.2s ease-out 0.05s,
+    box-shadow 0.3s ease-out;
   border-top-left-radius: var(--modal-tl, var(--radius-box));
   border-top-right-radius: var(--modal-tr, var(--radius-box));
   border-bottom-left-radius: var(--modal-bl, var(--radius-box));

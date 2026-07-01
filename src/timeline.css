@@ -12,8 +12,14 @@
   display: grid;
   flex-shrink: 0;
   align-items: center;
-  grid-template-rows: var(--timeline-row-start, minmax(0, 1fr)) auto var(--timeline-row-end, minmax(0, 1fr));
-  grid-template-columns: var(--timeline-col-start, minmax(0, 1fr)) auto var(--timeline-col-end, minmax(0, 1fr));
+  grid-template-rows: var(--timeline-row-start, minmax(0, 1fr)) auto var(
+      --timeline-row-end,
+      minmax(0, 1fr)
+    );
+  grid-template-columns: var(--timeline-col-start, minmax(0, 1fr)) auto var(
+      --timeline-col-end,
+      minmax(0, 1fr)
+    );
 }
 
 .timeline > li > hr {
@@ -45,14 +51,30 @@
 }
 
 /* Allow bg-* utility classes to override timeline hr background */
-.timeline hr.bg-primary { background-color: var(--color-primary); }
-.timeline hr.bg-secondary { background-color: var(--color-secondary); }
-.timeline hr.bg-accent { background-color: var(--color-accent); }
-.timeline hr.bg-neutral { background-color: var(--color-neutral); }
-.timeline hr.bg-info { background-color: var(--color-info); }
-.timeline hr.bg-success { background-color: var(--color-success); }
-.timeline hr.bg-warning { background-color: var(--color-warning); }
-.timeline hr.bg-error { background-color: var(--color-error); }
+.timeline hr.bg-primary {
+  background-color: var(--color-primary);
+}
+.timeline hr.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.timeline hr.bg-accent {
+  background-color: var(--color-accent);
+}
+.timeline hr.bg-neutral {
+  background-color: var(--color-neutral);
+}
+.timeline hr.bg-info {
+  background-color: var(--color-info);
+}
+.timeline hr.bg-success {
+  background-color: var(--color-success);
+}
+.timeline hr.bg-warning {
+  background-color: var(--color-warning);
+}
+.timeline hr.bg-error {
+  background-color: var(--color-error);
+}
 
 /* Timeline hr border radius when has middle
    Note: Original DaisyUI uses :has(.timeline-middle hr) which doesn't match

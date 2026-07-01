@@ -135,4 +135,6 @@ preview-component {
   display: block;
   height: 20rem;
 }
-.pg-hidden { display: none !important; }
+.pg-hidden {
+  display: none !important;
+}

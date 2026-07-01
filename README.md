@@ -155,28 +155,28 @@ Advanced. Builds the raw CSS input string from VFS entries. Useful if you need t
 35 themes available. Set the `data-theme` attribute on any element to switch themes:
 
 ```html
-<html data-theme="dracula">
+<html data-theme="dracula"></html>
 ```
 
 The `light` theme is the default — it sets `:root` and `:host` so pages work without an explicit `data-theme` attribute.
 
 Available themes:
 
-| | | | | |
-|---|---|---|---|---|
-| light | dark | abyss | acid | aqua |
-| autumn | black | bumblebee | business | caramellatte |
-| cmyk | coffee | corporate | cupcake | cyberpunk |
-| dim | dracula | emerald | fantasy | forest |
-| garden | halloween | lemonade | lofi | luxury |
-| night | nord | pastel | retro | silk |
-| sunset | synthwave | valentine | winter | wireframe |
+|        |           |           |          |              |
+| ------ | --------- | --------- | -------- | ------------ |
+| light  | dark      | abyss     | acid     | aqua         |
+| autumn | black     | bumblebee | business | caramellatte |
+| cmyk   | coffee    | corporate | cupcake  | cyberpunk    |
+| dim    | dracula   | emerald   | fantasy  | forest       |
+| garden | halloween | lemonade  | lofi     | luxury       |
+| night  | nord      | pastel    | retro    | silk         |
+| sunset | synthwave | valentine | winter   | wireframe    |
 
 `themes/theme.css` bundles just `light` + `dark` — import it for the common pair. For additional themes, import them individually:
 
 ```css
-@import "./themes/theme.css";     /* light + dark */
-@import "./themes/dracula.css";   /* add dracula */
+@import "./themes/theme.css"; /* light + dark */
+@import "./themes/dracula.css"; /* add dracula */
 ```
 
 ### Loading themes
@@ -186,15 +186,15 @@ Theme files are **not included** in the default browser bundle (`margaui.js` / `
 **Link tag** — the simplest option. Just point a `<link>` at the theme file:
 
 ```html
-<link rel="stylesheet" href="./themes/dracula.css">
-<body data-theme="dracula">
+<link rel="stylesheet" href="./themes/dracula.css" />
+<body data-theme="dracula"></body>
 ```
 
 **Fetch at runtime** — useful when switching themes dynamically:
 
 ```html
 <script type="module">
-  const css = await fetch("./themes/dracula.css").then(r => r.text());
+  const css = await fetch("./themes/dracula.css").then((r) => r.text());
   const style = document.createElement("style");
   style.textContent = css;
   document.head.appendChild(style);
@@ -205,8 +205,8 @@ Theme files are **not included** in the default browser bundle (`margaui.js` / `
 **Import in your CSS** — if you use the Tailwind CLI or build your own `input.css`, import theme files directly:
 
 ```css
-@import "./themes/theme.css";     /* light + dark */
-@import "./themes/dracula.css";   /* add more individually */
+@import "./themes/theme.css"; /* light + dark */
+@import "./themes/dracula.css"; /* add more individually */
 ```
 
 Then compile as usual with `npx @tailwindcss/cli -i input.css -o style.css`.
@@ -217,22 +217,22 @@ Then compile as usual with `npx @tailwindcss/cli -i input.css -o style.css`.
 
 68 components in `src/`:
 
-| | | | | |
-|---|---|---|---|---|
-| accordion | alert | aura | avatar | badge |
-| breadcrumbs | button | calendar | card | carousel |
-| chat | checkbox | collapse | colors | countdown |
-| diff | divider | dock | drawer | dropdown |
-| fab | fieldset | file-input | filter | footer |
-| hero | hover-3d | hover-gallery | indicator | input |
-| join | kbd | label | link | list |
-| loading | mask | megamenu | menu | mockup-browser |
-| mockup-code | mockup-phone | mockup-window | modal | navbar |
-| otp | pagination | progress | radial-progress | radio |
-| range | rating | select | skeleton | stack |
-| stat | status | steps | swap | tab |
-| table | text-rotate | textarea | theme-controller | timeline |
-| toast | toggle | tooltip | validator | |
+|             |              |               |                  |                |
+| ----------- | ------------ | ------------- | ---------------- | -------------- |
+| accordion   | alert        | aura          | avatar           | badge          |
+| breadcrumbs | button       | calendar      | card             | carousel       |
+| chat        | checkbox     | collapse      | colors           | countdown      |
+| diff        | divider      | dock          | drawer           | dropdown       |
+| fab         | fieldset     | file-input    | filter           | footer         |
+| hero        | hover-3d     | hover-gallery | indicator        | input          |
+| join        | kbd          | label         | link             | list           |
+| loading     | mask         | megamenu      | menu             | mockup-browser |
+| mockup-code | mockup-phone | mockup-window | modal            | navbar         |
+| otp         | pagination   | progress      | radial-progress  | radio          |
+| range       | rating       | select        | skeleton         | stack          |
+| stat        | status       | steps         | swap             | tab            |
+| table       | text-rotate  | textarea      | theme-controller | timeline       |
+| toast       | toggle       | tooltip       | validator        |                |
 
 Each component is defined using Tailwind v4's `@utility` directive, making them available as utility classes during compilation.
 
@@ -268,14 +268,14 @@ tools/        Build scripts (VFS generator, component tree, sync checker)
 
 Requires Node 22+ and npm — the entire toolchain runs through npm scripts (no bun or Python). See `package.json`'s `scripts` for the full list.
 
-| Command | Description |
-|---|---|
-| `npm run playground` | Generate VFS + component tree for the playground |
-| `npm run gen-vfs-dev` | Regenerate `vfs.js` from source CSS files |
-| `npm run gen-component-tree` | Regenerate `playground/components.json` |
-| `npm run dist` | Build minified distribution in `dist/` |
-| `npm run check-sync` | Verify source files and imports are in sync |
-| `npm run fetch-tw` | Re-fetch and bundle `tailwindcss.js` |
+| Command                      | Description                                      |
+| ---------------------------- | ------------------------------------------------ |
+| `npm run playground`         | Generate VFS + component tree for the playground |
+| `npm run gen-vfs-dev`        | Regenerate `vfs.js` from source CSS files        |
+| `npm run gen-component-tree` | Regenerate `playground/components.json`          |
+| `npm run dist`               | Build minified distribution in `dist/`           |
+| `npm run check-sync`         | Verify source files and imports are in sync      |
+| `npm run fetch-tw`           | Re-fetch and bundle `tailwindcss.js`             |
 
 ## License
 

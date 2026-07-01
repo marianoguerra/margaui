@@ -1,10 +1,6 @@
 import { compile } from "./tailwindcss.js";
 
-export async function makeCompiler(
-  input,
-  vfs,
-  { from = "entry.css", base = "" },
-) {
+export async function makeCompiler(input, vfs, { from = "entry.css", base = "" }) {
   return await compile(input, {
     from,
     base,

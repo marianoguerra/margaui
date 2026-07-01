@@ -4,3 +4,13 @@ vfs.js
 tailwindcss.js
 playground/components.json
 playground/themes.json
+# generated skill output (edit tools/skill_meta.json + playground HTML instead)
+.claude/
+# vendored bundle
+editor/codemirror.js
+# manual mirrors of upstream Tailwind files — sync verbatim, don't reformat
+tw/
+# hand-written HTML content: playground examples feed the generated skill
+# verbatim; examples/ are user-facing demo pages
+playground/components/
+examples/

@@ -13,11 +13,18 @@
   vertical-align: middle;
   user-select: none;
   grid-template-columns: 0fr 1fr 1fr;
-  --radius-selector-max: calc(var(--radius-selector) + var(--radius-selector) + var(--radius-selector));
-  border-radius: calc(var(--radius-selector) + min(var(--toggle-p), var(--radius-selector-max)) + min(var(--border), var(--radius-selector-max)));
+  --radius-selector-max: calc(
+    var(--radius-selector) + var(--radius-selector) + var(--radius-selector)
+  );
+  border-radius: calc(
+    var(--radius-selector) + min(var(--toggle-p), var(--radius-selector-max)) +
+      min(var(--border), var(--radius-selector-max))
+  );
   padding: var(--toggle-p);
   box-shadow: 0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), transparent) inset;
-  transition: color 0.3s, grid-template-columns 0.2s;
+  transition:
+    color 0.3s,
+    grid-template-columns 0.2s;
   --input-color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
   --toggle-p: calc(var(--size) * 0.125);
   --size: var(--mg-selector-md);
@@ -35,8 +42,14 @@
     background-color: currentcolor;
     translate: 0;
     content: "";
-    transition: background-color 0.1s, translate 0.2s, inset-inline-start 0.2s;
-    box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), transparent);
+    transition:
+      background-color 0.1s,
+      translate 0.2s,
+      inset-inline-start 0.2s;
+    box-shadow:
+      0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset,
+      0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset,
+      0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), transparent);
     background-size: auto, calc(var(--noise) * 100%);
     background-image: none, var(--fx-noise);
 
@@ -95,7 +108,9 @@
   appearance: none;
   background-color: transparent;
   padding: 0.125rem;
-  transition: opacity 0.2s, rotate 0.4s;
+  transition:
+    opacity 0.2s,
+    rotate 0.4s;
   border: none;
 }
 

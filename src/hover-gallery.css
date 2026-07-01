@@ -6,7 +6,8 @@
   width: 100%;
   gap: 1px;
   overflow: hidden;
-  &, &:is(figure) {
+  &,
+  &:is(figure) {
     display: inline-grid;
   }
   &:has(> :nth-child(3)) {

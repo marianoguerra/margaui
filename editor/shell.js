@@ -29,8 +29,7 @@ export async function createThemeSwitcher({
     selectEl.appendChild(opt);
   }
 
-  const loadTheme = (name) =>
-    fetch(`${themesBaseUrl}/${name}.css`).then((r) => r.text());
+  const loadTheme = (name) => fetch(`${themesBaseUrl}/${name}.css`).then((r) => r.text());
 
   const sheet = new CSSStyleSheet();
   sheet.replaceSync(adoptableThemeCss(await loadTheme(initial)));

@@ -107,5 +107,5 @@
 /* Color variants */
 @utility chat-bubble-* {
   background-color: --value(--color-*);
-  color: --value(--color-*-content);
+  color: --value(--color-* -content);
 }

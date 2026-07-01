@@ -18,9 +18,12 @@
     margin-left: 1rem;
     height: 0.75rem;
     width: 0.75rem;
-    border-radius: calc(infinity * 1px);
+    border-radius: calc(infinity* 1px);
     opacity: 30%;
-    box-shadow: 1.4em 0 currentColor, 2.8em 0 currentColor, 4.2em 0 currentColor;
+    box-shadow:
+      1.4em 0 currentColor,
+      2.8em 0 currentColor,
+      4.2em 0 currentColor;
   }
 
   pre {

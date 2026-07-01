@@ -109,7 +109,10 @@
     translate: 0 1px;
   }
 
-  :where(li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title)):not(.menu-active, :active, .btn) {
+  :where(
+    li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title),
+    li:not(.menu-title, .disabled) > details > summary:not(.menu-title)
+  ):not(.menu-active, :active, .btn) {
     &.menu-focus,
     &:focus-visible {
       cursor: pointer;
@@ -128,11 +131,19 @@
     }
   }
 
-  :where(li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover, li:not(.menu-title, .disabled) > details > summary:not(.menu-title):not(.menu-active, :active, .btn):hover) {
+  :where(
+    li:not(.menu-title, .disabled)
+      > *:not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover,
+    li:not(.menu-title, .disabled)
+      > details
+      > summary:not(.menu-title):not(.menu-active, :active, .btn):hover
+  ) {
     cursor: pointer;
     background-color: var(--color-base-content);
     outline-style: none;
-    box-shadow: 0 1px oklch(0% 0 0 / 0.01) inset, 0 -1px oklch(100% 0 0 / 0.01) inset;
+    box-shadow:
+      0 1px oklch(0% 0 0 / 0.01) inset,
+      0 -1px oklch(100% 0 0 / 0.01) inset;
 
     @supports (color: color-mix(in lab, red, red)) {
       background-color: var(--mg-subtle-10);
@@ -243,7 +254,9 @@
       padding-inline-end: 0.5rem;
       opacity: 0%;
       scale: 95%;
-      box-shadow: 0 1px 3px 0 oklch(0% 0 0/0.1), 0 1px 2px -1px oklch(0% 0 0/0.1);
+      box-shadow:
+        0 1px 3px 0 oklch(0% 0 0/0.1),
+        0 1px 2px -1px oklch(0% 0 0/0.1);
 
       @media (prefers-reduced-motion: no-preference) {
         @starting-style {

@@ -55,7 +55,9 @@
   .tooltip > .tooltip-content,
   .tooltip[data-tip]:before,
   .tooltip:after {
-    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms;
+    transition:
+      opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms,
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms;
   }
 }
 
@@ -100,7 +102,9 @@
   .tooltip:has(.tooltip-content:not(:empty)):hover:after,
   .tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible) > .tooltip-content,
   .tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible):after {
-    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    transition:
+      opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
   }
 }
 
@@ -221,7 +225,7 @@
 /* Color variants */
 @utility tooltip-* {
   --tt-bg: --value(--color-*);
-  --tt-fg: --value(--color-*-content);
+  --tt-fg: --value(--color-* -content);
 }
 
 /* Responsive lg:tooltip variant */
@@ -278,7 +282,9 @@
     .lg\:tooltip > .tooltip-content,
     .lg\:tooltip[data-tip]:before,
     .lg\:tooltip:after {
-      transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms;
+      transition:
+        opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms,
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 75ms;
     }
   }
 
@@ -323,7 +329,9 @@
     .lg\:tooltip:has(.tooltip-content:not(:empty)):hover:after,
     .lg\:tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible) > .tooltip-content,
     .lg\:tooltip:has(.tooltip-content:not(:empty)):has(:focus-visible):after {
-      transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+      transition:
+        opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
     }
   }
 }

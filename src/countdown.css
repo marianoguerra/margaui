@@ -19,7 +19,11 @@
     --value-tens: calc(round(to-zero, mod(var(--value-v), 100) / 10, 1));
     --value-ones: calc(mod(var(--value-v), 100));
     --show-hundreds: clamp(clamp(0, var(--digits, 1) - 2, 1), var(--value-hundreds), 1);
-    --show-tens: clamp(clamp(0, var(--digits, 1) - 1, 1), var(--value-tens) + var(--show-hundreds), 1);
+    --show-tens: clamp(
+      clamp(0, var(--digits, 1) - 1, 1),
+      var(--value-tens) + var(--show-hundreds),
+      1
+    );
     --first-digits: calc(round(to-zero, var(--value-v) / 10, 1));
     width: calc(1ch + var(--show-tens) * 1ch + var(--show-hundreds) * 1ch);
     direction: ltr;
@@ -35,7 +39,10 @@
       white-space: pre;
       text-align: end;
       direction: rtl;
-      transition: all 1s cubic-bezier(1, 0, 0, 1), width 0.2s ease-out 0.2s, opacity 0.2s ease-out 0.2s;
+      transition:
+        all 1s cubic-bezier(1, 0, 0, 1),
+        width 0.2s ease-out 0.2s,
+        opacity 0.2s ease-out 0.2s;
     }
 
     &:before {

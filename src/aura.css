@@ -107,7 +107,12 @@
 }
 
 @utility aura-dual {
-  background-image: repeating-conic-gradient(from var(--aura-angle), transparent 0%, transparent 40%, currentColor 50%);
+  background-image: repeating-conic-gradient(
+    from var(--aura-angle),
+    transparent 0%,
+    transparent 40%,
+    currentColor 50%
+  );
 }
 
 @utility aura-silver {

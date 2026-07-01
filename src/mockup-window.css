@@ -17,9 +17,12 @@
     height: calc(0.25rem * 3);
     flex-shrink: 0;
     align-self: flex-start;
-    border-radius: calc(infinity * 1px);
+    border-radius: calc(infinity* 1px);
     opacity: 30%;
-    box-shadow: 1.4em 0 currentColor, 2.8em 0 currentColor, 4.2em 0 currentColor;
+    box-shadow:
+      1.4em 0 currentColor,
+      2.8em 0 currentColor,
+      4.2em 0 currentColor;
   }
   [dir="rtl"] &:before {
     align-self: flex-end;

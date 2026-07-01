@@ -3,8 +3,8 @@ import { makeCompiler } from "./twcompiler.js";
 
 export function buildInput(entries) {
   const imports = Object.keys(entries)
-    .filter(k => !k.startsWith("./tw/") && k !== "tailwindcss")
-    .map(k => `@import "${k}";`)
+    .filter((k) => !k.startsWith("./tw/") && k !== "tailwindcss")
+    .map((k) => `@import "${k}";`)
     .join("\n");
   return `@import "tailwindcss" source(none);\n${imports}`;
 }

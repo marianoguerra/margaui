@@ -17,11 +17,20 @@ await withCodeMirror((m) => console.log("codemirror loaded", m));
 const compiler = await getCompiler();
 
 // Compile page shell classes
-compilePageStyles(compiler, [
-  "navbar", "bg-base-100",
-  "select", "select-sm", "select-bordered",
-  "btn", "btn-sm", "btn-primary",
-], document.getElementById("page-styles"));
+compilePageStyles(
+  compiler,
+  [
+    "navbar",
+    "bg-base-100",
+    "select",
+    "select-sm",
+    "select-bordered",
+    "btn",
+    "btn-sm",
+    "btn-primary",
+  ],
+  document.getElementById("page-styles"),
+);
 document.body.style.visibility = "visible";
 
 // Theme setup
@@ -34,7 +43,7 @@ const themeSwitcher = await createThemeSwitcher({
 const themeSheet = themeSwitcher.sheet;
 
 // Component selector
-const components = await fetch("../playground/components.json").then(r => r.json());
+const components = await fetch("../playground/components.json").then((r) => r.json());
 const componentSelect = document.getElementById("component-select");
 const fileSelect = document.getElementById("file-select");
 const loadBtn = document.getElementById("load-btn");
@@ -47,7 +56,7 @@ for (const comp of components) {
 }
 
 function populateFiles() {
-  const comp = components.find(c => c.name === componentSelect.value);
+  const comp = components.find((c) => c.name === componentSelect.value);
   fileSelect.innerHTML = "";
   if (!comp) return;
   for (const f of comp.files) {
@@ -81,7 +90,7 @@ loadBtn.addEventListener("click", async () => {
   const comp = componentSelect.value;
   const file = fileSelect.value;
   if (!comp || !file) return;
-  const html = await fetch(`../playground/components/${comp}/${file}`).then(r => r.text());
+  const html = await fetch(`../playground/components/${comp}/${file}`).then((r) => r.text());
   setEditorCode(html);
   render();
 });
@@ -91,9 +100,9 @@ const tabs = document.querySelectorAll(".ed-tab");
 const panelPreview = document.getElementById("ed-panel-preview");
 const panelCss = document.getElementById("ed-panel-css");
 
-tabs.forEach(tab => {
+tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    tabs.forEach(t => t.setAttribute("aria-selected", "false"));
+    tabs.forEach((t) => t.setAttribute("aria-selected", "false"));
     tab.setAttribute("aria-selected", "true");
     const panel = tab.dataset.panel;
     panelPreview.classList.toggle("ed-hidden", panel !== "preview");
@@ -188,7 +197,9 @@ if (paramComp && paramFile) {
   componentSelect.value = paramComp;
   populateFiles();
   fileSelect.value = paramFile;
-  const html = await fetch(`../playground/components/${paramComp}/${paramFile}`).then(r => r.text());
+  const html = await fetch(`../playground/components/${paramComp}/${paramFile}`).then((r) =>
+    r.text(),
+  );
   setEditorCode(html);
 }
 

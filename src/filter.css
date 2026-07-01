@@ -13,7 +13,11 @@
     overflow: hidden;
     opacity: 100%;
     scale: 1;
-    transition: margin 0.1s, opacity 0.3s, padding 0.3s, border-width 0.1s;
+    transition:
+      margin 0.1s,
+      opacity 0.3s,
+      padding 0.3s,
+      border-width 0.1s;
 
     &:not(:last-child) {
       margin-inline-end: 0.25rem;

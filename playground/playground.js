@@ -18,15 +18,35 @@ const compiler = await getCompiler();
 PreviewComponent.compiler = compiler;
 
 // Compile only DaisyUI component classes needed by the page shell
-compilePageStyles(compiler, [
-  "navbar", "bg-base-100",
-  "select", "select-sm", "select-bordered",
-  "menu", "menu-title", "active",
-  "loading", "loading-spinner", "loading-lg",
-  "tabs", "tabs-lift", "tab", "tab-content",
-  "badge", "badge-sm", "badge-ghost",
-  "flex", "gap-2", "justify-end", "mt-4", "opacity-50",
-], document.getElementById("page-styles"));
+compilePageStyles(
+  compiler,
+  [
+    "navbar",
+    "bg-base-100",
+    "select",
+    "select-sm",
+    "select-bordered",
+    "menu",
+    "menu-title",
+    "active",
+    "loading",
+    "loading-spinner",
+    "loading-lg",
+    "tabs",
+    "tabs-lift",
+    "tab",
+    "tab-content",
+    "badge",
+    "badge-sm",
+    "badge-ghost",
+    "flex",
+    "gap-2",
+    "justify-end",
+    "mt-4",
+    "opacity-50",
+  ],
+  document.getElementById("page-styles"),
+);
 
 // Reveal page
 document.body.style.visibility = "visible";
@@ -71,7 +91,7 @@ function editUrl(name, file) {
 }
 
 // Fetch component tree
-const components = await fetch("./components.json").then(r => r.json());
+const components = await fetch("./components.json").then((r) => r.json());
 
 // Render sidebar menu
 const menuEl = document.getElementById("menu");
@@ -95,7 +115,7 @@ function humanize(filename) {
   return filename
     .replace(".html", "")
     .replace(/-/g, " ")
-    .replace(/\b\w/g, c => c.toUpperCase());
+    .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 // Navigation
@@ -104,7 +124,7 @@ const loadingEl = document.getElementById("pg-loading");
 let activeLink = null;
 
 function showComponent(name) {
-  const comp = components.find(c => c.name === name);
+  const comp = components.find((c) => c.name === name);
   if (!comp) return;
 
   // Update active menu item

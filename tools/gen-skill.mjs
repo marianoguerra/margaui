@@ -145,7 +145,9 @@ function renderIndex(components, themes, meta) {
 
   lines.push("");
   if (todoCount) {
-    lines.push(`<!-- ${todoCount} component(s) still have TODO descriptions in tools/skill_meta.json. -->`);
+    lines.push(
+      `<!-- ${todoCount} component(s) still have TODO descriptions in tools/skill_meta.json. -->`,
+    );
     lines.push("");
   }
 

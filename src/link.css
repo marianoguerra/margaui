@@ -32,7 +32,7 @@
 
   @media (hover: hover) {
     &:hover {
-      color: color-mix(in oklab, --value(--color-*) 80%, black);
+      color: color-mix(in oklab, --value(--color- *) 80%, black);
     }
   }
 }

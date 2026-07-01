@@ -6,15 +6,15 @@ One Tailwind v4 `@utility` file per component. Everything here is loaded through
 
 Components should drive sizes and colors from these tokens rather than inlining calcs or color-mix expressions:
 
-| Token | Defined in | Purpose |
-|---|---|---|
-| `--size-field` | themes | unit for form-input heights (input, select, button, file-input, textarea) |
-| `--size-selector` | themes | unit for small-control heights (checkbox, radio, toggle, badge, kbd) |
-| `--mg-field-{xs,sm,md,lg,xl}` | `base/properties.css` | resolved field sizes — use in `@utility *-xs` etc. |
-| `--mg-selector-{xs,sm,md,lg,xl}` | `base/properties.css` | resolved selector sizes |
-| `--mg-subtle-{10,20,40}` | `base/colormix.css` | `color-mix` of `--color-base-content` with transparent — use inside `@supports (color: color-mix(...))` blocks for borders, placeholders, disabled text |
-| `--radius-field` / `--radius-selector` / `--radius-box` | themes | corner radii |
-| `--border`, `--depth`, `--noise` | themes | border width, shadow depth, noise factor |
+| Token                                                   | Defined in            | Purpose                                                                                                                                                 |
+| ------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--size-field`                                          | themes                | unit for form-input heights (input, select, button, file-input, textarea)                                                                               |
+| `--size-selector`                                       | themes                | unit for small-control heights (checkbox, radio, toggle, badge, kbd)                                                                                    |
+| `--mg-field-{xs,sm,md,lg,xl}`                           | `base/properties.css` | resolved field sizes — use in `@utility *-xs` etc.                                                                                                      |
+| `--mg-selector-{xs,sm,md,lg,xl}`                        | `base/properties.css` | resolved selector sizes                                                                                                                                 |
+| `--mg-subtle-{10,20,40}`                                | `base/colormix.css`   | `color-mix` of `--color-base-content` with transparent — use inside `@supports (color: color-mix(...))` blocks for borders, placeholders, disabled text |
+| `--radius-field` / `--radius-selector` / `--radius-box` | themes                | corner radii                                                                                                                                            |
+| `--border`, `--depth`, `--noise`                        | themes                | border width, shadow depth, noise factor                                                                                                                |
 
 ## Conventions
 
@@ -24,7 +24,7 @@ Components should drive sizes and colors from these tokens rather than inlining 
   ```css
   @utility btn-* {
     --btn-color: --value(--color-*);
-    --btn-fg: --value(--color-*-content);
+    --btn-fg: --value(--color-* -content);
   }
   ```
   The semantic colors are registered in `base/theme-colors.css`; that registration is also what makes `bg-primary`, `text-primary-content`, `rounded-box`, etc. auto-generate — so there is no hand-written color-utility file. If a variant needs a descendant/pseudo color (as tooltip does), route it through an inherited component var with a fallback (`color: var(--tt-fg, var(--color-neutral-content))`) so it stays inside the one functional block.

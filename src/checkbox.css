@@ -12,8 +12,13 @@
   vertical-align: middle;
   color: var(--color-base-content);
   border: var(--border) solid var(--input-color, var(--color-base-content));
-  box-shadow: 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 0 transparent inset, 0 0 transparent;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow:
+    0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset,
+    0 0 transparent inset,
+    0 0 transparent;
+  transition:
+    background-color 0.2s,
+    box-shadow 0.2s;
   --size: var(--mg-selector-md);
   width: var(--size);
   height: var(--size);
@@ -21,7 +26,10 @@
   background-image: none, var(--fx-noise);
 
   @supports (color: color-mix(in lab, red, red)) {
-    border-color: var(--input-color, color-mix(in oklab, var(--color-base-content) 20%, transparent));
+    border-color: var(
+      --input-color,
+      color-mix(in oklab, var(--color-base-content) 20%, transparent)
+    );
   }
 
   &:before {
@@ -32,7 +40,11 @@
     rotate: 45deg;
     background-color: currentcolor;
     opacity: 0%;
-    transition: clip-path 0.3s, opacity 0.1s, rotate 0.3s, translate 0.3s;
+    transition:
+      clip-path 0.3s,
+      opacity 0.1s,
+      rotate 0.3s,
+      translate 0.3s;
     transition-delay: 0.1s;
     clip-path: polygon(20% 100%, 20% 80%, 50% 80%, 50% 80%, 70% 80%, 70% 100%);
     box-shadow: 0px 3px 0 0px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
@@ -48,7 +60,10 @@
   &:checked,
   &[aria-checked="true"] {
     background-color: var(--input-color, transparent);
-    box-shadow: 0 0 transparent inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1));
+    box-shadow:
+      0 0 transparent inset,
+      0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset,
+      0 1px oklch(0% 0 0 / calc(var(--depth) * 0.1));
 
     &:before {
       clip-path: polygon(20% 100%, 20% 80%, 50% 80%, 50% 0%, 70% 0%, 70% 100%);
@@ -74,7 +89,10 @@
   &:indeterminate {
     background-color: var(--input-color, var(--color-base-content));
     @supports (color: color-mix(in lab, red, red)) {
-      background-color: var(--input-color, color-mix(in oklab, var(--color-base-content) 20%, transparent));
+      background-color: var(
+        --input-color,
+        color-mix(in oklab, var(--color-base-content) 20%, transparent)
+      );
     }
     &:before {
       rotate: 0deg;
@@ -87,7 +105,7 @@
 
 /* Color variants */
 @utility checkbox-* {
-  color: --value(--color-*-content);
+  color: --value(--color-* -content);
   --input-color: --value(--color-*);
 }
 

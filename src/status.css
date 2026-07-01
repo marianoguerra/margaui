@@ -17,7 +17,11 @@
   @supports (color: color-mix(in lab, red, red)) {
     color: color-mix(in oklab, var(--color-black) 30%, transparent);
   }
-  background-image: radial-gradient(circle at 35% 30%, oklch(1 0 0 / calc(var(--depth) * 0.5)), #0000);
+  background-image: radial-gradient(
+    circle at 35% 30%,
+    oklch(1 0 0 / calc(var(--depth) * 0.5)),
+    #0000
+  );
   box-shadow: 0 2px 3px -1px currentColor;
   @supports (color: color-mix(in lab, red, red)) {
     box-shadow: 0 2px 3px -1px color-mix(in oklab, currentColor calc(var(--depth) * 100%), #0000);

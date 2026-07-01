@@ -21,25 +21,37 @@
   border-start-end-radius: var(--join-se, var(--radius-field));
   border-end-start-radius: var(--join-es, var(--radius-field));
   border-end-end-radius: var(--join-ee, var(--radius-field));
-  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
-  background-position: calc(100% - 20px) calc(1px + 50%), calc(100% - 16.1px) calc(1px + 50%);
-  background-size: 4px 4px, 4px 4px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(1px + 50%),
+    calc(100% - 16.1px) calc(1px + 50%);
+  background-size:
+    4px 4px,
+    4px 4px;
   background-repeat: no-repeat;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   border-color: var(--input-color);
-  box-shadow: 0 1px var(--input-color) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
+  box-shadow:
+    0 1px var(--input-color) inset,
+    0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
   --size: var(--mg-field-md);
   --input-color: var(--color-base-content);
 
   @supports (color: color-mix(in lab, red, red)) {
     --input-color: var(--mg-subtle-20);
-    box-shadow: 0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), transparent) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
+    box-shadow:
+      0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), transparent) inset,
+      0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
   }
 
   [dir="rtl"] & {
-    background-position: calc(0% + 12px) calc(1px + 50%), calc(0% + 16px) calc(1px + 50%);
+    background-position:
+      calc(0% + 12px) calc(1px + 50%),
+      calc(0% + 16px) calc(1px + 50%);
 
     &::picker(select),
     select::picker(select) {
@@ -93,7 +105,8 @@
     isolation: isolate;
 
     @supports (color: color-mix(in lab, red, red)) {
-      box-shadow: 0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), transparent);
+      box-shadow: 0 1px
+        color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), transparent);
     }
   }
 
@@ -144,7 +157,9 @@
       border-radius: var(--radius-box);
       padding: 0.5rem;
       background-color: inherit;
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / calc(var(--depth) * 0.1)), 0 8px 10px -6px rgb(0 0 0 / calc(var(--depth) * 0.1));
+      box-shadow:
+        0 20px 25px -5px rgb(0 0 0 / calc(var(--depth) * 0.1)),
+        0 8px 10px -6px rgb(0 0 0 / calc(var(--depth) * 0.1));
     }
 
     &::picker-icon {

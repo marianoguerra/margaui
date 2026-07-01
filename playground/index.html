@@ -1,36 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>margaui playground</title>
-  <style id="page-styles"></style>
-  <link rel="stylesheet" href="playground.css">
-</head>
-<body style="visibility: hidden" data-theme="light">
-  <div id="app">
-    <nav id="pg-nav" class="navbar bg-base-100">
-      <span class="pg-title">margaui playground</span>
-      <span class="pg-hint">Click <b>Edit</b> on each section to open the interactive editor</span>
-      <div class="pg-toggles">
-        <label><input type="checkbox" id="editor-dark"> Dark Editor</label>
-        <label><input type="checkbox" id="editor-vim"> Vim</label>
-      </div>
-      <select id="theme-select" class="select select-sm select-bordered"></select>
-    </nav>
-    <div id="pg-body">
-      <aside id="pg-sidebar">
-        <ul id="menu" class="menu"></ul>
-      </aside>
-      <main id="pg-main">
-        <div id="pg-loading">
-          <span class="loading loading-spinner loading-lg"></span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>margaui playground</title>
+    <style id="page-styles"></style>
+    <link rel="stylesheet" href="playground.css" />
+  </head>
+  <body style="visibility: hidden" data-theme="light">
+    <div id="app">
+      <nav id="pg-nav" class="navbar bg-base-100">
+        <span class="pg-title">margaui playground</span>
+        <span class="pg-hint"
+          >Click <b>Edit</b> on each section to open the interactive editor</span
+        >
+        <div class="pg-toggles">
+          <label><input type="checkbox" id="editor-dark" /> Dark Editor</label>
+          <label><input type="checkbox" id="editor-vim" /> Vim</label>
         </div>
-        <div id="pg-content"></div>
-      </main>
+        <select id="theme-select" class="select select-sm select-bordered"></select>
+      </nav>
+      <div id="pg-body">
+        <aside id="pg-sidebar">
+          <ul id="menu" class="menu"></ul>
+        </aside>
+        <main id="pg-main">
+          <div id="pg-loading">
+            <span class="loading loading-spinner loading-lg"></span>
+          </div>
+          <div id="pg-content"></div>
+        </main>
+      </div>
     </div>
-  </div>
 
-  <script type="module" src="playground.js"></script>
-</body>
+    <script type="module" src="playground.js"></script>
+  </body>
 </html>

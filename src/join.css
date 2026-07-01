@@ -152,7 +152,6 @@
       --join-ee: var(--radius-field);
     }
   }
-
 }
 
 /* Vertical join border overlap - pull items up by border width */
@@ -212,7 +211,6 @@
       --join-ee: var(--radius-field);
     }
   }
-
 }
 
 /* Horizontal join border overlap - pull items left by border width */

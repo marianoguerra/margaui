@@ -75,9 +75,7 @@ export class PreviewComponent extends HTMLElement {
     `;
 
     const cssBytes = new Blob([css]).size;
-    this.dispatchEvent(
-      new CustomEvent("load", { detail: { html, css, buildMs, cssBytes } }),
-    );
+    this.dispatchEvent(new CustomEvent("load", { detail: { html, css, buildMs, cssBytes } }));
   }
 }
 

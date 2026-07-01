@@ -33,7 +33,9 @@
 
   &.dropdown-close .dropdown-content,
   &:not(details, .dropdown-open, .dropdown-hover:hover, :focus-within) .dropdown-content,
-  &.dropdown-hover:not(:hover) [tabindex]:first-child:focus:not(:focus-visible) ~ .dropdown-content {
+  &.dropdown-hover:not(:hover)
+    [tabindex]:first-child:focus:not(:focus-visible)
+    ~ .dropdown-content {
     display: none;
     transform-origin: top;
     opacity: 0%;

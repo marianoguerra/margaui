@@ -91,7 +91,7 @@
     right: 1px;
     bottom: 0;
     z-index: 2;
-    border-radius: calc(infinity * 1px);
+    border-radius: calc(infinity* 1px);
     background-color: var(--color-base-100);
     width: 1.2rem;
     height: 1.8rem;
@@ -126,5 +126,7 @@
   cursor: ew-resize;
   transform-origin: 100% 100%;
   clip-path: inset(calc(100% - 0.75rem) 0 0 calc(100% - 0.75rem));
-  transition: min-width 0.3s ease-out, max-width 0.3s ease-out;
+  transition:
+    min-width 0.3s ease-out,
+    max-width 0.3s ease-out;
 }
