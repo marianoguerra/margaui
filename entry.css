@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 
-/* TODO: change to the real source blob */
+/* Example corpus for CLI builds; replace or extend with @source
+   directives pointing at your own content. */
 @source "./playground/components/**/*.html";
 
 @import "./base/theme-colors.css";

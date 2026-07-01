@@ -18,5 +18,4 @@ const names = globSync("*.css", { cwd: dir })
   .filter((n) => n !== "theme")
   .sort();
 
-// Match the compact ", "-separated form of Python's json.dumps.
-process.stdout.write("[" + names.map((n) => JSON.stringify(n)).join(", ") + "]\n");
+process.stdout.write(JSON.stringify(names) + "\n");

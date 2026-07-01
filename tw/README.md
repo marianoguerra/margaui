@@ -7,4 +7,4 @@ These four files mirror the upstream Tailwind v4 entry graph and are served to t
 - `preflight.css` — upstream preflight/reset.
 - `utilities.css` — upstream utilities layer.
 
-All four are bundled into `vfs.js` by `tools/make_vfs_esm.py` and resolved at runtime by `twcompiler.js`'s `loadStylesheet`. Do not rename or edit these files except when syncing with a new upstream Tailwind version (`npm run fetch-tw` refreshes the JS bundle; the CSS mirrors above are manual).
+All four are bundled into `vfs.js` by `tools/make-vfs.mjs` (`npm run gen-vfs-dev` / `gen-vfs`) and resolved at runtime by `twcompiler.js`'s `loadStylesheet`. Do not rename or edit these files except when syncing with a new upstream Tailwind version (`npm run fetch-tw` refreshes the JS bundle; the CSS mirrors above are manual).
