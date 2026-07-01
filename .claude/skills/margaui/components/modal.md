@@ -156,6 +156,24 @@ Source: `playground/components/modal/modal-using-checkbox.html`
 </div>
 ```
 
+### Modal using popover api
+
+Source: `playground/components/modal/modal-using-popover-api.html`
+
+```html
+<!-- Open the modal using the HTML Popover API, no JS needed -->
+<button class="btn" popovertarget="my_modal_popover">open modal</button>
+<dialog id="my_modal_popover" class="modal" popover>
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click outside to close</p>
+    <div class="modal-action">
+      <button class="btn" popovertarget="my_modal_popover" popovertargetaction="hide">Close</button>
+    </div>
+  </div>
+</dialog>
+```
+
 ### Responsive
 
 Source: `playground/components/modal/responsive.html`

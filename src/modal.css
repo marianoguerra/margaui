@@ -17,7 +17,7 @@
   background-color: transparent;
   padding: 0;
   color: inherit;
-  transition: visibility 0.3s allow-discrete, background-color 0.3s ease-out, opacity 0.1s ease-out;
+  transition: overlay 0.3s allow-discrete, visibility 0.3s allow-discrete, background-color 0.3s ease-out, opacity 0.1s ease-out;
   overflow: clip;
   overscroll-behavior: contain;
   z-index: 999;
@@ -27,8 +27,25 @@
     display: none;
   }
 
+  &[popover] {
+    inset: 0;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    max-width: none;
+    max-height: none;
+
+    &::backdrop {
+      background-color: oklch(0% 0 0 / 0.4);
+      transition: background-color 0.3s ease-out;
+    }
+  }
+
   &.modal-open,
   &[open],
+  &:popover-open,
   &:target,
   .modal-toggle:checked + & {
     pointer-events: auto;
@@ -58,6 +75,7 @@
   @starting-style {
     &.modal-open,
     &[open],
+    &:popover-open,
     &:target,
     .modal-toggle:checked + & {
       opacity: 0%;

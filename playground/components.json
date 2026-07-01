@@ -554,6 +554,7 @@
       "modal-that-closes-when-clicked-outside.html",
       "modal-using-anchor-link.html",
       "modal-using-checkbox.html",
+      "modal-using-popover-api.html",
       "responsive.html"
     ]
   },

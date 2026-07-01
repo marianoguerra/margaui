@@ -10,6 +10,7 @@
 @import "./base/rootscrollgutter.css";
 @import "./base/rootscrolllock.css";
 @import "./base/scrollbar.css";
+@import "./base/svg.css";
 
 @import "./themes/theme.css";
 
