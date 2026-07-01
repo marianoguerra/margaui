@@ -48,45 +48,12 @@
   font-size: 1.125rem;
 }
 
-/* Color variants */
-@utility badge-primary {
-  --badge-color: var(--color-primary);
-  --badge-fg: var(--color-primary-content);
-}
-
-@utility badge-secondary {
-  --badge-color: var(--color-secondary);
-  --badge-fg: var(--color-secondary-content);
-}
-
-@utility badge-accent {
-  --badge-color: var(--color-accent);
-  --badge-fg: var(--color-accent-content);
-}
-
-@utility badge-neutral {
-  --badge-color: var(--color-neutral);
-  --badge-fg: var(--color-neutral-content);
-}
-
-@utility badge-info {
-  --badge-color: var(--color-info);
-  --badge-fg: var(--color-info-content);
-}
-
-@utility badge-success {
-  --badge-color: var(--color-success);
-  --badge-fg: var(--color-success-content);
-}
-
-@utility badge-warning {
-  --badge-color: var(--color-warning);
-  --badge-fg: var(--color-warning-content);
-}
-
-@utility badge-error {
-  --badge-color: var(--color-error);
-  --badge-fg: var(--color-error-content);
+/* Color variants — one functional utility resolves all 8 semantic colors
+   (badge-primary … badge-error) via --value(); non-color suffixes such as
+   badge-outline/soft/ghost fall through to their own utilities below. */
+@utility badge-* {
+  --badge-color: --value(--color-*);
+  --badge-fg: --value(--color-*-content);
 }
 
 /* Style variants */

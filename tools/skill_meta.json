@@ -1,5 +1,5 @@
 {
-  "_comment": "Hand-edited prose used by tools/gen_skill.py to build .claude/skills/margaui/. Keys: short = one-liner shown in SKILL.md component index. what = 1-2 sentence purpose. when = bullet list (markdown) of when to use, with cross-references to near-cousins. classes = primary class + key modifiers. New components default to TODO entries; fill in over time.",
+  "_comment": "Hand-edited prose used by tools/gen-skill.mjs to build .claude/skills/margaui/. Keys: short = one-liner shown in SKILL.md component index. what = 1-2 sentence purpose. when = bullet list (markdown) of when to use, with cross-references to near-cousins. classes = primary class + key modifiers. New components default to TODO entries; fill in over time.",
 
   "accordion": {
     "short": "collapsible sections (single-open via radio, free via details)",

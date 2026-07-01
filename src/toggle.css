@@ -141,75 +141,12 @@
 }
 
 /* Color variants */
-@utility toggle-primary {
-  --toggle-color: var(--color-primary);
+@utility toggle-* {
+  --toggle-color: --value(--color-*);
 
   &:checked,
   &[aria-checked="true"] {
-    --input-color: var(--color-primary);
-  }
-}
-
-@utility toggle-secondary {
-  --toggle-color: var(--color-secondary);
-
-  &:checked,
-  &[aria-checked="true"] {
-    --input-color: var(--color-secondary);
-  }
-}
-
-@utility toggle-accent {
-  --toggle-color: var(--color-accent);
-
-  &:checked,
-  &[aria-checked="true"] {
-    --input-color: var(--color-accent);
-  }
-}
-
-@utility toggle-neutral {
-  --toggle-color: var(--color-neutral);
-
-  &:checked,
-  &[aria-checked="true"] {
-    --input-color: var(--color-neutral);
-  }
-}
-
-@utility toggle-info {
-  --toggle-color: var(--color-info);
-
-  &:checked,
-  &[aria-checked="true"] {
-    --input-color: var(--color-info);
-  }
-}
-
-@utility toggle-success {
-  --toggle-color: var(--color-success);
-
-  &:checked,
-  &[aria-checked="true"] {
-    --input-color: var(--color-success);
-  }
-}
-
-@utility toggle-warning {
-  --toggle-color: var(--color-warning);
-
-  &:checked,
-  &[aria-checked="true"] {
-    --input-color: var(--color-warning);
-  }
-}
-
-@utility toggle-error {
-  --toggle-color: var(--color-error);
-
-  &:checked,
-  &[aria-checked="true"] {
-    --input-color: var(--color-error);
+    --input-color: --value(--color-*);
   }
 }
 

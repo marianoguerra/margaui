@@ -196,67 +196,11 @@
 }
 
 /* Color variants */
-@utility select-primary {
+@utility select-* {
   &,
   &:focus,
   &:focus-within {
-    --input-color: var(--color-primary);
-  }
-}
-
-@utility select-secondary {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-secondary);
-  }
-}
-
-@utility select-accent {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-accent);
-  }
-}
-
-@utility select-neutral {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-neutral);
-  }
-}
-
-@utility select-info {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-info);
-  }
-}
-
-@utility select-success {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-success);
-  }
-}
-
-@utility select-warning {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-warning);
-  }
-}
-
-@utility select-error {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-error);
+    --input-color: --value(--color-*);
   }
 }
 

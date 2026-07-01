@@ -86,44 +86,9 @@
 }
 
 /* Color variants */
-@utility checkbox-primary {
-  color: var(--color-primary-content);
-  --input-color: var(--color-primary);
-}
-
-@utility checkbox-secondary {
-  color: var(--color-secondary-content);
-  --input-color: var(--color-secondary);
-}
-
-@utility checkbox-accent {
-  color: var(--color-accent-content);
-  --input-color: var(--color-accent);
-}
-
-@utility checkbox-neutral {
-  color: var(--color-neutral-content);
-  --input-color: var(--color-neutral);
-}
-
-@utility checkbox-info {
-  color: var(--color-info-content);
-  --input-color: var(--color-info);
-}
-
-@utility checkbox-success {
-  color: var(--color-success-content);
-  --input-color: var(--color-success);
-}
-
-@utility checkbox-warning {
-  color: var(--color-warning-content);
-  --input-color: var(--color-warning);
-}
-
-@utility checkbox-error {
-  color: var(--color-error-content);
-  --input-color: var(--color-error);
+@utility checkbox-* {
+  color: --value(--color-*-content);
+  --input-color: --value(--color-*);
 }
 
 /* Size variants */

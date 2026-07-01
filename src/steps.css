@@ -70,99 +70,15 @@
 
 /* Color variants - only set --step-bg on circle (:after/.step-icon)
    and use & + &:before to color line only when previous step has same class */
-@utility step-neutral {
+@utility step-* {
   &:after,
   & > .step-icon {
-    --step-bg: var(--color-neutral);
-    --step-fg: var(--color-neutral-content);
+    --step-bg: --value(--color-*);
+    --step-fg: --value(--color-*-content);
   }
 
   & + &:before {
-    --step-bg: var(--color-neutral);
-  }
-}
-
-@utility step-primary {
-  &:after,
-  & > .step-icon {
-    --step-bg: var(--color-primary);
-    --step-fg: var(--color-primary-content);
-  }
-
-  & + &:before {
-    --step-bg: var(--color-primary);
-  }
-}
-
-@utility step-secondary {
-  &:after,
-  & > .step-icon {
-    --step-bg: var(--color-secondary);
-    --step-fg: var(--color-secondary-content);
-  }
-
-  & + &:before {
-    --step-bg: var(--color-secondary);
-  }
-}
-
-@utility step-accent {
-  &:after,
-  & > .step-icon {
-    --step-bg: var(--color-accent);
-    --step-fg: var(--color-accent-content);
-  }
-
-  & + &:before {
-    --step-bg: var(--color-accent);
-  }
-}
-
-@utility step-info {
-  &:after,
-  & > .step-icon {
-    --step-bg: var(--color-info);
-    --step-fg: var(--color-info-content);
-  }
-
-  & + &:before {
-    --step-bg: var(--color-info);
-  }
-}
-
-@utility step-success {
-  &:after,
-  & > .step-icon {
-    --step-bg: var(--color-success);
-    --step-fg: var(--color-success-content);
-  }
-
-  & + &:before {
-    --step-bg: var(--color-success);
-  }
-}
-
-@utility step-warning {
-  &:after,
-  & > .step-icon {
-    --step-bg: var(--color-warning);
-    --step-fg: var(--color-warning-content);
-  }
-
-  & + &:before {
-    --step-bg: var(--color-warning);
-  }
-}
-
-@utility step-error {
-  &:after,
-  & > .step-icon {
-    --step-bg: var(--color-error);
-    --step-fg: var(--color-error-content);
-  }
-
-  & + &:before {
-    --step-bg: var(--color-error);
+    --step-bg: --value(--color-*);
   }
 }
 

@@ -197,122 +197,17 @@
 }
 
 /* Color variants */
-@utility file-input-primary {
-  --btn-color: var(--color-primary);
-  --input-color: var(--color-primary);
+@utility file-input-* {
+  --btn-color: --value(--color-*);
+  --input-color: --value(--color-*);
 
   &::file-selector-button {
-    --btn-color: var(--color-primary);
-    color: var(--color-primary-content);
+    --btn-color: --value(--color-*);
+    color: --value(--color-*-content);
   }
 
   &:focus,
   &:focus-within {
-    --input-color: var(--color-primary);
-  }
-}
-
-@utility file-input-secondary {
-  --btn-color: var(--color-secondary);
-  --input-color: var(--color-secondary);
-
-  &::file-selector-button {
-    --btn-color: var(--color-secondary);
-    color: var(--color-secondary-content);
-  }
-
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-secondary);
-  }
-}
-
-@utility file-input-accent {
-  --btn-color: var(--color-accent);
-  --input-color: var(--color-accent);
-
-  &::file-selector-button {
-    --btn-color: var(--color-accent);
-    color: var(--color-accent-content);
-  }
-
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-accent);
-  }
-}
-
-@utility file-input-neutral {
-  --btn-color: var(--color-neutral);
-  --input-color: var(--color-neutral);
-
-  &::file-selector-button {
-    --btn-color: var(--color-neutral);
-    color: var(--color-neutral-content);
-  }
-
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-neutral);
-  }
-}
-
-@utility file-input-info {
-  --btn-color: var(--color-info);
-  --input-color: var(--color-info);
-
-  &::file-selector-button {
-    --btn-color: var(--color-info);
-    color: var(--color-info-content);
-  }
-
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-info);
-  }
-}
-
-@utility file-input-success {
-  --btn-color: var(--color-success);
-  --input-color: var(--color-success);
-
-  &::file-selector-button {
-    --btn-color: var(--color-success);
-    color: var(--color-success-content);
-  }
-
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-success);
-  }
-}
-
-@utility file-input-warning {
-  --btn-color: var(--color-warning);
-  --input-color: var(--color-warning);
-
-  &::file-selector-button {
-    --btn-color: var(--color-warning);
-    color: var(--color-warning-content);
-  }
-
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-warning);
-  }
-}
-
-@utility file-input-error {
-  --btn-color: var(--color-error);
-  --input-color: var(--color-error);
-
-  &::file-selector-button {
-    --btn-color: var(--color-error);
-    color: var(--color-error-content);
-  }
-
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-error);
+    --input-color: --value(--color-*);
   }
 }

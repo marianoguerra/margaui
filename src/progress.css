@@ -63,34 +63,6 @@
 }
 
 /* Color variants */
-@utility progress-primary {
-  color: var(--color-primary);
-}
-
-@utility progress-secondary {
-  color: var(--color-secondary);
-}
-
-@utility progress-accent {
-  color: var(--color-accent);
-}
-
-@utility progress-neutral {
-  color: var(--color-neutral);
-}
-
-@utility progress-info {
-  color: var(--color-info);
-}
-
-@utility progress-success {
-  color: var(--color-success);
-}
-
-@utility progress-warning {
-  color: var(--color-warning);
-}
-
-@utility progress-error {
-  color: var(--color-error);
+@utility progress-* {
+  color: --value(--color-*);
 }

@@ -1,6 +1,6 @@
 # margaui
 
-CSS component library with an in-browser Tailwind v4 compiler. 69 components, 35 themes, zero build step needed for browser use.
+CSS component library with an in-browser Tailwind v4 compiler. 68 components, 35 themes, zero build step needed for browser use.
 
 ## Quick start (browser)
 
@@ -215,7 +215,7 @@ Then compile as usual with `npx @tailwindcss/cli -i input.css -o style.css`.
 
 ## Components
 
-69 components in `src/`:
+68 components in `src/`:
 
 | | | | | |
 |---|---|---|---|---|
@@ -248,7 +248,7 @@ To run the playground and editor:
 
 ```sh
 npm run playground        # generates VFS + component tree
-python3 -m http.server    # serve from project root
+npx serve .               # or any static file server
 # open http://localhost:8000/playground/
 # open http://localhost:8000/editor/
 ```
@@ -266,7 +266,7 @@ tools/        Build scripts (VFS generator, component tree, sync checker)
 
 ## Development
 
-Requires [bun](https://bun.sh/) and Python 3 in addition to Node/npm — see `package.json`'s `scripts` for the full list.
+Requires Node 22+ and npm — the entire toolchain runs through npm scripts (no bun or Python). See `package.json`'s `scripts` for the full list.
 
 | Command | Description |
 |---|---|

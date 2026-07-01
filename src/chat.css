@@ -105,42 +105,7 @@
 }
 
 /* Color variants */
-@utility chat-bubble-primary {
-  background-color: var(--color-primary);
-  color: var(--color-primary-content);
-}
-
-@utility chat-bubble-secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-secondary-content);
-}
-
-@utility chat-bubble-accent {
-  background-color: var(--color-accent);
-  color: var(--color-accent-content);
-}
-
-@utility chat-bubble-neutral {
-  background-color: var(--color-neutral);
-  color: var(--color-neutral-content);
-}
-
-@utility chat-bubble-info {
-  background-color: var(--color-info);
-  color: var(--color-info-content);
-}
-
-@utility chat-bubble-success {
-  background-color: var(--color-success);
-  color: var(--color-success-content);
-}
-
-@utility chat-bubble-warning {
-  background-color: var(--color-warning);
-  color: var(--color-warning-content);
-}
-
-@utility chat-bubble-error {
-  background-color: var(--color-error);
-  color: var(--color-error-content);
+@utility chat-bubble-* {
+  background-color: --value(--color-*);
+  color: --value(--color-*-content);
 }

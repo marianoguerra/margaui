@@ -77,36 +77,8 @@
 }
 
 /* Color variants */
-@utility radio-primary {
-  --input-color: var(--color-primary);
-}
-
-@utility radio-secondary {
-  --input-color: var(--color-secondary);
-}
-
-@utility radio-accent {
-  --input-color: var(--color-accent);
-}
-
-@utility radio-neutral {
-  --input-color: var(--color-neutral);
-}
-
-@utility radio-info {
-  --input-color: var(--color-info);
-}
-
-@utility radio-success {
-  --input-color: var(--color-success);
-}
-
-@utility radio-warning {
-  --input-color: var(--color-warning);
-}
-
-@utility radio-error {
-  --input-color: var(--color-error);
+@utility radio-* {
+  --input-color: --value(--color-*);
 }
 
 /* Size variants */

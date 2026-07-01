@@ -51,42 +51,7 @@
 }
 
 /* Color variants */
-@utility status-primary {
-  background-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-@utility status-secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-secondary);
-}
-
-@utility status-accent {
-  background-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
-@utility status-neutral {
-  background-color: var(--color-neutral);
-  color: var(--color-neutral);
-}
-
-@utility status-info {
-  background-color: var(--color-info);
-  color: var(--color-info);
-}
-
-@utility status-success {
-  background-color: var(--color-success);
-  color: var(--color-success);
-}
-
-@utility status-warning {
-  background-color: var(--color-warning);
-  color: var(--color-warning);
-}
-
-@utility status-error {
-  background-color: var(--color-error);
-  color: var(--color-error);
+@utility status-* {
+  background-color: --value(--color-*);
+  color: --value(--color-*);
 }

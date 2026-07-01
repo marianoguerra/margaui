@@ -1,8 +1,9 @@
 @import "tailwindcss" source(none);
 
 /* TODO: change to the real source blob */
-@source "./playground/components/*/*.html";
+@source "./playground/components/**/*.html";
 
+@import "./base/theme-colors.css";
 @import "./base/properties.css";
 @import "./base/colormix.css";
 @import "./base/rootcolor.css";
@@ -11,8 +12,6 @@
 @import "./base/scrollbar.css";
 
 @import "./themes/theme.css";
-
-@import "./src/colors.css";
 
 @import "./src/alert.css";
 @import "./src/aura.css";

@@ -10,6 +10,11 @@
   --range-fill: 1;
   --range-p: 0.25rem;
   --range-bg: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+  /* Fill is painted by the thumb's last box-shadow layer, clipped by overflow:hidden.
+     These variables let range-vertical swap the fill from the x axis to the y axis. */
+  --range-fill-x: calc((var(--range-dir, 1) * -100cqw) - (var(--range-dir, 1) * var(--range-thumb-size) / 2));
+  --range-fill-y: 0;
+  --range-fill-spread: calc(100cqw * var(--range-fill));
   color: var(--color-base-content);
   cursor: pointer;
   overflow: hidden;
@@ -62,10 +67,10 @@
     border: var(--range-p) solid;
     appearance: none;
     -webkit-appearance: none;
-    top: 50%;
+    inset-block-start: 50%;
     color: var(--range-progress);
     transform: translateY(-50%);
-    box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), transparent), 0 0 0 2rem var(--range-thumb) inset, calc((var(--range-dir, 1) * -100cqw) - (var(--range-dir, 1) * var(--range-thumb-size) / 2)) 0 0 calc(100cqw * var(--range-fill));
+    box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), transparent), 0 0 0 2rem var(--range-thumb) inset, var(--range-fill-x) var(--range-fill-y) 0 var(--range-fill-spread);
   }
 
   &::-moz-range-track {
@@ -85,7 +90,7 @@
     border: var(--range-p) solid;
     top: 50%;
     color: var(--range-progress);
-    box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), transparent), 0 0 0 2rem var(--range-thumb) inset, calc((var(--range-dir, 1) * -100cqw) - (var(--range-dir, 1) * var(--range-thumb-size) / 2)) 0 0 calc(100cqw * var(--range-fill));
+    box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth) * 0.1)) inset, 0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset, 0 1px color-mix(in oklab, currentColor calc(var(--depth) * 10%), transparent), 0 0 0 2rem var(--range-thumb) inset, var(--range-fill-x) var(--range-fill-y) 0 var(--range-fill-spread);
   }
 
   &:disabled {
@@ -95,60 +100,11 @@
 }
 
 /* Color variants */
-@utility range-primary {
-  color: var(--color-primary);
-  --range-thumb: var(--color-primary-content);
-  --range-progress: var(--color-primary);
-  --range-bg: color-mix(in oklab, var(--color-primary) 10%, transparent);
-}
-
-@utility range-secondary {
-  color: var(--color-secondary);
-  --range-thumb: var(--color-secondary-content);
-  --range-progress: var(--color-secondary);
-  --range-bg: color-mix(in oklab, var(--color-secondary) 10%, transparent);
-}
-
-@utility range-accent {
-  color: var(--color-accent);
-  --range-thumb: var(--color-accent-content);
-  --range-progress: var(--color-accent);
-  --range-bg: color-mix(in oklab, var(--color-accent) 10%, transparent);
-}
-
-@utility range-neutral {
-  color: var(--color-neutral);
-  --range-thumb: var(--color-neutral-content);
-  --range-progress: var(--color-neutral);
-  --range-bg: color-mix(in oklab, var(--color-neutral) 10%, transparent);
-}
-
-@utility range-info {
-  color: var(--color-info);
-  --range-thumb: var(--color-info-content);
-  --range-progress: var(--color-info);
-  --range-bg: color-mix(in oklab, var(--color-info) 10%, transparent);
-}
-
-@utility range-success {
-  color: var(--color-success);
-  --range-thumb: var(--color-success-content);
-  --range-progress: var(--color-success);
-  --range-bg: color-mix(in oklab, var(--color-success) 10%, transparent);
-}
-
-@utility range-warning {
-  color: var(--color-warning);
-  --range-thumb: var(--color-warning-content);
-  --range-progress: var(--color-warning);
-  --range-bg: color-mix(in oklab, var(--color-warning) 10%, transparent);
-}
-
-@utility range-error {
-  color: var(--color-error);
-  --range-thumb: var(--color-error-content);
-  --range-progress: var(--color-error);
-  --range-bg: color-mix(in oklab, var(--color-error) 10%, transparent);
+@utility range-* {
+  color: --value(--color-*);
+  --range-thumb: --value(--color-*-content);
+  --range-progress: --value(--color-*);
+  --range-bg: color-mix(in oklab, --value(--color-*) 10%, transparent);
 }
 
 /* Size variants */
@@ -170,4 +126,29 @@
 
 @utility range-xl {
   --range-thumb-size: calc(var(--size-selector, 0.25rem) * 8);
+}
+
+/* Orientation: vertical slider (native writing-mode swap; min at the bottom) */
+@utility range-vertical {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: var(--range-thumb-size);
+  height: clamp(3rem, 20rem, 100%);
+  --range-fill-x: 0;
+  --range-fill-y: calc(100cqh + var(--range-thumb-size) / 2);
+  --range-fill-spread: calc(100cqh * var(--range-fill));
+
+  &::-webkit-slider-runnable-track {
+    height: 100%;
+    width: calc(var(--range-thumb-size) * 0.5);
+  }
+
+  &::-webkit-slider-thumb {
+    transform: translateX(-50%);
+  }
+
+  &::-moz-range-track {
+    height: 100%;
+    width: calc(var(--range-thumb-size) * 0.5);
+  }
 }

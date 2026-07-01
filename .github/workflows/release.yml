@@ -14,13 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
-
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-node@v4
         with:
-          python-version: "3.x"
+          node-version: 24
+          cache: npm
 
-      - run: bun install
+      - run: npm ci
 
       - run: npm run dist
 

@@ -20,6 +20,14 @@ Components should drive sizes and colors from these tokens rather than inlining 
 
 - **Sizing**: use `--mg-field-*` or `--mg-selector-*` rather than `calc(var(--size-field) * N)`. The scale lives in `base/properties.css`.
 - **Component-local vars**: prefix with the component name (`--btn-bg`, `--input-color`, `--badge-fg`). These are your public-ish knobs for users to override per-instance.
+- **Color variants**: define the 8 semantic colors with a single functional utility, not eight near-identical blocks. Resolve the color from `--value(--color-*)` (and `--value(--color-*-content)` for the paired foreground). Only registered colors match, so non-color suffixes (`-outline`, `-lg`, …) fall through to their own utilities:
+  ```css
+  @utility btn-* {
+    --btn-color: --value(--color-*);
+    --btn-fg: --value(--color-*-content);
+  }
+  ```
+  The semantic colors are registered in `base/theme-colors.css`; that registration is also what makes `bg-primary`, `text-primary-content`, `rounded-box`, etc. auto-generate — so there is no hand-written color-utility file. If a variant needs a descendant/pseudo color (as tooltip does), route it through an inherited component var with a fallback (`color: var(--tt-fg, var(--color-neutral-content))`) so it stays inside the one functional block.
 - **Color-mix fallbacks**: any `color-mix(...)` must be inside `@supports (color: color-mix(in lab, red, red)) { ... }` with an adequate fallback outside. Shared tints live in `--mg-subtle-*`.
 - **Theme safety**: never hardcode colors/radii/sizes that happen to look right on `light`. Drive everything from `--color-*` / `--radius-*` / `--size-*` / `--border` / `--depth` / `--noise`. Changes must hold across every theme in `themes/`.
 - **Join support**: form components opt into sibling rounding via `border-*-*-radius: var(--join-{ss,se,es,ee}, var(--radius-field))`.

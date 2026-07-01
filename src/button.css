@@ -117,44 +117,9 @@
 }
 
 /* Color variants */
-@utility btn-primary {
-  --btn-color: var(--color-primary);
-  --btn-fg: var(--color-primary-content);
-}
-
-@utility btn-secondary {
-  --btn-color: var(--color-secondary);
-  --btn-fg: var(--color-secondary-content);
-}
-
-@utility btn-accent {
-  --btn-color: var(--color-accent);
-  --btn-fg: var(--color-accent-content);
-}
-
-@utility btn-neutral {
-  --btn-color: var(--color-neutral);
-  --btn-fg: var(--color-neutral-content);
-}
-
-@utility btn-info {
-  --btn-color: var(--color-info);
-  --btn-fg: var(--color-info-content);
-}
-
-@utility btn-success {
-  --btn-color: var(--color-success);
-  --btn-fg: var(--color-success-content);
-}
-
-@utility btn-warning {
-  --btn-color: var(--color-warning);
-  --btn-fg: var(--color-warning-content);
-}
-
-@utility btn-error {
-  --btn-color: var(--color-error);
-  --btn-fg: var(--color-error-content);
+@utility btn-* {
+  --btn-color: --value(--color-*);
+  --btn-fg: --value(--color-*-content);
 }
 
 /* Size variants */

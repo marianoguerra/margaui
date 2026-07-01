@@ -228,66 +228,10 @@
 }
 
 /* Color variants */
-@utility otp-neutral {
+@utility otp-* {
   &,
   &:focus,
   &:focus-within {
-    --input-color: var(--color-neutral);
-  }
-}
-
-@utility otp-primary {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-primary);
-  }
-}
-
-@utility otp-secondary {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-secondary);
-  }
-}
-
-@utility otp-accent {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-accent);
-  }
-}
-
-@utility otp-info {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-info);
-  }
-}
-
-@utility otp-success {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-success);
-  }
-}
-
-@utility otp-warning {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-warning);
-  }
-}
-
-@utility otp-error {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-error);
+    --input-color: --value(--color-*);
   }
 }

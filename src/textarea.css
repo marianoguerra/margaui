@@ -89,67 +89,11 @@
 }
 
 /* Color variants */
-@utility textarea-primary {
+@utility textarea-* {
   &,
   &:focus,
   &:focus-within {
-    --input-color: var(--color-primary);
-  }
-}
-
-@utility textarea-secondary {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-secondary);
-  }
-}
-
-@utility textarea-accent {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-accent);
-  }
-}
-
-@utility textarea-neutral {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-neutral);
-  }
-}
-
-@utility textarea-info {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-info);
-  }
-}
-
-@utility textarea-success {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-success);
-  }
-}
-
-@utility textarea-warning {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-warning);
-  }
-}
-
-@utility textarea-error {
-  &,
-  &:focus,
-  &:focus-within {
-    --input-color: var(--color-error);
+    --input-color: --value(--color-*);
   }
 }
 
