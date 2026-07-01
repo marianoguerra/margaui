@@ -14,7 +14,7 @@
     "classes": "`alert`; color `alert-info|success|warning|error`; style `alert-outline|dash|soft`; usually paired with `role=\"alert\"`."
   },
   "aura": {
-    "short": "animated glowing border wrapper (rainbow, holo, silver, gold, glow)",
+    "short": "animated glowing border wrapper (rainbow, holo, dual, silver, gold, glow)",
     "what": "Wraps any element in an animated conic-gradient border light. Auto-picks corner radius when wrapping a card/alert/button/input/select/checkbox/toggle/badge.",
     "when": "- Highlighting the single most important button, card, or promo element on a page.\n- Not for general emphasis — use sparingly, it's an eye-catching animated effect.",
     "classes": "`aura`; style `aura-rainbow|holo|dual|silver|gold|glow`; size `aura-xs|sm|md|lg|xl`."
@@ -288,7 +288,7 @@
     "short": "styled `<input type=\"range\">` slider",
     "what": "Themed range slider.",
     "when": "- Numeric ranges where exact precision is less important than feel.",
-    "classes": "`range`; color `range-primary|secondary|accent|info|success|warning|error|neutral`; size `range-xs|sm|md|lg|xl`."
+    "classes": "`range`; color `range-primary|secondary|accent|info|success|warning|error|neutral`; size `range-xs|sm|md|lg|xl`; orientation `range-vertical`."
   },
   "rating": {
     "short": "star / heart rating (radio inputs + masks)",
@@ -312,7 +312,7 @@
     "short": "stack children (Z-axis)",
     "what": "Stacks children on top of each other (Z-axis), with optional offset/spread for card-stack effects.",
     "when": "- Stacked-card visual effects, layered images.",
-    "classes": "`stack`; modifiers `stack-top|start|end` and shadow modifiers."
+    "classes": "`stack`; modifiers `stack-top|bottom|start|end` and shadow modifiers."
   },
   "stat": {
     "short": "KPI / metric tile (title + value + desc)",
@@ -389,7 +389,7 @@
     "short": "hover/focus tooltip on any element",
     "what": "Hover/focus tooltip; content from `data-tip` or a child `tooltip-content` element.",
     "when": "- Short hints on icon-only buttons or controls.\n- For longer content panels, use **dropdown**.",
-    "classes": "`tooltip`; position `tooltip-top|bottom|left|right`; color `tooltip-primary|…`; modifier `tooltip-open` to force-show; `data-tip=\"…\"` for text content."
+    "classes": "`tooltip`; position `tooltip-top|bottom|left|right`; align `tooltip-start|center|end`; color `tooltip-primary|…`; modifier `tooltip-open` to force-show; `data-tip=\"…\"` for text content."
   },
   "validator": {
     "short": "show validation message tied to a form input",

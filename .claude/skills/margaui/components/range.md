@@ -12,7 +12,7 @@ Themed range slider.
 
 ## Core classes
 
-`range`; color `range-primary|secondary|accent|info|success|warning|error|neutral`; size `range-xs|sm|md|lg|xl`.
+`range`; color `range-primary|secondary|accent|info|success|warning|error|neutral`; size `range-xs|sm|md|lg|xl`; orientation `range-vertical`.
 
 ## Examples
 

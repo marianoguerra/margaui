@@ -12,7 +12,7 @@ Stacks children on top of each other (Z-axis), with optional offset/spread for c
 
 ## Core classes
 
-`stack`; modifiers `stack-top|start|end` and shadow modifiers.
+`stack`; modifiers `stack-top|bottom|start|end` and shadow modifiers.
 
 ## Examples
 

@@ -139,7 +139,21 @@ Source: `playground/components/otp/otp-with-colors.html`
     <span></span>
     <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
   </label>
+  <label class="otp otp-info">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
+  </label>
   <label class="otp otp-success">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
+  </label>
+  <label class="otp otp-warning">
     <span></span>
     <span></span>
     <span></span>

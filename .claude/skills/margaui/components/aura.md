@@ -1,6 +1,6 @@
 # aura
 
-_animated glowing border wrapper (rainbow, holo, silver, gold, glow)_
+_animated glowing border wrapper (rainbow, holo, dual, silver, gold, glow)_
 
 ## What it does
 

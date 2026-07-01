@@ -13,7 +13,7 @@ Hover/focus tooltip; content from `data-tip` or a child `tooltip-content` elemen
 
 ## Core classes
 
-`tooltip`; position `tooltip-top|bottom|left|right`; color `tooltip-primary|…`; modifier `tooltip-open` to force-show; `data-tip="…"` for text content.
+`tooltip`; position `tooltip-top|bottom|left|right`; align `tooltip-start|center|end`; color `tooltip-primary|…`; modifier `tooltip-open` to force-show; `data-tip="…"` for text content.
 
 ## Examples
 

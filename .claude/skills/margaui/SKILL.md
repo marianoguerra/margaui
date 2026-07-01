@@ -9,7 +9,7 @@ margaui is a Tailwind v4–native CSS component library: 68 components defined a
 
 ## Relationship to daisyUI
 
-margaui is **API-compatible with [daisyUI](https://daisyui.com/)**. The class names (`btn`, `btn-primary`, `card`, `card-body`, `alert-info`, `modal-box`, `dropdown-content`, …), modifier vocabulary, and DOM structure mirror daisyUI. Differences are implementation-level (Tailwind v4 native, in-browser compiler, `@supports` fallbacks for `color-mix`), not API-level.
+margaui is **API-compatible with [daisyUI](https://daisyui.com/)** and currently tracks **daisyUI v5.6.6**. The class names (`btn`, `btn-primary`, `card`, `card-body`, `alert-info`, `modal-box`, `dropdown-content`, …), modifier vocabulary, and DOM structure mirror daisyUI. Differences are implementation-level (Tailwind v4 native, in-browser compiler, `@supports` fallbacks for `color-mix`), not API-level.
 
 Practical implication: **daisyUI documentation and examples are valid references** when this skill doesn't cover something. If a component is documented for daisyUI, the same markup works in margaui.
 
@@ -29,6 +29,7 @@ Set on any element (most often `<html>` or `<body>`):
 - **Modifier suffixes are consistent.** Most components share the same vocabulary: color (`-primary`, `-secondary`, `-accent`, `-info`, `-success`, `-warning`, `-error`, `-neutral`, `-ghost`), style (`-outline`, `-soft`, `-dash`), size (`-xs`, `-sm`, `-md`, `-lg`, `-xl`), state (`-active`, `-disabled`).
 - **Tailwind utilities work normally.** Responsive prefixes (`sm:`, `md:`, …), state variants (`hover:`, `focus:`, …), and arbitrary values all compose with margaui classes.
 - **`@utility` classes, not `@apply`.** Internally components are defined with Tailwind v4's `@utility` directive, so they tree-shake on demand and can be combined freely.
+- **Color modifiers are generated, not hand-written.** A component's color variants (`btn-primary`, `badge-success`, `alert-info`, …) resolve from the theme's 16 semantic colors via Tailwind v4's `--value(--color-*)`, so one definition per component covers every color and tracks the active `data-theme`.
 
 ## Component index
 
@@ -36,7 +37,7 @@ Read the linked file when the user's task involves that component. Each file has
 
 - [accordion](components/accordion.md) — collapsible sections (single-open via radio, free via details)
 - [alert](components/alert.md) — inline notification box (info / success / warning / error)
-- [aura](components/aura.md) — animated glowing border wrapper (rainbow, holo, silver, gold, glow)
+- [aura](components/aura.md) — animated glowing border wrapper (rainbow, holo, dual, silver, gold, glow)
 - [avatar](components/avatar.md) — user picture / placeholder, with optional ring, mask, presence
 - [badge](components/badge.md) — small label / counter chip
 - [breadcrumbs](components/breadcrumbs.md) — path-style navigation trail
