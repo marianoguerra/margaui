@@ -33,8 +33,8 @@
     "playground": "npm run gen-vfs-dev && npm run gen-component-tree && npm run gen-theme-list",
     "fetch-tw": "node tools/fetch-tw.mjs",
     "min-css": "mkdir -p dist/src dist/base dist/tw dist/themes && esbuild --minify --outdir=dist/src src/*.css && esbuild --minify --outdir=dist/base base/*.css && esbuild --minify --outdir=dist/tw tw/*.css && esbuild --minify --outdir=dist/themes themes/*.css",
-    "gen-vfs": "rm -rf dist && npm run min-css && cp tw/tailwindcss.css dist/tw/ && cd dist && node ../tools/make-vfs.mjs 'src/*.css' 'base/*.css' 'tw/*.css' 'tailwindcss=tw/tailwindcss.css' > ../vfs.js && cd .. && esbuild margaui.js --bundle --minify --format=esm > dist/margaui.min.js",
-    "dist": "npm run gen-vfs && rm -r dist/src dist/base dist/tw && cp examples/*.html examples/README.md dist/",
+    "gen-vfs": "rm -rf dist && npm run min-css && cp tw/tailwindcss.css dist/tw/ && cd dist && node ../tools/make-vfs.mjs 'src/*.css' 'base/*.css' 'tw/*.css' 'tailwindcss=tw/tailwindcss.css' > vfs.js && cd .. && node tools/build-dist.mjs",
+    "dist": "npm run gen-vfs && rm -r dist/src dist/base dist/tw dist/vfs.js && cp examples/*.html examples/README.md dist/",
     "publish-dry": "npm run dist && npm pack --dry-run",
     "pack": "npm run dist && npm pack"
   },
