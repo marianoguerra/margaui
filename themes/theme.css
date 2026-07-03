@@ -1,14 +1,16 @@
 /**
  * Default themes bundle — light + dark.
  *
- * light.css sets :root/:host defaults so pages work without data-theme.
+ * light.css sets :root defaults so pages work without data-theme. (It is not
+ * pinned to :host, so components in shadow DOM inherit the ambient page theme;
+ * set data-theme on a shadow host to theme that subtree.)
  * The playground skips this file and imports all themes individually.
  *
  * For additional themes, import them in your input.css:
  *   @import "./themes/dracula.css";
  */
 
-/* Default theme (light) - sets :root, :host defaults */
+/* Default theme (light) - sets :root defaults */
 @import "./light.css";
 
 /* Dark theme */

@@ -158,7 +158,7 @@ Advanced. Builds the raw CSS input string from VFS entries. Useful if you need t
 <html data-theme="dracula"></html>
 ```
 
-The `light` theme is the default — it sets `:root` and `:host` so pages work without an explicit `data-theme` attribute.
+The `light` theme is the default — it sets `:root` so pages work without an explicit `data-theme` attribute. (It is intentionally not pinned to `:host`; see [Shadow DOM](#loading-themes) below.)
 
 Available themes:
 
@@ -211,7 +211,13 @@ Theme files are **not included** in the default browser bundle (`margaui.js` / `
 
 Then compile as usual with `npx @tailwindcss/cli -i input.css -o style.css`.
 
-**Shadow DOM** — theme variables don't cross shadow boundaries by default. To propagate themes into shadow roots, use a shared `CSSStyleSheet` with `adoptedStyleSheets`. See the playground source for an example using `replaceSync()` to update all adopters on theme change.
+**Shadow DOM** — set `data-theme` on each shadow **host** to theme its subtree, and reflect the page theme onto the host when it changes:
+
+```js
+host.setAttribute("data-theme", document.documentElement.dataset.theme);
+```
+
+Don't rely on a theme set on `<html>` inheriting into a shadow root: Tailwind emits margaui's default palette to `:root, :host`, so the `:host` half pins the default (light) values onto every shadow host and shadows the ambient theme that would otherwise inherit across the boundary. A `data-theme` attribute on the host wins over that default. The theme's CSS must be reachable from inside the shadow root — the usual pattern is a shared `CSSStyleSheet` in the host's `adoptedStyleSheets`, updated with `replaceSync()` on theme change (see the playground source for a working example).
 
 ## Components
 

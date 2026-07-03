@@ -1,6 +1,8 @@
-/* Light theme - default for :root, :host (shadow DOM), and explicit selection */
+/* Light theme - default for :root and explicit [data-theme="light"] selection.
+   Deliberately NOT pinned to :host: pinning defaults onto a shadow host blocks
+   the ambient page theme (--color-* set on <html data-theme=…>) from inheriting
+   across the shadow boundary. To theme a shadow tree, set data-theme on its host. */
 :root,
-:host,
 [data-theme="light"] {
   color-scheme: light;
   --color-base-100: oklch(100% 0 0);

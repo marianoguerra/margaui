@@ -9,10 +9,14 @@
  *      collapsing the repeated per-color blocks.
  *
  * Tailwind emits `var(--color-*)` references (not the literal values below), so
- * runtime theming still works: the per-theme files at :root / :host /
- * [data-theme=…] override these defaults. The values here mirror the light
- * theme and act as the registration defaults — keep them in sync with
- * themes/light.css.
+ * runtime theming still works: the per-theme files at :root / [data-theme=…]
+ * override these defaults. The values here mirror the light theme and act as
+ * the registration defaults — keep them in sync with themes/light.css.
+ *
+ * Note: Tailwind itself emits this @theme block to `:root, :host`, which pins
+ * these light defaults onto shadow hosts. That is why embedding margaui in
+ * shadow DOM requires setting data-theme on the host rather than relying on
+ * ambient inheritance — see themes/light.css.
  */
 @theme {
   --color-base-100: oklch(100% 0 0);

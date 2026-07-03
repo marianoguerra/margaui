@@ -1,10 +1,12 @@
+/* Not scoped to :host: a shadow host is not a scroll root, and pinning these
+   onto it would block the ambient page theme from inheriting into shadow DOM.
+   See themes/light.css. */
 :root,
-:host,
 [data-theme] {
   background: var(--page-scroll-bg, var(--root-bg));
   color: var(--color-base-content);
 }
 
-:where(:root, :host, [data-theme]) {
+:where(:root, [data-theme]) {
   --root-bg: var(--color-base-100);
 }
