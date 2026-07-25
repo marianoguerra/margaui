@@ -11,6 +11,7 @@
 
 @utility fieldset-legend {
   margin-bottom: -0.25rem;
+  margin-inline-end: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -5,6 +5,7 @@
   position: relative;
   display: inline-flex;
   vertical-align: middle;
+  align-self: center;
 
   & > div {
     display: block;

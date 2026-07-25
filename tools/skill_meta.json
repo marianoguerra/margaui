@@ -219,8 +219,8 @@
   "menu": {
     "short": "vertical/horizontal nav list (sidebar, sub-menus)",
     "what": "Versatile nav list for sidebars, sub-menus, mega-menus, file trees.",
-    "when": "- Sidebars, dropdown contents, mobile drawer contents.\n- For a large horizontal nav bar with per-item popover panels, use **megamenu** instead.",
-    "classes": "`menu`; orientation `menu-vertical|horizontal`; size `menu-xs|sm|md|lg|xl`; child states `menu-active|disabled|title`."
+    "when": "- Sidebars, dropdown contents, mobile drawer contents.\n- For a large horizontal nav bar with per-item popover panels, use **megamenu** instead.\n- `menu-paged` turns `li > details > summary` submenus into drill-down pages: the open branch replaces the list and its summary becomes a \"Back\" row (label it with `aria-label`).",
+    "classes": "`menu`; orientation `menu-vertical|horizontal`; navigation `menu-paged`; size `menu-xs|sm|md|lg|xl`; child states `menu-active|disabled|title`."
   },
   "mockup-browser": {
     "short": "browser-window chrome wrapper for screenshots",

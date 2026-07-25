@@ -12,6 +12,7 @@
   height: var(--size);
   width: var(--size);
   place-content: center;
+  flex-shrink: 0;
   border-radius: calc(infinity* 1px);
   background-color: transparent;
   color: var(--color-base-content);

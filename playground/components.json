@@ -508,6 +508,7 @@
       "menu-with-title.html",
       "menu-without-padding-and-border-radius.html",
       "menu.html",
+      "paged-menu.html",
       "responsive-vertical-on-small-screen-horizontal-on-large-screen.html",
       "submenu.html"
     ]

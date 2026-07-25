@@ -10,10 +10,11 @@ Versatile nav list for sidebars, sub-menus, mega-menus, file trees.
 
 - Sidebars, dropdown contents, mobile drawer contents.
 - For a large horizontal nav bar with per-item popover panels, use **megamenu** instead.
+- `menu-paged` turns `li > details > summary` submenus into drill-down pages: the open branch replaces the list and its summary becomes a "Back" row (label it with `aria-label`).
 
 ## Core classes
 
-`menu`; orientation `menu-vertical|horizontal`; size `menu-xs|sm|md|lg|xl`; child states `menu-active|disabled|title`.
+`menu`; orientation `menu-vertical|horizontal`; navigation `menu-paged`; size `menu-xs|sm|md|lg|xl`; child states `menu-active|disabled|title`.
 
 ## Examples
 
@@ -815,6 +816,35 @@ Source: `playground/components/menu/menu-without-padding-and-border-radius.html`
 <ul class="menu bg-base-200 w-56 [&_li>*]:rounded-none p-0">
   <li><a>Item 1</a></li>
   <li><a>Item 2</a></li>
+  <li><a>Item 3</a></li>
+</ul>
+```
+
+### Paged menu
+
+Source: `playground/components/menu/paged-menu.html`
+
+```html
+<ul class="menu menu-paged bg-base-200 rounded-box w-56">
+  <li><a>Item 1</a></li>
+  <li>
+    <details>
+      <summary>Parent</summary>
+      <ul>
+        <li><a>Submenu 1</a></li>
+        <li><a>Submenu 2</a></li>
+        <li>
+          <details>
+            <summary aria-label="Back to Parent">Nested parent</summary>
+            <ul>
+              <li><a>Nested 1</a></li>
+              <li><a>Nested 2</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </details>
+  </li>
   <li><a>Item 3</a></li>
 </ul>
 ```

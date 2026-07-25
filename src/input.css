@@ -60,7 +60,7 @@
 
   :where(input[type="url"]),
   :where(input[type="email"]) {
-    direction: ltr;
+    text-align: left;
   }
 
   :where(input[type="date"]) {
@@ -97,7 +97,7 @@
 
   &[type="number"]::-webkit-inner-spin-button {
     margin-block: -0.75rem;
-    margin-inline-end: -0.75rem;
+    margin-inline-end: -10px;
   }
 
   &::-webkit-calendar-picker-indicator {
@@ -194,7 +194,7 @@ input.input[disabled] {
 
   &[type="number"]::-webkit-inner-spin-button {
     margin-block: -0.25rem;
-    margin-inline-end: -0.75rem;
+    margin-inline-end: -10px;
   }
 }
 
@@ -204,7 +204,7 @@ input.input[disabled] {
 
   &[type="number"]::-webkit-inner-spin-button {
     margin-block: -0.5rem;
-    margin-inline-end: -0.75rem;
+    margin-inline-end: -10px;
   }
 }
 
@@ -214,7 +214,7 @@ input.input[disabled] {
 
   &[type="number"]::-webkit-inner-spin-button {
     margin-block: -0.75rem;
-    margin-inline-end: -0.75rem;
+    margin-inline-end: -10px;
   }
 }
 
@@ -224,7 +224,7 @@ input.input[disabled] {
 
   &[type="number"]::-webkit-inner-spin-button {
     margin-block: -0.75rem;
-    margin-inline-end: -0.75rem;
+    margin-inline-end: -10px;
   }
 }
 
@@ -234,6 +234,6 @@ input.input[disabled] {
 
   &[type="number"]::-webkit-inner-spin-button {
     margin-block: -1rem;
-    margin-inline-end: -0.75rem;
+    margin-inline-end: -10px;
   }
 }

@@ -16,6 +16,7 @@
   font-size: 0.875rem;
   height: var(--size);
   min-width: var(--size);
+  flex-shrink: 0;
 }
 
 /* Size variants */

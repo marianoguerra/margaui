@@ -4,6 +4,7 @@
 @utility otp {
   position: relative;
   display: inline-flex;
+  direction: ltr;
   font-family: var(--font-mono);
   clip-path: inset(-3.5px 3.5px -3.5px -3.5px);
   border-radius: var(--radius-field);

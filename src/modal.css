@@ -61,7 +61,7 @@
       opacity 0.1s ease-out;
     background-color: oklch(0% 0 0 / 0.4);
 
-    .modal-box {
+    & > .modal-box {
       translate: 0 0;
       scale: 1;
       opacity: 1;
@@ -151,7 +151,7 @@
 @utility modal-bottom {
   place-items: end;
 
-  .modal-box {
+  & > .modal-box {
     height: auto;
     width: 100%;
     max-width: none;
@@ -168,7 +168,7 @@
 @utility modal-top {
   place-items: start;
 
-  .modal-box {
+  & > .modal-box {
     height: auto;
     width: 100%;
     max-width: none;
@@ -185,7 +185,7 @@
 @utility modal-middle {
   place-items: center;
 
-  .modal-box {
+  & > .modal-box {
     height: auto;
     width: calc(11 / 12 * 100%);
     max-width: 32rem;
@@ -202,7 +202,7 @@
 @utility modal-start {
   place-items: start;
 
-  .modal-box {
+  & > .modal-box {
     height: 100vh;
     max-height: none;
     width: auto;
@@ -213,13 +213,17 @@
     --modal-tr: var(--radius-box);
     --modal-bl: 0;
     --modal-br: var(--radius-box);
+
+    [dir="rtl"] & {
+      translate: 100% 0;
+    }
   }
 }
 
 @utility modal-end {
   place-items: end;
 
-  .modal-box {
+  & > .modal-box {
     height: 100vh;
     max-height: none;
     width: auto;
@@ -230,5 +234,9 @@
     --modal-tr: 0;
     --modal-bl: var(--radius-box);
     --modal-br: 0;
+
+    [dir="rtl"] & {
+      translate: -100% 0;
+    }
   }
 }
