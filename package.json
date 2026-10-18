@@ -18,10 +18,10 @@
     "npm": ">=9"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "4.3.2",
-    "esbuild": "0.28.1",
-    "prettier": "3.9.4",
-    "tailwindcss": "4.3.2"
+    "@tailwindcss/cli": "4.3.3",
+    "esbuild": "0.28.2",
+    "prettier": "3.9.10",
+    "tailwindcss": "4.3.3"
   },
   "scripts": {
     "format": "prettier --write .",
