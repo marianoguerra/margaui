@@ -21,7 +21,9 @@ Companion to **input** / **select** / **textarea** that styles the input based o
 Source: `playground/components/validator/validator.html`
 
 ```html
-<input class="input validator" type="email" required placeholder="mail@site.com" />
+<form class="w-full max-w-xs">
+  <input class="input validator" type="email" required placeholder="mail@site.com" />
+</form>
 ```
 
 ### Checkbox requirement validator
@@ -29,8 +31,10 @@ Source: `playground/components/validator/validator.html`
 Source: `playground/components/validator/checkbox-requirement-validator.html`
 
 ```html
-<input type="checkbox" class="checkbox validator" required title="Required" />
-<p class="validator-hint">Required</p>
+<form autocomplete="off">
+  <input type="checkbox" class="checkbox validator" required title="Required" />
+  <p class="validator-hint">Required</p>
+</form>
 ```
 
 ### Date input requirement validator
@@ -38,10 +42,12 @@ Source: `playground/components/validator/checkbox-requirement-validator.html`
 Source: `playground/components/validator/date-input-requirement-validator.html`
 
 ```html
-<input type="date" class="input validator" required placeholder="Pick a date in 2025" 
-min="2025-01-01" max="2025-12-31"
-  title="Must be valid URL" />
-<p class="validator-hint">Must be 2025</p>
+<form class="w-full max-w-xs">
+  <input type="date" class="input validator" required placeholder="Pick a date in 2025" 
+  min="2025-01-01" max="2025-12-31"
+    title="Must be valid URL" />
+  <p class="validator-hint">Must be 2025</p>
+</form>
 ```
 
 ### Form requirement validator
@@ -72,10 +78,12 @@ Source: `playground/components/validator/form-requirement-validator.html`
 Source: `playground/components/validator/number-input-requirement-validator.html`
 
 ```html
-<input type="number" class="input validator" required placeholder="Type a number between 1 to 10" 
-min="1" max="10"
-  title="Must be between be 1 to 10" />
-<p class="validator-hint">Must be between be 1 to 10</p>
+<form class="w-full max-w-xs">
+  <input type="number" class="input validator" required placeholder="Type a number between 1 to 10" 
+  min="1" max="10"
+    title="Must be between be 1 to 10" />
+  <p class="validator-hint">Must be between be 1 to 10</p>
+</form>
 ```
 
 ### Password requirement validator
@@ -83,15 +91,17 @@ min="1" max="10"
 Source: `playground/components/validator/password-requirement-validator.html`
 
 ```html
-<input type="password" class="input validator" required placeholder="Password" minlength="8" 
-  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-  title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
-<p class="validator-hint">
-  Must be more than 8 characters, including
-  <br/>At least one number
-  <br/>At least one lowercase letter
-  <br/>At least one uppercase letter
-</p>
+<form class="w-full max-w-xs">
+  <input type="password" class="input validator" required placeholder="Password" minlength="8" 
+    pattern="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
+  <p class="validator-hint">
+    Must be more than 8 characters, including
+    <br/>At least one number
+    <br/>At least one lowercase letter
+    <br/>At least one uppercase letter
+  </p>
+</form>
 ```
 
 ### Phone number requirement validator
@@ -99,9 +109,11 @@ Source: `playground/components/validator/password-requirement-validator.html`
 Source: `playground/components/validator/phone-number-requirement-validator.html`
 
 ```html
-<input type="tel" class="input validator tabular-nums" required placeholder="Phone" 
-  pattern="[0-9]*" minlength="10" maxlength="10" title="Must be 10 digits" />
-<p class="validator-hint">Must be 10 digits</p>
+<form class="w-full max-w-xs">
+  <input type="tel" class="input validator tabular-nums" required placeholder="Phone" 
+    pattern="[0-9]*" minlength="10" maxlength="10" title="Must be 10 digits" />
+  <p class="validator-hint">Must be 10 digits</p>
+</form>
 ```
 
 ### Select requirement validator
@@ -109,7 +121,7 @@ Source: `playground/components/validator/phone-number-requirement-validator.html
 Source: `playground/components/validator/select-requirement-validator.html`
 
 ```html
-<form>
+<form class="w-full max-w-xs">
   <select class="select validator" required>
     <option disabled selected value="">Choose:</option>
     <option>Tabs</option>
@@ -125,8 +137,10 @@ Source: `playground/components/validator/select-requirement-validator.html`
 Source: `playground/components/validator/toggle-requirement-validator.html`
 
 ```html
-<input type="checkbox" class="toggle validator" required title="Required" />
-<p class="validator-hint">Required</p>
+<form autocomplete="off">
+  <input type="checkbox" class="toggle validator" required title="Required" />
+  <p class="validator-hint">Required</p>
+</form>
 ```
 
 ### Url input requirement validator
@@ -134,10 +148,12 @@ Source: `playground/components/validator/toggle-requirement-validator.html`
 Source: `playground/components/validator/url-input-requirement-validator.html`
 
 ```html
-<input type="url" class="input validator" required placeholder="https://" value="https://"
-  pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9-].*[a-zA-Z0-9])?.)+[a-zA-Z].*$" 
-  title="Must be valid URL" />
-<p class="validator-hint">Must be valid URL</p>
+<form class="w-full max-w-xs">
+  <input type="url" class="input validator" required placeholder="https://" value="https://"
+    pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$" 
+    title="Must be valid URL" />
+  <p class="validator-hint">Must be valid URL</p>
+</form>
 ```
 
 ### Username requirement validator
@@ -145,12 +161,14 @@ Source: `playground/components/validator/url-input-requirement-validator.html`
 Source: `playground/components/validator/username-requirement-validator.html`
 
 ```html
-<input type="text" class="input validator" required placeholder="Username" 
-  pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3" maxlength="30" title="Only letters, numbers or dash" />
-<p class="validator-hint">
-  Must be 3 to 30 characters
-  <br/>containing only letters, numbers or dash
-</p>
+<form class="w-full max-w-xs">
+  <input type="text" class="input validator" required placeholder="Username" 
+    pattern="[A-Za-z][A-Za-z0-9\\-]*" minlength="3" maxlength="30" title="Only letters, numbers or dash" />
+  <p class="validator-hint">
+    Must be 3 to 30 characters
+    <br/>containing only letters, numbers or dash
+  </p>
+</form>
 ```
 
 ### Validator and validator hint
@@ -158,6 +176,8 @@ Source: `playground/components/validator/username-requirement-validator.html`
 Source: `playground/components/validator/validator-and-validator-hint.html`
 
 ```html
-<input class="input validator" type="email" required placeholder="mail@site.com" />
-<div class="validator-hint">Enter valid email address</div>
+<form class="w-full max-w-xs">
+  <input class="input validator" type="email" required placeholder="mail@site.com" />
+  <div class="validator-hint">Enter valid email address</div>
+</form>
 ```

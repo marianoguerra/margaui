@@ -34,7 +34,8 @@ Source: `playground/components/mockup-code/long-line-will-scroll.html`
 
 ```html
 <div class="mockup-code w-full">
-  <pre data-prefix="~"><code>Magnam dolore beatae necessitatibus nemopsum itaque sit. Et porro quae qui et et dolore ratione.</code></pre>
+  <pre
+    data-prefix="~"><code>Magnam dolore beatae necessitatibus nemopsum itaque sit. Et porro quae qui et et dolore ratione.</code></pre>
 </div>
 ```
 

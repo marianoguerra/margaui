@@ -1,0 +1,12 @@
+<!-- The button's popovertarget attribute points to the modal's ID. ID must be unique for each modal -->
+<button class="btn" popovertarget="my-modal-1">Open</button>
+
+<div class="modal" id="my-modal-1" popover>
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <button popovertarget="my-modal-1" popovertargetaction="hide">close</button>
+    </div>
+  </div>
+</div>

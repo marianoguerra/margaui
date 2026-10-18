@@ -116,6 +116,8 @@ See the [playground](playground/) for live examples, or the [daisyUI docs](https
 
 margaui tracks daisyUI releases. The version encodes the daisyUI version it is aligned with: `0.5750.0` → daisyUI **5.7.50**, `0.5704.0` → 5.7.4. The last number is for margaui-only fixes.
 
+To port a new daisyUI release: diff its component CSS (`npm run diff-daisyui -- 5.7.50 5.8.0`), port the changes into `src/`, bump the version, then refresh the examples and generated files with `npm run sync-examples && npm run playground && npm run gen-skill`.
+
 ## Development
 
 Requires Node 22+. Everything runs through npm scripts.
@@ -127,17 +129,18 @@ npx serve .   # then open /playground/ or /editor/
 
 Generated files (`vfs.js`, `playground/*.json`, `.claude/skills/margaui/`) are committed; regenerate them after editing their sources. CI fails if they are out of date.
 
-| Command                       | What it does                                                                    |
-| ----------------------------- | ------------------------------------------------------------------------------- |
-| `npm run playground`          | Regenerate `vfs.js`, `components.json` and `themes.json` after editing CSS/HTML |
-| `npm run gen-skill`           | Regenerate the agent skill from `tools/skill_meta.json` + playground examples   |
-| `npm run check-sync`          | Check that `entry.css` imports every file in `src/` and `base/`                 |
-| `npm run check-tw-version`    | Check that the bundled Tailwind matches the `tailwindcss` dependency            |
-| `npm run smoke-test-tw-cli`   | Compile `entry.css` with the Tailwind CLI                                       |
-| `npm run format`              | Format with Prettier (`format-check` to verify only)                            |
-| `npm run dist`                | Build `dist/` (minified bundle, themes, examples)                               |
-| `npm run fetch-tw`            | Re-fetch and bundle Tailwind into `tailwindcss.js`                              |
-| `npm run diff-daisyui -- A B` | Diff upstream daisyUI component CSS between two versions, to port changes       |
+| Command                       | What it does                                                                         |
+| ----------------------------- | ------------------------------------------------------------------------------------ |
+| `npm run playground`          | Regenerate `vfs.js`, `components.json` and `themes.json` after editing CSS/HTML      |
+| `npm run gen-skill`           | Regenerate the agent skill from `tools/skill_meta.json` + playground examples        |
+| `npm run check-sync`          | Check that `entry.css` imports every file in `src/` and `base/`                      |
+| `npm run check-tw-version`    | Check that the bundled Tailwind matches the `tailwindcss` dependency                 |
+| `npm run smoke-test-tw-cli`   | Compile `entry.css` with the Tailwind CLI                                            |
+| `npm run format`              | Format with Prettier (`format-check` to verify only)                                 |
+| `npm run dist`                | Build `dist/` (minified bundle, themes, examples)                                    |
+| `npm run fetch-tw`            | Re-fetch and bundle Tailwind into `tailwindcss.js`                                   |
+| `npm run diff-daisyui -- A B` | Diff upstream daisyUI component CSS between two versions, to port changes            |
+| `npm run sync-examples`       | Update playground examples from the daisyUI docs gallery (`-- --dry-run` to preview) |
 
 Adding or changing a component: see [`src/README.md`](src/README.md) for the conventions (theme-driven tokens, color variants, sizing) and the checklist.
 

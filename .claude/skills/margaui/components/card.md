@@ -39,52 +39,54 @@ Source: `playground/components/card/card.html`
 Source: `playground/components/card/card-sizes.html`
 
 ```html
-<div class="card w-96 bg-base-100 card-xs shadow-sm">
-  <div class="card-body">
-    <h2 class="card-title">Xsmall Card</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="justify-end card-actions">
-      <button class="btn btn-primary">Buy Now</button>
+<div class="grid gap-6">
+  <div class="card w-96 bg-base-100 card-xs shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title">Xsmall Card</h2>
+      <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+      <div class="justify-end card-actions">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="card w-96 bg-base-100 card-sm shadow-sm">
-  <div class="card-body">
-    <h2 class="card-title">Small Card</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="justify-end card-actions">
-      <button class="btn btn-primary">Buy Now</button>
+  <div class="card w-96 bg-base-100 card-sm shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title">Small Card</h2>
+      <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+      <div class="justify-end card-actions">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="card w-96 bg-base-100 card-md shadow-sm">
-  <div class="card-body">
-    <h2 class="card-title">Medium Card</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="justify-end card-actions">
-      <button class="btn btn-primary">Buy Now</button>
+  <div class="card w-96 bg-base-100 card-md shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title">Medium Card</h2>
+      <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+      <div class="justify-end card-actions">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="card w-96 bg-base-100 card-lg shadow-sm">
-  <div class="card-body">
-    <h2 class="card-title">Large Card</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="justify-end card-actions">
-      <button class="btn btn-primary">Buy Now</button>
+  <div class="card w-96 bg-base-100 card-lg shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title">Large Card</h2>
+      <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+      <div class="justify-end card-actions">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="card w-96 bg-base-100 card-xl shadow-sm">
-  <div class="card-body">
-    <h2 class="card-title">Xlarge Card</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="justify-end card-actions">
-      <button class="btn btn-primary">Buy Now</button>
+  <div class="card w-96 bg-base-100 card-xl shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title">Xlarge Card</h2>
+      <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+      <div class="justify-end card-actions">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
     </div>
   </div>
 </div>
@@ -132,6 +134,7 @@ Source: `playground/components/card/card-with-action-on-top.html`
     <div class="card-actions justify-end">
       <button class="btn btn-square btn-sm">
         <svg
+          aria-label="Close"
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
           fill="none"
@@ -368,6 +371,48 @@ Source: `playground/components/card/responsive-card-vertical-on-small-screen-hor
     <div class="card-actions justify-end">
       <button class="btn btn-primary">Listen</button>
     </div>
+  </div>
+</div>
+```
+
+### Selectable cards
+
+Source: `playground/components/card/selectable-cards.html`
+
+```html
+<div class="flex flex-wrap items-start gap-3">
+  <label class="card bg-accent text-accent-content">
+    <input type="checkbox" name="card-urgent-1" />
+    <div class="card-body">
+      <h2 class="card-title">Urgent</h2>
+      <p>Same day delivery</p>
+    </div>
+  </label>
+
+  <div class="join bg-base-300 rounded-selector">
+    <label class="join-item card">
+      <input type="radio" value="sm" name="card-size-1" />
+      <div class="card-body">
+        <h2 class="card-title">Size SM</h2>
+        <p>Available</p>
+      </div>
+    </label>
+
+    <label class="join-item card">
+      <input type="radio" value="md" name="card-size-1" disabled />
+      <div class="card-body opacity-60">
+        <h2 class="card-title">Size MD</h2>
+        <p>Not available</p>
+      </div>
+    </label>
+
+    <label class="join-item card">
+      <input type="radio" value="lg" name="card-size-1" />
+      <div class="card-body">
+        <h2 class="card-title">Size LG</h2>
+        <p>Short supply</p>
+      </div>
+    </label>
   </div>
 </div>
 ```

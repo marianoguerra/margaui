@@ -31,6 +31,20 @@ Source: `playground/components/otp/otp.html`
 </label>
 ```
 
+### Otp disabled
+
+Source: `playground/components/otp/otp-disabled.html`
+
+```html
+<label class="otp">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required disabled />
+</label>
+```
+
 ### Otp joined
 
 Source: `playground/components/otp/otp-joined.html`
@@ -43,50 +57,6 @@ Source: `playground/components/otp/otp-joined.html`
   <span></span>
   <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
 </label>
-```
-
-### Otp sizes
-
-Source: `playground/components/otp/otp-sizes.html`
-
-```html
-<div class="flex flex-col gap-4 items-center">
-  <label class="otp otp-xs">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
-  </label>
-  <label class="otp otp-sm">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
-  </label>
-  <label class="otp otp-md">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
-  </label>
-  <label class="otp otp-lg">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
-  </label>
-  <label class="otp otp-xl">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
-  </label>
-</div>
 ```
 
 ### Otp with 6 digits
@@ -105,9 +75,9 @@ Source: `playground/components/otp/otp-with-6-digits.html`
 </label>
 ```
 
-### Otp with colors
+### Otp with different colors
 
-Source: `playground/components/otp/otp-with-colors.html`
+Source: `playground/components/otp/otp-with-different-colors.html`
 
 ```html
 <div class="flex flex-col gap-4 items-center">
@@ -118,6 +88,7 @@ Source: `playground/components/otp/otp-with-colors.html`
     <span></span>
     <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
   </label>
+
   <label class="otp otp-primary">
     <span></span>
     <span></span>
@@ -125,6 +96,7 @@ Source: `playground/components/otp/otp-with-colors.html`
     <span></span>
     <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
   </label>
+
   <label class="otp otp-secondary">
     <span></span>
     <span></span>
@@ -132,6 +104,7 @@ Source: `playground/components/otp/otp-with-colors.html`
     <span></span>
     <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
   </label>
+
   <label class="otp otp-accent">
     <span></span>
     <span></span>
@@ -139,6 +112,7 @@ Source: `playground/components/otp/otp-with-colors.html`
     <span></span>
     <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
   </label>
+
   <label class="otp otp-info">
     <span></span>
     <span></span>
@@ -146,6 +120,7 @@ Source: `playground/components/otp/otp-with-colors.html`
     <span></span>
     <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
   </label>
+
   <label class="otp otp-success">
     <span></span>
     <span></span>
@@ -153,6 +128,7 @@ Source: `playground/components/otp/otp-with-colors.html`
     <span></span>
     <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
   </label>
+
   <label class="otp otp-warning">
     <span></span>
     <span></span>
@@ -160,7 +136,56 @@ Source: `playground/components/otp/otp-with-colors.html`
     <span></span>
     <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
   </label>
+
   <label class="otp otp-error">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
+  </label>
+</div>
+```
+
+### Otp with different sizes
+
+Source: `playground/components/otp/otp-with-different-sizes.html`
+
+```html
+<div class="flex flex-col gap-4 items-center">
+  <label class="otp otp-xs">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
+  </label>
+
+  <label class="otp otp-sm">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
+  </label>
+
+  <label class="otp otp-md">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
+  </label>
+
+  <label class="otp otp-lg">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
+  </label>
+
+  <label class="otp otp-xl">
     <span></span>
     <span></span>
     <span></span>

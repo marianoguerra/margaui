@@ -17,7 +17,7 @@ Group of mutually exclusive `<input type="radio">` options styled as buttons, wi
 Source: `playground/components/filter/filter-using-html-form-checkboxes-and-a-reset-button.html`
 
 ```html
-<form>
+<form class="filter">
   <input class="btn" type="checkbox" name="frameworks" aria-label="Svelte"/>
   <input class="btn" type="checkbox" name="frameworks" aria-label="Vue"/>
   <input class="btn" type="checkbox" name="frameworks" aria-label="React"/>

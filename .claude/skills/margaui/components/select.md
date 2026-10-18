@@ -131,12 +131,25 @@ Source: `playground/components/select/secondary-color.html`
 </select>
 ```
 
+### Select with custom dropdown height
+
+Source: `playground/components/select/select-with-custom-dropdown-height.html`
+
+```html
+<select class="select [&::picker(select)]:max-h-26">
+  <option disabled selected>Pick a color</option>
+  <option>Crimson</option>
+  <option>Amber</option>
+  <option>Velvet</option>
+</select>
+```
+
 ### Sizes
 
 Source: `playground/components/select/sizes.html`
 
 ```html
-<div class="flex flex-col gap-4 w-full">
+<div class="flex flex-col gap-4 w-full items-center">
   <select class="select select-xs">
     <option disabled selected>Xsmall</option>
     <option>Xsmall Apple</option>
@@ -214,7 +227,7 @@ Source: `playground/components/select/warning-color.html`
 Source: `playground/components/select/with-fieldset-and-labels.html`
 
 ```html
-<fieldset class="fieldset">
+<fieldset class="fieldset w-xs">
   <legend class="fieldset-legend">Browsers</legend>
   <select class="select">
     <option disabled selected>Pick a browser</option>

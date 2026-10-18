@@ -57,52 +57,54 @@ Source: `playground/components/hover-3d/3d-card-hover-effect.html`
 Source: `playground/components/hover-3d/3d-hover-effect-for-image-gallery.html`
 
 ```html
-<div class="hover-3d">
-  <!-- content -->
-  <figure class="w-60 rounded-2xl">
-    <img src="https://img.daisyui.com/images/stock/card-1.webp?x" alt="Tailwind CSS 3D card" />
-  </figure>
-  <!-- 8 empty divs needed for the 3D effect -->
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
+<div class="flex max-sm:flex-col gap-10 p-10 max-sm:w-70">
+  <div class="hover-3d">
+    <!-- content -->
+    <figure class="w-60 rounded-2xl">
+      <img src="https://img.daisyui.com/images/stock/card-1.webp?x" alt="Tailwind CSS 3D card" />
+    </figure>
+    <!-- 8 empty divs needed for the 3D effect -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-<div class="hover-3d">
-  <!-- content -->
-  <figure class="w-60 rounded-2xl">
-    <img src="https://img.daisyui.com/images/stock/card-2.webp?x" alt="Tailwind CSS 3D hover" />
-  </figure>
-  <!-- 8 empty divs needed for the 3D effect -->
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
+  <div class="hover-3d">
+    <!-- content -->
+    <figure class="w-60 rounded-2xl">
+      <img src="https://img.daisyui.com/images/stock/card-2.webp?x" alt="Tailwind CSS 3D hover" />
+    </figure>
+    <!-- 8 empty divs needed for the 3D effect -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-<div class="hover-3d">
-  <!-- content -->
-  <figure class="w-60 rounded-2xl">
-    <img src="https://img.daisyui.com/images/stock/card-3.webp?x" alt="Tailwind CSS 3D hover" />
-  </figure>
-  <!-- 8 empty divs needed for the 3D effect -->
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
+  <div class="hover-3d">
+    <!-- content -->
+    <figure class="w-60 rounded-2xl">
+      <img src="https://img.daisyui.com/images/stock/card-3.webp?x" alt="Tailwind CSS 3D hover" />
+    </figure>
+    <!-- 8 empty divs needed for the 3D effect -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </div>
 ```
 
@@ -111,7 +113,7 @@ Source: `playground/components/hover-3d/3d-hover-effect-for-image-gallery.html`
 Source: `playground/components/hover-3d/3d-image-hover-effect.html`
 
 ```html
-<div class="hover-3d">
+<div class="hover-3d my-12 mx-2">
   <!-- content -->
   <figure class="max-w-100 rounded-2xl">
     <img src="https://img.daisyui.com/images/stock/creditcard.webp" alt="3D card" />

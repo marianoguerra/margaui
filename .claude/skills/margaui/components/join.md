@@ -34,7 +34,7 @@ Source: `playground/components/join/custom-border-radius.html`
 
 ```html
 <div class="join">
-  <input class="input join-item" placeholder="Email" />
+  <input class="input join-item w-36 lg:w-52" placeholder="Email" />
   <button class="btn join-item rounded-r-full">Subscribe</button>
 </div>
 ```
@@ -83,10 +83,10 @@ Source: `playground/components/join/with-extra-elements-in-the-group.html`
 <div class="join">
   <div>
     <div>
-      <input class="input join-item" placeholder="Search" />
+      <input class="input join-item w-[5.3rem] md:w-52" placeholder="Search" />
     </div>
   </div>
-  <select class="select join-item">
+  <select class="select join-item w-[5.8rem] md:w-auto">
     <option disabled selected>Filter</option>
     <option>Sci-fi</option>
     <option>Drama</option>

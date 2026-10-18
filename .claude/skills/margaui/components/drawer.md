@@ -22,15 +22,15 @@ Sliding off-canvas sidebar driven by a hidden checkbox — works without JS.
 Source: `playground/components/drawer/drawer-sidebar-that-opens-from-right-side-of-page.html`
 
 ```html
-<div class="drawer drawer-end">
+<div class="drawer drawer-end h-56 overflow-hidden">
   <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content">
+  <div class="drawer-content flex flex-col items-center justify-center">
     <!-- Page content here -->
     <label for="my-drawer-5" class="drawer-button btn btn-primary">Open drawer</label>
   </div>
   <div class="drawer-side">
     <label for="my-drawer-5" aria-label="close sidebar" class="drawer-overlay"></label>
-    <ul class="menu bg-base-200 min-h-full w-80 p-4">
+    <ul class="menu bg-base-200 min-h-full w-80 p-4 md:w-80">
       <!-- Sidebar content here -->
       <li><a>Sidebar Item 1</a></li>
       <li><a>Sidebar Item 2</a></li>
@@ -44,15 +44,15 @@ Source: `playground/components/drawer/drawer-sidebar-that-opens-from-right-side-
 Source: `playground/components/drawer/drawer-sidebar.html`
 
 ```html
-<div class="drawer">
+<div class="drawer h-56 overflow-hidden">
   <input id="my-drawer-1" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content">
+  <div class="drawer-content flex flex-col items-center justify-center">
     <!-- Page content here -->
     <label for="my-drawer-1" class="btn drawer-button">Open drawer</label>
   </div>
   <div class="drawer-side">
     <label for="my-drawer-1" aria-label="close sidebar" class="drawer-overlay"></label>
-    <ul class="menu bg-base-200 min-h-full w-80 p-4">
+    <ul class="menu bg-base-200 min-h-full w-80 p-4 md:w-80">
       <!-- Sidebar content here -->
       <li><a>Sidebar Item 1</a></li>
       <li><a>Sidebar Item 2</a></li>
@@ -67,12 +67,12 @@ Source: `playground/components/drawer/navbar-menu-for-desktop--sidebar-drawer-fo
 
 ```html
 <div class="drawer">
-  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle lg:hidden" />
   <div class="drawer-content flex flex-col">
     <!-- Navbar -->
     <div class="navbar bg-base-300 w-full">
       <div class="flex-none lg:hidden">
-        <label for="my-drawer-2" aria-label="open sidebar" class="btn btn-square btn-ghost">
+        <label for="my-drawer-2" aria-label="open sidebar" class="btn btn-square btn-ghost drawer-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -116,12 +116,12 @@ Source: `playground/components/drawer/navbar-menu-for-desktop--sidebar-drawer-fo
 Source: `playground/components/drawer/responsive-collapsible-icon-only-drawer-sidebar-using-is-drawer-close-and-is-drawer-open.html`
 
 ```html
-<div class="drawer lg:drawer-open">
-  <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+<div class="drawer lg:drawer-open h-80">
+  <input id="my-drawer-4" type="checkbox" class="drawer-toggle inline" />
   <div class="drawer-content">
     <!-- Navbar -->
     <nav class="navbar w-full bg-base-300">
-      <label for="my-drawer-4" aria-label="open sidebar" class="btn btn-square btn-ghost">
+      <label for="my-drawer-4" aria-label="open sidebar" class="btn btn-square btn-ghost drawer-button">
         <!-- Sidebar toggle icon -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor" class="my-1.5 inline-block size-4"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path><path d="M9 4v16"></path><path d="M14 10l2 2l-2 2"></path></svg>
       </label>
@@ -131,7 +131,7 @@ Source: `playground/components/drawer/responsive-collapsible-icon-only-drawer-si
     <div class="p-4">Page Content</div>
   </div>
 
-  <div class="drawer-side is-drawer-close:overflow-visible">
+  <div class="drawer-side is-drawer-close:overflow-visible lg:h-80">
     <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
     <div class="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
       <!-- Sidebar content here -->
@@ -164,7 +164,7 @@ Source: `playground/components/drawer/responsive-collapsible-icon-only-drawer-si
 Source: `playground/components/drawer/responsive-sidebar-is-always-visible-on-large-screen-can-be-toggled-on-small-screen.html`
 
 ```html
-<div class="drawer lg:drawer-open">
+<div class="drawer lg:drawer-open h-56 overflow-hidden">
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content flex flex-col items-center justify-center">
     <!-- Page content here -->
@@ -174,7 +174,7 @@ Source: `playground/components/drawer/responsive-sidebar-is-always-visible-on-la
   </div>
   <div class="drawer-side">
     <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
-    <ul class="menu bg-base-200 min-h-full w-80 p-4">
+    <ul class="menu bg-base-200 min-h-full w-80 p-4 md:w-80">
       <!-- Sidebar content here -->
       <li><a>Sidebar Item 1</a></li>
       <li><a>Sidebar Item 2</a></li>

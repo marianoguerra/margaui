@@ -22,8 +22,10 @@ Hover/focus tooltip; content from `data-tip` or a child `tooltip-content` elemen
 Source: `playground/components/tooltip/tooltip.html`
 
 ```html
-<div class="tooltip" data-tip="hello">
-  <button class="btn">Hover me</button>
+<div class="my-6">
+  <div class="tooltip" data-tip="hello">
+    <button class="btn">Hover me</button>
+  </div>
 </div>
 ```
 
@@ -32,8 +34,10 @@ Source: `playground/components/tooltip/tooltip.html`
 Source: `playground/components/tooltip/accent-color.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-accent" data-tip="accent">
-  <button class="btn btn-accent">accent</button>
+<div class="my-6">
+  <div class="tooltip tooltip-open tooltip-accent" data-tip="accent">
+    <button class="btn btn-accent">accent</button>
+  </div>
 </div>
 ```
 
@@ -42,8 +46,16 @@ Source: `playground/components/tooltip/accent-color.html`
 Source: `playground/components/tooltip/bottom.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-bottom" data-tip="hello">
-  <button class="btn">Bottom</button>
+<div class="my-6 flex flex-wrap gap-6">
+  <div class="tooltip tooltip-open tooltip-bottom tooltip-start" data-tip="hello">
+    <button class="btn">Bottom start</button>
+  </div>
+  <div class="tooltip tooltip-open tooltip-bottom" data-tip="hello">
+    <button class="btn">Bottom</button>
+  </div>
+  <div class="tooltip tooltip-open tooltip-bottom tooltip-end" data-tip="hello">
+    <button class="btn">Bottom end</button>
+  </div>
 </div>
 ```
 
@@ -52,8 +64,10 @@ Source: `playground/components/tooltip/bottom.html`
 Source: `playground/components/tooltip/error-color.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-error" data-tip="error">
-  <button class="btn btn-error">error</button>
+<div class="my-6">
+  <div class="tooltip tooltip-open tooltip-error" data-tip="error">
+    <button class="btn btn-error">error</button>
+  </div>
 </div>
 ```
 
@@ -62,8 +76,10 @@ Source: `playground/components/tooltip/error-color.html`
 Source: `playground/components/tooltip/force-open.html`
 
 ```html
-<div class="tooltip tooltip-open" data-tip="hello">
-  <button class="btn">Force open</button>
+<div class="my-6">
+  <div class="tooltip tooltip-open" data-tip="hello">
+    <button class="btn">Force open</button>
+  </div>
 </div>
 ```
 
@@ -72,8 +88,10 @@ Source: `playground/components/tooltip/force-open.html`
 Source: `playground/components/tooltip/info-color.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-info" data-tip="info">
-  <button class="btn btn-info">info</button>
+<div class="my-6">
+  <div class="tooltip tooltip-open tooltip-info" data-tip="info">
+    <button class="btn btn-info">info</button>
+  </div>
 </div>
 ```
 
@@ -82,18 +100,16 @@ Source: `playground/components/tooltip/info-color.html`
 Source: `playground/components/tooltip/left.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-left" data-tip="hello">
-  <button class="btn">Left</button>
-</div>
-```
-
-### Neutral color
-
-Source: `playground/components/tooltip/neutral-color.html`
-
-```html
-<div class="tooltip tooltip-open tooltip-neutral" data-tip="neutral">
-  <button class="btn btn-neutral">neutral</button>
+<div class="my-6 flex flex-col gap-6">
+  <div class="tooltip tooltip-open tooltip-left tooltip-start" data-tip="hello">
+    <button class="btn">Left start</button>
+  </div>
+  <div class="tooltip tooltip-open tooltip-left" data-tip="hello">
+    <button class="btn">Left</button>
+  </div>
+  <div class="tooltip tooltip-open tooltip-left tooltip-end" data-tip="hello">
+    <button class="btn">Left end</button>
+  </div>
 </div>
 ```
 
@@ -102,8 +118,10 @@ Source: `playground/components/tooltip/neutral-color.html`
 Source: `playground/components/tooltip/primary-color.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-primary" data-tip="primary">
-  <button class="btn btn-primary">primary</button>
+<div class="my-6">
+  <div class="tooltip tooltip-open tooltip-primary" data-tip="primary">
+    <button class="btn btn-primary">primary</button>
+  </div>
 </div>
 ```
 
@@ -112,8 +130,22 @@ Source: `playground/components/tooltip/primary-color.html`
 Source: `playground/components/tooltip/responsive-tooltip-only-show-for-large-screen.html`
 
 ```html
-<div class="lg:tooltip" data-tip="hello">
-  <button class="btn">Hover me</button>
+<div class="my-6">
+  <div class="lg:tooltip" data-tip="hello">
+    <button class="btn">Hover me</button>
+  </div>
+</div>
+```
+
+### Responsive tooltip position
+
+Source: `playground/components/tooltip/responsive-tooltip-position.html`
+
+```html
+<div class="my-6">
+  <div class="tooltip tooltip-start md:tooltip-right md:tooltip-center" data-tip="hello">
+    <button class="btn">Hover me</button>
+  </div>
 </div>
 ```
 
@@ -122,8 +154,16 @@ Source: `playground/components/tooltip/responsive-tooltip-only-show-for-large-sc
 Source: `playground/components/tooltip/right.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-right" data-tip="hello">
-  <button class="btn">Right</button>
+<div class="my-6 flex items-end flex-col gap-6">
+  <div class="tooltip tooltip-open tooltip-right tooltip-start" data-tip="hello">
+    <button class="btn">Right start</button>
+  </div>
+  <div class="tooltip tooltip-open tooltip-right" data-tip="hello">
+    <button class="btn">Right</button>
+  </div>
+  <div class="tooltip tooltip-open tooltip-right tooltip-end" data-tip="hello">
+    <button class="btn">Right end</button>
+  </div>
 </div>
 ```
 
@@ -132,8 +172,10 @@ Source: `playground/components/tooltip/right.html`
 Source: `playground/components/tooltip/secondary-color.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-secondary" data-tip="secondary">
-  <button class="btn btn-secondary">secondary</button>
+<div class="my-6">
+  <div class="tooltip tooltip-open tooltip-secondary" data-tip="secondary">
+    <button class="btn btn-secondary">secondary</button>
+  </div>
 </div>
 ```
 
@@ -142,8 +184,10 @@ Source: `playground/components/tooltip/secondary-color.html`
 Source: `playground/components/tooltip/success-color.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-success" data-tip="success">
-  <button class="btn btn-success">success</button>
+<div class="my-6">
+  <div class="tooltip tooltip-open tooltip-success" data-tip="success">
+    <button class="btn btn-success">success</button>
+  </div>
 </div>
 ```
 
@@ -152,11 +196,13 @@ Source: `playground/components/tooltip/success-color.html`
 Source: `playground/components/tooltip/tooltip-with-tooltip-content.html`
 
 ```html
-<div class="tooltip">
-  <div class="tooltip-content">
-    <div class="animate-bounce text-orange-400 -rotate-10 text-2xl font-black">Wow!</div>
+<div class="my-6 mt-12">
+  <div class="tooltip">
+    <div class="tooltip-content">
+      <div class="animate-bounce text-orange-400 -rotate-10 text-2xl font-black">Wow!</div>
+    </div>
+    <button class="btn">Hover me</button>
   </div>
-  <button class="btn">Hover me</button>
 </div>
 ```
 
@@ -165,8 +211,16 @@ Source: `playground/components/tooltip/tooltip-with-tooltip-content.html`
 Source: `playground/components/tooltip/top.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-top" data-tip="hello">
-  <button class="btn">Top</button>
+<div class="my-6 flex flex-wrap gap-6">
+  <div class="tooltip tooltip-open tooltip-top tooltip-start" data-tip="hello">
+    <button class="btn">Top start</button>
+  </div>
+  <div class="tooltip tooltip-open tooltip-top" data-tip="hello">
+    <button class="btn">Top</button>
+  </div>
+  <div class="tooltip tooltip-open tooltip-top tooltip-end" data-tip="hello">
+    <button class="btn">Top end</button>
+  </div>
 </div>
 ```
 
@@ -175,7 +229,9 @@ Source: `playground/components/tooltip/top.html`
 Source: `playground/components/tooltip/warning-color.html`
 
 ```html
-<div class="tooltip tooltip-open tooltip-warning" data-tip="warning">
-  <button class="btn btn-warning">warning</button>
+<div class="my-6">
+  <div class="tooltip tooltip-open tooltip-warning" data-tip="warning">
+    <button class="btn btn-warning">warning</button>
+  </div>
 </div>
 ```

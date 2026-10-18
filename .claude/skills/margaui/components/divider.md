@@ -45,7 +45,7 @@ Source: `playground/components/divider/divider-horizontal.html`
 Source: `playground/components/divider/divider-in-different-positions-horizontal.html`
 
 ```html
-<div class="flex w-full">
+<div class="flex w-full justify-center h-52">
   <div class="divider divider-horizontal divider-start">Start</div>
   <div class="divider divider-horizontal">Default</div>
   <div class="divider divider-horizontal divider-end">End</div>

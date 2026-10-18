@@ -25,7 +25,7 @@ Source: `playground/components/avatar/avatar.html`
 ```html
 <div class="avatar">
   <div class="w-24 rounded">
-    <img src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
   </div>
 </div>
 ```
@@ -38,17 +38,17 @@ Source: `playground/components/avatar/avatar-group-with-counter.html`
 <div class="avatar-group -space-x-6">
   <div class="avatar">
     <div class="w-12">
-      <img src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
+      <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
     </div>
   </div>
   <div class="avatar">
     <div class="w-12">
-      <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+      <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
     </div>
   </div>
   <div class="avatar">
     <div class="w-12">
-      <img src="https://img.daisyui.com/images/profile/demo/averagebulk@192.webp" />
+      <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/averagebulk@192.webp" />
     </div>
   </div>
   <div class="avatar avatar-placeholder">
@@ -67,22 +67,22 @@ Source: `playground/components/avatar/avatar-group.html`
 <div class="avatar-group -space-x-6">
   <div class="avatar">
     <div class="w-12">
-      <img src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
+      <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
     </div>
   </div>
   <div class="avatar">
     <div class="w-12">
-      <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+      <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
     </div>
   </div>
   <div class="avatar">
     <div class="w-12">
-      <img src="https://img.daisyui.com/images/profile/demo/averagebulk@192.webp" />
+      <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/averagebulk@192.webp" />
     </div>
   </div>
   <div class="avatar">
     <div class="w-12">
-      <img src="https://img.daisyui.com/images/profile/demo/wonderperson@192.webp" />
+      <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/wonderperson@192.webp" />
     </div>
   </div>
 </div>
@@ -95,7 +95,7 @@ Source: `playground/components/avatar/avatar-in-custom-sizes.html`
 ```html
 <div class="avatar">
   <div class="w-32 rounded">
-    <img src="https://img.daisyui.com/images/profile/demo/superperson@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/superperson@192.webp" />
   </div>
 </div>
 <div class="avatar">
@@ -158,12 +158,12 @@ Source: `playground/components/avatar/avatar-rounded.html`
 ```html
 <div class="avatar">
   <div class="w-24 rounded-xl">
-    <img src="https://img.daisyui.com/images/profile/demo/yellingwoman@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/yellingwoman@192.webp" />
   </div>
 </div>
 <div class="avatar">
   <div class="w-24 rounded-full">
-    <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
   </div>
 </div>
 ```
@@ -175,17 +175,17 @@ Source: `playground/components/avatar/avatar-with-mask.html`
 ```html
 <div class="avatar">
   <div class="mask mask-heart w-24">
-    <img src="https://img.daisyui.com/images/profile/demo/distracted3@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/distracted3@192.webp" />
   </div>
 </div>
 <div class="avatar">
   <div class="mask mask-squircle w-24">
-    <img src="https://img.daisyui.com/images/profile/demo/distracted1@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/distracted1@192.webp" />
   </div>
 </div>
 <div class="avatar">
   <div class="mask mask-hexagon-2 w-24">
-    <img src="https://img.daisyui.com/images/profile/demo/distracted2@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/distracted2@192.webp" />
   </div>
 </div>
 ```
@@ -197,12 +197,12 @@ Source: `playground/components/avatar/avatar-with-presence-indicator.html`
 ```html
 <div class="avatar avatar-online">
   <div class="w-24 rounded-full">
-    <img src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" />
   </div>
 </div>
 <div class="avatar avatar-offline">
   <div class="w-24 rounded-full">
-    <img src="https://img.daisyui.com/images/profile/demo/idiotsandwich@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/idiotsandwich@192.webp" />
   </div>
 </div>
 ```
@@ -214,7 +214,7 @@ Source: `playground/components/avatar/avatar-with-ring.html`
 ```html
 <div class="avatar">
   <div class="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
-    <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+    <img alt="Tailwind-CSS-Avatar-component" src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
   </div>
 </div>
 ```

@@ -34,6 +34,7 @@
     "gen-theme-list": "node tools/gen-theme-list.mjs themes > playground/themes.json",
     "gen-skill": "node tools/gen-skill.mjs",
     "diff-daisyui": "node tools/daisyui-diff.mjs",
+    "sync-examples": "node tools/sync-examples.mjs",
     "playground": "npm run gen-vfs-dev && npm run gen-component-tree && npm run gen-theme-list",
     "fetch-tw": "node tools/fetch-tw.mjs",
     "min-css": "mkdir -p dist/src dist/base dist/tw dist/themes && esbuild --minify --outdir=dist/src src/*.css && esbuild --minify --outdir=dist/base base/*.css && esbuild --minify --outdir=dist/tw tw/*.css && esbuild --minify --outdir=dist/themes themes/*.css",

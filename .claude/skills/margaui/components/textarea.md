@@ -46,7 +46,7 @@ Source: `playground/components/textarea/ghost-no-background.html`
 Source: `playground/components/textarea/sizes.html`
 
 ```html
-<div class="flex flex-col gap-4 w-full">
+<div class="flex flex-col gap-4 w-full items-center">
   <textarea placeholder="Bio" class="textarea textarea-xs"></textarea>
 
   <textarea placeholder="Bio" class="textarea textarea-sm"></textarea>
@@ -64,14 +64,16 @@ Source: `playground/components/textarea/sizes.html`
 Source: `playground/components/textarea/textarea-colors.html`
 
 ```html
-<textarea placeholder="Primary" class="textarea textarea-primary"></textarea>
-<textarea placeholder="Secondary" class="textarea textarea-secondary"></textarea>
-<textarea placeholder="Accent" class="textarea textarea-accent"></textarea>
-<textarea placeholder="Neutral" class="textarea textarea-neutral"></textarea>
-<textarea placeholder="Info" class="textarea textarea-info"></textarea>
-<textarea placeholder="Success" class="textarea textarea-success"></textarea>
-<textarea placeholder="Warning" class="textarea textarea-warning"></textarea>
-<textarea placeholder="Error" class="textarea textarea-error"></textarea>
+<div class="grid gap-4 w-xs">
+  <textarea placeholder="Primary" class="textarea textarea-primary"></textarea>
+  <textarea placeholder="Secondary" class="textarea textarea-secondary"></textarea>
+  <textarea placeholder="Accent" class="textarea textarea-accent"></textarea>
+  <textarea placeholder="Neutral" class="textarea textarea-neutral"></textarea>
+  <textarea placeholder="Info" class="textarea textarea-info"></textarea>
+  <textarea placeholder="Success" class="textarea textarea-success"></textarea>
+  <textarea placeholder="Warning" class="textarea textarea-warning"></textarea>
+  <textarea placeholder="Error" class="textarea textarea-error"></textarea>
+</div>
 ```
 
 ### With form control and labels
@@ -79,7 +81,7 @@ Source: `playground/components/textarea/textarea-colors.html`
 Source: `playground/components/textarea/with-form-control-and-labels.html`
 
 ```html
-<fieldset class="fieldset">
+<fieldset class="fieldset w-xs">
   <legend class="fieldset-legend">Your bio</legend>
   <textarea class="textarea h-24" placeholder="Bio"></textarea>
   <div class="label">Optional</div>

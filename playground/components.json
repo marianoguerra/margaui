@@ -27,10 +27,19 @@
   {
     "name": "aura",
     "files": [
+      "aura-around-a-button.html",
+      "aura-dual.html",
+      "aura-glow.html",
+      "aura-gold.html",
+      "aura-holo.html",
+      "aura-rainbow-around-a-pricing-card.html",
+      "aura-rainbow.html",
+      "aura-silver.html",
       "aura-sizes.html",
-      "aura-styles.html",
-      "aura-wrapping-a-button.html",
-      "aura-wrapping-a-card.html"
+      "aura-with-custom-animation-duration.html",
+      "aura-with-custom-color-and-custom-background-color.html",
+      "aura-with-custom-color.html",
+      "aura.html"
     ]
   },
   {
@@ -119,7 +128,8 @@
       "card.html",
       "centered-card-with-neutral-color.html",
       "pricing-card.html",
-      "responsive-card-vertical-on-small-screen-horizontal-on-large-screen.html"
+      "responsive-card-vertical-on-small-screen-horizontal-on-large-screen.html",
+      "selectable-cards.html"
     ]
   },
   {
@@ -162,6 +172,7 @@
     "name": "collapse",
     "files": [
       "-collapse-using-details-and-summary-tag.html",
+      "collapse-with-checkbox-and-close-on-click-outside.html",
       "collapse-with-checkbox.html",
       "collapse-with-focus.html",
       "custom-colors-for-collapse-that-works-with-checkbox.html",
@@ -268,7 +279,8 @@
       "fab-and-speed-dial-with-labels.html",
       "fab-and-speed-dial-with-rectangle-buttons.html",
       "fab-and-speed-dial-with-svg-icons.html",
-      "fab-flower-and-speed-dial.html"
+      "fab-flower-and-speed-dial.html",
+      "fab-flower-without-a-main-action-button.html"
     ]
   },
   {
@@ -386,7 +398,8 @@
       "time-input.html",
       "url-with-icon-and-validator.html",
       "username-text-input-with-icon-and-validator.html",
-      "with-fieldset-and-fieldset-legend.html"
+      "with-fieldset-and-fieldset-legend.html",
+      "with-fieldset-and-label.html"
     ]
   },
   {
@@ -420,7 +433,8 @@
       "label-for-date-input.html",
       "label-for-input-at-the-end.html",
       "label-for-input.html",
-      "label-for-select.html"
+      "label-for-select.html",
+      "responsive-size-floating-label.html"
     ]
   },
   {
@@ -429,6 +443,7 @@
       "accent-color.html",
       "error-color.html",
       "info-color.html",
+      "link-2.html",
       "link.html",
       "primary-color.html",
       "secondary-color.html",
@@ -467,7 +482,6 @@
       "hexagon-2-horizontal-hexagon.html",
       "hexagon.html",
       "pentagon.html",
-      "square.html",
       "squircle.html",
       "star-2-bold-star.html",
       "star.html",
@@ -480,9 +494,12 @@
   {
     "name": "megamenu",
     "files": [
-      "megamenu-sizes.html",
-      "megamenu-wide.html",
-      "megamenu.html"
+      "megamenu-in-a-navbar.html",
+      "megamenu-in-different-sizes.html",
+      "megamenu-with-a-menus-and-lots-of-links.html",
+      "megamenu-with-wide-popovers-and-horizontal-menus.html",
+      "megamenu-without-arrows.html",
+      "responsive-megamenu-with-small-vertical-menus.html"
     ]
   },
   {
@@ -508,7 +525,7 @@
       "menu-with-title.html",
       "menu-without-padding-and-border-radius.html",
       "menu.html",
-      "paged-menu.html",
+      "paged-menu-with-nested-submenus.html",
       "responsive-vertical-on-small-screen-horizontal-on-large-screen.html",
       "submenu.html"
     ]
@@ -555,7 +572,8 @@
       "modal-that-closes-when-clicked-outside.html",
       "modal-using-anchor-link.html",
       "modal-using-checkbox.html",
-      "modal-using-popover-api.html",
+      "popover-modal-closes-when-clicked-outside.html",
+      "popover-modal.html",
       "responsive.html"
     ]
   },
@@ -570,16 +588,18 @@
       "navbar-with-search-input-and-dropdown.html",
       "navbar-with-title-and-icon.html",
       "navbar-with-title-only.html",
+      "responsive-collapse-on-small-screen-full-content-on-large-screen.html",
       "responsive-dropdown-menu-on-small-screen-center-menu-on-large-screen.html"
     ]
   },
   {
     "name": "otp",
     "files": [
+      "otp-disabled.html",
       "otp-joined.html",
-      "otp-sizes.html",
       "otp-with-6-digits.html",
-      "otp-with-colors.html",
+      "otp-with-different-colors.html",
+      "otp-with-different-sizes.html",
       "otp.html"
     ]
   },
@@ -649,6 +669,7 @@
       "secondary-color.html",
       "sizes.html",
       "success-color.html",
+      "vertical.html",
       "warning-color.html",
       "with-steps-and-measure.html"
     ]
@@ -677,6 +698,7 @@
       "neutral-color.html",
       "primary-color.html",
       "secondary-color.html",
+      "select-with-custom-dropdown-height.html",
       "select.html",
       "sizes.html",
       "success-color.html",
@@ -698,6 +720,7 @@
     "name": "stack",
     "files": [
       "3-divs-in-a-stack.html",
+      "stacked-cards-2.html",
       "stacked-cards-end-direction.html",
       "stacked-cards-start-direction.html",
       "stacked-cards-top-direction.html",
@@ -711,6 +734,7 @@
     "files": [
       "centered-items.html",
       "responsive-vertical-on-small-screen-horizontal-on-large-screen.html",
+      "stat-2.html",
       "stat-with-icons-or-image.html",
       "stat.html",
       "vertical.html",
@@ -874,9 +898,9 @@
       "force-open.html",
       "info-color.html",
       "left.html",
-      "neutral-color.html",
       "primary-color.html",
       "responsive-tooltip-only-show-for-large-screen.html",
+      "responsive-tooltip-position.html",
       "right.html",
       "secondary-color.html",
       "success-color.html",

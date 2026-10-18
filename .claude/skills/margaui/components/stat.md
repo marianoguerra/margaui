@@ -23,6 +23,72 @@ Source: `playground/components/stat/stat.html`
 ```html
 <div class="stats shadow">
   <div class="stat">
+    <div class="stat-title">Total Page Views</div>
+    <div class="stat-value">89,400</div>
+    <div class="stat-desc">21% more than last month</div>
+  </div>
+</div>
+```
+
+### Centered items
+
+Source: `playground/components/stat/centered-items.html`
+
+```html
+<div class="stats shadow">
+  <div class="stat place-items-center">
+    <div class="stat-title">Downloads</div>
+    <div class="stat-value">31K</div>
+    <div class="stat-desc">From January 1st to February 1st</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Users</div>
+    <div class="stat-value text-secondary">4,200</div>
+    <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">New Registers</div>
+    <div class="stat-value">1,200</div>
+    <div class="stat-desc">↘︎ 90 (14%)</div>
+  </div>
+</div>
+```
+
+### Responsive vertical on small screen horizontal on large screen
+
+Source: `playground/components/stat/responsive-vertical-on-small-screen-horizontal-on-large-screen.html`
+
+```html
+<div class="stats stats-vertical lg:stats-horizontal shadow">
+  <div class="stat">
+    <div class="stat-title">Downloads</div>
+    <div class="stat-value">31K</div>
+    <div class="stat-desc">Jan 1st - Feb 1st</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">New Users</div>
+    <div class="stat-value">4,200</div>
+    <div class="stat-desc">↗︎ 400 (22%)</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">New Registers</div>
+    <div class="stat-value">1,200</div>
+    <div class="stat-desc">↘︎ 90 (14%)</div>
+  </div>
+</div>
+```
+
+### Stat 2
+
+Source: `playground/components/stat/stat-2.html`
+
+```html
+<div class="stats shadow">
+  <div class="stat">
     <div class="stat-figure text-secondary">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -87,58 +153,6 @@ Source: `playground/components/stat/stat.html`
 </div>
 ```
 
-### Centered items
-
-Source: `playground/components/stat/centered-items.html`
-
-```html
-<div class="stats shadow">
-  <div class="stat place-items-center">
-    <div class="stat-title">Downloads</div>
-    <div class="stat-value">31K</div>
-    <div class="stat-desc">From January 1st to February 1st</div>
-  </div>
-
-  <div class="stat place-items-center">
-    <div class="stat-title">Users</div>
-    <div class="stat-value text-secondary">4,200</div>
-    <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
-  </div>
-
-  <div class="stat place-items-center">
-    <div class="stat-title">New Registers</div>
-    <div class="stat-value">1,200</div>
-    <div class="stat-desc">↘︎ 90 (14%)</div>
-  </div>
-</div>
-```
-
-### Responsive vertical on small screen horizontal on large screen
-
-Source: `playground/components/stat/responsive-vertical-on-small-screen-horizontal-on-large-screen.html`
-
-```html
-<div class="stats stats-vertical lg:stats-horizontal shadow">
-  <div class="stat">
-    <div class="stat-title">Downloads</div>
-    <div class="stat-value">31K</div>
-    <div class="stat-desc">Jan 1st - Feb 1st</div>
-  </div>
-
-  <div class="stat">
-    <div class="stat-title">New Users</div>
-    <div class="stat-value">4,200</div>
-    <div class="stat-desc">↗︎ 400 (22%)</div>
-  </div>
-
-  <div class="stat">
-    <div class="stat-title">New Registers</div>
-    <div class="stat-value">1,200</div>
-    <div class="stat-desc">↘︎ 90 (14%)</div>
-  </div>
-</div>
-```
-
 ### Stat with icons or image
 
 Source: `playground/components/stat/stat-with-icons-or-image.html`
@@ -191,7 +205,7 @@ Source: `playground/components/stat/stat-with-icons-or-image.html`
     <div class="stat-figure text-secondary">
       <div class="avatar avatar-online">
         <div class="w-16 rounded-full">
-          <img src="https://img.daisyui.com/images/profile/demo/anakeen@192.webp" />
+          <img alt="Tailwind CSS stat example component" src="https://img.daisyui.com/images/profile/demo/anakeen@192.webp" />
         </div>
       </div>
     </div>

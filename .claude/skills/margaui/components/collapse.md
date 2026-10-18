@@ -30,12 +30,27 @@ Source: `playground/components/collapse/-collapse-using-details-and-summary-tag.
 </details>
 ```
 
+### Collapse with checkbox and close on click outside
+
+Source: `playground/components/collapse/collapse-with-checkbox-and-close-on-click-outside.html`
+
+```html
+<div class="collapse bg-base-100 border border-base-300">
+  <input id="collapse-1-toggle" type="checkbox" class="peer" />
+  <label for="collapse-1-toggle" class="fixed inset-0 hidden peer-checked:block"></label>
+  <div class="collapse-title font-semibold">How do I create an account?</div>
+  <div class="collapse-content text-sm z-1">
+    Click the "Sign Up" button in the top right corner and follow the registration process.
+  </div>
+</div>
+```
+
 ### Collapse with checkbox
 
 Source: `playground/components/collapse/collapse-with-checkbox.html`
 
 ```html
-<div class="collapse bg-base-100 border-base-300 border">
+<div class="collapse bg-base-100 border border-base-300">
   <input type="checkbox" />
   <div class="collapse-title font-semibold">How do I create an account?</div>
   <div class="collapse-content text-sm">

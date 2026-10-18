@@ -393,26 +393,28 @@ Source: `playground/components/menu/mega-menu-with-submenu-responsive.html`
 Source: `playground/components/menu/menu-sizes.html`
 
 ```html
-<ul class="menu menu-xs bg-base-200 rounded-box w-56">
-  <li><a>Xsmall 1</a></li>
-  <li><a>Xsmall 2</a></li>
-</ul>
-<ul class="menu menu-sm bg-base-200 rounded-box w-56">
-  <li><a>Small 1</a></li>
-  <li><a>Small 2</a></li>
-</ul>
-<ul class="menu menu-md bg-base-200 rounded-box w-56">
-  <li><a>Medium 1</a></li>
-  <li><a>Medium 2</a></li>
-</ul>
-<ul class="menu menu-lg bg-base-200 rounded-box w-56">
-  <li><a>Large 1</a></li>
-  <li><a>Large 2</a></li>
-</ul>
-<ul class="menu menu-xl bg-base-200 rounded-box w-56">
-  <li><a>Xlarge 1</a></li>
-  <li><a>Xlarge 2</a></li>
-</ul>
+<div class="grid gap-6">
+  <ul class="menu menu-xs bg-base-200 rounded-box w-56">
+    <li><a>Xsmall 1</a></li>
+    <li><a>Xsmall 2</a></li>
+  </ul>
+  <ul class="menu menu-sm bg-base-200 rounded-box w-56">
+    <li><a>Small 1</a></li>
+    <li><a>Small 2</a></li>
+  </ul>
+  <ul class="menu menu-md bg-base-200 rounded-box w-56">
+    <li><a>Medium 1</a></li>
+    <li><a>Medium 2</a></li>
+  </ul>
+  <ul class="menu menu-lg bg-base-200 rounded-box w-56">
+    <li><a>Large 1</a></li>
+    <li><a>Large 2</a></li>
+  </ul>
+  <ul class="menu menu-xl bg-base-200 rounded-box w-56">
+    <li><a>Xlarge 1</a></li>
+    <li><a>Xlarge 2</a></li>
+  </ul>
+</div>
 ```
 
 ### Menu with active item
@@ -448,6 +450,7 @@ Source: `playground/components/menu/menu-with-icon-only-horizontal-with-tooltip.
   <li>
     <a class="tooltip" data-tip="Home">
       <svg
+        aria-label="Home"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -464,6 +467,7 @@ Source: `playground/components/menu/menu-with-icon-only-horizontal-with-tooltip.
   <li>
     <a class="tooltip" data-tip="Details">
       <svg
+        aria-label="Details"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -480,6 +484,7 @@ Source: `playground/components/menu/menu-with-icon-only-horizontal-with-tooltip.
   <li>
     <a class="tooltip" data-tip="Stats">
       <svg
+        aria-label="Stats"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -505,6 +510,7 @@ Source: `playground/components/menu/menu-with-icon-only-horizontal.html`
   <li>
     <a>
       <svg
+        aria-label="Home"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -521,6 +527,7 @@ Source: `playground/components/menu/menu-with-icon-only-horizontal.html`
   <li>
     <a>
       <svg
+        aria-label="Details"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -537,6 +544,7 @@ Source: `playground/components/menu/menu-with-icon-only-horizontal.html`
   <li>
     <a>
       <svg
+        aria-label="Stats"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -562,6 +570,7 @@ Source: `playground/components/menu/menu-with-icon-only-with-tooltip.html`
   <li>
     <a class="tooltip tooltip-right" data-tip="Home">
       <svg
+        aria-label="Home"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -578,6 +587,7 @@ Source: `playground/components/menu/menu-with-icon-only-with-tooltip.html`
   <li>
     <a class="tooltip tooltip-right" data-tip="Details">
       <svg
+        aria-label="Details"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -594,6 +604,7 @@ Source: `playground/components/menu/menu-with-icon-only-with-tooltip.html`
   <li>
     <a class="tooltip tooltip-right" data-tip="Stats">
       <svg
+        aria-label="Stats"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -619,6 +630,7 @@ Source: `playground/components/menu/menu-with-icon-only.html`
   <li>
     <a>
       <svg
+        aria-label="Home"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -635,6 +647,7 @@ Source: `playground/components/menu/menu-with-icon-only.html`
   <li>
     <a>
       <svg
+        aria-label="Details"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -651,6 +664,7 @@ Source: `playground/components/menu/menu-with-icon-only.html`
   <li>
     <a>
       <svg
+        aria-label="Stats"
         xmlns="http://www.w3.org/2000/svg"
         class="h-5 w-5"
         fill="none"
@@ -820,32 +834,24 @@ Source: `playground/components/menu/menu-without-padding-and-border-radius.html`
 </ul>
 ```
 
-### Paged menu
+### Paged menu with nested submenus
 
-Source: `playground/components/menu/paged-menu.html`
+Source: `playground/components/menu/paged-menu-with-nested-submenus.html`
 
 ```html
-<ul class="menu menu-paged bg-base-200 rounded-box w-56">
-  <li><a>Item 1</a></li>
+<ul class="menu menu-paged menu-vertical bg-base-200 rounded-box w-56 lg:w-auto">
+  <li><a>Home</a></li>
+  <li><a>About</a></li>
   <li>
     <details>
-      <summary>Parent</summary>
+      <summary>Products</summary>
       <ul>
-        <li><a>Submenu 1</a></li>
-        <li><a>Submenu 2</a></li>
-        <li>
-          <details>
-            <summary aria-label="Back to Parent">Nested parent</summary>
-            <ul>
-              <li><a>Nested 1</a></li>
-              <li><a>Nested 2</a></li>
-            </ul>
-          </details>
-        </li>
+        <li><a>All products</a></li>
+        <li><a>Electronics</a></li>
+        <li><a>Clothing</a></li>
       </ul>
     </details>
   </li>
-  <li><a>Item 3</a></li>
 </ul>
 ```
 

@@ -17,7 +17,7 @@ Visual browser-chrome wrapper.
 Source: `playground/components/mockup-browser/browser-mockup-with-background-color.html`
 
 ```html
-<div class="mockup-browser border border-base-300 w-full">
+<div class="mockup-browser bg-base-100 w-full border border-base-300">
   <div class="mockup-browser-toolbar">
     <div class="input">https://daisyui.com</div>
   </div>
@@ -30,7 +30,7 @@ Source: `playground/components/mockup-browser/browser-mockup-with-background-col
 Source: `playground/components/mockup-browser/browser-mockup-with-border.html`
 
 ```html
-<div class="mockup-browser border-base-300 border w-full">
+<div class="mockup-browser border border-base-300 w-full">
   <div class="mockup-browser-toolbar">
     <div class="input">https://daisyui.com</div>
   </div>

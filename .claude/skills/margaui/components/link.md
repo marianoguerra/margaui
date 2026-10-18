@@ -22,13 +22,7 @@ Themed inline link.
 Source: `playground/components/link/link.html`
 
 ```html
-<p>
-  Tailwind CSS resets the style of links by default.
-  <br />
-  Add "link" class to make it look like a
-  <a class="link">normal link</a>
-  again.
-</p>
+<a class="link">Click me</a>
 ```
 
 ### Accent color
@@ -53,6 +47,20 @@ Source: `playground/components/link/info-color.html`
 
 ```html
 <a class="link link-info">Click me</a>
+```
+
+### Link 2
+
+Source: `playground/components/link/link-2.html`
+
+```html
+<p>
+  Tailwind CSS resets the style of links by default.
+  <br />
+  Add "link" class to make it look like a
+  <a class="link">normal link</a>
+  again.
+</p>
 ```
 
 ### Primary color

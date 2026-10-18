@@ -23,7 +23,8 @@ Source: `playground/components/mask/circle.html`
 
 ```html
 <img
-  class="mask mask-circle"
+  class="mask mask-circle w-40 h-40"
+  alt="Circle CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -33,7 +34,8 @@ Source: `playground/components/mask/decagon.html`
 
 ```html
 <img
-  class="mask mask-decagon"
+  class="mask mask-decagon w-40 h-40"
+  alt="Decagon CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -43,7 +45,8 @@ Source: `playground/components/mask/diamond.html`
 
 ```html
 <img
-  class="mask mask-diamond"
+  class="mask mask-diamond w-40 h-40"
+  alt="Diamond CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -53,7 +56,8 @@ Source: `playground/components/mask/heart.html`
 
 ```html
 <img
-  class="mask mask-heart"
+  class="mask mask-heart w-40 h-40"
+  alt="Heart CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -63,7 +67,8 @@ Source: `playground/components/mask/hexagon-2-horizontal-hexagon.html`
 
 ```html
 <img
-  class="mask mask-hexagon-2"
+  class="mask mask-hexagon-2 w-40 h-40"
+  alt="Hexagon-2 CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -73,7 +78,8 @@ Source: `playground/components/mask/hexagon.html`
 
 ```html
 <img
-  class="mask mask-hexagon"
+  class="mask mask-hexagon w-40 h-40"
+  alt="Hexagon CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -83,17 +89,8 @@ Source: `playground/components/mask/pentagon.html`
 
 ```html
 <img
-  class="mask mask-pentagon"
-  src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
-```
-
-### Square
-
-Source: `playground/components/mask/square.html`
-
-```html
-<img
-  class="mask mask-square"
+  class="mask mask-pentagon w-40 h-40"
+  alt="Pentagon CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -103,7 +100,8 @@ Source: `playground/components/mask/squircle.html`
 
 ```html
 <img
-  class="mask mask-squircle"
+  class="mask mask-squircle w-40 h-40"
+  alt="Squircle CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -113,7 +111,8 @@ Source: `playground/components/mask/star-2-bold-star.html`
 
 ```html
 <img
-  class="mask mask-star-2"
+  class="mask mask-star-2 w-40 h-40"
+  alt="Star-2 CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -123,7 +122,8 @@ Source: `playground/components/mask/star.html`
 
 ```html
 <img
-  class="mask mask-star"
+  class="mask mask-star w-40 h-40"
+  alt="Star CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -133,7 +133,8 @@ Source: `playground/components/mask/triangle-2-pointing-down.html`
 
 ```html
 <img
-  class="mask mask-triangle-2"
+  class="mask mask-triangle-2 w-40 h-40"
+  alt="Triangle-2 CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -143,7 +144,8 @@ Source: `playground/components/mask/triangle-3-pointing-left.html`
 
 ```html
 <img
-  class="mask mask-triangle-3"
+  class="mask mask-triangle-3 w-40 h-40"
+  alt="Triangle-3 CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -153,7 +155,8 @@ Source: `playground/components/mask/triangle-4-pointing-right.html`
 
 ```html
 <img
-  class="mask mask-triangle-4"
+  class="mask mask-triangle-4 w-40 h-40"
+  alt="Triangle-4 CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```
 
@@ -163,6 +166,7 @@ Source: `playground/components/mask/triangle-pointing-top.html`
 
 ```html
 <img
-  class="mask mask-triangle"
+  class="mask mask-triangle w-40 h-40"
+  alt="Triangle CSS mask"
   src="https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp" />
 ```

@@ -22,7 +22,7 @@ Pop-up menu attached to a button/element. Supports details/summary, focus-based,
 Source: `playground/components/dropdown/card-as-dropdown.html`
 
 ```html
-<div class="dropdown">
+<div class="dropdown mb-32">
   <div tabindex="0" role="button" class="btn m-1">Click</div>
   <div
     tabindex="0"
@@ -39,7 +39,7 @@ Source: `playground/components/dropdown/card-as-dropdown.html`
 Source: `playground/components/dropdown/dropdown--aligns-to-center-of-button-horizontally.html`
 
 ```html
-<div class="dropdown dropdown-center">
+<div class="dropdown dropdown-center mb-32">
   <div tabindex="0" role="button" class="btn m-1">Click  ⬇️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -53,7 +53,7 @@ Source: `playground/components/dropdown/dropdown--aligns-to-center-of-button-hor
 Source: `playground/components/dropdown/dropdown--aligns-to-end-of-button-horizontally.html`
 
 ```html
-<div class="dropdown dropdown-end">
+<div class="dropdown dropdown-end mb-32">
   <div tabindex="0" role="button" class="btn m-1">Click  ⬇️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -67,7 +67,7 @@ Source: `playground/components/dropdown/dropdown--aligns-to-end-of-button-horizo
 Source: `playground/components/dropdown/dropdown--aligns-to-start-of-button-horizontally.html`
 
 ```html
-<div class="dropdown dropdown-start">
+<div class="dropdown dropdown-start mb-32">
   <div tabindex="0" role="button" class="btn m-1">Click ⬇️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -81,7 +81,7 @@ Source: `playground/components/dropdown/dropdown--aligns-to-start-of-button-hori
 Source: `playground/components/dropdown/dropdown-bottom-default--aligns-to-center-of-button-horizontally.html`
 
 ```html
-<div class="dropdown dropdown-bottom dropdown-center">
+<div class="dropdown dropdown-bottom dropdown-center mb-32">
   <div tabindex="0" role="button" class="btn m-1">Click ⬇️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -95,7 +95,7 @@ Source: `playground/components/dropdown/dropdown-bottom-default--aligns-to-cente
 Source: `playground/components/dropdown/dropdown-bottom-default--aligns-to-end-of-button-horizontally.html`
 
 ```html
-<div class="dropdown dropdown-bottom dropdown-end">
+<div class="dropdown dropdown-bottom dropdown-end mb-32">
   <div tabindex="0" role="button" class="btn m-1">Click ⬇️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -109,7 +109,7 @@ Source: `playground/components/dropdown/dropdown-bottom-default--aligns-to-end-o
 Source: `playground/components/dropdown/dropdown-bottom-default.html`
 
 ```html
-<div class="dropdown dropdown-bottom">
+<div class="dropdown dropdown-bottom mb-32">
   <div tabindex="0" role="button" class="btn m-1">Click ⬇️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -123,7 +123,7 @@ Source: `playground/components/dropdown/dropdown-bottom-default.html`
 Source: `playground/components/dropdown/dropdown-in-navbar.html`
 
 ```html
-<div class="navbar bg-base-200">
+<div class="navbar bg-base-200 mb-40 w-full">
   <div class="ps-4">
     <a class="text-lg font-bold">daisyUI</a>
   </div>
@@ -149,7 +149,7 @@ Source: `playground/components/dropdown/dropdown-in-navbar.html`
 Source: `playground/components/dropdown/dropdown-left--aligns-to-center-of-button-vertically.html`
 
 ```html
-<div class="dropdown dropdown-left dropdown-center">
+<div class="dropdown dropdown-left dropdown-center my-16">
   <div tabindex="0" role="button" class="btn m-1">Click ⬅️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -163,7 +163,7 @@ Source: `playground/components/dropdown/dropdown-left--aligns-to-center-of-butto
 Source: `playground/components/dropdown/dropdown-left--aligns-to-end-of-button-vertically.html`
 
 ```html
-<div class="dropdown dropdown-left dropdown-end">
+<div class="dropdown dropdown-left dropdown-end mt-16">
   <div tabindex="0" role="button" class="btn m-1">Click ⬅️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -177,7 +177,7 @@ Source: `playground/components/dropdown/dropdown-left--aligns-to-end-of-button-v
 Source: `playground/components/dropdown/dropdown-left.html`
 
 ```html
-<div class="dropdown dropdown-left">
+<div class="dropdown dropdown-left mb-16">
   <div tabindex="0" role="button" class="btn m-1">Click ⬅️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -205,7 +205,7 @@ Source: `playground/components/dropdown/dropdown-menu.html`
 Source: `playground/components/dropdown/dropdown-on-hover.html`
 
 ```html
-<div class="dropdown dropdown-hover">
+<div class="dropdown dropdown-hover mb-32">
   <div tabindex="0" role="button" class="btn m-1">Hover</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -219,7 +219,7 @@ Source: `playground/components/dropdown/dropdown-on-hover.html`
 Source: `playground/components/dropdown/dropdown-right--aligns-to-center-of-button-vertically.html`
 
 ```html
-<div class="dropdown dropdown-right dropdown-center">
+<div class="dropdown dropdown-right dropdown-center my-16">
   <div tabindex="0" role="button" class="btn m-1">Click ➡️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -233,7 +233,7 @@ Source: `playground/components/dropdown/dropdown-right--aligns-to-center-of-butt
 Source: `playground/components/dropdown/dropdown-right--aligns-to-end-of-button-vertically.html`
 
 ```html
-<div class="dropdown dropdown-right dropdown-end">
+<div class="dropdown dropdown-right dropdown-end mt-16">
   <div tabindex="0" role="button" class="btn m-1">Click ➡️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -247,7 +247,7 @@ Source: `playground/components/dropdown/dropdown-right--aligns-to-end-of-button-
 Source: `playground/components/dropdown/dropdown-right.html`
 
 ```html
-<div class="dropdown dropdown-right">
+<div class="dropdown dropdown-right mb-16">
   <div tabindex="0" role="button" class="btn m-1">Click ➡️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -261,7 +261,7 @@ Source: `playground/components/dropdown/dropdown-right.html`
 Source: `playground/components/dropdown/dropdown-top--aligns-to-center-of-button-horizontally.html`
 
 ```html
-<div class="dropdown dropdown-top dropdown-center">
+<div class="dropdown dropdown-top dropdown-center mt-32">
   <div tabindex="0" role="button" class="btn m-1">Click ⬆️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -275,7 +275,7 @@ Source: `playground/components/dropdown/dropdown-top--aligns-to-center-of-button
 Source: `playground/components/dropdown/dropdown-top--aligns-to-end-of-button-horizontally.html`
 
 ```html
-<div class="dropdown dropdown-top dropdown-end">
+<div class="dropdown dropdown-top dropdown-end mt-32">
   <div tabindex="0" role="button" class="btn m-1">Click ⬆️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -289,7 +289,7 @@ Source: `playground/components/dropdown/dropdown-top--aligns-to-end-of-button-ho
 Source: `playground/components/dropdown/dropdown-top.html`
 
 ```html
-<div class="dropdown dropdown-top">
+<div class="dropdown dropdown-top mt-32">
   <div tabindex="0" role="button" class="btn m-1">Click ⬆️</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -303,7 +303,7 @@ Source: `playground/components/dropdown/dropdown-top.html`
 Source: `playground/components/dropdown/dropdown-using-details-and-summary.html`
 
 ```html
-<details class="dropdown">
+<details class="dropdown mb-32">
   <summary class="btn m-1">open or close</summary>
   <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -333,7 +333,7 @@ Source: `playground/components/dropdown/dropdown-using-popover-api-and-anchor-po
 Source: `playground/components/dropdown/force-close.html`
 
 ```html
-<div class="dropdown dropdown-close">
+<div class="dropdown dropdown-close mb-32">
   <div tabindex="0" role="button" class="btn m-1">Button</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -347,7 +347,7 @@ Source: `playground/components/dropdown/force-close.html`
 Source: `playground/components/dropdown/force-open.html`
 
 ```html
-<div class="dropdown dropdown-open">
+<div class="dropdown dropdown-open mb-32">
   <div tabindex="0" role="button" class="btn m-1">Button</div>
   <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a>Item 1</a></li>
@@ -361,27 +361,30 @@ Source: `playground/components/dropdown/force-open.html`
 Source: `playground/components/dropdown/helper-dropdown.html`
 
 ```html
-<div class="dropdown dropdown-end">
-  <div tabindex="0" role="button" class="btn btn-circle btn-ghost btn-xs text-info">
-    <svg
+<div class="mb-28 mt-6 flex gap-1 items-center">
+  <div class="dropdown dropdown-end">
+    <div tabindex="0" role="button" class="btn btn-circle btn-ghost btn-xs text-info">
+      <svg
+        tabindex="0"
+        aria-label="More info"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        class="h-4 w-4 stroke-current">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+    </div>
+    <div
       tabindex="0"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      class="h-4 w-4 stroke-current">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-    </svg>
-  </div>
-  <div
-    tabindex="0"
-    class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-64 shadow-sm">
-    <div tabindex="0" class="card-body">
-      <h2 class="card-title">You needed more info?</h2>
-      <p>Here is a description!</p>
+      class="card card-sm dropdown-content bg-base-100 rounded-box z-1 w-64 shadow-sm">
+      <div tabindex="0" class="card-body">
+        <h2 class="card-title">You needed more info?</h2>
+        <p>Here is a description!</p>
+      </div>
     </div>
   </div>
 </div>

@@ -17,7 +17,7 @@ Themed grouping container for related form inputs with `fieldset-legend` and hel
 Source: `playground/components/fieldset/fieldset-fieldset-legend-and-label.html`
 
 ```html
-<fieldset class="fieldset">
+<fieldset class="fieldset w-xs">
   <legend class="fieldset-legend">Page title</legend>
   <input type="text" class="input" placeholder="My awesome page" />
   <p class="label">You can edit page title later on from settings</p>

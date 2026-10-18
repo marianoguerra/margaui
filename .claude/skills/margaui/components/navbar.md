@@ -36,11 +36,11 @@ Source: `playground/components/navbar/navbar-with-colors.html`
 Source: `playground/components/navbar/navbar-with-dropdown-center-logo-and-icon.html`
 
 ```html
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow-sm mb-40">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
+        <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
       </div>
       <ul
         tabindex="-1"
@@ -56,11 +56,11 @@ Source: `playground/components/navbar/navbar-with-dropdown-center-logo-and-icon.
   </div>
   <div class="navbar-end">
     <button class="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
+      <svg aria-label="Search" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
     </button>
     <button class="btn btn-ghost btn-circle">
       <div class="indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /> </svg>
+        <svg aria-label="Notifications" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /> </svg>
         <span class="badge badge-xs badge-primary indicator-item"></span>
       </div>
     </button>
@@ -76,7 +76,7 @@ Source: `playground/components/navbar/navbar-with-icon-at-start-and-end.html`
 <div class="navbar bg-base-100 shadow-sm">
   <div class="flex-none">
     <button class="btn btn-square btn-ghost">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg>
+      <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg>
     </button>
   </div>
   <div class="flex-1">
@@ -84,7 +84,7 @@ Source: `playground/components/navbar/navbar-with-icon-at-start-and-end.html`
   </div>
   <div class="flex-none">
     <button class="btn btn-square btn-ghost">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
+      <svg aria-label="More" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
     </button>
   </div>
 </div>
@@ -95,7 +95,7 @@ Source: `playground/components/navbar/navbar-with-icon-at-start-and-end.html`
 Source: `playground/components/navbar/navbar-with-icon-indicator-and-dropdown.html`
 
 ```html
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow-sm mb-40">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl">daisyUI</a>
   </div>
@@ -109,7 +109,7 @@ Source: `playground/components/navbar/navbar-with-icon-indicator-and-dropdown.ht
       </div>
       <div
         tabindex="0"
-        class="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-52 shadow">
+        class="card card-sm dropdown-content bg-base-100 z-1 mt-3 w-52 shadow">
         <div class="card-body">
           <span class="text-lg font-bold">8 Items</span>
           <span class="text-info">Subtotal: $999</span>
@@ -149,7 +149,7 @@ Source: `playground/components/navbar/navbar-with-icon-indicator-and-dropdown.ht
 Source: `playground/components/navbar/navbar-with-menu-and-submenu.html`
 
 ```html
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow-sm mb-32">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl">daisyUI</a>
   </div>
@@ -175,12 +175,12 @@ Source: `playground/components/navbar/navbar-with-menu-and-submenu.html`
 Source: `playground/components/navbar/navbar-with-search-input-and-dropdown.html`
 
 ```html
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow-sm mb-32">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl">daisyUI</a>
   </div>
   <div class="flex gap-2">
-    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+    <input type="text" placeholder="Search" class="input w-24 md:w-auto" />
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">
@@ -217,7 +217,7 @@ Source: `playground/components/navbar/navbar-with-title-and-icon.html`
   </div>
   <div class="flex-none">
     <button class="btn btn-square btn-ghost">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
+      <svg aria-label="More" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
     </button>
   </div>
 </div>
@@ -233,16 +233,67 @@ Source: `playground/components/navbar/navbar-with-title-only.html`
 </div>
 ```
 
+### Responsive collapse on small screen full content on large screen
+
+Source: `playground/components/navbar/responsive-collapse-on-small-screen-full-content-on-large-screen.html`
+
+```html
+<div class="max-lg:collapse bg-base-200 lg:mb-48 shadow-sm w-full rounded-md">
+  <input id="navbar-1-toggle" class="peer hidden" type="checkbox" />
+  <label for="navbar-1-toggle" class="fixed inset-0 hidden max-lg:peer-checked:block"></label>
+  <div class="collapse-title navbar">
+    <div class="navbar-start">
+      <label for="navbar-1-toggle" class="btn btn-ghost lg:hidden">
+        <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
+      <button class="btn btn-ghost text-xl">daisyUI</button>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><button>Item 1</button></li>
+        <li>
+          <details>
+            <summary>Parent</summary>
+            <ul class="p-2 bg-base-100 w-40 z-1">
+              <li><button>Submenu 1</button></li>
+              <li><button>Submenu 2</button></li>
+            </ul>
+          </details>
+        </li>
+        <li><button>Item 3</button></li>
+      </ul>
+    </div>
+    <div class="navbar-end">
+      <input type="text" placeholder="Search" class="input w-64 lg:w-auto" />
+    </div>
+  </div>
+
+  <div class="collapse-content lg:hidden z-1">
+    <ul class="menu">
+      <li><button>Item 1</button></li>
+      <li>
+        <button>Parent</button>
+        <ul>
+          <li><button>Submenu 1</button></li>
+          <li><button>Submenu 2</button></li>
+        </ul>
+      </li>
+      <li><button>Item 3</button></li>
+    </ul>
+  </div>
+</div>
+```
+
 ### Responsive dropdown menu on small screen center menu on large screen
 
 Source: `playground/components/navbar/responsive-dropdown-menu-on-small-screen-center-menu-on-large-screen.html`
 
 ```html
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow-sm mb-48">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
       </div>
       <ul
         tabindex="-1"
@@ -250,7 +301,7 @@ Source: `playground/components/navbar/responsive-dropdown-menu-on-small-screen-c
         <li><a>Item 1</a></li>
         <li>
           <a>Parent</a>
-          <ul class="p-2">
+          <ul class="p-2 w-40">
             <li><a>Submenu 1</a></li>
             <li><a>Submenu 2</a></li>
           </ul>

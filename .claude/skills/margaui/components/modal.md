@@ -156,22 +156,42 @@ Source: `playground/components/modal/modal-using-checkbox.html`
 </div>
 ```
 
-### Modal using popover api
+### Popover modal closes when clicked outside
 
-Source: `playground/components/modal/modal-using-popover-api.html`
+Source: `playground/components/modal/popover-modal-closes-when-clicked-outside.html`
 
 ```html
-<!-- Open the modal using the HTML Popover API, no JS needed -->
-<button class="btn" popovertarget="my_modal_popover">open modal</button>
-<dialog id="my_modal_popover" class="modal" popover>
+<!-- The button's popovertarget attribute points to the modal's ID. ID must be unique for each modal -->
+<button class="btn" popovertarget="my-modal-2">Open</button>
+
+<div class="modal" id="my-modal-2" popover>
   <div class="modal-box">
-    <h3 class="text-lg font-bold">Hello!</h3>
-    <p class="py-4">Press ESC key or click outside to close</p>
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+  </div>
+  <div class="modal-backdrop">
+    <button popovertarget="my-modal-2" popovertargetaction="hide">close</button>
+  </div>
+</div>
+```
+
+### Popover modal
+
+Source: `playground/components/modal/popover-modal.html`
+
+```html
+<!-- The button's popovertarget attribute points to the modal's ID. ID must be unique for each modal -->
+<button class="btn" popovertarget="my-modal-1">Open</button>
+
+<div class="modal" id="my-modal-1" popover>
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
     <div class="modal-action">
-      <button class="btn" popovertarget="my_modal_popover" popovertargetaction="hide">Close</button>
+      <button popovertarget="my-modal-1" popovertargetaction="hide">close</button>
     </div>
   </div>
-</dialog>
+</div>
 ```
 
 ### Responsive

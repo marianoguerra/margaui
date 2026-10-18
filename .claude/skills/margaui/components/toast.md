@@ -22,12 +22,14 @@ Fixed-position container for transient notifications. Position via `toast-start|
 Source: `playground/components/toast/toast-center-toast-bottom-default.html`
 
 ```html
-<div class="toast toast-center">
-  <div class="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div class="alert alert-success">
-    <span>Message sent successfully.</span>
+<div class="w-full h-64 relative">
+  <div class="toast toast-center">
+    <div class="alert alert-info">
+      <span>New mail arrived.</span>
+    </div>
+    <div class="alert alert-success">
+      <span>Message sent successfully.</span>
+    </div>
   </div>
 </div>
 ```
@@ -37,12 +39,14 @@ Source: `playground/components/toast/toast-center-toast-bottom-default.html`
 Source: `playground/components/toast/toast-center-toast-middle.html`
 
 ```html
-<div class="toast toast-center toast-middle">
-  <div class="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div class="alert alert-success">
-    <span>Message sent successfully.</span>
+<div class="w-full h-64 relative">
+  <div class="toast toast-center toast-middle">
+    <div class="alert alert-info">
+      <span>New mail arrived.</span>
+    </div>
+    <div class="alert alert-success">
+      <span>Message sent successfully.</span>
+    </div>
   </div>
 </div>
 ```
@@ -52,12 +56,14 @@ Source: `playground/components/toast/toast-center-toast-middle.html`
 Source: `playground/components/toast/toast-end-default-toast-bottom-default.html`
 
 ```html
-<div class="toast toast-end">
-  <div class="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div class="alert alert-success">
-    <span>Message sent successfully.</span>
+<div class="w-full h-64 relative">
+  <div class="toast toast-end">
+    <div class="alert alert-info">
+      <span>New mail arrived.</span>
+    </div>
+    <div class="alert alert-success">
+      <span>Message sent successfully.</span>
+    </div>
   </div>
 </div>
 ```
@@ -67,12 +73,14 @@ Source: `playground/components/toast/toast-end-default-toast-bottom-default.html
 Source: `playground/components/toast/toast-end-toast-middle.html`
 
 ```html
-<div class="toast toast-end toast-middle">
-  <div class="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div class="alert alert-success">
-    <span>Message sent successfully.</span>
+<div class="w-full h-64 relative">
+  <div class="toast toast-end toast-middle">
+    <div class="alert alert-info">
+      <span>New mail arrived.</span>
+    </div>
+    <div class="alert alert-success">
+      <span>Message sent successfully.</span>
+    </div>
   </div>
 </div>
 ```
@@ -82,12 +90,14 @@ Source: `playground/components/toast/toast-end-toast-middle.html`
 Source: `playground/components/toast/toast-start-toast-bottom-default.html`
 
 ```html
-<div class="toast toast-start">
-  <div class="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div class="alert alert-success">
-    <span>Message sent successfully.</span>
+<div class="w-full h-64 relative">
+  <div class="toast toast-start">
+    <div class="alert alert-info">
+      <span>New mail arrived.</span>
+    </div>
+    <div class="alert alert-success">
+      <span>Message sent successfully.</span>
+    </div>
   </div>
 </div>
 ```
@@ -97,12 +107,14 @@ Source: `playground/components/toast/toast-start-toast-bottom-default.html`
 Source: `playground/components/toast/toast-start-toast-middle.html`
 
 ```html
-<div class="toast toast-start toast-middle">
-  <div class="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div class="alert alert-success">
-    <span>Message sent successfully.</span>
+<div class="w-full h-64 relative">
+  <div class="toast toast-start toast-middle">
+    <div class="alert alert-info">
+      <span>New mail arrived.</span>
+    </div>
+    <div class="alert alert-success">
+      <span>Message sent successfully.</span>
+    </div>
   </div>
 </div>
 ```
@@ -112,12 +124,14 @@ Source: `playground/components/toast/toast-start-toast-middle.html`
 Source: `playground/components/toast/toast-top-toast-center.html`
 
 ```html
-<div class="toast toast-top toast-center">
-  <div class="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div class="alert alert-success">
-    <span>Message sent successfully.</span>
+<div class="w-full h-64 relative">
+  <div class="toast toast-top toast-center">
+    <div class="alert alert-info">
+      <span>New mail arrived.</span>
+    </div>
+    <div class="alert alert-success">
+      <span>Message sent successfully.</span>
+    </div>
   </div>
 </div>
 ```
@@ -127,12 +141,14 @@ Source: `playground/components/toast/toast-top-toast-center.html`
 Source: `playground/components/toast/toast-top-toast-end.html`
 
 ```html
-<div class="toast toast-top toast-end">
-  <div class="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div class="alert alert-success">
-    <span>Message sent successfully.</span>
+<div class="w-full h-64 relative">
+  <div class="toast toast-top toast-end">
+    <div class="alert alert-info">
+      <span>New mail arrived.</span>
+    </div>
+    <div class="alert alert-success">
+      <span>Message sent successfully.</span>
+    </div>
   </div>
 </div>
 ```
@@ -142,12 +158,14 @@ Source: `playground/components/toast/toast-top-toast-end.html`
 Source: `playground/components/toast/toast-top-toast-start.html`
 
 ```html
-<div class="toast toast-top toast-start">
-  <div class="alert alert-info">
-    <span>New mail arrived.</span>
-  </div>
-  <div class="alert alert-success">
-    <span>Message sent successfully.</span>
+<div class="w-full h-64 relative">
+  <div class="toast toast-top toast-start">
+    <div class="alert alert-info">
+      <span>New mail arrived.</span>
+    </div>
+    <div class="alert alert-success">
+      <span>Message sent successfully.</span>
+    </div>
   </div>
 </div>
 ```
@@ -157,9 +175,11 @@ Source: `playground/components/toast/toast-top-toast-start.html`
 Source: `playground/components/toast/toast-with-alert-inside.html`
 
 ```html
-<div class="toast">
-  <div class="alert alert-info">
-    <span>New message arrived.</span>
+<div class="w-full h-64 relative">
+  <div class="toast">
+    <div class="alert alert-info">
+      <span>New message arrived.</span>
+    </div>
   </div>
 </div>
 ```

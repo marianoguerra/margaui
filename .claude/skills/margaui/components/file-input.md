@@ -45,14 +45,16 @@ Source: `playground/components/file-input/file-input-ghost.html`
 Source: `playground/components/file-input/primary-color.html`
 
 ```html
-<input type="file" class="file-input file-input-primary" />
-<input type="file" class="file-input file-input-secondary" />
-<input type="file" class="file-input file-input-accent" />
-<input type="file" class="file-input file-input-neutral" />
-<input type="file" class="file-input file-input-info" />
-<input type="file" class="file-input file-input-success" />
-<input type="file" class="file-input file-input-warning" />
-<input type="file" class="file-input file-input-error" />
+<div class="grid gap-2">
+  <input type="file" class="file-input file-input-primary" />
+  <input type="file" class="file-input file-input-secondary" />
+  <input type="file" class="file-input file-input-accent" />
+  <input type="file" class="file-input file-input-neutral" />
+  <input type="file" class="file-input file-input-info" />
+  <input type="file" class="file-input file-input-success" />
+  <input type="file" class="file-input file-input-warning" />
+  <input type="file" class="file-input file-input-error" />
+</div>
 ```
 
 ### Sizes
@@ -60,7 +62,7 @@ Source: `playground/components/file-input/primary-color.html`
 Source: `playground/components/file-input/sizes.html`
 
 ```html
-<div class="flex flex-col gap-4 w-full">
+<div class="flex flex-col gap-4 w-full items-center">
   <input type="file" class="file-input file-input-xs" />
 
   <input type="file" class="file-input file-input-sm" />

@@ -22,7 +22,7 @@ Source: `playground/components/tab/radio-tabs-border--tab-content.html`
 
 ```html
 <!-- name of each tab group should be unique -->
-<div class="tabs tabs-border">
+<div class="tabs tabs-border w-full my-10 lg:mx-10">
   <input type="radio" name="my_tabs_2" class="tab" aria-label="Tab 1" />
   <div class="tab-content border-base-300 bg-base-100 p-10">Tab content 1</div>
 
@@ -40,7 +40,7 @@ Source: `playground/components/tab/radio-tabs-box--tab-content.html`
 
 ```html
 <!-- name of each tab group should be unique -->
-<div class="tabs tabs-box">
+<div class="tabs tabs-box w-full my-10 lg:mx-10">
   <input type="radio" name="my_tabs_6" class="tab" aria-label="Tab 1" />
   <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 1</div>
 
@@ -58,7 +58,7 @@ Source: `playground/components/tab/radio-tabs-lift--tab-content-on-bottom.html`
 
 ```html
 <!-- name of each tab group should be unique -->
-<div class="tabs tabs-lift tabs-bottom">
+<div class="tabs tabs-lift tabs-bottom w-full my-10 lg:mx-10">
   <input type="radio" name="my_tabs_5" class="tab" aria-label="Tab 1" />
   <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 1</div>
 
@@ -76,7 +76,7 @@ Source: `playground/components/tab/radio-tabs-lift--tab-content.html`
 
 ```html
 <!-- name of each tab group should be unique -->
-<div class="tabs tabs-lift">
+<div class="tabs tabs-lift w-full my-10 lg:mx-10">
   <input type="radio" name="my_tabs_3" class="tab" aria-label="Tab 1" />
   <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 1</div>
 
@@ -94,7 +94,7 @@ Source: `playground/components/tab/radio-tabs-lift-with-icons--tab-content.html`
 
 ```html
 <!-- name of each tab group should be unique -->
-<div class="tabs tabs-lift">
+<div class="tabs tabs-lift w-full my-10 lg:mx-10">
   <label class="tab">
     <input type="radio" name="my_tabs_4" />
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 me-2"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>
@@ -123,35 +123,37 @@ Source: `playground/components/tab/radio-tabs-lift-with-icons--tab-content.html`
 Source: `playground/components/tab/sizes.html`
 
 ```html
+<div class="flex flex-col items-center gap-6">
 
-<div role="tablist" class="tabs tabs-lift tabs-xs">
-  <a role="tab" class="tab">Xsmall</a>
-  <a role="tab" class="tab tab-active">Xsmall</a>
-  <a role="tab" class="tab">Xsmall</a>
-</div>
+  <div role="tablist" class="tabs tabs-lift tabs-xs">
+    <a role="tab" class="tab">Xsmall</a>
+    <a role="tab" class="tab tab-active">Xsmall</a>
+    <a role="tab" class="tab">Xsmall</a>
+  </div>
 
-<div role="tablist" class="tabs tabs-lift tabs-sm">
-  <a role="tab" class="tab">Small</a>
-  <a role="tab" class="tab tab-active">Small</a>
-  <a role="tab" class="tab">Small</a>
-</div>
+  <div role="tablist" class="tabs tabs-lift tabs-sm">
+    <a role="tab" class="tab">Small</a>
+    <a role="tab" class="tab tab-active">Small</a>
+    <a role="tab" class="tab">Small</a>
+  </div>
 
-<div role="tablist" class="tabs tabs-lift">
-  <a role="tab" class="tab">Medium</a>
-  <a role="tab" class="tab tab-active">Medium</a>
-  <a role="tab" class="tab">Medium</a>
-</div>
+  <div role="tablist" class="tabs tabs-lift">
+    <a role="tab" class="tab">Medium</a>
+    <a role="tab" class="tab tab-active">Medium</a>
+    <a role="tab" class="tab">Medium</a>
+  </div>
 
-<div role="tablist" class="tabs tabs-lift tabs-lg">
-  <a role="tab" class="tab">Large</a>
-  <a role="tab" class="tab tab-active">Large</a>
-  <a role="tab" class="tab">Large</a>
-</div>
+  <div role="tablist" class="tabs tabs-lift tabs-lg">
+    <a role="tab" class="tab">Large</a>
+    <a role="tab" class="tab tab-active">Large</a>
+    <a role="tab" class="tab">Large</a>
+  </div>
 
-<div role="tablist" class="tabs tabs-lift tabs-xl">
-  <a role="tab" class="tab">Xlarge</a>
-  <a role="tab" class="tab tab-active">Xlarge</a>
-  <a role="tab" class="tab">Xlarge</a>
+  <div role="tablist" class="tabs tabs-lift tabs-xl">
+    <a role="tab" class="tab">Xlarge</a>
+    <a role="tab" class="tab tab-active">Xlarge</a>
+    <a role="tab" class="tab">Xlarge</a>
+  </div>
 </div>
 ```
 

@@ -21,7 +21,7 @@ Wrapper that positions a child element (typically a **badge**, **status**, or sm
 Source: `playground/components/indicator/a-button-as-an-indicator-for-a-card.html`
 
 ```html
-<div class="indicator">
+<div class="indicator my-6 mx-10">
   <div class="indicator-item indicator-bottom">
     <button class="btn btn-primary">Apply</button>
   </div>
@@ -52,7 +52,7 @@ Source: `playground/components/indicator/for-an-input.html`
 ```html
 <div class="indicator">
   <span class="indicator-item badge">Required</span>
-  <input type="text" placeholder="Your email address" class="input input-bordered" />
+  <input type="text" placeholder="Your email address" class="input" />
 </div>
 ```
 
@@ -103,7 +103,7 @@ Source: `playground/components/indicator/for-tab.html`
 Source: `playground/components/indicator/in-center-of-an-image.html`
 
 ```html
-<div class="indicator">
+<div class="indicator max-w-xs">
   <span class="indicator-item indicator-center indicator-middle">
     Only available for Pro users
   </span>

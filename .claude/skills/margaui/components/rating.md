@@ -37,7 +37,7 @@ Source: `playground/components/rating/half-stars.html`
 
 ```html
 <div class="rating rating-lg rating-half">
-  <input type="radio" name="rating-11" class="rating-hidden" />
+  <input type="radio" name="rating-11" class="rating-hidden" aria-label="clear" />
   <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-1 bg-green-500" aria-label="0.5 star" />
   <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-2 bg-green-500" aria-label="1 star" />
   <input type="radio" name="rating-11" class="mask mask-star-2 mask-half-1 bg-green-500" aria-label="1.5 star" checked="checked" />
@@ -112,45 +112,47 @@ Source: `playground/components/rating/read-only-rating.html`
 Source: `playground/components/rating/sizes.html`
 
 ```html
-<!-- xs -->
-<div class="rating rating-xs">
-  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
-  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-  <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
-</div>
-<!-- sm -->
-<div class="rating rating-sm">
-  <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-  <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
-  <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-  <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-  <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
-</div>
-<!-- md -->
-<div class="rating rating-md">
-  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
-  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-  <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
-</div>
-<!-- lg -->
-<div class="rating rating-lg">
-  <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-  <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
-  <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-  <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-  <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
-</div>
-<!-- xl -->
-<div class="rating rating-xl">
-  <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
-  <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
-  <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
-  <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
-  <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
+<div class="flex flex-col gap-2 items-center">
+  <!-- xs -->
+  <div class="rating rating-xs">
+    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
+    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
+    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
+    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
+    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
+  </div>
+  <!-- sm -->
+  <div class="rating rating-sm">
+    <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
+    <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
+    <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
+    <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
+    <input type="radio" name="rating-6" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
+  </div>
+  <!-- md -->
+  <div class="rating rating-md">
+    <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
+    <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
+    <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
+    <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
+    <input type="radio" name="rating-7" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
+  </div>
+  <!-- lg -->
+  <div class="rating rating-lg">
+    <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
+    <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
+    <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
+    <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
+    <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
+  </div>
+  <!-- xl -->
+  <div class="rating rating-xl">
+    <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="1 star" />
+    <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="2 star" checked="checked" />
+    <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="3 star" />
+    <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="4 star" />
+    <input type="radio" name="rating-9" class="mask mask-star-2 bg-orange-400" aria-label="5 star" />
+  </div>
 </div>
 ```
 
