@@ -16,7 +16,8 @@
 @utility dropdown {
   position: relative;
   display: inline-block;
-  position-area: var(--anchor-v, bottom) var(--anchor-h, span-right);
+  /* logical keywords so popover dropdowns follow the writing direction */
+  position-area: var(--anchor-v, block-end) var(--anchor-h, span-inline-end);
 
   > *:not(:has(~ [class*="dropdown-content"])):focus {
     outline-style: none;
@@ -148,7 +149,7 @@
 
 /* Position variants */
 @utility dropdown-bottom {
-  --anchor-v: bottom;
+  --anchor-v: block-end;
 
   .dropdown-content {
     top: 100%;
@@ -158,7 +159,7 @@
 }
 
 @utility dropdown-top {
-  --anchor-v: top;
+  --anchor-v: block-start;
 
   .dropdown-content {
     top: auto;
@@ -228,7 +229,7 @@
 }
 
 @utility dropdown-end {
-  --anchor-h: span-left;
+  --anchor-h: span-inline-start;
 
   :where(.dropdown-content) {
     inset-inline-end: 0;
@@ -261,7 +262,7 @@
 }
 
 @utility dropdown-start {
-  --anchor-h: span-right;
+  --anchor-h: span-inline-end;
 
   :where(.dropdown-content) {
     inset-inline-end: auto;

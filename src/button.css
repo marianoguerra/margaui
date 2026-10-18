@@ -69,7 +69,12 @@
     isolation: isolate;
   }
 
-  &:active:not(.btn-active) {
+  &:active:not(
+      .btn-active,
+      [aria-pressed="true"],
+      [aria-checked="true"],
+      [aria-current]:not([aria-current="false"], [aria-current=""])
+    ) {
     translate: 0 0.5px;
     --btn-bg: var(--btn-color, var(--color-base-200));
     @supports (color: color-mix(in lab, red, red)) {
@@ -77,6 +82,18 @@
       --btn-border: color-mix(in oklab, var(--btn-color, var(--color-base-200)), #000 7%);
     }
     --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
+  }
+
+  /* ARIA pressed/checked/current states look like btn-active */
+  &:is(
+    [aria-pressed="true"],
+    [aria-checked="true"],
+    [aria-current]:not([aria-current="false"], [aria-current=""])
+  ) {
+    --btn-bg: var(--btn-color, var(--color-base-200));
+    @supports (color: color-mix(in lab, red, red)) {
+      --btn-bg: color-mix(in oklab, var(--btn-color, var(--color-base-200)), #000 10%);
+    }
   }
 
   /* Checkbox/Radio inputs styled as buttons */
@@ -179,7 +196,12 @@
     }
   }
 
-  &:active:not(.btn-active) {
+  &:active:not(
+      .btn-active,
+      [aria-pressed="true"],
+      [aria-checked="true"],
+      [aria-current]:not([aria-current="false"], [aria-current=""])
+    ) {
     --btn-bg: var(--btn-color, var(--color-base-content));
     @supports (color: color-mix(in lab, red, red)) {
       --btn-bg: color-mix(in oklab, var(--btn-color, var(--color-base-content)), #000 10%);

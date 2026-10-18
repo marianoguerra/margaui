@@ -14,6 +14,14 @@
   display: inline-flex;
   vertical-align: middle;
 
+  /* the stars are masked background fills, which forced colors would erase */
+  @media (forced-colors: active) {
+    & * {
+      background-color: canvastext;
+      forced-color-adjust: none;
+    }
+  }
+
   :where(& > input) {
     border: none;
     appearance: none;

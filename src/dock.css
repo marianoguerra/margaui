@@ -22,7 +22,8 @@
   height: calc(var(--dock-h) + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
 
-  > * {
+  /* script/style/template children are not dock items */
+  > :not(:where(script, style, template)) {
     position: relative;
     margin-bottom: 0.5rem;
     display: flex;
@@ -54,14 +55,19 @@
     }
   }
 
+  > [aria-current]:not([aria-current="false"], [aria-current=""]):after {
+    width: 2.5rem;
+    background-color: currentcolor;
+  }
+
   @media (hover: hover) {
-    > *:hover {
+    > :not(:where(script, style, template)):hover {
       opacity: 80%;
     }
   }
 
-  > *[aria-disabled="true"],
-  > *[disabled] {
+  > :not(:where(script, style, template))[aria-disabled="true"],
+  > :not(:where(script, style, template))[disabled] {
     pointer-events: none;
     color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
     opacity: 100%;

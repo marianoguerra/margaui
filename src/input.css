@@ -40,6 +40,27 @@
     display: inline-flex;
   }
 
+  &:where(input),
+  :where(input) {
+    text-align: start;
+  }
+
+  /* addresses and numbers read left-to-right even in RTL documents */
+  &:where(input[type="url"], input[type="email"], input[type="tel"], input[type="number"]),
+  :where(input[type="url"], input[type="email"], input[type="tel"], input[type="number"]) {
+    direction: ltr;
+  }
+
+  /* direction: ltr flips the logical corners, swap them back for RTL joins */
+  &:where(input[type="url"], input[type="email"], input[type="tel"], input[type="number"]):dir(
+      rtl
+    ) {
+    border-start-start-radius: var(--join-se, var(--radius-field));
+    border-start-end-radius: var(--join-ss, var(--radius-field));
+    border-end-start-radius: var(--join-ee, var(--radius-field));
+    border-end-end-radius: var(--join-es, var(--radius-field));
+  }
+
   :where(input) {
     display: inline-flex;
     height: 100%;
@@ -58,11 +79,6 @@
     }
   }
 
-  :where(input[type="url"]),
-  :where(input[type="email"]) {
-    text-align: left;
-  }
-
   :where(input[type="date"]) {
     display: inline-flex;
   }
@@ -73,7 +89,6 @@
     outline: 2px solid var(--input-color);
     outline-offset: 2px;
     border-color: var(--input-color);
-    isolation: isolate;
 
     @supports (color: color-mix(in lab, red, red)) {
       box-shadow: 0 1px

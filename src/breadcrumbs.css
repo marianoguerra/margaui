@@ -4,6 +4,9 @@
   max-width: 100%;
   overflow-x: auto;
   padding-block: 0.5rem;
+  /* the list is inset by 0.25rem; pull the container back by the same amount
+     so the first crumb still aligns with surrounding content */
+  margin-inline-start: -0.25rem;
 
   > menu,
   > ul,
@@ -12,6 +15,7 @@
     min-height: min-content;
     align-items: center;
     white-space: nowrap;
+    padding-inline-start: 0.25rem;
 
     > li {
       display: flex;

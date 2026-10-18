@@ -8,6 +8,15 @@
   --join-se: 0;
   --join-es: 0;
   --join-ee: 0;
+  /* border-overlap offsets, set per direct child below and inherited by a
+     (possibly wrapped) join-item; reset here so nested joins start at 0 */
+  --join-ml: 0;
+  --join-mt: 0;
+
+  > :where(:not(:first-child)) {
+    --join-ml: calc(var(--border, 1px) * -1);
+    --join-mt: 0;
+  }
 
   :where(.join-item) {
     border-start-start-radius: var(--join-ss, 0);
@@ -72,12 +81,12 @@
   }
 
   > :where(:focus, :has(:focus)) {
-    z-index: 1;
+    z-index: 2;
   }
 
   @media (hover: hover) {
     > :where(.btn:hover, :has(.btn:hover)) {
-      isolation: isolate;
+      z-index: 1;
     }
   }
 }
@@ -90,10 +99,11 @@
   border-end-end-radius: var(--join-ee, var(--radius-field));
 }
 
-/* Border overlap for horizontal join (default) - pull items left by border width */
-.join .join-item:where(*:not(:first-child, :disabled, [disabled], .btn-disabled)) {
-  margin-inline-start: calc(var(--border, 1px) * -1);
-  margin-block-start: 0;
+/* Border overlap - pull items back by the border width (offsets come from the
+   item's position among the join's direct children, see --join-ml/--join-mt) */
+.join .join-item:where(*:not(:disabled, [disabled], .btn-disabled)) {
+  margin-inline-start: var(--join-ml, 0);
+  margin-block-start: var(--join-mt, 0);
 }
 
 /* Disabled items in a join keep all four borders (no overlap collapse) */
@@ -155,9 +165,9 @@
 }
 
 /* Vertical join border overlap - pull items up by border width */
-.join-vertical .join-item:where(*:not(:first-child)) {
-  margin-inline-start: 0;
-  margin-block-start: calc(var(--border, 1px) * -1);
+.join-vertical > :where(:not(:first-child)) {
+  --join-ml: 0;
+  --join-mt: calc(var(--border, 1px) * -1);
 }
 
 /* Horizontal join (side by side) */
@@ -214,9 +224,9 @@
 }
 
 /* Horizontal join border overlap - pull items left by border width */
-.join-horizontal .join-item:where(*:not(:first-child)) {
-  margin-inline-start: calc(var(--border, 1px) * -1);
-  margin-block-start: 0;
+.join-horizontal > :where(:not(:first-child)) {
+  --join-ml: calc(var(--border, 1px) * -1);
+  --join-mt: 0;
 }
 
 /* Responsive lg:join-horizontal variant */
@@ -246,8 +256,8 @@
     --join-ee: var(--radius-field);
   }
 
-  .lg\:join-horizontal .join-item:where(*:not(:first-child)) {
-    margin-inline-start: calc(var(--border, 1px) * -1);
-    margin-block-start: 0;
+  .lg\:join-horizontal > :where(:not(:first-child)) {
+    --join-ml: calc(var(--border, 1px) * -1);
+    --join-mt: 0;
   }
 }

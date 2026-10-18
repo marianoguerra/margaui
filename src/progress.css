@@ -23,6 +23,10 @@
   background-color: color-mix(in oklab, currentcolor 20%, transparent);
   color: var(--color-base-content);
 
+  @media (forced-colors: active) {
+    border: 1px solid;
+  }
+
   &:indeterminate {
     background-image: repeating-linear-gradient(
       90deg,
@@ -67,6 +71,10 @@
     border-radius: var(--radius-box);
     background-color: currentColor;
 
+    @media (forced-colors: active) {
+      background-color: canvastext;
+    }
+
     @media (prefers-reduced-motion: no-preference) {
       transition: inline-size 0.3s;
     }
@@ -75,6 +83,10 @@
   &::-moz-progress-bar {
     border-radius: var(--radius-box);
     background-color: currentcolor;
+
+    @media (forced-colors: active) {
+      background-color: canvastext;
+    }
 
     @media (prefers-reduced-motion: no-preference) {
       transition: inline-size 0.3s;

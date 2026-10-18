@@ -6,7 +6,12 @@
   display: inline-block;
   --tt-bg: var(--color-neutral);
   --tt-off: calc(100% + 0.5rem);
-  --tt-tail: calc(100% + 1px + 0.25rem);
+  /* tail overlaps the bubble a bit more on rounder themes, and stays clear of
+     the corner radius when aligned to start/end */
+  --tt-radius: min(var(--radius-field), 0.8rem);
+  --tt-overlap: clamp(1px, calc(var(--radius-field) / 8), 2px);
+  --tt-tail: calc(100% + var(--tt-overlap) + 0.25rem);
+  --tt-tail-off: max(0.5rem, var(--tt-radius));
 }
 
 /* Tooltip content and data-tip pseudo-element */
@@ -22,6 +27,7 @@
   color: var(--tt-fg, var(--color-neutral-content));
   opacity: 0%;
   font-size: 0.875rem;
+  font-weight: 400;
   line-height: 1.25;
   background-color: var(--tt-bg);
   width: max-content;
@@ -118,6 +124,7 @@
   text-align: center;
   white-space: normal;
   font-size: 0.875rem;
+  font-weight: 400;
   line-height: 1.25;
   width: max-content;
   pointer-events: none;
@@ -160,50 +167,29 @@
   inset: var(--tt-tail) auto auto 50%;
 }
 
-@utility tooltip-left {
-  --tooltip-pos: left;
-}
-
-.tooltip-left > .tooltip-content,
-.tooltip-left[data-tip]:before {
-  transform: translateX(calc(var(--tt-pos, 0.25rem) - 0.25rem)) translateY(-50%);
-  inset: 50% var(--tt-off) auto auto;
-}
-
-.tooltip-left:after {
-  transform: translateX(var(--tt-pos, 0.25rem)) translateY(-50%) rotate(-90deg);
-  inset: 50% calc(var(--tt-tail) + 1px) auto auto;
-}
-
-@utility tooltip-right {
-  --tooltip-pos: right;
-}
-
-.tooltip-right > .tooltip-content,
-.tooltip-right[data-tip]:before {
-  transform: translateX(calc(var(--tt-pos, -0.25rem) + 0.25rem)) translateY(-50%);
-  inset: 50% auto auto var(--tt-off);
-}
-
-.tooltip-right:after {
-  transform: translateX(var(--tt-pos, -0.25rem)) translateY(-50%) rotate(90deg);
-  inset: 50% auto auto calc(var(--tt-tail) + 1px);
-}
-
-/* Horizontal alignment — combine with tooltip-top/tooltip-bottom (or use standalone on the
-   default top anchor). Drives translateX via --tt-trans and pins the inline edge. */
+/* Alignment — combine with any position. On top/bottom it pins the inline edge
+   (translateX via --tt-trans); on left/right it pins the block edge through
+   --tt-inset/--tt-tail-inset. The tail sits --tt-tail-off in from the edge so
+   it clears the bubble's corner radius. */
 @utility tooltip-start {
   --tt-trans: 0;
+  --tt-inset: 0 auto;
+  --tt-tail-inset: var(--tt-tail-off) auto;
 }
 
 .tooltip-start > .tooltip-content,
-.tooltip-start[data-tip]:before,
-.tooltip-start:after {
+.tooltip-start[data-tip]:before {
   inset-inline: 0 auto;
+}
+
+.tooltip-start:after {
+  inset-inline: var(--tt-tail-off) auto;
 }
 
 @utility tooltip-center {
   --tt-trans: -50%;
+  --tt-inset: 50% auto;
+  --tt-tail-inset: 50% auto;
 }
 
 .tooltip-center > .tooltip-content,
@@ -214,12 +200,58 @@
 
 @utility tooltip-end {
   --tt-trans: 0;
+  --tt-inset: auto 0;
+  --tt-tail-inset: auto var(--tt-tail-off);
 }
 
 .tooltip-end > .tooltip-content,
-.tooltip-end[data-tip]:before,
-.tooltip-end:after {
+.tooltip-end[data-tip]:before {
   inset-inline: auto 0;
+}
+
+.tooltip-end:after {
+  inset-inline: auto var(--tt-tail-off);
+}
+
+/* left/right come after the alignment rules so their physical left/right win */
+@utility tooltip-left {
+  --tooltip-pos: left;
+  --tt-tail-off: clamp(0.5rem, var(--tt-radius) + 3px, 0.8rem - 2px);
+}
+
+.tooltip-left > .tooltip-content,
+.tooltip-left[data-tip]:before {
+  transform: translateX(calc(var(--tt-pos, 0.25rem) - 0.25rem)) translateY(var(--tt-trans, -50%));
+  left: auto;
+  right: var(--tt-off);
+  inset-block: var(--tt-inset, 50% auto);
+}
+
+.tooltip-left:after {
+  transform: translateX(var(--tt-pos, 0.25rem)) translateY(var(--tt-trans, -50%)) rotate(-90deg);
+  left: auto;
+  right: calc(var(--tt-tail) + 1px);
+  inset-block: var(--tt-tail-inset, 50% auto);
+}
+
+@utility tooltip-right {
+  --tooltip-pos: right;
+  --tt-tail-off: clamp(0.5rem, var(--tt-radius) + 3px, 0.8rem - 2px);
+}
+
+.tooltip-right > .tooltip-content,
+.tooltip-right[data-tip]:before {
+  transform: translateX(calc(var(--tt-pos, -0.25rem) + 0.25rem)) translateY(var(--tt-trans, -50%));
+  left: var(--tt-off);
+  right: auto;
+  inset-block: var(--tt-inset, 50% auto);
+}
+
+.tooltip-right:after {
+  transform: translateX(var(--tt-pos, -0.25rem)) translateY(var(--tt-trans, -50%)) rotate(90deg);
+  left: calc(var(--tt-tail) + 1px);
+  right: auto;
+  inset-block: var(--tt-tail-inset, 50% auto);
 }
 
 /* Color variants */
@@ -235,7 +267,10 @@
     display: inline-block;
     --tt-bg: var(--color-neutral);
     --tt-off: calc(100% + 0.5rem);
-    --tt-tail: calc(100% + 1px + 0.25rem);
+    --tt-radius: min(var(--radius-field), 0.8rem);
+    --tt-overlap: clamp(1px, calc(var(--radius-field) / 8), 2px);
+    --tt-tail: calc(100% + var(--tt-overlap) + 0.25rem);
+    --tt-tail-off: max(0.5rem, var(--tt-radius));
   }
 
   .lg\:tooltip > .tooltip-content,
@@ -250,6 +285,7 @@
     color: var(--tt-fg, var(--color-neutral-content));
     opacity: 0%;
     font-size: 0.875rem;
+    font-weight: 400;
     line-height: 1.25;
     background-color: var(--tt-bg);
     width: max-content;

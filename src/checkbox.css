@@ -68,9 +68,10 @@
     &:before {
       clip-path: polygon(20% 100%, 20% 80%, 50% 80%, 50% 0%, 70% 0%, 70% 100%);
       opacity: 100%;
+      translate: 3.5% -7%;
     }
 
-    @media (forced-colors: active) {
+    @media print, (forced-colors: active) {
       &:before {
         rotate: 0deg;
         background-color: transparent;
@@ -86,7 +87,8 @@
     opacity: 20%;
   }
 
-  &:indeterminate {
+  &:indeterminate,
+  &[aria-checked="mixed"] {
     background-color: var(--input-color, var(--color-base-content));
     @supports (color: color-mix(in lab, red, red)) {
       background-color: var(
@@ -97,8 +99,17 @@
     &:before {
       rotate: 0deg;
       opacity: 100%;
-      translate: 0 -35%;
+      translate: 0 -40%;
       clip-path: polygon(20% 100%, 20% 80%, 50% 80%, 50% 80%, 80% 80%, 80% 100%);
+    }
+
+    @media (forced-colors: active) {
+      &:before {
+        translate: 0;
+        background-color: transparent;
+        content: "−";
+        clip-path: none;
+      }
     }
   }
 }

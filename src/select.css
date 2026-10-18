@@ -102,7 +102,6 @@
     box-shadow: 0 1px var(--input-color);
     outline: 2px solid var(--input-color);
     outline-offset: 2px;
-    isolation: isolate;
 
     @supports (color: color-mix(in lab, red, red)) {
       box-shadow: 0 1px

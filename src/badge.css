@@ -3,6 +3,7 @@
 /* Base badge utility */
 @utility badge {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   gap: calc(0.25rem * 2);

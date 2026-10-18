@@ -44,6 +44,10 @@
   inset-inline-start: 50%;
   inset-inline-end: 50%;
   --toast-x: -50%;
+
+  &:dir(rtl) {
+    --toast-x: 50%;
+  }
 }
 
 @utility toast-end {

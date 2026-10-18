@@ -43,6 +43,12 @@
       width: 0.375rem;
       height: 0.375rem;
       display: block;
+
+      /* box-shadow is dropped in forced colors; draw the chevron with borders */
+      @media (forced-colors: active) {
+        border-style: solid;
+        border-width: 2px 0 0 2px;
+      }
       opacity: 0.25;
       rotate: -135deg;
     }

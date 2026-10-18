@@ -14,7 +14,7 @@ Primary action element. The `btn` class works on `<button>`, `<a>`, `<input>`, `
 
 ## Core classes
 
-`btn`; color `btn-primary|secondary|accent|info|success|warning|error|neutral`; style `btn-outline|dash|soft|ghost|link`; size `btn-xs|sm|md|lg|xl`; shape `btn-square|circle|wide|block`; state `btn-active|disabled`.
+`btn`; color `btn-primary|secondary|accent|info|success|warning|error|neutral`; style `btn-outline|dash|soft|ghost|link`; size `btn-xs|sm|md|lg|xl`; shape `btn-square|circle|wide|block`; state `btn-active|disabled`. `aria-pressed="true"`, `aria-checked="true"` and `aria-current` (any value but `false`/empty) render like `btn-active` — prefer them for toggle buttons and current-page links.
 
 ## Examples
 

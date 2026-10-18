@@ -3,8 +3,9 @@
 @utility status {
   display: inline-block;
   aspect-ratio: 1 / 1;
-  width: calc(0.25rem * 2);
-  height: calc(0.25rem * 2);
+  --size: calc(var(--size-selector, 0.25rem) * 2);
+  width: var(--size);
+  height: var(--size);
   border-radius: var(--radius-selector);
   background-color: var(--color-base-content);
   @supports (color: color-mix(in lab, red, red)) {
@@ -30,28 +31,23 @@
 
 /* Size variants */
 @utility status-xs {
-  width: calc(0.25rem * 0.5);
-  height: calc(0.25rem * 0.5);
+  --size: calc(var(--size-selector, 0.25rem) * 0.5);
 }
 
 @utility status-sm {
-  width: calc(0.25rem * 1);
-  height: calc(0.25rem * 1);
+  --size: calc(var(--size-selector, 0.25rem) * 1);
 }
 
 @utility status-md {
-  width: calc(0.25rem * 2);
-  height: calc(0.25rem * 2);
+  --size: calc(var(--size-selector, 0.25rem) * 2);
 }
 
 @utility status-lg {
-  width: calc(0.25rem * 3);
-  height: calc(0.25rem * 3);
+  --size: calc(var(--size-selector, 0.25rem) * 3);
 }
 
 @utility status-xl {
-  width: calc(0.25rem * 4);
-  height: calc(0.25rem * 4);
+  --size: calc(var(--size-selector, 0.25rem) * 4);
 }
 
 /* Color variants */

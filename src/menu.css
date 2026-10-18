@@ -112,7 +112,12 @@
   :where(
     li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title),
     li:not(.menu-title, .disabled) > details > summary:not(.menu-title)
-  ):not(.menu-active, :active, .btn) {
+  ):not(
+    .menu-active,
+    :active,
+    .btn,
+    [aria-current]:not([aria-current="false"], [aria-current=""])
+  ) {
     &.menu-focus,
     &:focus-visible {
       cursor: pointer;
@@ -133,10 +138,20 @@
 
   :where(
     li:not(.menu-title, .disabled)
-      > *:not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover,
+      > *:not(ul, details, .menu-title):not(
+        .menu-active,
+        :active,
+        .btn,
+        [aria-current]:not([aria-current="false"], [aria-current=""])
+      ):hover,
     li:not(.menu-title, .disabled)
       > details
-      > summary:not(.menu-title):not(.menu-active, :active, .btn):hover
+      > summary:not(.menu-title):not(
+        .menu-active,
+        :active,
+        .btn,
+        [aria-current]:not([aria-current="false"], [aria-current=""])
+      ):hover
   ) {
     cursor: pointer;
     background-color: var(--color-base-content);
@@ -176,6 +191,11 @@
 
     & > *:not(ul, .menu-title, details, .btn):active,
     & > *:not(ul, .menu-title, details, .btn).menu-active,
+    &
+      > *:not(ul, .menu-title, details, .btn)[aria-current]:not(
+        [aria-current="false"],
+        [aria-current=""]
+      ),
     & > details > summary:active {
       outline-style: none;
       color: var(--menu-active-fg);
@@ -241,6 +261,7 @@
 @utility menu-horizontal {
   display: inline-flex;
   flex-direction: row;
+  align-items: flex-start;
 
   & > li:not(.menu-title) > details {
     > ul {
@@ -320,7 +341,12 @@
     }
 
     &[aria-label]:before {
-      content: attr(aria-label);
+      --tw-content: attr(aria-label);
+    }
+
+    /* icons and other children would survive font-size: 0 */
+    & > * {
+      display: none;
     }
   }
 

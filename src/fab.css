@@ -136,7 +136,7 @@
     display: none;
   }
 
-  &:has(:nth-child(3)) {
+  &:has(> :nth-child(3)) {
     --position: 140%;
 
     > :nth-child(3) {
@@ -144,7 +144,7 @@
     }
   }
 
-  &:has(:nth-child(4)) {
+  &:has(> :nth-child(4)) {
     --position: 140%;
 
     > :nth-child(3) {
@@ -156,7 +156,7 @@
     }
   }
 
-  &:has(:nth-child(5)) {
+  &:has(> :nth-child(5)) {
     --position: 180%;
 
     > :nth-child(3) {
@@ -172,7 +172,7 @@
     }
   }
 
-  &:has(:nth-child(6)) {
+  &:has(> :nth-child(6)) {
     --position: 220%;
 
     > :nth-child(3) {

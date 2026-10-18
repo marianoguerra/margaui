@@ -216,6 +216,10 @@
 
     [dir="rtl"] & {
       translate: 100% 0;
+      --modal-tl: var(--radius-box);
+      --modal-tr: 0;
+      --modal-bl: var(--radius-box);
+      --modal-br: 0;
     }
   }
 }
@@ -237,6 +241,10 @@
 
     [dir="rtl"] & {
       translate: -100% 0;
+      --modal-tl: 0;
+      --modal-tr: var(--radius-box);
+      --modal-bl: 0;
+      --modal-br: var(--radius-box);
     }
   }
 }

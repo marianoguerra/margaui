@@ -14,7 +14,7 @@ Versatile nav list for sidebars, sub-menus, mega-menus, file trees.
 
 ## Core classes
 
-`menu`; orientation `menu-vertical|horizontal`; navigation `menu-paged`; size `menu-xs|sm|md|lg|xl`; child states `menu-active|disabled|title`.
+`menu`; orientation `menu-vertical|horizontal`; navigation `menu-paged`; size `menu-xs|sm|md|lg|xl`; child states `menu-active|disabled|title`. `aria-current` (any value but `false`/empty) on an item (e.g. `aria-current="page"`) renders like `menu-active`.
 
 ## Examples
 

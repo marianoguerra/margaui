@@ -13,7 +13,7 @@ Themed replacement for the native checkbox.
 
 ## Core classes
 
-`checkbox`; color `checkbox-primary|secondary|accent|info|success|warning|error|neutral`; size `checkbox-xs|sm|md|lg|xl`.
+`checkbox`; color `checkbox-primary|secondary|accent|info|success|warning|error|neutral`; size `checkbox-xs|sm|md|lg|xl`. Indeterminate: set `el.indeterminate = true`, or use `aria-checked="mixed"` on a `role="checkbox"` element.
 
 ## Examples
 

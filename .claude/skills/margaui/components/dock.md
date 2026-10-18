@@ -13,7 +13,7 @@ Fixed bottom navigation bar with icon + label items.
 
 ## Core classes
 
-`dock`; size `dock-xs|sm|md|lg|xl`; active item `dock-active`; inner `dock-label`.
+`dock`; size `dock-xs|sm|md|lg|xl`; active item `dock-active`; inner `dock-label`. `aria-current` (any value but `false`/empty) on an item marks it active like `dock-active`.
 
 ## Examples
 

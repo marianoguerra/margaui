@@ -50,17 +50,20 @@
     }
   }
 
-  :where(.table-pin-rows thead tr) {
+  /* pin the whole thead/tfoot (not each tr) so multi-row headers stack */
+  :where(.table-pin-rows thead) {
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: var(--color-base-100);
   }
 
-  :where(.table-pin-rows tfoot tr) {
+  :where(.table-pin-rows tfoot) {
     position: sticky;
     bottom: 0;
     z-index: 1;
+  }
+
+  :where(.table-pin-rows :is(thead, tfoot) tr) {
     background-color: var(--color-base-100);
   }
 
