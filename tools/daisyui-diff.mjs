@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Diff two published daisyUI versions at the component level.
 //
-//   node tools/daisyui-diff.mjs 5.6.6 5.7.4 > docs/daisyui-5.6.6-to-5.7.4.diff
+//   node tools/daisyui-diff.mjs 5.6.6 5.7.4 > daisyui-5.6.6-to-5.7.4.diff
 //
 // The npm tarballs ship one minified line per component, so a raw diff is
 // useless. This normalizes both trees first:
