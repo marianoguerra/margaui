@@ -9,7 +9,7 @@ margaui is a Tailwind v4–native CSS component library: 68 components defined a
 
 ## Relationship to daisyUI
 
-margaui is **API-compatible with [daisyUI](https://daisyui.com/)** and currently tracks **daisyUI v5.6.6**. The class names (`btn`, `btn-primary`, `card`, `card-body`, `alert-info`, `modal-box`, `dropdown-content`, …), modifier vocabulary, and DOM structure mirror daisyUI. Differences are implementation-level (Tailwind v4 native, in-browser compiler, `@supports` fallbacks for `color-mix`), not API-level.
+margaui is **API-compatible with [daisyUI](https://daisyui.com/)** and currently tracks **daisyUI v5.7.50**. The class names (`btn`, `btn-primary`, `card`, `card-body`, `alert-info`, `modal-box`, `dropdown-content`, …), modifier vocabulary, and DOM structure mirror daisyUI. Differences are implementation-level (Tailwind v4 native, in-browser compiler, `@supports` fallbacks for `color-mix`), not API-level.
 
 Practical implication: **daisyUI documentation and examples are valid references** when this skill doesn't cover something. If a component is documented for daisyUI, the same markup works in margaui.
 
@@ -21,7 +21,7 @@ Set on any element (most often `<html>` or `<body>`):
 <html data-theme="dracula">
 ```
 
-`light` is the default — applied via `:root` and `:host`, so pages work without an explicit `data-theme`. 35 themes available: `abyss`, `acid`, `aqua`, `autumn`, `black`, `bumblebee`, `business`, `caramellatte`, `cmyk`, `coffee`, `corporate`, `cupcake`, `cyberpunk`, `dark`, `dim`, `dracula`, `emerald`, `fantasy`, `forest`, `garden`, `halloween`, `lemonade`, `light`, `lofi`, `luxury`, `night`, `nord`, `pastel`, `retro`, `silk`, `sunset`, `synthwave`, `valentine`, `winter`, `wireframe`.
+`light` is the default — applied via `:root`, so pages work without an explicit `data-theme`. Load one theme file (`themes/<name>.css`) for the theme you select. In shadow DOM, set `data-theme` on the shadow host — the page theme does not inherit through it. 35 themes available: `abyss`, `acid`, `aqua`, `autumn`, `black`, `bumblebee`, `business`, `caramellatte`, `cmyk`, `coffee`, `corporate`, `cupcake`, `cyberpunk`, `dark`, `dim`, `dracula`, `emerald`, `fantasy`, `forest`, `garden`, `halloween`, `lemonade`, `light`, `lofi`, `luxury`, `night`, `nord`, `pastel`, `retro`, `silk`, `sunset`, `synthwave`, `valentine`, `winter`, `wireframe`.
 
 ## Conventions across components
 

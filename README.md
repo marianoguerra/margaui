@@ -1,290 +1,165 @@
 # margaui
 
-CSS component library with an in-browser Tailwind v4 compiler. 68 components, 35 themes, zero build step needed for browser use.
+A [daisyUI](https://daisyui.com/)-compatible component library built natively on Tailwind CSS v4, with a Tailwind compiler that runs entirely in the browser.
 
-## Quick start (browser)
+- **68 components, 35 themes** — same class names and markup as daisyUI, so daisyUI docs and examples apply.
+- **No build step** — import one ES module, pass it class names, get back only the CSS you use.
+- **Or use the Tailwind CLI** — every component is a plain Tailwind v4 `@utility` file.
 
-Import `margaui.js` as an ES module, call `compile()` with class names, and inject the returned CSS. Works directly from a static file server — no Node or bundler required.
+**Try it:** clone the repo, run `npx serve .` and open [`/playground/`](playground/) (every component, with HTML/CSS and an editor) or [`/editor/`](editor/) (live HTML editor).
+
+## Install
+
+```sh
+npm install margaui
+```
+
+Or load it from a CDN (pin a version in production):
 
 ```html
-<style id="margaui"></style>
 <script type="module">
-  import { compile } from "./margaui.js";
-  const css = await compile(["btn", "btn-primary", "badge"]);
-  document.getElementById("margaui").textContent = css;
+  import { compile } from "https://cdn.jsdelivr.net/npm/margaui/dist/margaui.min.js";
 </script>
 ```
 
-## Quick start (CLI / Tailwind v4)
+The package contains `dist/margaui.min.js` (compiler + all components, ~500 KB) and `dist/themes/*.css`.
 
-For traditional Tailwind workflows, create an `entry.css` input file and remove the components you don't need:
+## Quick start
 
-```css
-/* entry.css */
-@import "tailwindcss" source(none);
+```html
+<!doctype html>
+<html data-theme="light">
+  <head>
+    <link rel="stylesheet" href="./themes/light.css" />
+    <style id="margaui"></style>
+  </head>
+  <body>
+    <button class="btn btn-primary">Hello margaui</button>
 
-@source "./your-templates/**/*.html";
-
-/* base */
-@import "./base/properties.css";
-@import "./base/rootcolor.css";
-@import "./base/rootscrollgutter.css";
-@import "./base/rootscrolllock.css";
-@import "./base/scrollbar.css";
-
-/* themes (light + dark bundled, add more individually) */
-@import "./themes/theme.css";
-
-/* components — remove the ones you don't need */
-@import "./src/accordion.css";
-@import "./src/alert.css";
-@import "./src/avatar.css";
-@import "./src/badge.css";
-@import "./src/breadcrumbs.css";
-@import "./src/button.css";
-@import "./src/calendar.css";
-@import "./src/card.css";
-@import "./src/carousel.css";
-@import "./src/chat.css";
-@import "./src/checkbox.css";
-@import "./src/collapse.css";
-@import "./src/colors.css";
-@import "./src/countdown.css";
-@import "./src/diff.css";
-@import "./src/divider.css";
-@import "./src/dock.css";
-@import "./src/drawer.css";
-@import "./src/dropdown.css";
-@import "./src/fab.css";
-@import "./src/fieldset.css";
-@import "./src/file-input.css";
-@import "./src/filter.css";
-@import "./src/footer.css";
-@import "./src/hero.css";
-@import "./src/hover-3d.css";
-@import "./src/hover-gallery.css";
-@import "./src/indicator.css";
-@import "./src/input.css";
-@import "./src/join.css";
-@import "./src/kbd.css";
-@import "./src/label.css";
-@import "./src/link.css";
-@import "./src/list.css";
-@import "./src/loading.css";
-@import "./src/mask.css";
-@import "./src/menu.css";
-@import "./src/mockup-browser.css";
-@import "./src/mockup-code.css";
-@import "./src/mockup-phone.css";
-@import "./src/mockup-window.css";
-@import "./src/modal.css";
-@import "./src/navbar.css";
-@import "./src/progress.css";
-@import "./src/radial-progress.css";
-@import "./src/radio.css";
-@import "./src/range.css";
-@import "./src/rating.css";
-@import "./src/select.css";
-@import "./src/skeleton.css";
-@import "./src/stack.css";
-@import "./src/stat.css";
-@import "./src/status.css";
-@import "./src/steps.css";
-@import "./src/swap.css";
-@import "./src/tab.css";
-@import "./src/table.css";
-@import "./src/text-rotate.css";
-@import "./src/textarea.css";
-@import "./src/theme-controller.css";
-@import "./src/timeline.css";
-@import "./src/toast.css";
-@import "./src/toggle.css";
-@import "./src/tooltip.css";
-@import "./src/validator.css";
+    <script type="module">
+      import { compile } from "./margaui.min.js";
+      document.getElementById("margaui").textContent = await compile(["btn", "btn-primary"]);
+    </script>
+  </body>
+</html>
 ```
 
-Then compile with the Tailwind CLI:
+Serve the page over HTTP (`npx serve .`); ES modules don't load from `file://`. More examples (theme switcher, form, dashboard, editor) are in [`examples/`](examples/).
 
-```sh
-npx @tailwindcss/cli -i entry.css -o style.css
+## API
+
+`margaui.min.js` (`margaui.js` in the repo) exports:
+
+| Export              | Description                                                                                        |
+| ------------------- | -------------------------------------------------------------------------------------------------- |
+| `compile(classes)`  | `Promise<string>` — CSS for the given class names (component and Tailwind utilities), tree-shaken. |
+| `getCompiler()`     | `Promise<Compiler>` — shared compiler; `compiler.build(classes)` returns CSS synchronously.        |
+| `buildInput(files)` | Advanced: builds the Tailwind input CSS from a VFS map, for custom compiler setups.                |
+
+Use `getCompiler()` when compiling repeatedly (editors, dynamic UIs):
+
+```js
+const compiler = await getCompiler();
+const css = compiler.build(["card", "card-body", "badge", "badge-primary"]);
 ```
 
-Add `--watch` to recompile automatically on changes:
+The CSS includes Tailwind's preflight, and the compiler accepts any Tailwind v4 utility (`p-4`, `md:flex`, `hover:bg-primary`, …), not just margaui classes.
+
+## Themes
+
+Load **one theme file** (it provides the colors, radii and sizes the components need) and select it with `data-theme` on any element:
+
+```html
+<html data-theme="dracula">
+  <head>
+    <link rel="stylesheet" href="./themes/dracula.css" />
+  </head>
+</html>
+```
+
+`light.css` also applies to `:root`, so it works without `data-theme`. `theme.css` bundles `light` + `dark`. From a CDN: `https://cdn.jsdelivr.net/npm/margaui/dist/themes/<name>.css`.
+
+Available: `light` `dark` `abyss` `acid` `aqua` `autumn` `black` `bumblebee` `business` `caramellatte` `cmyk` `coffee` `corporate` `cupcake` `cyberpunk` `dim` `dracula` `emerald` `fantasy` `forest` `garden` `halloween` `lemonade` `lofi` `luxury` `night` `nord` `pastel` `retro` `silk` `sunset` `synthwave` `valentine` `winter` `wireframe`.
+
+To switch at runtime, fetch the theme file into a `<style>` and change `data-theme`:
+
+```js
+async function setTheme(name) {
+  themeStyle.textContent = await fetch(`./themes/${name}.css`).then((r) => r.text());
+  document.documentElement.dataset.theme = name;
+}
+```
+
+With a bundler, theme files are exported as `margaui/themes/<name>.css`.
+
+**Shadow DOM:** set `data-theme` on each shadow host (and update it when the page theme changes). A theme set on `<html>` does not reach inside the shadow root, because Tailwind pins the default (light) palette on `:host`; an explicit `data-theme` on the host overrides it. `editor/shell.js` shows a working setup with adopted stylesheets.
+
+## Tailwind CLI
+
+To build a static stylesheet with the official Tailwind v4 CLI, clone this repo (the npm package only ships the browser bundle) and use [`entry.css`](entry.css) as your input. It imports the base styles, the default themes and every component, so:
+
+1. Point its `@source` line at your templates.
+2. Remove the component imports you don't need, and add extra `@import "./themes/<name>.css"` lines for more themes.
+3. Build:
 
 ```sh
 npx @tailwindcss/cli -i entry.css -o style.css --watch
 ```
 
-## How it works
-
-- Components are defined with Tailwind v4 `@utility` directives in `src/*.css`
-- Themes are CSS custom property sets under `[data-theme="name"]` selectors
-- `vfs.js` bundles all CSS into a virtual filesystem as an ES module
-- `twcompiler.js` wraps Tailwind v4's compiler, resolving imports from the VFS
-- `margaui.js` assembles the input CSS from VFS keys and exposes `compile()` / `getCompiler()`
-- `compile(classes)` returns only the CSS needed for the given class names (tree-shaken)
-
-## API
-
-Exports from `margaui.js`:
-
-### `compile(classes: string[]): Promise<string>`
-
-One-shot compile. Returns the CSS for the given utility class names.
-
-```js
-const css = await compile(["btn", "btn-primary", "card", "card-body"]);
-```
-
-### `getCompiler(): Promise<Compiler>`
-
-Returns the singleton compiler instance. Use `compiler.build(classes)` for repeated compilations without re-initializing.
-
-```js
-const compiler = await getCompiler();
-const css1 = await compiler.build(["btn"]);
-const css2 = await compiler.build(["badge", "badge-primary"]);
-```
-
-### `buildInput(entries): string`
-
-Advanced. Builds the raw CSS input string from VFS entries. Useful if you need to customize which files are included before creating a compiler.
-
-## Themes
-
-35 themes available. Set the `data-theme` attribute on any element to switch themes:
-
-```html
-<html data-theme="dracula"></html>
-```
-
-The `light` theme is the default — it sets `:root` so pages work without an explicit `data-theme` attribute. (It is intentionally not pinned to `:host`; see [Shadow DOM](#loading-themes) below.)
-
-Available themes:
-
-|        |           |           |          |              |
-| ------ | --------- | --------- | -------- | ------------ |
-| light  | dark      | abyss     | acid     | aqua         |
-| autumn | black     | bumblebee | business | caramellatte |
-| cmyk   | coffee    | corporate | cupcake  | cyberpunk    |
-| dim    | dracula   | emerald   | fantasy  | forest       |
-| garden | halloween | lemonade  | lofi     | luxury       |
-| night  | nord      | pastel    | retro    | silk         |
-| sunset | synthwave | valentine | winter   | wireframe    |
-
-`themes/theme.css` bundles just `light` + `dark` — import it for the common pair. For additional themes, import them individually:
-
-```css
-@import "./themes/theme.css"; /* light + dark */
-@import "./themes/dracula.css"; /* add dracula */
-```
-
-### Loading themes
-
-Theme files are **not included** in the default browser bundle (`margaui.js` / `vfs.js`). You need to load them separately.
-
-**Link tag** — the simplest option. Just point a `<link>` at the theme file:
-
-```html
-<link rel="stylesheet" href="./themes/dracula.css" />
-<body data-theme="dracula"></body>
-```
-
-**Fetch at runtime** — useful when switching themes dynamically:
-
-```html
-<script type="module">
-  const css = await fetch("./themes/dracula.css").then((r) => r.text());
-  const style = document.createElement("style");
-  style.textContent = css;
-  document.head.appendChild(style);
-  document.body.setAttribute("data-theme", "dracula");
-</script>
-```
-
-**Import in your CSS** — if you use the Tailwind CLI or build your own `input.css`, import theme files directly:
-
-```css
-@import "./themes/theme.css"; /* light + dark */
-@import "./themes/dracula.css"; /* add more individually */
-```
-
-Then compile as usual with `npx @tailwindcss/cli -i input.css -o style.css`.
-
-**Shadow DOM** — set `data-theme` on each shadow **host** to theme its subtree, and reflect the page theme onto the host when it changes:
-
-```js
-host.setAttribute("data-theme", document.documentElement.dataset.theme);
-```
-
-Don't rely on a theme set on `<html>` inheriting into a shadow root: Tailwind emits margaui's default palette to `:root, :host`, so the `:host` half pins the default (light) values onto every shadow host and shadows the ambient theme that would otherwise inherit across the boundary. A `data-theme` attribute on the host wins over that default. The theme's CSS must be reachable from inside the shadow root — the usual pattern is a shared `CSSStyleSheet` in the host's `adoptedStyleSheets`, updated with `replaceSync()` on theme change (see the playground source for a working example).
-
 ## Components
 
-68 components in `src/`:
+accordion · alert · aura · avatar · badge · breadcrumbs · button · calendar · card · carousel · chat · checkbox · collapse · countdown · diff · divider · dock · drawer · dropdown · fab · fieldset · file-input · filter · footer · hero · hover-3d · hover-gallery · indicator · input · join · kbd · label · link · list · loading · mask · megamenu · menu · mockup-browser · mockup-code · mockup-phone · mockup-window · modal · navbar · otp · pagination · progress · radial-progress · radio · range · rating · select · skeleton · stack · stat · status · steps · swap · tab · table · text-rotate · textarea · theme-controller · timeline · toast · toggle · tooltip · validator
 
-|             |              |               |                  |                |
-| ----------- | ------------ | ------------- | ---------------- | -------------- |
-| accordion   | alert        | aura          | avatar           | badge          |
-| breadcrumbs | button       | calendar      | card             | carousel       |
-| chat        | checkbox     | collapse      | colors           | countdown      |
-| diff        | divider      | dock          | drawer           | dropdown       |
-| fab         | fieldset     | file-input    | filter           | footer         |
-| hero        | hover-3d     | hover-gallery | indicator        | input          |
-| join        | kbd          | label         | link             | list           |
-| loading     | mask         | megamenu      | menu             | mockup-browser |
-| mockup-code | mockup-phone | mockup-window | modal            | navbar         |
-| otp         | pagination   | progress      | radial-progress  | radio          |
-| range       | rating       | select        | skeleton         | stack          |
-| stat        | status       | steps         | swap             | tab            |
-| table       | text-rotate  | textarea      | theme-controller | timeline       |
-| toast       | toggle       | tooltip       | validator        |                |
+See the [playground](playground/) for live examples, or the [daisyUI docs](https://daisyui.com/components/) for full usage. An AI-agent skill with per-component notes and examples lives in [`.claude/skills/margaui/`](.claude/skills/margaui/SKILL.md).
 
-Each component is defined using Tailwind v4's `@utility` directive, making them available as utility classes during compilation.
+## Versioning
 
-## Playground
-
-Interactive preview of all components. Shows each component with Preview, HTML, and CSS tabs, a theme switcher, and compile-time stats.
-
-## Editor
-
-Live HTML editor with real-time preview. Write HTML in a textarea and see the compiled result instantly (100ms debounce). Includes a CSS tab showing generated output, compile-time and size stats, and a component loader to start from any existing example.
-
-To run the playground and editor:
-
-```sh
-npm run playground        # generates VFS + component tree
-npx serve .               # or any static file server
-# open http://localhost:8000/playground/
-# open http://localhost:8000/editor/
-```
-
-## Project structure
-
-```
-src/          Component CSS files (@utility directives)
-themes/       Theme CSS files (custom property sets)
-base/         Base styles (properties, scrollbar, root color)
-tw/           Tailwind v4 CSS entry points
-playground/   Interactive component preview app
-tools/        Build scripts (VFS generator, component tree, sync checker)
-```
+margaui tracks daisyUI releases. The version encodes the daisyUI version it is aligned with: `0.5750.0` → daisyUI **5.7.50**, `0.5704.0` → 5.7.4. The last number is for margaui-only fixes.
 
 ## Development
 
-Requires Node 22+ and npm — the entire toolchain runs through npm scripts (no bun or Python). See `package.json`'s `scripts` for the full list.
+Requires Node 22+. Everything runs through npm scripts.
 
-| Command                      | Description                                      |
-| ---------------------------- | ------------------------------------------------ |
-| `npm run playground`         | Generate VFS + component tree for the playground |
-| `npm run gen-vfs-dev`        | Regenerate `vfs.js` from source CSS files        |
-| `npm run gen-component-tree` | Regenerate `playground/components.json`          |
-| `npm run dist`               | Build minified distribution in `dist/`           |
-| `npm run check-sync`         | Verify source files and imports are in sync      |
-| `npm run fetch-tw`           | Re-fetch and bundle `tailwindcss.js`             |
+```sh
+npm install
+npx serve .   # then open /playground/ or /editor/
+```
+
+Generated files (`vfs.js`, `playground/*.json`, `.claude/skills/margaui/`) are committed; regenerate them after editing their sources. CI fails if they are out of date.
+
+| Command                       | What it does                                                                    |
+| ----------------------------- | ------------------------------------------------------------------------------- |
+| `npm run playground`          | Regenerate `vfs.js`, `components.json` and `themes.json` after editing CSS/HTML |
+| `npm run gen-skill`           | Regenerate the agent skill from `tools/skill_meta.json` + playground examples   |
+| `npm run check-sync`          | Check that `entry.css` imports every file in `src/` and `base/`                 |
+| `npm run check-tw-version`    | Check that the bundled Tailwind matches the `tailwindcss` dependency            |
+| `npm run smoke-test-tw-cli`   | Compile `entry.css` with the Tailwind CLI                                       |
+| `npm run format`              | Format with Prettier (`format-check` to verify only)                            |
+| `npm run dist`                | Build `dist/` (minified bundle, themes, examples)                               |
+| `npm run fetch-tw`            | Re-fetch and bundle Tailwind into `tailwindcss.js`                              |
+| `npm run diff-daisyui -- A B` | Diff upstream daisyUI component CSS between two versions, to port changes       |
+
+Adding or changing a component: see [`src/README.md`](src/README.md) for the conventions (theme-driven tokens, color variants, sizing) and the checklist.
+
+### Project layout
+
+```
+src/          One @utility CSS file per component (see src/README.md)
+base/         Shared base styles and tokens
+themes/       Theme CSS files ([data-theme="…"] custom properties)
+tw/           Tailwind v4 CSS sources served to the in-browser compiler
+margaui.js    Public API: compile(), getCompiler(), buildInput()
+twcompiler.js Wraps Tailwind's compiler, resolving imports from vfs.js
+vfs.js        Generated: all CSS bundled as an ES module
+playground/   Component browser (examples in playground/components/<name>/)
+editor/       Live HTML editor
+examples/     Standalone examples + README shipped in dist/
+tools/        Build, generation and check scripts
+entry.css     Tailwind CLI entry point (template for CLI users)
+```
 
 ## License
 
-MIT -- see [LICENSE](LICENSE) for details.
+MIT — see [LICENSE](LICENSE).
 
 Built on the shoulders of [daisyUI](https://daisyui.com/) and [Tailwind CSS](https://tailwindcss.com/). If you find this project useful, please consider [supporting Tailwind CSS](https://tailwindcss.com/sponsor).

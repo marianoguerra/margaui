@@ -6,6 +6,7 @@
 //   - playground/themes.json        (theme list)
 //   - playground/components/<name>/<file>.html  (example contents)
 //   - tools/skill_meta.json         (hand-written prose per component)
+//   - package.json                  (version, which encodes the daisyUI version)
 //
 // Writes:
 //   - .claude/skills/margaui/SKILL.md
@@ -22,6 +23,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, "..");
 const COMPONENTS_JSON = join(ROOT, "playground", "components.json");
 const THEMES_JSON = join(ROOT, "playground", "themes.json");
+const PACKAGE_JSON = join(ROOT, "package.json");
 const META_JSON = join(HERE, "skill_meta.json");
 const PLAYGROUND_COMPONENTS = join(ROOT, "playground", "components");
 const SKILL_DIR = join(ROOT, ".claude", "skills", "margaui");
@@ -33,6 +35,12 @@ function humanize(filename) {
   let name = filename.endsWith(".html") ? filename.slice(0, -5) : filename;
   name = name.replaceAll("--", " — ").replaceAll("-", " ");
   return name.slice(0, 1).toUpperCase() + name.slice(1);
+}
+
+// margaui's version encodes the daisyUI version it tracks: 0.5750.0 -> 5.7.50.
+function daisyuiVersion() {
+  const [, digits] = JSON.parse(readFileSync(PACKAGE_JSON, "utf8")).version.split(".");
+  return `${digits[0]}.${digits[1]}.${Number(digits.slice(2))}`;
 }
 
 function loadMeta() {
@@ -106,7 +114,9 @@ function renderIndex(components, themes, meta) {
     "",
     "## Relationship to daisyUI",
     "",
-    "margaui is **API-compatible with [daisyUI](https://daisyui.com/)** and currently tracks **daisyUI v5.6.6**. The class names (`btn`, `btn-primary`, `card`, `card-body`, `alert-info`, `modal-box`, `dropdown-content`, …), modifier vocabulary, and DOM structure mirror daisyUI. Differences are implementation-level (Tailwind v4 native, in-browser compiler, `@supports` fallbacks for `color-mix`), not API-level.",
+    "margaui is **API-compatible with [daisyUI](https://daisyui.com/)** and currently tracks **daisyUI v" +
+      daisyuiVersion() +
+      "**. The class names (`btn`, `btn-primary`, `card`, `card-body`, `alert-info`, `modal-box`, `dropdown-content`, …), modifier vocabulary, and DOM structure mirror daisyUI. Differences are implementation-level (Tailwind v4 native, in-browser compiler, `@supports` fallbacks for `color-mix`), not API-level.",
     "",
     "Practical implication: **daisyUI documentation and examples are valid references** when this skill doesn't cover something. If a component is documented for daisyUI, the same markup works in margaui.",
     "",
@@ -118,7 +128,7 @@ function renderIndex(components, themes, meta) {
     '<html data-theme="dracula">',
     "```",
     "",
-    `\`light\` is the default — applied via \`:root\` and \`:host\`, so pages work without an explicit \`data-theme\`. ${themes.length} themes available: ` +
+    `\`light\` is the default — applied via \`:root\`, so pages work without an explicit \`data-theme\`. Load one theme file (\`themes/<name>.css\`) for the theme you select. In shadow DOM, set \`data-theme\` on the shadow host — the page theme does not inherit through it. ${themes.length} themes available: ` +
       themes.map((t) => `\`${t}\``).join(", ") +
       ".",
     "",

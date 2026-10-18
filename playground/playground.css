@@ -14,10 +14,20 @@
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.025em;
+  white-space: nowrap;
 }
 #pg-nav .pg-hint {
   font-size: 0.8rem;
   opacity: 0.5;
+}
+#pg-nav .pg-links {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+}
+#pg-nav .pg-links a {
+  text-decoration: underline;
+  opacity: 0.7;
 }
 #pg-nav .pg-toggles {
   display: flex;

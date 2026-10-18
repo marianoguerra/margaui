@@ -35,7 +35,8 @@ Components should drive sizes and colors from these tokens rather than inlining 
 ## Adding a new component
 
 1. Create `src/<component>.css` with one or more `@utility` blocks.
-2. Add an `@import "./src/<component>.css";` line to `entry.css`.
-3. Run `npm run check-sync` to confirm the import set matches the file set.
-4. Run `npm run gen-vfs-dev` to refresh `vfs.js` for the in-browser compiler.
-5. Add example HTML under `playground/components/<component>/*.html` and regen the component tree with `npm run gen-component-tree`.
+2. Add an `@import "./src/<component>.css";` line to `entry.css` (`npm run check-sync` verifies it).
+3. Add example HTML under `playground/components/<component>/*.html`.
+4. Add a `<component>` entry to `tools/skill_meta.json`.
+5. Run `npm run playground && npm run gen-skill` to regenerate `vfs.js`, the playground lists and the agent skill, and commit the results.
+6. Check it in the playground across several themes (`npx serve .`, open `/playground/`).
