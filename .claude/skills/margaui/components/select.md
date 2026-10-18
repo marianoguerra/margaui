@@ -136,36 +136,38 @@ Source: `playground/components/select/secondary-color.html`
 Source: `playground/components/select/sizes.html`
 
 ```html
-<select class="select select-xs">
-  <option disabled selected>Xsmall</option>
-  <option>Xsmall Apple</option>
-  <option>Xsmall Orange</option>
-  <option>Xsmall Tomato</option>
-</select>
-<select class="select select-sm">
-  <option disabled selected>Small</option>
-  <option>Small Apple</option>
-  <option>Small Orange</option>
-  <option>Small Tomato</option>
-</select>
-<select class="select select-md">
-  <option disabled selected>Medium</option>
-  <option>Medium Apple</option>
-  <option>Medium Orange</option>
-  <option>Medium Tomato</option>
-</select>
-<select class="select select-lg">
-  <option disabled selected>Large</option>
-  <option>Large Apple</option>
-  <option>Large Orange</option>
-  <option>Large Tomato</option>
-</select>
-<select class="select select-xl">
-  <option disabled selected>Xlarge</option>
-  <option>Xlarge Apple</option>
-  <option>Xlarge Orange</option>
-  <option>Xlarge Tomato</option>
-</select>
+<div class="flex flex-col gap-4 w-full">
+  <select class="select select-xs">
+    <option disabled selected>Xsmall</option>
+    <option>Xsmall Apple</option>
+    <option>Xsmall Orange</option>
+    <option>Xsmall Tomato</option>
+  </select>
+  <select class="select select-sm">
+    <option disabled selected>Small</option>
+    <option>Small Apple</option>
+    <option>Small Orange</option>
+    <option>Small Tomato</option>
+  </select>
+  <select class="select select-md">
+    <option disabled selected>Medium</option>
+    <option>Medium Apple</option>
+    <option>Medium Orange</option>
+    <option>Medium Tomato</option>
+  </select>
+  <select class="select select-lg">
+    <option disabled selected>Large</option>
+    <option>Large Apple</option>
+    <option>Large Orange</option>
+    <option>Large Tomato</option>
+  </select>
+  <select class="select select-xl">
+    <option disabled selected>Xlarge</option>
+    <option>Xlarge Apple</option>
+    <option>Xlarge Orange</option>
+    <option>Xlarge Tomato</option>
+  </select>
+</div>
 ```
 
 ### Success color

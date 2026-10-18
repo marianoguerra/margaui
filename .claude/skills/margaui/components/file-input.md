@@ -60,15 +60,17 @@ Source: `playground/components/file-input/primary-color.html`
 Source: `playground/components/file-input/sizes.html`
 
 ```html
-<input type="file" class="file-input file-input-xs" />
+<div class="flex flex-col gap-4 w-full">
+  <input type="file" class="file-input file-input-xs" />
 
-<input type="file" class="file-input file-input-sm" />
+  <input type="file" class="file-input file-input-sm" />
 
-<input type="file" class="file-input file-input-md" />
+  <input type="file" class="file-input file-input-md" />
 
-<input type="file" class="file-input file-input-lg" />
+  <input type="file" class="file-input file-input-lg" />
 
-<input type="file" class="file-input file-input-xl" />
+  <input type="file" class="file-input file-input-xl" />
+</div>
 ```
 
 ### With fieldset and label

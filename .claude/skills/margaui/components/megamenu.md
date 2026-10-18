@@ -26,7 +26,7 @@ Source: `playground/components/megamenu/megamenu.html`
 <!-- popovertarget must match the id of the corresponding popover, and each id must be unique -->
 <button class="btn sm:hidden" popovertarget="my-megamenu-1">Menu</button>
 
-<div class="megamenu max-sm:megamenu-vertical p-2 border border-base-300" id="my-megamenu-1" popover>
+<div class="megamenu w-full max-sm:megamenu-vertical p-2 border border-base-300" id="my-megamenu-1" popover>
   <span class="megamenu-active"></span>
 
   <button popovertarget="a1">Services</button>
@@ -65,7 +65,7 @@ Source: `playground/components/megamenu/megamenu.html`
 Source: `playground/components/megamenu/megamenu-sizes.html`
 
 ```html
-<div class="flex flex-col gap-2">
+<div class="flex flex-col gap-2 w-full">
   <div class="megamenu megamenu-sm p-2 border border-base-300" id="my-megamenu-sm" popover="manual">
     <span class="megamenu-active"></span>
     <button popovertarget="c1">One</button>
@@ -107,7 +107,7 @@ Source: `playground/components/megamenu/megamenu-wide.html`
 ```html
 <button class="btn sm:hidden" popovertarget="my-megamenu-2">Menu</button>
 
-<div class="megamenu megamenu-wide max-sm:megamenu-vertical p-2 border border-base-300" id="my-megamenu-2" popover>
+<div class="megamenu w-full megamenu-wide max-sm:megamenu-vertical p-2 border border-base-300" id="my-megamenu-2" popover>
   <span class="megamenu-active"></span>
 
   <button popovertarget="b1">Products</button>

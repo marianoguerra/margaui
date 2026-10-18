@@ -197,7 +197,9 @@
     position: relative;
   }
 
-  :where(figure) {
+  /* Not :where() — card's :where(figure:first-child) has equal specificity and
+     is emitted later, which would leave the overlay's bottom corners square. */
+  figure {
     overflow: hidden;
     border-radius: inherit;
   }

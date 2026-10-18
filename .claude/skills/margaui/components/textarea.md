@@ -46,15 +46,17 @@ Source: `playground/components/textarea/ghost-no-background.html`
 Source: `playground/components/textarea/sizes.html`
 
 ```html
-<textarea placeholder="Bio" class="textarea textarea-xs"></textarea>
+<div class="flex flex-col gap-4 w-full">
+  <textarea placeholder="Bio" class="textarea textarea-xs"></textarea>
 
-<textarea placeholder="Bio" class="textarea textarea-sm"></textarea>
+  <textarea placeholder="Bio" class="textarea textarea-sm"></textarea>
 
-<textarea placeholder="Bio" class="textarea textarea-md"></textarea>
+  <textarea placeholder="Bio" class="textarea textarea-md"></textarea>
 
-<textarea placeholder="Bio" class="textarea textarea-lg"></textarea>
+  <textarea placeholder="Bio" class="textarea textarea-lg"></textarea>
 
-<textarea placeholder="Bio" class="textarea textarea-xl"></textarea>
+  <textarea placeholder="Bio" class="textarea textarea-xl"></textarea>
+</div>
 ```
 
 ### Textarea colors

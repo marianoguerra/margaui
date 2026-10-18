@@ -256,7 +256,7 @@ Source: `playground/components/button/login-buttons.html`
 Source: `playground/components/button/neutral-button-with-outline-or-dash-style.html`
 
 ```html
-<div class="bg-white p-6">
+<div class="bg-white p-6 w-full">
   <button class="btn btn-neutral btn-outline">Outline</button>
   <button class="btn btn-neutral btn-dash">Dash</button>
 </div>

@@ -56,7 +56,7 @@ export class PreviewComponent extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>${css}</style>
-      <div>${html}</div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0.5rem">${html}</div>
     `;
 
     const cssBytes = new Blob([css]).size;

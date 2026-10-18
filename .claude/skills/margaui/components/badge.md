@@ -186,7 +186,7 @@ Source: `playground/components/badge/empty-badge.html`
 Source: `playground/components/badge/neutral-badge-with-outline-or-dash-style.html`
 
 ```html
-<div class="bg-white p-6">
+<div class="bg-white p-6 w-full">
   <div class="badge badge-neutral badge-outline">Outline</div>
   <div class="badge badge-neutral badge-dash">Dash</div>
 </div>
